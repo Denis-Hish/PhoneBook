@@ -20,10 +20,10 @@ module.exports = app => {
       // TODO: add express validation
       const newContact = new ContactDetails({
          userName: req.body.userName,
-         phoneNumber1: req.body.phoneNumber,
-         phoneNumber2: req.body.phoneNumber,
-         phoneNumber3: req.body.phoneNumber,
-         group: req.body.phoneNumber,
+         phoneNumber1: req.body.phoneNumber1,
+         phoneNumber2: req.body.phoneNumber2,
+         phoneNumber3: req.body.phoneNumber3,
+         group: req.body.group,
       });
 
       newContact
