@@ -41,7 +41,7 @@ const AddContacts = () => {
                         <input
                            type="text"
                            name="phoneNumber1"
-                           value={contact?.phoneNumber}
+                           value={contact?.phoneNumber1}
                            onChange={e => onChangeHandler(e.target)}
                         />
                      </td>
@@ -52,7 +52,7 @@ const AddContacts = () => {
                         <input
                            type="text"
                            name="phoneNumber2"
-                           value={contact?.phoneNumber}
+                           value={contact?.phoneNumber2}
                            onChange={e => onChangeHandler(e.target)}
                         />
                      </td>
@@ -63,7 +63,7 @@ const AddContacts = () => {
                         <input
                            type="text"
                            name="phoneNumber3"
-                           value={contact?.phoneNumber}
+                           value={contact?.phoneNumber3}
                            onChange={e => onChangeHandler(e.target)}
                         />
                      </td>
@@ -74,7 +74,7 @@ const AddContacts = () => {
                         <input
                            type="text"
                            name="group"
-                           value={contact?.phoneNumber}
+                           value={contact?.group}
                            onChange={e => onChangeHandler(e.target)}
                         />
                      </td>
