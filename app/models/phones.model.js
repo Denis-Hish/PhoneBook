@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-module.exports = mongoose => {
+module.exports = (mongoose) => {
    const schema = mongoose.Schema(
       {
          userName: String,

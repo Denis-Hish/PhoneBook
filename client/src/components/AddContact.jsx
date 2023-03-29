@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { addContact } from '../services/paramsAPI';
+import { TextField, Button } from '@mui/material';
 
 const AddContacts = () => {
    const [contact, setContact] = useState();
 
-   const onChangeHandler = event => {
+   const onChangeHandler = (event) => {
       const { name, value } = event;
-      setContact(prev => {
+      setContact((prev) => {
          return { ...prev, [name]: value };
       });
    };
 
-   const sumbitForm = event => {
+   const sumbitForm = (event) => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
@@ -21,71 +22,50 @@ const AddContacts = () => {
    return (
       <div>
          <h2>Add Contact:</h2>
-         <form onSubmit={sumbitForm}>
-            <table>
-               <tbody>
-                  <tr>
-                     <td>Name:</td>
-                     <td>
-                        <input
-                           type="text"
-                           name="userName"
-                           value={contact?.userName}
-                           onChange={e => onChangeHandler(e.target)}
-                        />
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Phone1:</td>
-                     <td>
-                        <input
-                           type="text"
-                           name="phoneNumber1"
-                           value={contact?.phoneNumber1}
-                           onChange={e => onChangeHandler(e.target)}
-                        />
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Phone2:</td>
-                     <td>
-                        <input
-                           type="text"
-                           name="phoneNumber2"
-                           value={contact?.phoneNumber2}
-                           onChange={e => onChangeHandler(e.target)}
-                        />
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Phone3:</td>
-                     <td>
-                        <input
-                           type="text"
-                           name="phoneNumber3"
-                           value={contact?.phoneNumber3}
-                           onChange={e => onChangeHandler(e.target)}
-                        />
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Group:</td>
-                     <td>
-                        <input
-                           type="text"
-                           name="group"
-                           value={contact?.group}
-                           onChange={e => onChangeHandler(e.target)}
-                        />
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>
-                        <button type="submit">Submit</button>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
+         <form onSubmit={sumbitForm} className="form-wrap">
+            <TextField
+               name="userName"
+               id="standard-basic"
+               label="Name"
+               variant="standard"
+               onChange={(e) => onChangeHandler(e.target)}
+               className="input name-input"
+            />
+            <TextField
+               name="phoneNumber1"
+               id="standard-basic"
+               label="Phone 1"
+               variant="standard"
+               onChange={(e) => onChangeHandler(e.target)}
+               className="input phone-input"
+            />
+            <TextField
+               name="phoneNumber2"
+               id="standard-basic"
+               label="Phone 2"
+               variant="standard"
+               onChange={(e) => onChangeHandler(e.target)}
+               className="input phone-input"
+            />
+            <TextField
+               name="phoneNumber3"
+               id="standard-basic"
+               label="Phone 3"
+               variant="standard"
+               onChange={(e) => onChangeHandler(e.target)}
+               className="input phone-input"
+            />
+            <TextField
+               name="group"
+               id="standard-basic"
+               label="Group"
+               variant="standard"
+               onChange={(e) => onChangeHandler(e.target)}
+               className="input group-input"
+            />
+            <Button type="submit" variant="outlined">
+               Add +
+            </Button>
          </form>
       </div>
    );

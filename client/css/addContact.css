@@ -1,0 +1,17 @@
+.App {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
+  max-width: inherit;
+  margin: 0 auto;
+}
+.form-wrap .input {
+  margin-bottom: 10px;
+}
+.form-wrap button {
+  margin: 30px 0 10px;
+}

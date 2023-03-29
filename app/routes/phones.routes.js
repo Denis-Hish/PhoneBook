@@ -1,16 +1,16 @@
 const db = require('../models');
 const ContactDetails = db.contactDetails;
 
-module.exports = app => {
+module.exports = (app) => {
    let router = require('express').Router();
 
    // Get all the contacts
    router.get('/get-all', (req, res) => {
       ContactDetails.find({})
-         .then(contactDetails => {
+         .then((contactDetails) => {
             res.send(contactDetails);
          })
-         .catch(e => {
+         .catch((e) => {
             res.send(e);
          });
    });
@@ -28,10 +28,10 @@ module.exports = app => {
 
       newContact
          .save()
-         .then(newContactDetails => {
+         .then((newContactDetails) => {
             res.send(newContactDetails);
          })
-         .catch(err => {
+         .catch((err) => {
             console.log('----- Error during record insertion : ' + err);
             res.send(err);
          });

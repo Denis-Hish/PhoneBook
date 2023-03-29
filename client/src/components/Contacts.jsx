@@ -26,24 +26,15 @@ const Contacts = () => {
       <div>
          <h2>Contacts:</h2>
          <table>
-            {contacts?.map(
-               ({
-                  id,
-                  userName,
-                  phoneNumber1,
-                  phoneNumber2,
-                  phoneNumber3,
-                  group,
-               }) => (
-                  <tr key={id}>
-                     <td>{userName}:</td>
-                     <td>{phoneNumber1}</td>
-                     <td>{phoneNumber2}</td>
-                     <td>{phoneNumber3}</td>
-                     <td>{group}</td>
-                  </tr>
-               )
-            )}
+            {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
+               <tr key={id}>
+                  <td>{userName}:</td>
+                  <td>{phoneNumber1}</td>
+                  <td>{phoneNumber2}</td>
+                  <td>{phoneNumber3}</td>
+                  <td>{group}</td>
+               </tr>
+            ))}
          </table>
       </div>
    );
