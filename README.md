@@ -1,7 +1,5 @@
 ## Running This Sample Locally
 
-555555
-
 1. Create DB: https://account.mongodb.com/account/login
 
 -  Connect to Cluster -> Connect your application -> copy "connection string" and add to .env DB_URL
