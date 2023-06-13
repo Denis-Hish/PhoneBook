@@ -1,29 +1,87 @@
-@import "variables";
-@import "addContact";
+@import 'variables';
+@import 'addContact';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  background-color: $color-bg;
-}
-
-.btn {
-  background-color: $color-two;
-  &:hover, &:focus {
-    background-color: $color-two;
-  }
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+      'Droid Sans', 'Helvetica Neue', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-color: $color-bg;
 }
 
 @media only screen and (max-width: $phone) {
-  .hideOnMobile {
-    display: none;
-  }
+   .hideOnMobile {
+      display: none;
+   }
 }
 
+.contacts {
+   margin-bottom: 60px;
+   /* счётчик */
+   table {
+      counter-reset: section;
+      tr {
+         td {
+            &:first-child {
+               &::before {
+                  counter-increment: section;
+                  content: counter(section);
+               }
+            }
+         }
+      }
+   }
+
+   table {
+      display: grid;
+
+      tr {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         gap: 2rem;
+         margin-bottom: 1rem;
+         padding: 0.25rem 1rem;
+         background-color: rgba(0, 0, 0, 0.05);
+         border-radius: 8px;
+
+         background: transparent;
+         border-radius: 10px;
+         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+
+         td {
+         }
+
+         td:not(:first-child) {
+            flex: 1;
+         }
+
+         .btn-table {
+            opacity: 0;
+            &:hover {
+               background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            &.edit svg {
+               fill: #4caf50;
+            }
+            &.delete svg {
+               fill: #f44336;
+            }
+         }
+
+         &:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            .btn-table {
+               opacity: 1;
+            }
+         }
+      }
+   }
+}

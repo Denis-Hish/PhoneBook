@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+.App {
+  margin: 0 auto;
+  padding: 0 5rem;
+  color: #5a5a5a;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 50px;
+  color: #0077b6;
+}
+h1 span {
+  position: relative;
+}
+h1 span svg {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  color: inherit;
+}
+h1 span::after {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  border: 3px solid #0077b6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.add-contacts {
+  max-width: 500px;
+  margin: 0 auto 60px;
+}
+.add-contacts .form-wrap {
+  display: flex;
+  flex-direction: column;
+  max-width: inherit;
+  margin: 0 auto;
+}
+.add-contacts .form-wrap .input {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  width: 100%;
+  /* input не нажат */
+  /* input нажат */
+}
+.add-contacts .form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+  transform: translate(10px, 15px) scale(1);
+}
+.add-contacts .form-wrap .input .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+  transform: translate(10px, 5px) scale(0.75);
+}
+.add-contacts .form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
+.add-contacts .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+.add-contacts .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before,
+.add-contacts .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before, .add-contacts .form-wrap .input:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before, .add-contacts .form-wrap .input:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:after, .add-contacts .form-wrap .input:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: none;
+}
+.add-contacts .form-wrap .form {
+  position: relative;
+}
+.add-contacts .form-wrap .form .icons {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+.add-contacts .form-wrap .form .icons svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.add-contacts .form-wrap button {
+  margin: 30px 0 10px;
+  padding: 10px 15px;
+  background: transparent;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+}
+.add-contacts .form-wrap button:hover {
+  background-color: inherit;
+}
+.add-contacts .form-wrap button:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}/*# sourceMappingURL=addContact.css.map */

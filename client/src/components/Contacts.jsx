@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAllContacts } from '../services/paramsAPI';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Contacts = () => {
    const [contacts, setContacts] = useState(null);
@@ -23,16 +26,23 @@ const Contacts = () => {
    console.log('---All contacts---', contacts);
 
    return (
-      <div>
-         <h2>Contacts:</h2>
+      <div className="contacts">
+         <h2>Kontakty:</h2>
          <table>
             {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
                <tr key={id}>
-                  <td>{userName}:</td>
+                  <td></td> {/* порядковый номер */}
+                  <td>{userName}</td>
                   <td>{phoneNumber1}</td>
                   <td>{phoneNumber2}</td>
                   <td>{phoneNumber3}</td>
                   <td>{group}</td>
+                  <IconButton className="btn-table edit">
+                     <EditIcon />
+                  </IconButton>
+                  <IconButton className="btn-table delete">
+                     <DeleteIcon />
+                  </IconButton>
                </tr>
             ))}
          </table>
