@@ -1,11 +1,2 @@
-import React from 'react';
-
-const Groups = [
-   { label: 'SNR - Biuro' },
-   { label: 'SNR - Karcz.' },
-   { label: 'Placówki' },
-   { label: 'WS' },
-   { label: 'ZAZ' },
-];
-
+const Groups = ['SNR - Biuro', 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
 export default Groups;
