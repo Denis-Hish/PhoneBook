@@ -1,3 +1,6 @@
+1. Закрывать окно по нажатию enter
+2. Закрывать окно по нажатию ADD+
+
 Функциональность:
 
 -  Запись номеров
@@ -52,13 +55,4 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<root_group>
-<group display_name="All Contacts" ring="Auto"/>
-<group display_name="Blacklist" ring="Auto"/>
-<group display_name="SNR - Biuro" ring="Auto"/>
-</root_group>
-<root_contact>
-<contact display_name="Test1" office_number="001" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="All Contacts"/>
-<contact display_name="Test2" office_number="002" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Blacklist"/>
-<contact display_name="Sekretariat" office_number="200" mobile_number="785980385" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
-</root_contact>
+<root_group> <group display_name="All Contacts" ring="Auto"/> <group display_name="Blacklist" ring="Auto"/> <group display_name="SNR - Biuro" ring="Auto"/> </root_group> <root_contact> <contact display_name="Test1" office_number="001" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="All Contacts"/> <contact display_name="Test2" office_number="002" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Blacklist"/> <contact display_name="Sekretariat" office_number="200" mobile_number="785980385" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/> </root_contact>

@@ -5,7 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
 
-const AddContacts = () => {
+const AddContact = () => {
    const [contact, setContact] = useState();
 
    const onChangeHandler = (event) => {
@@ -107,4 +107,4 @@ const AddContacts = () => {
    );
 };
 
-export default AddContacts;
+export default AddContact;

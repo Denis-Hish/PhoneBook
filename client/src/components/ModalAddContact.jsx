@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AddContacts from './AddContact';
+import AddContact from './AddContact';
 
 import IconButton from '@mui/material/IconButton';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -43,7 +43,7 @@ export default function TransitionsModal() {
             <Fade in={open}>
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={handleClose}></button>
-                  <AddContacts />
+                  <AddContact />
                </Box>
             </Fade>
          </Modal>
