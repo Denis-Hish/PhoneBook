@@ -4,18 +4,19 @@ import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
+import ComboBox from './ComboBox';
 
 const AddContact = () => {
    const [contact, setContact] = useState();
 
-   const onChangeHandler = (event) => {
+   const onChangeHandler = event => {
       const { name, value } = event;
-      setContact((prev) => {
+      setContact(prev => {
          return { ...prev, [name]: value };
       });
    };
 
-   const sumbitForm = (event) => {
+   const sumbitForm = event => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
@@ -37,7 +38,7 @@ const AddContact = () => {
                   name="userName"
                   label="Nazwa"
                   variant="standard"
-                  onChange={(e) => onChangeHandler(e.target)}
+                  onChange={e => onChangeHandler(e.target)}
                   className="input name-input"
                   autoComplete="off"
                   inputRef={inputRef}
@@ -52,7 +53,7 @@ const AddContact = () => {
                   name="phoneNumber1"
                   label="Telefon 1"
                   variant="standard"
-                  onChange={(e) => onChangeHandler(e.target)}
+                  onChange={e => onChangeHandler(e.target)}
                   className="input phone-input"
                   autoComplete="off"
                />
@@ -65,7 +66,7 @@ const AddContact = () => {
                   name="phoneNumber2"
                   label="Telefon 2"
                   variant="standard"
-                  onChange={(e) => onChangeHandler(e.target)}
+                  onChange={e => onChangeHandler(e.target)}
                   className="input phone-input"
                   autoComplete="off"
                />
@@ -78,7 +79,7 @@ const AddContact = () => {
                   name="phoneNumber3"
                   label="Telefon 3"
                   variant="standard"
-                  onChange={(e) => onChangeHandler(e.target)}
+                  onChange={e => onChangeHandler(e.target)}
                   className="input phone-input"
                   autoComplete="off"
                />
@@ -86,15 +87,21 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
             </div>
-            <div className="form">
+            {/* <div className="form">
                <TextField
                   name="group"
                   label="Grupa"
                   variant="standard"
-                  onChange={(e) => onChangeHandler(e.target)}
+                  onChange={e => onChangeHandler(e.target)}
                   className="input group-input"
                   autoComplete="off"
                />
+               <div className="icons">
+                  <GroupsIcon />
+               </div>
+            </div> */}
+            <div className="form">
+               <ComboBox />
                <div className="icons">
                   <GroupsIcon />
                </div>

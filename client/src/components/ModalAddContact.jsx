@@ -24,7 +24,11 @@ export default function TransitionsModal() {
 
    return (
       <>
-         <IconButton onClick={handleOpen} className="btn btn__add-contact" aria-label="delete">
+         <IconButton
+            onClick={handleOpen}
+            className="btn btn__add-contact"
+            aria-label="delete"
+         >
             <AddCircleOutlineIcon />
          </IconButton>
          <Modal

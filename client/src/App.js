@@ -7,6 +7,8 @@ import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import ModalAddContact from './components/ModalAddContact';
 
+import ToggleColorMode from './components/TogglingColorMode';
+
 function App() {
    return (
       <>

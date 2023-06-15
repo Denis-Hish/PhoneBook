@@ -135,6 +135,7 @@ svg {
   border: none;
   transition: all var(--transition-btn-close) ease-in-out;
   z-index: 100;
+  cursor: pointer;
 }
 .btn-close:hover {
   background-color: rgba(25, 118, 210, 0.7);
@@ -195,6 +196,7 @@ svg {
   width: 100%;
   /* input не нажат */
   /* input нажат */
+  /* input combo box */
 }
 .add-contacts .form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
   transform: translate(10px, 15px) scale(1);
@@ -204,6 +206,10 @@ svg {
 }
 .add-contacts .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
   border-bottom: none;
+}
+.add-contacts .form-wrap .input .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: none;
+  border-color: initial;
 }
 .add-contacts .form-wrap .form {
   position: relative;
@@ -238,7 +244,6 @@ svg {
   width: 4rem;
   height: 4rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-  background-color: #f44336;
 }
 .btn__add-contact svg {
   width: 3rem;
@@ -258,7 +263,7 @@ svg {
 .contacts table {
   counter-reset: section;
 }
-.contacts table tr td:first-child::before {
+.contacts table tbody tr td:first-child::before {
   counter-increment: section;
   content: counter(section);
 }
@@ -267,6 +272,22 @@ svg {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   padding: 2rem;
   border-radius: 8px;
+}
+.contacts table thead {
+  font-weight: 700;
+  color: rgb(25, 118, 210);
+  position: sticky;
+  top: 80px;
+}
+.contacts table thead tr {
+  background-color: #e6e9ec;
+}
+.contacts table td {
+  width: 40px;
+}
+.contacts table div {
+  width: 40px;
+  height: 40px;
 }
 .contacts table tr {
   display: flex;
