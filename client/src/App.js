@@ -1,15 +1,21 @@
-import React from "react";
-import Contacts from './components/Contacts';
-import AddContact from './components/AddContact';
+import React from 'react';
 import './scss/style.scss';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+
+import Header from './components/Header';
+import Contacts from './components/Contacts';
+import Footer from './components/Footer';
+import ModalAddContact from './components/ModalAddContact';
 
 function App() {
-  return (
-    <div className="App">
-      <AddContact />
-      <Contacts />
-    </div>
-  );
+   return (
+      <>
+         <Header />
+         <Contacts />
+         <ModalAddContact />
+         <Footer />
+      </>
+   );
 }
 
 export default App;

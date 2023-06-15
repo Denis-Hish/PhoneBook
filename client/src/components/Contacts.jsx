@@ -27,25 +27,27 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
-         <h2>Kontakty:</h2>
-         <table>
-            {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
-               <tr key={id}>
-                  <td></td> {/* порядковый номер */}
-                  <td>{userName}</td>
-                  <td>{phoneNumber1}</td>
-                  <td>{phoneNumber2}</td>
-                  <td>{phoneNumber3}</td>
-                  <td>{group}</td>
-                  <IconButton className="btn-table edit">
-                     <EditIcon />
-                  </IconButton>
-                  <IconButton className="btn-table delete">
-                     <DeleteIcon />
-                  </IconButton>
-               </tr>
-            ))}
-         </table>
+         <div className="container">
+            <h2>Kontakty:</h2>
+            <table>
+               {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
+                  <tr key={id}>
+                     <td></td> {/* counter css */}
+                     <td>{userName}</td>
+                     <td>{phoneNumber1}</td>
+                     <td>{phoneNumber2}</td>
+                     <td>{phoneNumber3}</td>
+                     <td>{group}</td>
+                     <IconButton className="btn-table edit">
+                        <EditIcon />
+                     </IconButton>
+                     <IconButton className="btn-table delete">
+                        <DeleteIcon />
+                     </IconButton>
+                  </tr>
+               ))}
+            </table>
+         </div>
       </div>
    );
 };
