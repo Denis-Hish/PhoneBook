@@ -16,11 +16,7 @@ const Buttons = () => (
       >
          CANCEL
       </Button>
-      <Button
-         className="btn-modal btn-modal__save"
-         variant="outlined"
-         color="error"
-      >
+      <Button className="btn-modal btn-modal__save" variant="outlined" color="error">
          DELETE
       </Button>
    </>
@@ -50,12 +46,7 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
-         <ModalWindows
-            content={'CONTENT TEST'}
-            isOpen={open}
-            setIsOpenModal={setOpen}
-            Buttons={<Buttons />}
-         />
+         <ModalWindows content={'CONTENT TEST'} isOpen={open} setIsOpenModal={setOpen} Buttons={<Buttons />} />
          <div className="container">
             <h2>Kontakty:</h2>
             <table>
@@ -71,36 +62,24 @@ const Contacts = () => {
                      <div></div>
                   </tr>
                </thead>
-               {contacts?.map(
-                  ({
-                     id,
-                     userName,
-                     phoneNumber1,
-                     phoneNumber2,
-                     phoneNumber3,
-                     group,
-                  }) => (
-                     <tbody>
-                        <tr key={id}>
-                           <td></td> {/* counter css */}
-                           <td>{userName}</td>
-                           <td>{phoneNumber1}</td>
-                           <td>{phoneNumber2}</td>
-                           <td>{phoneNumber3}</td>
-                           <td>{group}</td>
-                           <IconButton className="btn-table edit">
-                              <EditIcon />
-                           </IconButton>
-                           <IconButton
-                              onClick={() => setOpen(true)}
-                              className="btn-table delete"
-                           >
-                              <DeleteIcon />
-                           </IconButton>
-                        </tr>
-                     </tbody>
-                  )
-               )}
+               {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
+                  <tbody>
+                     <tr key={id}>
+                        <td></td> {/* counter css */}
+                        <td>{userName}</td>
+                        <td>{phoneNumber1}</td>
+                        <td>{phoneNumber2}</td>
+                        <td>{phoneNumber3}</td>
+                        <td>{group}</td>
+                        <IconButton className="btn-table edit">
+                           <EditIcon />
+                        </IconButton>
+                        <IconButton onClick={() => setOpen(true)} className="btn-table delete">
+                           <DeleteIcon />
+                        </IconButton>
+                     </tr>
+                  </tbody>
+               ))}
             </table>
          </div>
       </div>

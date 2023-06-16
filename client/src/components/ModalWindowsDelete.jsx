@@ -41,6 +41,7 @@ export default function TransitionsModal() {
                   <div className="modal-wrapper">
                      <Typography className="modal-header">
                         <button className="btn-close" onClick={handleClose}></button>
+                        <DeleteOutlineIcon color="error" className="modal-icon" />
                      </Typography>
 
                      <Typography className="modal-content">
@@ -49,22 +50,22 @@ export default function TransitionsModal() {
 
                      <Typography className="modal-buttons">
                         <Button
-                           className="btn-modal btn-modal__save"
-                           onClick={handleClose}
-                           variant="outlined"
-                           color="error"
-                           startIcon={<DeleteOutlineIcon />}
-                        >
-                           DELETE
-                        </Button>
-                        <Button
                            className="btn-modal btn-modal__cancel"
                            onClick={handleClose}
                            variant="outlined"
                            color="success"
-                           endIcon={<HighlightOffIcon />}
+                           startIcon={<HighlightOffIcon />}
                         >
                            CANCEL
+                        </Button>
+                        <Button
+                           className="btn-modal btn-modal__delete"
+                           onClick={handleClose}
+                           variant="outlined"
+                           color="error"
+                           endIcon={<DeleteOutlineIcon />}
+                        >
+                           DELETE
                         </Button>
                      </Typography>
                   </div>

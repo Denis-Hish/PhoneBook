@@ -207,6 +207,20 @@ svg {
   width: 8rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
+.modal .modal-icon {
+  font-size: 2rem;
+  margin: 0 auto;
+  display: block;
+}
+.modal .modal-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid blue;
+}
 
 .bottom-buttons {
   margin-bottom: 3rem;
