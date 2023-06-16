@@ -42,33 +42,24 @@ const Contacts = () => {
                      <div></div>
                   </tr>
                </thead>
-               {contacts?.map(
-                  ({
-                     id,
-                     userName,
-                     phoneNumber1,
-                     phoneNumber2,
-                     phoneNumber3,
-                     group,
-                  }) => (
-                     <tbody>
-                        <tr key={id}>
-                           <td></td> {/* counter css */}
-                           <td>{userName}</td>
-                           <td>{phoneNumber1}</td>
-                           <td>{phoneNumber2}</td>
-                           <td>{phoneNumber3}</td>
-                           <td>{group}</td>
-                           <IconButton className="btn-table edit">
-                              <EditIcon />
-                           </IconButton>
-                           <IconButton className="btn-table delete">
-                              <DeleteIcon />
-                           </IconButton>
-                        </tr>
-                     </tbody>
-                  )
-               )}
+               {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }) => (
+                  <tbody>
+                     <tr key={id}>
+                        <td></td> {/* counter css */}
+                        <td>{userName}</td>
+                        <td>{phoneNumber1}</td>
+                        <td>{phoneNumber2}</td>
+                        <td>{phoneNumber3}</td>
+                        <td>{group}</td>
+                        <IconButton className="btn-table edit">
+                           <EditIcon />
+                        </IconButton>
+                        <IconButton className="btn-table delete">
+                           <DeleteIcon />
+                        </IconButton>
+                     </tr>
+                  </tbody>
+               ))}
             </table>
          </div>
       </div>

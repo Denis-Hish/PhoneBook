@@ -6,8 +6,10 @@ import Header from './components/Header';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import ModalAddContact from './components/ModalAddContact';
-
-import ToggleColorMode from './components/TogglingColorMode';
+import ModalWindowsDelete from './components/ModalWindowsDelete';
+import ModalWindowsDeleted from './components/ModalWindowsDeleted';
+import ModalWindowsSaved from './components/ModalWindowsSaved';
+import ModalWindowsNumberExists from './components/ModalWindowsNumberExists';
 
 function App() {
    return (
@@ -15,6 +17,12 @@ function App() {
          <Header />
          <Contacts />
          <ModalAddContact />
+
+         <ModalWindowsDelete />
+         <ModalWindowsDeleted />
+         <ModalWindowsSaved />
+         <ModalWindowsNumberExists />
+
          <Footer />
       </>
    );

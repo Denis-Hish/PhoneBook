@@ -173,6 +173,41 @@ svg {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+/* Modal Windows */
+/* ОБЩИЕ */
+.modal {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #edf1f4;
+  position: relative;
+  min-width: 400px;
+}
+.modal .modal-wrapper {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+}
+.modal .modal-header {
+  margin-bottom: 3rem;
+}
+.modal .modal-header .btn-close {
+  top: 25px;
+  right: 25px;
+}
+.modal .modal-content {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.modal .modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+.modal .modal-buttons .btn-modal {
+  width: 8rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+}
+
 /* --------- ADD CONTACT ---------- */
 .add-contacts {
   min-width: 500px;
@@ -227,7 +262,7 @@ svg {
   margin: 30px 0 10px;
   padding: 10px 15px;
   background: transparent;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 .add-contacts .form-wrap button:hover {
