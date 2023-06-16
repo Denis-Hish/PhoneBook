@@ -1,14 +1,10 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AddContact from './AddContact';
-
-import IconButton from '@mui/material/IconButton';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const style = {
    position: 'absolute',
@@ -17,18 +13,17 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-export default function TransitionsModal() {
-   const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
-   const handleClose = () => setOpen(false);
+const TransitionsModal = ({ content, isOpen, setIsOpenModal, Buttons }) => {
+   // const handleOpen = () => setOpen(true);
+   const handleClose = () => setIsOpenModal(false);
 
    return (
       <>
-         <Button onClick={handleOpen}>Open modal</Button>
+         {/* <Button onClick={handleOpen}>Open modal</Button> */}
          <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
-            open={open}
+            open={isOpen}
             onClose={handleClose}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
@@ -38,30 +33,40 @@ export default function TransitionsModal() {
                },
             }}
          >
-            <Fade in={open}>
+            <Fade in={isOpen}>
                <Box sx={style} className="modal modal-add-contact">
                   <Typography className="modal-header">
-                     <button className="btn-close" onClick={handleClose}></button>
+                     <button
+                        className="btn-close"
+                        onClick={handleClose}
+                     ></button>
                   </Typography>
 
-                  <Typography className="modal-content">
-                     Contact <br />
-                     <b>{'Name'}</b>
-                     <br />
-                     saved
-                  </Typography>
+                  <Typography className="modal-content">{content}</Typography>
 
                   <Typography className="modal-buttons">
-                     <Button className="btn-modal btn-modal__cancel" variant="outlined" color="success">
+                     {/* <Button
+                        className="btn-modal btn-modal__cancel"
+                        onClick={handleClose}
+                        variant="outlined"
+                        color="success"
+                     >
                         CANCEL
                      </Button>
-                     <Button className="btn-modal btn-modal__save" variant="outlined" color="error">
-                        SAVE
-                     </Button>
+                     <Button
+                        className="btn-modal btn-modal__save"
+                        variant="outlined"
+                        color="error"
+                     >
+                        DELETE
+                     </Button> */}
+                     {Buttons}
                   </Typography>
                </Box>
             </Fade>
          </Modal>
       </>
    );
-}
+};
+
+export default TransitionsModal;

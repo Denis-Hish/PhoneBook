@@ -208,6 +208,10 @@ svg {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 
+.bottom-buttons {
+  margin-bottom: 3rem;
+}
+
 /* --------- ADD CONTACT ---------- */
 .add-contacts {
   min-width: 500px;

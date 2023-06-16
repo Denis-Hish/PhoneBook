@@ -18,10 +18,12 @@ function App() {
          <Contacts />
          <ModalAddContact />
 
-         <ModalWindowsDelete />
-         <ModalWindowsDeleted />
-         <ModalWindowsSaved />
-         <ModalWindowsNumberExists />
+         <div className="bottom-buttons">
+            <ModalWindowsDelete />
+            <ModalWindowsDeleted />
+            <ModalWindowsSaved />
+            <ModalWindowsNumberExists />
+         </div>
 
          <Footer />
       </>
