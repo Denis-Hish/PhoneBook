@@ -5,15 +5,30 @@ import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
 import ComboBox from './ComboBox';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const AddContact = () => {
-   const [contact, setContact] = useState();
+   const [contact, setContact] = useState({
+      userName: '',
+      phoneNumber1: '',
+      phoneNumber2: '',
+      phoneNumber3: '',
+      group: '',
+   });
 
    const onChangeHandler = event => {
-      const { name, value } = event;
-      setContact(prev => {
-         return { ...prev, [name]: value };
+      const { name, value } = event.target;
+      setContact(prevContact => {
+         return { ...prevContact, [name]: value };
       });
+   };
+
+   const clearInput = name => {
+      setContact(prevContact => ({
+         ...prevContact,
+         [name]: '',
+      }));
    };
 
    const sumbitForm = event => {
@@ -38,7 +53,8 @@ const AddContact = () => {
                   name="userName"
                   label="Nazwa"
                   variant="standard"
-                  onChange={e => onChangeHandler(e.target)}
+                  value={contact.userName}
+                  onChange={onChangeHandler}
                   className="input name-input"
                   autoComplete="off"
                   inputRef={inputRef}
@@ -46,6 +62,15 @@ const AddContact = () => {
                <div className="icons">
                   <PersonIcon />
                </div>
+               {contact.userName && (
+                  <IconButton
+                     className="clear-btn"
+                     onClick={() => clearInput('userName')}
+                     tabIndex="-1"
+                  >
+                     <ClearIcon />
+                  </IconButton>
+               )}
             </div>
 
             <div className="form">
@@ -53,60 +78,97 @@ const AddContact = () => {
                   name="phoneNumber1"
                   label="Telefon 1"
                   variant="standard"
-                  onChange={e => onChangeHandler(e.target)}
+                  value={contact.phoneNumber1}
+                  onChange={onChangeHandler}
                   className="input phone-input"
                   autoComplete="off"
                />
                <div className="icons">
                   <PhoneEnabledIcon />
                </div>
+               {contact.phoneNumber1 && (
+                  <IconButton
+                     className="clear-btn"
+                     onClick={() => clearInput('phoneNumber1')}
+                     tabIndex="-1"
+                  >
+                     <ClearIcon />
+                  </IconButton>
+               )}
             </div>
             <div className="form">
                <TextField
                   name="phoneNumber2"
                   label="Telefon 2"
                   variant="standard"
-                  onChange={e => onChangeHandler(e.target)}
+                  value={contact.phoneNumber2}
+                  onChange={onChangeHandler}
                   className="input phone-input"
                   autoComplete="off"
                />
                <div className="icons">
                   <PhoneEnabledIcon />
                </div>
+               {contact.phoneNumber2 && (
+                  <IconButton
+                     className="clear-btn"
+                     onClick={() => clearInput('phoneNumber2')}
+                     tabIndex="-1"
+                  >
+                     <ClearIcon />
+                  </IconButton>
+               )}
             </div>
             <div className="form">
                <TextField
                   name="phoneNumber3"
                   label="Telefon 3"
                   variant="standard"
-                  onChange={e => onChangeHandler(e.target)}
+                  value={contact.phoneNumber3}
+                  onChange={onChangeHandler}
                   className="input phone-input"
                   autoComplete="off"
                />
                <div className="icons">
                   <PhoneEnabledIcon />
                </div>
+               {contact.phoneNumber3 && (
+                  <IconButton
+                     className="clear-btn"
+                     onClick={() => clearInput('phoneNumber3')}
+                     tabIndex="-1"
+                  >
+                     <ClearIcon />
+                  </IconButton>
+               )}
             </div>
-            {/* <div className="form">
-               <TextField
-                  name="group"
-                  label="Grupa"
-                  variant="standard"
-                  onChange={e => onChangeHandler(e.target)}
-                  className="input group-input"
-                  autoComplete="off"
+            <div className="form">
+               <ComboBox
+                  value={contact.group}
+                  onChange={event =>
+                     setContact(prevContact => ({
+                        ...prevContact,
+                        group: event.target.value,
+                     }))
+                  }
                />
                <div className="icons">
                   <GroupsIcon />
-               </div>
-            </div> */}
-            <div className="form">
-               <ComboBox />
-               <div className="icons">
-                  <GroupsIcon />
+                  {contact.group && (
+                     <IconButton
+                        className="clear-btn"
+                        onClick={() => clearInput('group')}
+                     >
+                        <ClearIcon />
+                     </IconButton>
+                  )}
                </div>
             </div>
-            <Button type="submit" variant="outlined">
+            <Button
+               className="btn-add-contact"
+               type="submit"
+               variant="outlined"
+            >
                Add +
             </Button>
          </form>

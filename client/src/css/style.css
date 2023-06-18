@@ -224,6 +224,8 @@ svg {
 
 .bottom-buttons {
   margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
 }
 
 /* --------- ADD CONTACT ---------- */
@@ -249,7 +251,6 @@ svg {
   width: 100%;
   /* input не нажат */
   /* input нажат */
-  /* input combo box */
 }
 .add-contacts .form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
   transform: translate(10px, 15px) scale(1);
@@ -266,6 +267,7 @@ svg {
 }
 .add-contacts .form-wrap .form {
   position: relative;
+  /* input combo box */
 }
 .add-contacts .form-wrap .form .icons {
   position: absolute;
@@ -276,17 +278,34 @@ svg {
 .add-contacts .form-wrap .form .icons svg {
   font-size: 1.5rem;
 }
-.add-contacts .form-wrap button {
+.add-contacts .form-wrap .form .combo-box {
+  padding-left: 0;
+}
+.add-contacts .form-wrap .form .clear-btn {
+  position: absolute;
+  padding: 4px;
+  top: 50%;
+  right: 35px;
+  transform: translate(-50%, -50%);
+}
+.add-contacts .form-wrap .form .clear-btn svg {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+.add-contacts .form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+  right: 50px;
+}
+.add-contacts .form-wrap .btn-add-contact {
   margin: 30px 0 10px;
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
-.add-contacts .form-wrap button:hover {
+.add-contacts .form-wrap .btn-add-contact:hover {
   background-color: inherit;
 }
-.add-contacts .form-wrap button:active {
+.add-contacts .form-wrap .btn-add-contact:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
 
