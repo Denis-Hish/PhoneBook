@@ -17,21 +17,21 @@ const AddContact = () => {
       group: '',
    });
 
-   const onChangeHandler = event => {
+   const onChangeHandler = (event) => {
       const { name, value } = event.target;
-      setContact(prevContact => {
+      setContact((prevContact) => {
          return { ...prevContact, [name]: value };
       });
    };
 
-   const clearInput = name => {
-      setContact(prevContact => ({
+   const clearInput = (name) => {
+      setContact((prevContact) => ({
          ...prevContact,
          [name]: '',
       }));
    };
 
-   const sumbitForm = event => {
+   const sumbitForm = (event) => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
@@ -63,11 +63,7 @@ const AddContact = () => {
                   <PersonIcon />
                </div>
                {contact.userName && (
-                  <IconButton
-                     className="clear-btn"
-                     onClick={() => clearInput('userName')}
-                     tabIndex="-1"
-                  >
+                  <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex="-1">
                      <ClearIcon />
                   </IconButton>
                )}
@@ -87,11 +83,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber1 && (
-                  <IconButton
-                     className="clear-btn"
-                     onClick={() => clearInput('phoneNumber1')}
-                     tabIndex="-1"
-                  >
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber1')} tabIndex="-1">
                      <ClearIcon />
                   </IconButton>
                )}
@@ -110,11 +102,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber2 && (
-                  <IconButton
-                     className="clear-btn"
-                     onClick={() => clearInput('phoneNumber2')}
-                     tabIndex="-1"
-                  >
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber2')} tabIndex="-1">
                      <ClearIcon />
                   </IconButton>
                )}
@@ -133,11 +121,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber3 && (
-                  <IconButton
-                     className="clear-btn"
-                     onClick={() => clearInput('phoneNumber3')}
-                     tabIndex="-1"
-                  >
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber3')} tabIndex="-1">
                      <ClearIcon />
                   </IconButton>
                )}
@@ -145,8 +129,8 @@ const AddContact = () => {
             <div className="form">
                <ComboBox
                   value={contact.group}
-                  onChange={event =>
-                     setContact(prevContact => ({
+                  onChange={(event) =>
+                     setContact((prevContact) => ({
                         ...prevContact,
                         group: event.target.value,
                      }))
@@ -155,20 +139,13 @@ const AddContact = () => {
                <div className="icons">
                   <GroupsIcon />
                   {contact.group && (
-                     <IconButton
-                        className="clear-btn"
-                        onClick={() => clearInput('group')}
-                     >
+                     <IconButton className="clear-btn" onClick={() => clearInput('group')}>
                         <ClearIcon />
                      </IconButton>
                   )}
                </div>
             </div>
-            <Button
-               className="btn-add-contact"
-               type="submit"
-               variant="outlined"
-            >
+            <Button className="btn-add-contact" type="submit" variant="outlined">
                Add +
             </Button>
          </form>

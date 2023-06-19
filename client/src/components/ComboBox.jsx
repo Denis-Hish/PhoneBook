@@ -30,13 +30,11 @@ export default function FreeSoloCreateOption() {
 
             const { inputValue } = params;
             // Suggest the creation of a new value
-            const isExisting = options.some(
-               option => inputValue === option.title
-            );
+            const isExisting = options.some((option) => inputValue === option.title);
             if (inputValue !== '' && !isExisting) {
                filtered.push({
                   inputValue,
-                  title: `Add "${inputValue}"`,
+                  title: `Add new group "${inputValue}"`,
                });
             }
 
@@ -46,7 +44,7 @@ export default function FreeSoloCreateOption() {
          clearOnBlur
          handleHomeEndKeys
          options={Groups}
-         getOptionLabel={option => {
+         getOptionLabel={(option) => {
             // Value selected with enter, right from the input
             if (typeof option === 'string') {
                return option;
@@ -61,15 +59,15 @@ export default function FreeSoloCreateOption() {
          renderOption={(props, option) => <li {...props}>{option.title}</li>}
          sx={{ width: 300 }}
          freeSolo
-         renderInput={params => <TextField {...params} label="Group" />}
+         renderInput={(params) => <TextField {...params} label="Group" />}
       />
    );
 }
 
-// const Groups = ['SNR - Biuro', 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
-const Groups = [
-   'The Shawshank Redemption',
-   { title: 'Secretariat' },
-   { title: 'The Godfather', year: 1972 },
-   { title: 'The Godfather: Part II', year: 1974 },
-];
+const Groups = [{ title: 'SNR - Biuro' }, 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
+// const Groups = [
+//    'The Shawshank Redemption',
+//    { title: 'Secretariat' },
+//    { title: 'The Godfather', year: 1972 },
+//    { title: 'The Godfather: Part II', year: 1974 },
+// ];

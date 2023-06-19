@@ -8,19 +8,10 @@ import Button from '@mui/material/Button';
 
 const Buttons = () => (
    <>
-      <Button
-         className="btn-modal btn-modal__cancel"
-         // onClick={handleClose}
-         variant="outlined"
-         color="success"
-      >
+      <Button className="btn-modal btn-modal__cancel" variant="outlined" color="primary">
          CANCEL
       </Button>
-      <Button
-         className="btn-modal btn-modal__save"
-         variant="outlined"
-         color="error"
-      >
+      <Button className="btn-modal btn-modal__save" variant="outlined" color="error">
          DELETE
       </Button>
    </>
@@ -46,16 +37,18 @@ const Contacts = () => {
       }
    });
 
+   const getIdEditBtn = (id) => {
+      console.log('Edit ID:', id);
+   };
+   const getIdDeleteBtn = (id) => {
+      console.log('Delete ID:', id);
+   };
+
    console.log('---All contacts---', contacts);
 
    return (
       <div className="contacts">
-         <ModalWindows
-            content={'CONTENT TEST'}
-            isOpen={open}
-            setIsOpenModal={setOpen}
-            Buttons={<Buttons />}
-         />
+         <ModalWindows content={'CONTENT TEST'} isOpen={open} setIsOpenModal={setOpen} Buttons={<Buttons />} />
          <div className="container">
             <h2>Kontakty:</h2>
             <table>
@@ -67,40 +60,44 @@ const Contacts = () => {
                      <td>Phone 2</td>
                      <td>Phone 3</td>
                      <td>Group</td>
-                     <div></div>
-                     <div></div>
+                     <td className="btn-icon-table" />
+                     <td className="btn-icon-table" />
                   </tr>
                </thead>
-               {contacts?.map(
-                  ({
-                     id,
-                     userName,
-                     phoneNumber1,
-                     phoneNumber2,
-                     phoneNumber3,
-                     group,
-                  }) => (
-                     <tbody>
-                        <tr key={id}>
-                           <td></td> {/* counter css */}
-                           <td>{userName}</td>
-                           <td>{phoneNumber1}</td>
-                           <td>{phoneNumber2}</td>
-                           <td>{phoneNumber3}</td>
-                           <td>{group}</td>
-                           <IconButton className="btn-table edit">
+               <tbody>
+                  {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
+                     <tr key={id}>
+                        <td>{index + 1}</td>
+                        <td>{userName}</td>
+                        <td>{phoneNumber1}</td>
+                        <td>{phoneNumber2}</td>
+                        <td>{phoneNumber3}</td>
+                        <td>{group}</td>
+                        <td className="btn-icon-table">
+                           <IconButton
+                              className="btn-table edit"
+                              onClick={() => {
+                                 setOpen(true);
+                                 getIdEditBtn(id);
+                              }}
+                           >
                               <EditIcon />
                            </IconButton>
+                        </td>
+                        <td className="btn-icon-table">
                            <IconButton
-                              onClick={() => setOpen(true)}
+                              onClick={() => {
+                                 setOpen(true);
+                                 getIdDeleteBtn(id);
+                              }}
                               className="btn-table delete"
                            >
                               <DeleteIcon />
                            </IconButton>
-                        </tr>
-                     </tbody>
-                  )
-               )}
+                        </td>
+                     </tr>
+                  ))}
+               </tbody>
             </table>
          </div>
       </div>

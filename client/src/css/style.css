@@ -333,13 +333,6 @@ svg {
   /* counter css */
 }
 .contacts table {
-  counter-reset: section;
-}
-.contacts table tbody tr td:first-child::before {
-  counter-increment: section;
-  content: counter(section);
-}
-.contacts table {
   display: grid;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   padding: 2rem;
@@ -354,10 +347,10 @@ svg {
 .contacts table thead tr {
   background-color: #e6e9ec;
 }
-.contacts table td {
+.contacts table td:first-child {
   width: 40px;
 }
-.contacts table div {
+.contacts table .div {
   width: 40px;
   height: 40px;
 }
@@ -376,6 +369,11 @@ svg {
 }
 .contacts table tr td:not(:first-child) {
   flex: 1;
+}
+.contacts table tr .btn-icon-table {
+  background-color: #4caf50;
+  display: flex;
+  justify-content: end;
 }
 .contacts table tr .btn-table {
   opacity: 0;
