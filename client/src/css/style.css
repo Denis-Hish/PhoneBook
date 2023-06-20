@@ -363,9 +363,8 @@ svg {
   height: 40px;
   display: flex;
   align-items: center;
-}
-.contacts table thead td .arrow-btn {
-  visibility: hidden;
+  /* --- arrow icon --- */
+  /* ------------------- */
 }
 .contacts table thead td .arrow-btn svg {
   fill: rgb(25, 118, 210);
@@ -374,7 +373,10 @@ svg {
 .contacts table thead td .arrow-btn:hover {
   background-color: initial;
 }
-.contacts table thead td .arrow-up {
+.contacts table thead td .arrow-btn {
+  visibility: hidden;
+}
+.contacts table thead td .arrow-btn.visible-btn {
   visibility: visible;
 }
 .contacts table thead td:hover .arrow-btn {
@@ -423,9 +425,6 @@ svg {
 }
 .contacts table tr .btn-table.delete svg {
   fill: #f44336;
-}
-.contacts table tr:hover {
-  background-color: rgba(0, 0, 0, 0.03);
 }
 .contacts table tr:hover .btn-table {
   opacity: 1;

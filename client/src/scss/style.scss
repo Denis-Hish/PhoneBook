@@ -476,9 +476,17 @@ svg {
             display: flex;
             align-items: center;
 
-            .arrow-btn {
-               visibility: hidden;
+            /* --- arrow icon --- */
+            // .MuiIconButton-root {
+            //    visibility: hidden;
+            // }
 
+            // .MuiIconButton-root.visible-btn {
+            //    visibility: visible;
+            // }
+            /* ------------------- */
+
+            .arrow-btn {
                svg {
                   fill: $color-blue-1;
                   font-size: 1.25rem;
@@ -489,7 +497,11 @@ svg {
                }
             }
 
-            .arrow-up {
+            .arrow-btn {
+               visibility: hidden;
+            }
+
+            .arrow-btn.visible-btn {
                visibility: visible;
             }
 
@@ -552,7 +564,6 @@ svg {
          }
 
          &:hover {
-            background-color: rgba(0, 0, 0, 0.03);
             .btn-table {
                opacity: 1;
             }

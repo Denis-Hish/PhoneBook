@@ -44,10 +44,10 @@ const Contacts = () => {
    };
 
    // SORTING ---------------------------------------------------------------
-   const [sortField, setSortField] = useState(''); // текущее поле сортировки
+   const [sortField, setSortField] = useState('userName'); // состояние сортировки при загрузке страницы, без сортировки = ''
    const [sortDirection, setSortDirection] = useState('asc'); // направление сортировки (asc - по возрастанию, desc - по убыванию)
 
-   const handleSort = (field) => {
+   const handleSort = (field, event) => {
       // Если поле сортировки уже равно текущему полю, меняем направление сортировки
       if (sortField === field) {
          setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
@@ -55,6 +55,22 @@ const Contacts = () => {
          // Если поле сортировки отличается от текущего, устанавливаем новое поле сортировки и направление asc
          setSortField(field);
          setSortDirection('asc');
+      }
+
+      // Добавление класса для отображения стрелки сортировки
+      const headerTitle = event.currentTarget;
+      const arrowButton = headerTitle.querySelector('.arrow-btn');
+
+      // Remove the visible-btn class from all arrow-btn elements
+      const allArrowButtons = document.querySelectorAll('.arrow-btn');
+      allArrowButtons.forEach((btn) => btn.classList.remove('visible-btn'));
+
+      // Check if the click was on the header-title element
+      if (headerTitle.classList.contains('header-title')) {
+         // Check if the arrowButton doesn't have the visible-btn class
+         if (arrowButton && !arrowButton.classList.contains('visible-btn')) {
+            arrowButton.classList.add('visible-btn');
+         }
       }
    };
 
@@ -89,9 +105,9 @@ const Contacts = () => {
                <thead>
                   <tr>
                      <td className="header-title">№</td>
-                     <td className="header-title" onClick={() => handleSort('userName')}>
+                     <td className="header-title" onClick={(event) => handleSort('userName', event)}>
                         <span>Name</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }}>
                            {sortField === 'userName' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -99,7 +115,7 @@ const Contacts = () => {
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={() => handleSort('phoneNumber1')}>
+                     <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
                         <span>Phone 1</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
@@ -109,7 +125,7 @@ const Contacts = () => {
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={() => handleSort('phoneNumber2')}>
+                     <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
                         <span>Phone 2</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
@@ -119,7 +135,7 @@ const Contacts = () => {
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={() => handleSort('phoneNumber3')}>
+                     <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
                         <span>Phone 3</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
@@ -129,7 +145,7 @@ const Contacts = () => {
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={() => handleSort('group')}>
+                     <td className="header-title" onClick={(event) => handleSort('group', event)}>
                         <span>Group</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'group' && sortDirection === 'asc' ? (
