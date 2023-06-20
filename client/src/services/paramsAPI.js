@@ -14,6 +14,19 @@ export const addContact = (newContact) => {
       });
 };
 
+// ----------------TESTED-------------------------------------------
+export const deleteContact = (id, contactId) => {
+   axios
+      .delete(`api/contacts/delete-contact/${contactId}`)
+      .then((response) => alert(`Contact with ID ${response.data.userName} has been deleted!`))
+      .catch((error) => {
+         console.error('There was an error!', error);
+      });
+   console.log('Contact ID - ', id, contactId);
+};
+
+// ----------------------------------------------------------------
+
 // TODO: Add error handler everywhere with popap in UI
 
 //   updateParams: async (settings, callback) => {

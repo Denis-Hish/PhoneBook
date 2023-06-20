@@ -146,7 +146,7 @@ const AddContact = () => {
                </div>
             </div>
             <Button className="btn-add-contact" type="submit" variant="outlined">
-               Add +
+               Add contact
             </Button>
          </form>
       </div>
