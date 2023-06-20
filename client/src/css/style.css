@@ -363,8 +363,6 @@ svg {
   height: 40px;
   display: flex;
   align-items: center;
-  /* --- arrow icon --- */
-  /* ------------------- */
 }
 .contacts table thead td .arrow-btn svg {
   fill: rgb(25, 118, 210);
@@ -382,7 +380,7 @@ svg {
 .contacts table thead td:hover .arrow-btn {
   visibility: visible;
 }
-.contacts table thead td:not(:first-child) {
+.contacts table thead td:nth-child(n+2):nth-child(-n+6) {
   cursor: pointer;
 }
 .contacts table tr {
@@ -401,11 +399,7 @@ svg {
 .contacts table tr td:first-child {
   width: 40px;
 }
-.contacts table tr td:nth-child(2),
-.contacts table tr td:nth-child(3),
-.contacts table tr td:nth-child(4),
-.contacts table tr td:nth-child(5),
-.contacts table tr td:nth-child(6) {
+.contacts table tr td:nth-child(n+2):nth-child(-n+6) {
   flex: 1;
 }
 .contacts table tr .btn-icon-table {

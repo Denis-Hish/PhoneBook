@@ -476,16 +476,6 @@ svg {
             display: flex;
             align-items: center;
 
-            /* --- arrow icon --- */
-            // .MuiIconButton-root {
-            //    visibility: hidden;
-            // }
-
-            // .MuiIconButton-root.visible-btn {
-            //    visibility: visible;
-            // }
-            /* ------------------- */
-
             .arrow-btn {
                svg {
                   fill: $color-blue-1;
@@ -511,7 +501,8 @@ svg {
                }
             }
 
-            &:not(:first-child) {
+            // с 2 до 6
+            &:nth-child(n + 2):nth-child(-n + 6) {
                cursor: pointer;
             }
          }
@@ -534,11 +525,8 @@ svg {
             width: 40px;
          }
 
-         td:nth-child(2),
-         td:nth-child(3),
-         td:nth-child(4),
-         td:nth-child(5),
-         td:nth-child(6) {
+         // с 2 до 6
+         td:nth-child(n + 2):nth-child(-n + 6) {
             flex: 1;
          }
 
