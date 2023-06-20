@@ -61,29 +61,29 @@ const Contacts = () => {
             <h2>Kontakty:</h2>
 
             <TableContainer component={Paper}>
-               <Table aria-label="simple table">
-                  <TableHead className="sticky-header">
-                     <TableRow>
-                        <TableCell>№</TableCell>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Phone 1</TableCell>
-                        <TableCell>Phone 2</TableCell>
-                        <TableCell>Phone 3</TableCell>
-                        <TableCell>Group</TableCell>
-                        <TableCell />
-                        <TableCell />
+               <Table className="table" aria-label="simple table">
+                  <TableHead className="thead">
+                     <TableRow className="tr">
+                        <TableCell className="td">№</TableCell>
+                        <TableCell className="td">Name</TableCell>
+                        <TableCell className="td">Phone 1</TableCell>
+                        <TableCell className="td">Phone 2</TableCell>
+                        <TableCell className="td">Phone 3</TableCell>
+                        <TableCell className="td">Group</TableCell>
+                        <TableCell className="td" />
+                        <TableCell className="td" />
                      </TableRow>
                   </TableHead>
-                  <TableBody>
+                  <TableBody className="tbody">
                      {contacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
-                        <TableRow key={id}>
-                           <TableCell>{index + 1}</TableCell>
-                           <TableCell>{userName}</TableCell>
-                           <TableCell>{phoneNumber1}</TableCell>
-                           <TableCell>{phoneNumber2}</TableCell>
-                           <TableCell>{phoneNumber3}</TableCell>
-                           <TableCell>{group}</TableCell>
-                           <TableCell>
+                        <TableRow className="tr" key={id}>
+                           <TableCell className="td">{index + 1}</TableCell>
+                           <TableCell className="td">{userName}</TableCell>
+                           <TableCell className="td">{phoneNumber1}</TableCell>
+                           <TableCell className="td">{phoneNumber2}</TableCell>
+                           <TableCell className="td">{phoneNumber3}</TableCell>
+                           <TableCell className="td">{group}</TableCell>
+                           <TableCell className="td">
                               <IconButton
                                  className="btn-table edit"
                                  onClick={() => {
@@ -94,7 +94,7 @@ const Contacts = () => {
                                  <EditIcon />
                               </IconButton>
                            </TableCell>
-                           <TableCell>
+                           <TableCell className="td">
                               <IconButton
                                  onClick={() => {
                                     setOpen(true);

@@ -1,6 +1,3 @@
 -  Заменить таблицу table на таблицу MaterialUI
 -  Закрывать окно add contact по нажатию enter
 -  Закрывать окно add contact по нажатию ADD+
--  Присвоить ID и по нажатию кнопки edit или delete получать ID
--  Добавить toolip к кнопке add contact
--  Открывать add contact по нажатию кнопки Insert

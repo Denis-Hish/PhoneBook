@@ -46,12 +46,12 @@ const AddContact = () => {
 
    return (
       <div className="add-contacts">
-         <h2>Dodaj kontakt:</h2>
+         <h2>Add contakt:</h2>
          <form onSubmit={sumbitForm} className="form-wrap">
             <div className="form">
                <TextField
                   name="userName"
-                  label="Nazwa"
+                  label="Name"
                   variant="standard"
                   value={contact.userName}
                   onChange={onChangeHandler}
@@ -72,7 +72,7 @@ const AddContact = () => {
             <div className="form">
                <TextField
                   name="phoneNumber1"
-                  label="Telefon 1"
+                  label="Phone 1"
                   variant="standard"
                   value={contact.phoneNumber1}
                   onChange={onChangeHandler}
@@ -91,7 +91,7 @@ const AddContact = () => {
             <div className="form">
                <TextField
                   name="phoneNumber2"
-                  label="Telefon 2"
+                  label="Phone 2"
                   variant="standard"
                   value={contact.phoneNumber2}
                   onChange={onChangeHandler}
@@ -110,7 +110,7 @@ const AddContact = () => {
             <div className="form">
                <TextField
                   name="phoneNumber3"
-                  label="Telefon 3"
+                  label="Phone 3"
                   variant="standard"
                   value={contact.phoneNumber3}
                   onChange={onChangeHandler}
