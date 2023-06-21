@@ -63,7 +63,7 @@ const AddContact = () => {
                   <PersonIcon />
                </div>
                {contact.userName && (
-                  <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex="-1">
+                  <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex={-1}>
                      <ClearIcon />
                   </IconButton>
                )}
@@ -83,7 +83,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber1 && (
-                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber1')} tabIndex="-1">
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber1')} tabIndex={-1}>
                      <ClearIcon />
                   </IconButton>
                )}
@@ -102,7 +102,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber2 && (
-                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber2')} tabIndex="-1">
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber2')} tabIndex={-1}>
                      <ClearIcon />
                   </IconButton>
                )}
@@ -121,7 +121,7 @@ const AddContact = () => {
                   <PhoneEnabledIcon />
                </div>
                {contact.phoneNumber3 && (
-                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber3')} tabIndex="-1">
+                  <IconButton className="clear-btn" onClick={() => clearInput('phoneNumber3')} tabIndex={-1}>
                      <ClearIcon />
                   </IconButton>
                )}

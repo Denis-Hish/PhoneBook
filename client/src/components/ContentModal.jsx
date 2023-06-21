@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import CustomModal from './CustomModal';
+import Button from '@mui/material/Button';
+// import CustomModal from './CustomModal';
 
 function YourComponent() {
    const [modalOpen, setModalOpen] = useState(false);
@@ -31,14 +32,16 @@ function YourComponent() {
 
    return (
       <div>
-         <button onClick={openModal}>Open Modal</button>
+         <Button onClick={openModal} variant="outlined">
+            Open Modal
+         </Button>
 
-         <CustomModal
+         {/* <CustomModal
             open={modalOpen}
             onClose={closeModal}
             content={modalContent}
             buttons={modalButtons}
-         />
+         /> */}
       </div>
    );
 }

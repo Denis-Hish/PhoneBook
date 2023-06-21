@@ -12,7 +12,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-const TransitionsModal = ({ content, isOpen, setIsOpenModal, Buttons }) => {
+const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
    // const handleOpen = () => setOpen(true);
    const handleClose = () => setIsOpenModal(false);
 

@@ -15,14 +15,13 @@ export const addContact = (newContact) => {
 };
 
 // ----------------TESTED-------------------------------------------
-export const deleteContact = (id, contactId) => {
-   axios
+export const deleteContact = (contactId) => {
+   return axios
       .delete(`api/contacts/delete-contact/${contactId}`)
-      .then((response) => alert(`Contact with ID ${response.data.userName} has been deleted!`))
+      .then((response) => alert(`Contact ${response.data.userName} deleted successfully`))
       .catch((error) => {
-         console.error('There was an error!', error);
+         console.error('There was an error deleting the contact:', error);
       });
-   console.log('Contact ID - ', id, contactId);
 };
 
 // ----------------------------------------------------------------
