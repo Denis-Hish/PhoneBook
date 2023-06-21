@@ -98,7 +98,7 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
-         <ModalWindows content={'CONTENT TEST'} isOpen={open} setIsOpenModal={setOpen} Buttons={<Buttons />} />
+         <ModalWindows content={'ModalWindows.jsx'} isOpen={open} setIsOpenModal={setOpen} Buttons={<Buttons />} />
          <div className="container">
             <h2>Kontakty:</h2>
             <table>
