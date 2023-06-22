@@ -13,10 +13,20 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
-      <Button className="btn-modal btn-modal__cancel" variant="outlined" color="primary" onClick={handleCloseModal}>
+      <Button
+         className="btn-modal btn-modal__cancel"
+         variant="outlined"
+         color="primary"
+         onClick={handleCloseModal}
+      >
          CANCEL
       </Button>
-      <Button className="btn-modal btn-modal__delete" variant="outlined" color="error" onClick={handleDeleteContact}>
+      <Button
+         className="btn-modal btn-modal__delete"
+         variant="outlined"
+         color="error"
+         onClick={handleDeleteContact}
+      >
          DELETE
       </Button>
    </>
@@ -27,7 +37,6 @@ const Contacts = () => {
    const [open, setOpen] = useState(false);
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
-   const [shouldUpdateContacts, setShouldUpdateContacts] = useState(false);
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -38,26 +47,22 @@ const Contacts = () => {
       setContacts(res);
    };
 
-   const getIdEditBtn = (id) => {
+   const getIdEditBtn = id => {
       console.log('Edit ID:', id);
       setSelectedId(id);
       setOpen(true);
       setSelectedAction('Edit');
    };
-   const getIdDeleteBtn = (id) => {
+   const getIdDeleteBtn = id => {
       console.log('Delete ID:', id);
       setSelectedId(id);
       setOpen(true);
       setSelectedAction('Delete');
    };
 
-   const updateContacts = () => {
-      setShouldUpdateContacts(true);
-   };
-
    const handleDeleteContact = async () => {
       try {
-         const contact = contacts?.find((contact) => contact.id === selectedId);
+         const contact = contacts?.find(contact => contact.id === selectedId);
          if (contact) {
             const contactName = contact.userName;
             await deleteContact(selectedId);
@@ -94,7 +99,7 @@ const Contacts = () => {
 
       // Remove the visible-btn class from all arrow-btn elements
       const allArrowButtons = document.querySelectorAll('.arrow-btn');
-      allArrowButtons.forEach((btn) => btn.classList.remove('visible-btn'));
+      allArrowButtons.forEach(btn => btn.classList.remove('visible-btn'));
 
       // Check if the click was on the header-title element
       if (headerTitle.classList.contains('header-title')) {
@@ -123,11 +128,7 @@ const Contacts = () => {
       if (!contacts) {
          getContacts();
       }
-      if (shouldUpdateContacts) {
-         getContacts();
-         setShouldUpdateContacts(false);
-      }
-   }, [shouldUpdateContacts]);
+   }, []);
 
    console.log('---All contacts---', contacts);
 
@@ -135,12 +136,16 @@ const Contacts = () => {
       <div className="contacts">
          <ModalWindows
             content={`${selectedAction} NAME: ${
-               contacts?.find((contact) => contact.id === selectedId)?.userName
+               contacts?.find(contact => contact.id === selectedId)?.userName
             } ID: ${selectedId} ?`}
             isOpen={open}
             setIsOpenModal={setOpen}
-            Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
-            updateContacts={updateContacts}
+            Buttons={
+               <Buttons
+                  handleDeleteContact={handleDeleteContact}
+                  handleCloseModal={() => setOpen(false)}
+               />
+            }
          />
 
          <div className="container">
@@ -149,49 +154,83 @@ const Contacts = () => {
                <thead>
                   <tr>
                      <td className="header-title">№</td>
-                     <td className="header-title" onClick={(event) => handleSort('userName', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('userName', event)}
+                     >
                         <span>Name</span>
-                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'userName' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn visible-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'userName' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber1', event)}
+                     >
                         <span>Phone 1</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber1' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber2', event)}
+                     >
                         <span>Phone 2</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber2' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber3', event)}
+                     >
                         <span>Phone 3</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber3' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('group', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('group', event)}
+                     >
                         <span>Group</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
                            {sortField === 'group' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -204,42 +243,64 @@ const Contacts = () => {
                   </tr>
                </thead>
                <tbody>
-                  {sortedContacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
-                     <tr key={id}>
-                        <td>{index + 1}</td>
-                        <td>{userName}</td>
-                        <td>{phoneNumber1}</td>
-                        <td>{phoneNumber2}</td>
-                        <td>{phoneNumber3}</td>
-                        <td>{group}</td>
-                        <td className="btn-icon-table">
-                           <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
-                              <IconButton
-                                 className="btn-table edit"
-                                 onClick={() => {
-                                    setOpen(true);
-                                    getIdEditBtn(id);
-                                 }}
+                  {sortedContacts?.map(
+                     (
+                        {
+                           id,
+                           userName,
+                           phoneNumber1,
+                           phoneNumber2,
+                           phoneNumber3,
+                           group,
+                        },
+                        index
+                     ) => (
+                        <tr key={id}>
+                           <td>{index + 1}</td>
+                           <td>{userName}</td>
+                           <td>{phoneNumber1}</td>
+                           <td>{phoneNumber2}</td>
+                           <td>{phoneNumber3}</td>
+                           <td>{group}</td>
+                           <td className="btn-icon-table">
+                              <Tooltip
+                                 title="Edit contact"
+                                 placement="top"
+                                 TransitionComponent={Zoom}
+                                 arrow
                               >
-                                 <EditIcon />
-                              </IconButton>
-                           </Tooltip>
-                        </td>
-                        <td className="btn-icon-table">
-                           <Tooltip title="Delete contact" placement="top" TransitionComponent={Zoom} arrow>
-                              <IconButton
-                                 className="btn-table delete"
-                                 onClick={() => {
-                                    setOpen(true);
-                                    getIdDeleteBtn(id);
-                                 }}
+                                 <IconButton
+                                    className="btn-table edit"
+                                    onClick={() => {
+                                       setOpen(true);
+                                       getIdEditBtn(id);
+                                    }}
+                                 >
+                                    <EditIcon />
+                                 </IconButton>
+                              </Tooltip>
+                           </td>
+                           <td className="btn-icon-table">
+                              <Tooltip
+                                 title="Delete contact"
+                                 placement="top"
+                                 TransitionComponent={Zoom}
+                                 arrow
                               >
-                                 <DeleteIcon />
-                              </IconButton>
-                           </Tooltip>
-                        </td>
-                     </tr>
-                  ))}
+                                 <IconButton
+                                    className="btn-table delete"
+                                    onClick={() => {
+                                       setOpen(true);
+                                       getIdDeleteBtn(id);
+                                    }}
+                                 >
+                                    <DeleteIcon />
+                                 </IconButton>
+                              </Tooltip>
+                           </td>
+                        </tr>
+                     )
+                  )}
                </tbody>
             </table>
          </div>
@@ -247,5 +308,4 @@ const Contacts = () => {
    );
 };
 
-export { updateContacts };
 export default Contacts;

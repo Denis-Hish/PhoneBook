@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
-import { updateContacts } from './Contacts';
 
 const style = {
    position: 'absolute',
@@ -26,7 +25,6 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
             open={isOpen}
             onClose={() => {
                handleClose();
-               updateContacts();
             }}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
@@ -39,7 +37,10 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
             <Fade in={isOpen}>
                <Box sx={style} className="modal modal-add-contact">
                   <Typography className="modal-header">
-                     <button className="btn-close" onClick={handleClose}></button>
+                     <button
+                        className="btn-close"
+                        onClick={handleClose}
+                     ></button>
                   </Typography>
 
                   <Typography className="modal-content">{content}</Typography>
