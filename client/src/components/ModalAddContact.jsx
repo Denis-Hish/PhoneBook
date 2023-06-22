@@ -61,7 +61,7 @@ export default function TransitionsModal() {
             <Fade in={open}>
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={handleClose}></button>
-                  <AddContact />
+                  <AddContact onClose={handleClose} />
                </Box>
             </Fade>
          </Modal>
