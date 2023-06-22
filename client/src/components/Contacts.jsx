@@ -27,6 +27,7 @@ const Contacts = () => {
    const [open, setOpen] = useState(false);
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
+   const [shouldUpdateContacts, setShouldUpdateContacts] = useState(false);
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -34,7 +35,6 @@ const Contacts = () => {
       if (res instanceof Array && !res.length) {
          console.log('---No Contacts in DB -', res.length);
       }
-
       setContacts(res);
    };
 
@@ -49,6 +49,10 @@ const Contacts = () => {
       setSelectedId(id);
       setOpen(true);
       setSelectedAction('Delete');
+   };
+
+   const updateContacts = () => {
+      setShouldUpdateContacts(true);
    };
 
    const handleDeleteContact = async () => {
@@ -119,7 +123,11 @@ const Contacts = () => {
       if (!contacts) {
          getContacts();
       }
-   }, []);
+      if (shouldUpdateContacts) {
+         getContacts();
+         setShouldUpdateContacts(false);
+      }
+   }, [shouldUpdateContacts]);
 
    console.log('---All contacts---', contacts);
 
@@ -132,6 +140,7 @@ const Contacts = () => {
             isOpen={open}
             setIsOpenModal={setOpen}
             Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
+            updateContacts={updateContacts}
          />
 
          <div className="container">
@@ -238,4 +247,5 @@ const Contacts = () => {
    );
 };
 
+export { updateContacts };
 export default Contacts;

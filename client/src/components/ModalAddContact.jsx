@@ -18,7 +18,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-export default function TransitionsModal() {
+export default function TransitionsModal({ updateContacts }) {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -49,7 +49,10 @@ export default function TransitionsModal() {
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             open={open}
-            onClose={handleClose}
+            onClose={() => {
+               handleClose();
+               updateContacts();
+            }}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
             slotProps={{
@@ -61,7 +64,11 @@ export default function TransitionsModal() {
             <Fade in={open}>
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={handleClose}></button>
-                  <AddContact onClose={handleClose} />
+                  <AddContact
+                     onClose={() => {
+                        handleClose();
+                     }}
+                  />
                </Box>
             </Fade>
          </Modal>

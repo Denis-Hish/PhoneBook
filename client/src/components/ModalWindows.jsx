@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
+import { updateContacts } from './Contacts';
 
 const style = {
    position: 'absolute',
@@ -23,7 +24,10 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             open={isOpen}
-            onClose={handleClose}
+            onClose={() => {
+               handleClose();
+               updateContacts();
+            }}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
             slotProps={{
