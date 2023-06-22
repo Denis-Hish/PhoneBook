@@ -51,7 +51,7 @@ const Contacts = () => {
       setSelectedAction('Delete');
    };
 
-   const handleDeleteContact = async () => {
+   const handleDeleteContact = async (handleCloseModal) => {
       try {
          const contact = contacts?.find((contact) => contact.id === selectedId);
          if (contact) {
@@ -59,6 +59,7 @@ const Contacts = () => {
             await deleteContact(selectedId);
             alert(`Contact ${contactName} deleted successfully`);
             // Дополнительные действия после успешного удаления контакта
+            setOpen(false); // Закрыть модальное окно
          } else {
             alert('There was an error deleting the contact');
          }

@@ -8,7 +8,7 @@ import ComboBox from './ComboBox';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 
-const AddContact = () => {
+const AddContact = ({ onClose }) => {
    const [contact, setContact] = useState({
       userName: '',
       phoneNumber1: '',
@@ -36,6 +36,8 @@ const AddContact = () => {
       event.preventDefault();
       console.log('--contact--', contact);
       addContact(contact);
+      // Закрытие модального окна после отправки формы
+      onClose();
    };
 
    // Focus on input
