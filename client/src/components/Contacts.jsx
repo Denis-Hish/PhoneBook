@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllContacts } from '../services/paramsAPI';
+import { deleteContact, getAllContacts } from '../services/paramsAPI';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,12 +11,12 @@ import Zoom from '@mui/material/Zoom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
-const Buttons = () => (
+const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
-      <Button className="btn-modal btn-modal__cancel" variant="outlined" color="primary">
+      <Button className="btn-modal btn-modal__cancel" variant="outlined" color="primary" onClick={handleCloseModal}>
          CANCEL
       </Button>
-      <Button className="btn-modal btn-modal__delete" variant="outlined" color="error">
+      <Button className="btn-modal btn-modal__delete" variant="outlined" color="error" onClick={handleDeleteContact}>
          DELETE
       </Button>
    </>
@@ -49,6 +49,23 @@ const Contacts = () => {
       setSelectedId(id);
       setOpen(true);
       setSelectedAction('Delete');
+   };
+
+   const handleDeleteContact = async () => {
+      try {
+         const contact = contacts?.find((contact) => contact.id === selectedId);
+         if (contact) {
+            const contactName = contact.userName;
+            await deleteContact(selectedId);
+            alert(`Contact ${contactName} deleted successfully`);
+            // Дополнительные действия после успешного удаления контакта
+         } else {
+            alert('There was an error deleting the contact');
+         }
+      } catch (error) {
+         console.error('There was an error deleting the contact:', error);
+         // Дополнительные действия в случае ошибки при удалении контакта
+      }
    };
 
    // SORTING ---------------------------------------------------------------
@@ -112,7 +129,7 @@ const Contacts = () => {
             } ID: ${selectedId} ?`}
             isOpen={open}
             setIsOpenModal={setOpen}
-            Buttons={<Buttons />}
+            Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
          />
 
          <div className="container">

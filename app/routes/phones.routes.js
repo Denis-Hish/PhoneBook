@@ -37,5 +37,21 @@ module.exports = (app) => {
          });
    });
 
+   // ----------------TESTED------------------------------------------
+   // Delete a contact by ID
+   router.delete('/delete-contact/:id', (req, res) => {
+      const contactId = req.params.id;
+
+      ContactDetails.findByIdAndDelete(contactId)
+         .then(() => {
+            res.send({ message: 'Контакт успешно удален' });
+         })
+         .catch((err) => {
+            console.log('----- Ошибка при удалении записи: ' + err);
+            res.send(err);
+         });
+   });
+   // ----------------------------------------------------------------
+
    app.use('/api/contacts', router);
 };

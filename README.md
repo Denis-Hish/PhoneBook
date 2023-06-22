@@ -1,3 +1,5 @@
 -  Закрывать окно add contact по нажатию enter
 -  Закрывать окно add contact по нажатию ADD+
 -  Не добавляет группу в БД
+-  Перенести код удаления контакта из Contacts.jsx в paramsAPI.js
+-  phones.routes.js код удаления контакта???
