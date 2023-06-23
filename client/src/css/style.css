@@ -343,6 +343,16 @@ svg {
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+.contacts .filter {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  border-radius: 10px;
+  padding: 0;
+  margin-left: 5rem;
+  width: 30%;
+}
+.contacts .filter fieldset {
+  border: none;
+}
 .contacts table {
   display: grid;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
