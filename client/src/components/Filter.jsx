@@ -12,7 +12,7 @@ export default function Filter() {
          noValidate
          autoComplete="off"
       >
-         <TextField id="outlined-basic" label="There will be a filter?" variant="outlined" />
+         <TextField id="outlined-basic" label="There will be a filter?" variant="outlined" color="primary" />
       </Box>
    );
 }

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { deleteContact, getAllContacts } from '../services/paramsAPI';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ModalWindows from './ModalWindows';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
@@ -13,10 +15,22 @@ import Filter from './Filter';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
-      <Button className="btn-modal btn-modal__cancel" variant="outlined" color="primary" onClick={handleCloseModal}>
+      <Button
+         className="btn-modal btn-modal__cancel"
+         variant="outlined"
+         color="primary"
+         startIcon={<CancelOutlinedIcon />}
+         onClick={handleCloseModal}
+      >
          CANCEL
       </Button>
-      <Button className="btn-modal btn-modal__delete" variant="outlined" color="error" onClick={handleDeleteContact}>
+      <Button
+         className="btn-modal btn-modal__delete"
+         variant="outlined"
+         color="error"
+         endIcon={<DeleteOutlineOutlinedIcon />}
+         onClick={handleDeleteContact}
+      >
          DELETE
       </Button>
    </>
@@ -125,9 +139,12 @@ const Contacts = () => {
    return (
       <div className="contacts">
          <ModalWindows
-            content={`${selectedAction} NAME: ${
-               contacts?.find((contact) => contact.id === selectedId)?.userName
-            } ID: ${selectedId} ?`}
+            content={
+               <>
+                  {selectedAction}: {contacts?.find((contact) => contact.id === selectedId)?.userName} ?
+                  {/* ID: {selectedId} */}
+               </>
+            }
             isOpen={open}
             setIsOpenModal={setOpen}
             Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
