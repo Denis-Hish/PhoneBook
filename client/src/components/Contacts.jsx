@@ -84,14 +84,11 @@ const Contacts = () => {
       }
    };
 
-   // ! ---------------- Filter ------------------
+   // FILTER ------------------
    const handleFilterChange = (event) => {
-      setFilterValue(event.target.value);
+      const filterInput = event.target.value.toLowerCase();
+      setFilterValue(filterInput);
    };
-   const filteredContacts = contacts?.filter((contact) =>
-      contact.userName.toLowerCase().includes(filterValue.toLowerCase())
-   );
-   // ! ------------------------------------------
 
    // SORTING ---------------------------------------------------------------
    const [sortField, setSortField] = useState('userName'); // состояние сортировки при загрузке страницы, без сортировки = ''
@@ -138,7 +135,7 @@ const Contacts = () => {
    });
 
    const filteredAndSortedContacts = filterValue
-      ? allContacts.filter((contact) => contact.userName.toLowerCase().includes(filterValue.toLowerCase()))
+      ? allContacts.filter((contact) => Object.values(contact).join(' ').toLowerCase().includes(filterValue))
       : allContacts;
 
    useEffect(() => {
