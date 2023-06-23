@@ -19,7 +19,7 @@ function App() {
          <Contacts />
          <ModalAddContact />
 
-         <div className="bottom-buttons">
+         <div className="container bottom-buttons">
             <ModalWindowsDelete />
             <ModalWindowsDeleted />
             <ModalWindowsSaved />

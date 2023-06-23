@@ -237,10 +237,10 @@ const Contacts = () => {
                               <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
                                  <IconButton
                                     className="btn-table edit"
-                                    onClick={() => {
-                                       setOpen(true);
-                                       getIdEditBtn(id);
-                                    }}
+                                    // onClick={() => {
+                                    //    setOpen(true);
+                                    //    getIdEditBtn(id);
+                                    // }}
                                  >
                                     <EditIcon />
                                  </IconButton>

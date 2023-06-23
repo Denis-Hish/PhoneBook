@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { addContact } from '../services/paramsAPI';
+import { addContact, getAllContacts } from '../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
@@ -37,7 +37,7 @@ const AddContact = ({ onClose, getContacts }) => {
       console.log('--contact--', contact);
       addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
-      // getContacts(); // Обновление списка контактов после успешного добавления контакта
+      // getContacts(); // ! Обновление списка контактов после успешного добавления контакта
    };
 
    // Focus on input
