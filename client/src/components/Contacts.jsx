@@ -41,6 +41,7 @@ const Contacts = () => {
    const [open, setOpen] = useState(false);
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
+   const [filterValue, setFilterValue] = useState(''); //! Filter
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -82,6 +83,15 @@ const Contacts = () => {
          // Дополнительные действия в случае ошибки при удалении контакта
       }
    };
+
+   // ! ---------------- Filter ------------------
+   const handleFilterChange = (event) => {
+      setFilterValue(event.target.value);
+   };
+   const filteredContacts = contacts?.filter((contact) =>
+      contact.userName.toLowerCase().includes(filterValue.toLowerCase())
+   );
+   // ! ------------------------------------------
 
    // SORTING ---------------------------------------------------------------
    const [sortField, setSortField] = useState('userName'); // состояние сортировки при загрузке страницы, без сортировки = ''
@@ -153,7 +163,7 @@ const Contacts = () => {
          <div className="container">
             <div className="header-table">
                <h2>Kontakty:</h2>
-               <Filter />
+               <Filter value={filterValue} onChange={handleFilterChange} />
             </div>
             <table>
                <thead>
@@ -215,6 +225,7 @@ const Contacts = () => {
                </thead>
                <tbody>
                   {sortedContacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
+                     // {filteredContacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
                      <tr key={id}>
                         <td>{index + 1}</td>
                         <td>{userName}</td>

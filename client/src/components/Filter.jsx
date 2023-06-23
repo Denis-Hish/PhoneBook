@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function Filter() {
+export default function Filter({ value, onChange }) {
    return (
       <Box
          component="form"
@@ -12,7 +12,14 @@ export default function Filter() {
          noValidate
          autoComplete="off"
       >
-         <TextField id="outlined-basic" label="There will be a filter?" variant="outlined" color="primary" />
+         <TextField
+            id="outlined-basic"
+            label="Filter contacts"
+            variant="outlined"
+            color="primary"
+            value={value}
+            onChange={onChange}
+         />
       </Box>
    );
 }

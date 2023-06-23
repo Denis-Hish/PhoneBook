@@ -17,25 +17,29 @@ export default function FreeSoloCreateOption() {
                   title: newValue,
                });
             } else if (newValue && newValue.inputValue) {
-               // Create a new value from the user input
+               // Создание нового значение из пользовательского ввода
                setValue({
                   title: newValue.inputValue,
                });
             } else {
                setValue(newValue);
             }
+            // console.log('Добавление новой группы - ', newValue.inputValue);
+            // console.log('Выбрана группа - ', newValue.title);
+            console.log('newValue - ', newValue);
          }}
          filterOptions={(options, params) => {
             const filtered = filter(options, params);
 
             const { inputValue } = params;
-            // Suggest the creation of a new value
+            // Создание нового значения
             const isExisting = options.some((option) => inputValue === option.title);
             if (inputValue !== '' && !isExisting) {
                filtered.push({
                   inputValue,
                   title: `Add new group "${inputValue}"`,
                });
+               // console.log('Ввод текста в input - ', inputValue);
             }
 
             return filtered;
@@ -64,10 +68,10 @@ export default function FreeSoloCreateOption() {
    );
 }
 
-const Groups = [{ title: 'SNR - Biuro' }, 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
-// const Groups = [
-//    'The Shawshank Redemption',
-//    { title: 'Secretariat' },
-//    { title: 'The Godfather', year: 1972 },
-//    { title: 'The Godfather: Part II', year: 1974 },
-// ];
+const Groups = [
+   { title: 'SNR - Biuro' },
+   { title: 'SNR - Karcz.' },
+   { title: 'Placówki' },
+   { title: 'WS' },
+   { title: 'ZAZ' },
+];
