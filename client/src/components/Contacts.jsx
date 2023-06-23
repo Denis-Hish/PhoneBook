@@ -125,11 +125,10 @@ const Contacts = () => {
    };
 
    // Отсортированные контакты с учетом текущего поля и направления сортировки
-   const sortedContacts = contacts?.sort((a, b) => {
+   const allContacts = contacts?.sort((a, b) => {
       // Извлекаем значения для сортировки из контактов
       const valueA = a[sortField] || '';
       const valueB = b[sortField] || '';
-
       // Сравниваем значения в зависимости от направления сортировки
       if (sortDirection === 'asc') {
          return valueA.localeCompare(valueB);
@@ -137,6 +136,10 @@ const Contacts = () => {
          return valueB.localeCompare(valueA);
       }
    });
+
+   const filteredAndSortedContacts = filterValue
+      ? allContacts.filter((contact) => contact.userName.toLowerCase().includes(filterValue.toLowerCase()))
+      : allContacts;
 
    useEffect(() => {
       if (!contacts) {
@@ -224,43 +227,44 @@ const Contacts = () => {
                   </tr>
                </thead>
                <tbody>
-                  {sortedContacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
-                     // {filteredContacts?.map(({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
-                     <tr key={id}>
-                        <td>{index + 1}</td>
-                        <td>{userName}</td>
-                        <td>{phoneNumber1}</td>
-                        <td>{phoneNumber2}</td>
-                        <td>{phoneNumber3}</td>
-                        <td>{group}</td>
-                        <td className="btn-icon-table">
-                           <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
-                              <IconButton
-                                 className="btn-table edit"
-                                 onClick={() => {
-                                    setOpen(true);
-                                    getIdEditBtn(id);
-                                 }}
-                              >
-                                 <EditIcon />
-                              </IconButton>
-                           </Tooltip>
-                        </td>
-                        <td className="btn-icon-table">
-                           <Tooltip title="Delete contact" placement="top" TransitionComponent={Zoom} arrow>
-                              <IconButton
-                                 className="btn-table delete"
-                                 onClick={() => {
-                                    setOpen(true);
-                                    getIdDeleteBtn(id);
-                                 }}
-                              >
-                                 <DeleteIcon />
-                              </IconButton>
-                           </Tooltip>
-                        </td>
-                     </tr>
-                  ))}
+                  {filteredAndSortedContacts?.map(
+                     ({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
+                        <tr key={id}>
+                           <td>{index + 1}</td>
+                           <td>{userName}</td>
+                           <td>{phoneNumber1}</td>
+                           <td>{phoneNumber2}</td>
+                           <td>{phoneNumber3}</td>
+                           <td>{group}</td>
+                           <td className="btn-icon-table">
+                              <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
+                                 <IconButton
+                                    className="btn-table edit"
+                                    onClick={() => {
+                                       setOpen(true);
+                                       getIdEditBtn(id);
+                                    }}
+                                 >
+                                    <EditIcon />
+                                 </IconButton>
+                              </Tooltip>
+                           </td>
+                           <td className="btn-icon-table">
+                              <Tooltip title="Delete contact" placement="top" TransitionComponent={Zoom} arrow>
+                                 <IconButton
+                                    className="btn-table delete"
+                                    onClick={() => {
+                                       setOpen(true);
+                                       getIdDeleteBtn(id);
+                                    }}
+                                 >
+                                    <DeleteIcon />
+                                 </IconButton>
+                              </Tooltip>
+                           </td>
+                        </tr>
+                     )
+                  )}
                </tbody>
             </table>
          </div>
