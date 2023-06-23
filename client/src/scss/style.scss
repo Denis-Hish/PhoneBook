@@ -434,6 +434,13 @@ svg {
    padding-top: 100px;
    margin-bottom: 60px;
 
+   .header-table {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+   }
+
    /* counter css */
    // table {
    //    counter-reset: section;
