@@ -36,14 +36,15 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
          >
             <Fade in={isOpen}>
                <Box sx={style} className="modal modal-add-contact">
-                  <Typography className="modal-header">
-                     <button className="btn-close" onClick={handleClose}></button>
-                  </Typography>
+                  <div className="modal-wrapper">
+                     <Typography className="modal-header">
+                        <button className="btn-close" onClick={handleClose}></button>
+                     </Typography>
 
-                  <Typography className="modal-content">{content}</Typography>
+                     <Typography className="modal-content">{content}</Typography>
 
-                  <Typography className="modal-buttons">
-                     {/* <Button
+                     <Typography className="modal-buttons">
+                        {/* <Button
                         className="btn-modal btn-modal__cancel"
                         onClick={handleClose}
                         variant="outlined"
@@ -58,8 +59,9 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
                      >
                         DELETE
                      </Button> */}
-                     {Buttons}
-                  </Typography>
+                        {Buttons}
+                     </Typography>
+                  </div>
                </Box>
             </Fade>
          </Modal>

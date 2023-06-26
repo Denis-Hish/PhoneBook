@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
 
 export default function Filter({ value, onChange }) {
    return (
@@ -13,6 +15,10 @@ export default function Filter({ value, onChange }) {
             value={value}
             onChange={onChange}
          />
+
+         <IconButton className="clear-filter-btn">
+            <ClearIcon />
+         </IconButton>
       </Box>
    );
 }

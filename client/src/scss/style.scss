@@ -441,11 +441,23 @@ svg {
          box-shadow: $box-shadow-inset;
          border-radius: 10px;
          padding: 0;
-         margin-left: 5rem;
-         width: 30%;
+         display: flex;
+         align-items: center;
+         // margin-left: 5rem;
+         // position: relative;
+
+         // & input {
+         // }
 
          & fieldset {
             border: none;
+         }
+
+         .clear-filter-btn {
+            // height: 100%;
+            // position: absolute;
+            // top: 20%;
+            // right: 0;
          }
       }
    }

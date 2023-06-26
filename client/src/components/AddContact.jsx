@@ -37,7 +37,7 @@ const AddContact = ({ onClose, getContacts }) => {
       console.log('--contact--', contact);
       addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
-      // getContacts(); // ! Обновление списка контактов после успешного добавления контакта
+      //getContacts(); // ! Обновление списка контактов после успешного добавления контакта
    };
 
    // Focus on input
@@ -131,11 +131,13 @@ const AddContact = ({ onClose, getContacts }) => {
             <div className="form">
                <ComboBox
                   value={contact.group}
-                  onChange={(event) =>
-                     setContact((prevContact) => ({
-                        ...prevContact,
-                        group: event.target.value,
-                     }))
+                  onChange={(event, newValue) =>
+                     onChangeHandler({
+                        target: {
+                           name: 'group',
+                           value: newValue ? newValue.title : '',
+                        },
+                     })
                   }
                />
                <div className="icons">

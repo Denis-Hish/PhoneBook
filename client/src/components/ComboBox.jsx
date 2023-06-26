@@ -47,7 +47,7 @@ export default function FreeSoloCreateOption() {
          selectOnFocus
          clearOnBlur
          handleHomeEndKeys
-         options={Groups}
+         options={groups}
          getOptionLabel={(option) => {
             // Value selected with enter, right from the input
             if (typeof option === 'string') {
@@ -68,7 +68,9 @@ export default function FreeSoloCreateOption() {
    );
 }
 
-const Groups = [
+const options = ['SNR - Biuro', 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
+
+const groups = [
    { title: 'SNR - Biuro' },
    { title: 'SNR - Karcz.' },
    { title: 'Placówki' },

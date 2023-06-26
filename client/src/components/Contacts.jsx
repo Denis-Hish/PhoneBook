@@ -151,7 +151,7 @@ const Contacts = () => {
          <ModalWindows
             content={
                <>
-                  {selectedAction}: {contacts?.find((contact) => contact.id === selectedId)?.userName} ?
+                  {selectedAction}: {contacts?.find((contact) => contact.id === selectedId)?.userName}?
                   {/* ID: {selectedId} */}
                </>
             }
@@ -238,8 +238,8 @@ const Contacts = () => {
                                  <IconButton
                                     className="btn-table edit"
                                     // onClick={() => {
-                                    //    setOpen(true);
-                                    //    getIdEditBtn(id);
+                                    // setOpen(true);
+                                    // getIdEditBtn(id);
                                     // }}
                                  >
                                     <EditIcon />

@@ -348,8 +348,8 @@ svg {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
   border-radius: 10px;
   padding: 0;
-  margin-left: 5rem;
-  width: 30%;
+  display: flex;
+  align-items: center;
 }
 .contacts .header-table .filter fieldset {
   border: none;

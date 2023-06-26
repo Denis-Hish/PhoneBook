@@ -4,3 +4,4 @@
 -  Перенести код удаления контакта из Contacts.jsx в paramsAPI.js
 -  phones.routes.js код удаления контакта???
 -  Реализовать редактирование контактов
+-  Нет функции updateContacts в ModalAddContact.jsx
