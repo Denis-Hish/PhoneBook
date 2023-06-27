@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { addContact, getAllContacts } from '../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ComboBox from './ComboBox';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
+import ComboBox from './ComboBox';
 
-const AddContact = ({ onClose, getContacts }) => {
+const AddContact = ({ onClose }) => {
    const [contact, setContact] = useState({
       userName: '',
       phoneNumber1: '',
@@ -31,13 +31,12 @@ const AddContact = ({ onClose, getContacts }) => {
       }));
    };
 
-   const sumbitForm = (event) => {
+   const submitForm = (event) => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
       addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
-      //getContacts(); // ! Обновление списка контактов после успешного добавления контакта
    };
 
    // Focus on input
@@ -49,7 +48,7 @@ const AddContact = ({ onClose, getContacts }) => {
    return (
       <div className="add-contacts">
          <h2>Add contakt:</h2>
-         <form onSubmit={sumbitForm} className="form-wrap">
+         <form onSubmit={submitForm} className="form-wrap">
             <div className="form">
                <TextField
                   name="userName"

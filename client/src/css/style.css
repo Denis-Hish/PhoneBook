@@ -34,6 +34,11 @@ svg {
   font-size: 12px;
 }
 
+.MuiBackdrop-root {
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+
 @media only screen and (max-width: 767px) {
   .hideOnMobile {
     display: none;

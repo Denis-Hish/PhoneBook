@@ -12,6 +12,7 @@ import ModalWindowsSaved from './components/TESTED/ModalWindowsSaved';
 import ModalWindowsNumberExists from './components/TESTED/ModalWindowsNumberExists';
 import YourComponent from './components/ContentModal';
 import Converter from './components/Converter';
+import Snackbar from './components/Snackbar';
 
 function App() {
    return (
@@ -22,11 +23,12 @@ function App() {
 
          <div className="container bottom-buttons">
             <Converter />
-            <ModalWindowsDelete />
+            {/* <ModalWindowsDelete />
             <ModalWindowsDeleted />
             <ModalWindowsSaved />
             <ModalWindowsNumberExists />
-            <YourComponent />
+            <YourComponent /> */}
+            <Snackbar />
          </div>
 
          <Footer />

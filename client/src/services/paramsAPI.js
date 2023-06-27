@@ -16,7 +16,7 @@ export const addContact = (newContact) => {
 
 // ----------------TESTED------------------------------------------
 export const deleteContact = (contactId) => {
-   return axios
+   axios
       .delete(`api/contacts/delete-contact/${contactId}`)
       .then((response) => {
          const deletedContact = response.data;
@@ -26,7 +26,6 @@ export const deleteContact = (contactId) => {
          // console.error('Произошла ошибка при удалении контакта:', error);
       });
 };
-
 // ----------------------------------------------------------------
 
 // TODO: Add error handler everywhere with popap in UI

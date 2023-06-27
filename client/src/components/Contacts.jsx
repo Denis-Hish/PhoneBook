@@ -12,6 +12,7 @@ import Zoom from '@mui/material/Zoom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
+import AddContact from './AddContact';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -41,7 +42,7 @@ const Contacts = () => {
    const [open, setOpen] = useState(false);
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
-   const [filterValue, setFilterValue] = useState(''); //! Filter
+   const [filterValue, setFilterValue] = useState('');
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -54,9 +55,9 @@ const Contacts = () => {
 
    const getIdEditBtn = (id) => {
       console.log('Edit ID:', id);
-      setSelectedId(id);
-      setOpen(true);
-      setSelectedAction('Edit');
+      // setSelectedId(id);
+      // setOpen(true);
+      // setSelectedAction('Edit');
    };
    const getIdDeleteBtn = (id) => {
       console.log('Delete ID:', id);
@@ -151,7 +152,7 @@ const Contacts = () => {
          <ModalWindows
             content={
                <>
-                  {selectedAction}: {contacts?.find((contact) => contact.id === selectedId)?.userName}?
+                  {selectedAction}: <b>{contacts?.find((contact) => contact.id === selectedId)?.userName}</b>?
                   {/* ID: {selectedId} */}
                </>
             }
@@ -159,7 +160,6 @@ const Contacts = () => {
             setIsOpenModal={setOpen}
             Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
          />
-
          <div className="container">
             <div className="header-table">
                <h2>Kontakty:</h2>
@@ -237,10 +237,10 @@ const Contacts = () => {
                               <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
                                  <IconButton
                                     className="btn-table edit"
-                                    // onClick={() => {
-                                    // setOpen(true);
-                                    // getIdEditBtn(id);
-                                    // }}
+                                    onClick={() => {
+                                       // setOpen(true);
+                                       getIdEditBtn(id);
+                                    }}
                                  >
                                     <EditIcon />
                                  </IconButton>
@@ -251,7 +251,7 @@ const Contacts = () => {
                                  <IconButton
                                     className="btn-table delete"
                                     onClick={() => {
-                                       setOpen(true);
+                                       //setOpen(true);
                                        getIdDeleteBtn(id);
                                     }}
                                  >

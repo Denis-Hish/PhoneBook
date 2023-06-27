@@ -3,8 +3,6 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import AddContact from './AddContact';
 import IconButton from '@mui/material/IconButton';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -18,7 +16,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-export default function TransitionsModal({ updateContacts }) {
+export default function TransitionsModal() {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -26,7 +24,7 @@ export default function TransitionsModal({ updateContacts }) {
    useEffect(() => {
       const handleKeyDown = (event) => {
          if (event.keyCode === 45) {
-            // Код клавиши Insert
+            // 45 - Код клавиши Insert
             handleOpen(); // Вызов функции для открытия модального окна
          }
       };
@@ -51,7 +49,6 @@ export default function TransitionsModal({ updateContacts }) {
             open={open}
             onClose={() => {
                handleClose();
-               updateContacts();
             }}
             closeAfterTransition
             slots={{ backdrop: Backdrop }}
