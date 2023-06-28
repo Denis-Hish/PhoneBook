@@ -1,30 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root_group>
   <group display_name="All Contacts" ring="Auto"/>
-  <group display_name="IT department" ring="Auto"/>
-  <contact display_name="Denis" office_number="555555" mobile_number="123-456-789" other_number="789" line="0" ring="Auto" group_id_name="IT department"/>
-  <group display_name="Tatuin" ring="Auto"/>
-  <contact display_name="Luke Skywalker" office_number="987" mobile_number="456852" other_number="987654321" line="0" ring="Auto" group_id_name="Tatuin"/>
-  <group ring="Auto"/>
-  <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" line="0" ring="Auto"/>
-  <group display_name="Tatuin" ring="Auto"/>
-  <contact display_name="Leia Organa" office_number="123" mobile_number="123456" other_number="123456789" line="0" ring="Auto" group_id_name="Tatuin"/>
-  <group display_name="Psychology" ring="Auto"/>
-  <contact display_name="Lika Andriichuk" office_number="123-456-789" mobile_number="555-555-555" other_number="911" line="0" ring="Auto" group_id_name="Psychology"/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Kluby Dyr." office_number="203" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="SNR Administracja" office_number="403" mobile_number="404" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Dyrektor Wyk." office_number="211" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Kadry" office_number="210" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Księgowość" office_number="208" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Obi-Wan Kenobi" office_number="555" mobile_number="987" other_number="404" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="NZOZ Hostel Mielczarskiego" office_number="690987788" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
-  <group display_name="" ring="Auto"/>
-  <contact display_name="Catering Świętokrzyski" office_number="533236636" mobile_number="305" other_number="600" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="IT department" ring="Auto">
+    <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" mobile_number="123-456-789" other_number="123" line="0" ring="Auto" group_id_name="IT department"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Sekretariat" office_number="200" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Prezes" office_number="201" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Wiceprezes" office_number="202" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Kluby Dyr." office_number="203" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Kluby Biuro" office_number="204" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="IT" office_number="205" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Projekty" office_number="206" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Księgowość" office_number="208" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Księgowość Dyr." office_number="209" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Kadry" office_number="210" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Biuro" ring="Auto">
+    <contact display_name="Dyrektor Wyk." office_number="211" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
+  </group>
+  <group display_name="SNR - Karcz." ring="Auto">
+    <contact display_name="SNR Administracja" office_number="403" mobile_number="404" other_number="" line="0" ring="Auto" group_id_name="SNR - Karcz."/>
+  </group>
+  <group display_name="SNR - Karcz." ring="Auto">
+    <contact display_name="NZOZ Dyrektor" office_number="401" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Karcz."/>
+  </group>
+  <group display_name="SNR - Karcz." ring="Auto">
+    <contact display_name="NZOZ Biuro" office_number="402" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Karcz."/>
+  </group>
+  <group display_name="SNR - Karcz." ring="Auto">
+    <contact display_name="NZOZ Rejestracja" office_number="400" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Karcz."/>
+  </group>
+  <group display_name="SNR - Karcz." ring="Auto">
+    <contact display_name="NZOZ Archiwum" office_number="410" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Karcz."/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="ŚDS Kielce" office_number="500" mobile_number="577404304" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="ŚDS Podgaje" office_number="" mobile_number="607154259" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="NZOZ Hostel Mielczarskiego" office_number="" mobile_number="690987788" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="NZOZ Hostel JNJ" office_number="" mobile_number="881779000" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="NZOZ Hostel Janina" office_number="" mobile_number="691504015" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="NZOZ Ośrodek Pałęgi" office_number="606329511" mobile_number="607150334" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="NZOZ Ośrodek Wsparcia" office_number="" mobile_number="533325044" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="Catering Świętokrzyski" office_number="" mobile_number="533236636" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="Placówki" ring="Auto">
+    <contact display_name="Bar RONDO" office_number="" mobile_number="534006030" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Żeromskiego" office_number="" mobile_number="413133388" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Naruszewicza" office_number="" mobile_number="690030002" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Karczówkowska" office_number="417" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS J.N.Jeziorańskiego" office_number="" mobile_number="503080186" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Barwinek" office_number="785980385" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Orla" office_number="" mobile_number="530235533" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Posłowicka" office_number="413676089" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Grzymałków" office_number="" mobile_number="533011750" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Kostomłoty" office_number="" mobile_number="532159319" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Podłęże" office_number="" mobile_number="731003103" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Zagnańsk" office_number="" mobile_number="730735535" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Senior Hoża" office_number="" mobile_number="885910017" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="WS" ring="Auto">
+    <contact display_name="WS Senior JNJ" office_number="" mobile_number="885910015" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  </group>
+  <group display_name="ZAZ" ring="Auto">
+    <contact display_name="ZAZ Sekretariat" office_number="300" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  </group>
+  <group display_name="ZAZ" ring="Auto">
+    <contact display_name="ZAZ Kierownik" office_number="301" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  </group>
+  <group display_name="ZAZ" ring="Auto">
+    <contact display_name="ZAZ Trenerzy" office_number="302" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  </group>
+  <group display_name="ZAZ" ring="Auto">
+    <contact display_name="ZAZ Smaczek" office_number="412787238" mobile_number="533030207" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  </group>
+  <group display_name="ZAZ" ring="Auto">
+    <contact display_name="ZAZ Pralnia" office_number="531202205" mobile_number="533326044" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  </group>
 </root_group>

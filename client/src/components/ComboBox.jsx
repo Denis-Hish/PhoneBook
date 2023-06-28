@@ -4,7 +4,7 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 const filter = createFilterOptions();
 
-export default function FreeSoloCreateOption() {
+export default function Combobox({ onChangeHandler }) {
    const [value, setValue] = React.useState(null);
 
    return (
@@ -12,21 +12,18 @@ export default function FreeSoloCreateOption() {
          className="input combo-box"
          value={value}
          onChange={(event, newValue) => {
-            if (typeof newValue === 'string') {
-               setValue({
-                  title: newValue,
-               });
-            } else if (newValue && newValue.inputValue) {
-               // Создание нового значение из пользовательского ввода
-               setValue({
-                  title: newValue.inputValue,
-               });
-            } else {
-               setValue(newValue);
+            let selectedGroup = '';
+            if (newValue && typeof newValue === 'object') {
+               selectedGroup = newValue.title;
+            } else if (typeof newValue === 'string') {
+               selectedGroup = newValue;
             }
-            // console.log('Добавление новой группы - ', newValue.inputValue);
-            // console.log('Выбрана группа - ', newValue.title);
-            console.log('newValue - ', newValue);
+            onChangeHandler({
+               target: {
+                  name: 'group',
+                  value: selectedGroup,
+               },
+            });
          }}
          filterOptions={(options, params) => {
             const filtered = filter(options, params);
@@ -45,7 +42,7 @@ export default function FreeSoloCreateOption() {
             return filtered;
          }}
          selectOnFocus
-         clearOnBlur
+         // clearOnBlur={false} // true - очистка поля input при потере фокуса
          handleHomeEndKeys
          options={groups}
          getOptionLabel={(option) => {
@@ -67,8 +64,6 @@ export default function FreeSoloCreateOption() {
       />
    );
 }
-
-const options = ['SNR - Biuro', 'SNR - Karcz.', 'Placówki', 'WS', 'ZAZ'];
 
 const groups = [
    { title: 'SNR - Biuro' },

@@ -138,14 +138,15 @@ const AddContact = ({ onClose }) => {
                         },
                      })
                   }
+                  onChangeHandler={onChangeHandler}
                />
                <div className="icons">
                   <GroupsIcon />
-                  {contact.group && (
+                  {/* {contact.group && (
                      <IconButton className="clear-btn" onClick={() => clearInput('group')}>
                         <ClearIcon />
                      </IconButton>
-                  )}
+                  )} */}
                </div>
             </div>
             <Button className="btn-add-contact" type="submit" variant="outlined">
