@@ -7,9 +7,9 @@ const Converter = () => {
       const contacts = await getAllContacts();
       // console.log('Converter.jxs - All contacts:', contacts);
 
-      contacts.forEach((contact) => {
-         // console.log(contact.userName);
-      });
+      // contacts.forEach((contact) => {
+      //    console.log(contact.userName);
+      // });
    };
 
    allContacts();
