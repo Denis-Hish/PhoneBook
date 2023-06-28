@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YealinkIPPhoneBook>
+  <Title>Yealink</Title>
+  <Menu Name="IT department">
+    <Unit Name="Denis" Phone1="555555" Phone2="123-456-789" Phone3="789" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="Tatuin">
+    <Unit Name="Luke Skywalker" Phone1="987" Phone2="456852" Phone3="987654321" default_photo="Resource:"/>
+  </Menu>
+  <Menu>
+    <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="Tatuin">
+    <Unit Name="Leia Organa" Phone1="123" Phone2="123456" Phone3="123456789" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="Psychology">
+    <Unit Name="Lika Andriichuk" Phone1="123-456-789" Phone2="555-555-555" Phone3="911" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Kluby Dyr." Phone1="203" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="SNR Administracja" Phone1="403" Phone2="404" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Dyrektor Wyk." Phone1="211" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Kadry" Phone1="210" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Księgowość" Phone1="208" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Obi-Wan Kenobi" Phone1="555" Phone2="987" Phone3="404" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="NZOZ Hostel Mielczarskiego" Phone1="690987788" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="">
+    <Unit Name="Catering Świętokrzyski" Phone1="533236636" Phone2="305" Phone3="600" default_photo="Resource:"/>
+  </Menu>
+</YealinkIPPhoneBook>

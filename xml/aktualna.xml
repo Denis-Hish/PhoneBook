@@ -1,0 +1,56 @@
+<YealinkIPPhoneBook>
+<Title>Yealink</Title>
+<Menu Name="SNR - Biuro">
+<Unit Name="Sekretariat" Phone1="200" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Prezes" Phone1="201" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Wiceprezes" Phone1="202" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Kluby Dyr." Phone1="203" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Kluby Biuro" Phone1="204" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="IT" Phone1="205" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Projekty" Phone1="206" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Księgowość" Phone1="208" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Księgowość Dyr." Phone1="209" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Kadry" Phone1="210" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="Dyrektor Wyk." Phone1="211" Phone2="" Phone3="" default_photo="Resource:"/>
+</Menu>
+<Menu Name="SNR - Karcz.">
+<Unit Name="SNR Administracja" Phone1="403" Phone2="404" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Dyrektor" Phone1="401" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Biuro" Phone1="402" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Rejestracja" Phone1="400" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Archiwum" Phone1="410" Phone2="" Phone3="" default_photo="Resource:"/>
+</Menu>
+<Menu Name="Placówki">
+<Unit Name="ŚDS Kielce" Phone1="500" Phone2="577404304" Phone3="" default_photo="Resource:"/>
+<Unit Name="ŚDS Podgaje" Phone1="" Phone2="607154259" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Hostel Mielczarskiego" Phone1="" Phone2="690987788" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Hostel JNJ" Phone1="" Phone2="881779000" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Hostel Janina" Phone1="" Phone2="691504015" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Ośrodek Pałęgi" Phone1="606329511" Phone2="607150334" Phone3="" default_photo="Resource:"/>
+<Unit Name="NZOZ Ośrodek Wsparcia" Phone1="" Phone2="533325044" Phone3="" default_photo="Resource:"/>
+<Unit Name="Catering Świętokrzyski" Phone1="" Phone2="533236636" Phone3="" default_photo="Resource:"/>
+<Unit Name="Bar RONDO" Phone1="" Phone2="534006030" Phone3="" default_photo="Resource:"/>
+</Menu>
+<Menu Name="WS">
+<Unit Name="WS Żeromskiego" Phone1="" Phone2="413133388" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Naruszewicza" Phone1="" Phone2="690030002" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Karczówkowska" Phone1="417" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS J.N.Jeziorańskiego" Phone1="" Phone2="503080186" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Barwinek" Phone1="785980385" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Orla" Phone1="" Phone2="530235533" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Posłowicka" Phone1="413676089" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Grzymałków" Phone1="" Phone2="533011750" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Kostomłoty" Phone1="" Phone2="532159319" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Podłęże" Phone1="" Phone2="731003103" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Zagnańsk" Phone1="" Phone2="730735535" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Senior Hoża" Phone1="" Phone2="885910017" Phone3="" default_photo="Resource:"/>
+<Unit Name="WS Senior JNJ" Phone1="" Phone2="885910015" Phone3="" default_photo="Resource:"/>
+</Menu>
+<Menu Name="ZAZ">
+<Unit Name="ZAZ Sekretariat" Phone1="300" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="ZAZ Kierownik" Phone1="301" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="ZAZ Trenerzy" Phone1="302" Phone2="" Phone3="" default_photo="Resource:"/>
+<Unit Name="ZAZ Smaczek" Phone1="412787238" Phone2="533030207" Phone3="" default_photo="Resource:"/>
+<Unit Name="ZAZ Pralnia" Phone1="531202205" Phone2="533326044" Phone3="" default_photo="Resource:"/>
+</Menu>
+</YealinkIPPhoneBook>

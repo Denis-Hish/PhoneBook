@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root_group>
+  <group display_name="All Contacts" ring="Auto"/>
+  <group display_name="IT department" ring="Auto"/>
+  <contact display_name="Denis" office_number="555555" mobile_number="123-456-789" other_number="789" line="0" ring="Auto" group_id_name="IT department"/>
+  <group display_name="Tatuin" ring="Auto"/>
+  <contact display_name="Luke Skywalker" office_number="987" mobile_number="456852" other_number="987654321" line="0" ring="Auto" group_id_name="Tatuin"/>
+  <group ring="Auto"/>
+  <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" line="0" ring="Auto"/>
+  <group display_name="Tatuin" ring="Auto"/>
+  <contact display_name="Leia Organa" office_number="123" mobile_number="123456" other_number="123456789" line="0" ring="Auto" group_id_name="Tatuin"/>
+  <group display_name="Psychology" ring="Auto"/>
+  <contact display_name="Lika Andriichuk" office_number="123-456-789" mobile_number="555-555-555" other_number="911" line="0" ring="Auto" group_id_name="Psychology"/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Kluby Dyr." office_number="203" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="SNR Administracja" office_number="403" mobile_number="404" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Dyrektor Wyk." office_number="211" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Kadry" office_number="210" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Księgowość" office_number="208" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Obi-Wan Kenobi" office_number="555" mobile_number="987" other_number="404" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="NZOZ Hostel Mielczarskiego" office_number="690987788" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
+  <group display_name="" ring="Auto"/>
+  <contact display_name="Catering Świętokrzyski" office_number="533236636" mobile_number="305" other_number="600" line="0" ring="Auto" group_id_name=""/>
+</root_group>
