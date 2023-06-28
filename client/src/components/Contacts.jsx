@@ -12,7 +12,7 @@ import Zoom from '@mui/material/Zoom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
-import AddContact from './AddContact';
+import Snackbar from './Snackbar';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -43,6 +43,7 @@ const Contacts = () => {
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
    const [filterValue, setFilterValue] = useState('');
+   const [message, setMessage] = useState(''); // Snackbar message
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -70,10 +71,9 @@ const Contacts = () => {
       try {
          const contact = contacts?.find((contact) => contact.id === selectedId);
          if (contact) {
-            const contactName = contact.userName;
             await deleteContact(selectedId);
-            alert(`Contact ${contactName} deleted successfully`);
             // Дополнительные действия после успешного удаления контакта
+            setMessage(`Contact ${contact.userName} deleted successfully`);
             setOpen(false); // Закрыть модальное окно
             getContacts(); // Обновление списка контактов после удаления
          } else {
@@ -149,6 +149,7 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
+         <Snackbar message={message} color="info" />
          <ModalWindows
             content={
                <>

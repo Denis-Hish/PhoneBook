@@ -23,7 +23,7 @@ export const deleteContact = (contactId) => {
          // alert(`Контакт ${deletedContact.userName} успешно удален`);
       })
       .catch((error) => {
-         // console.error('Произошла ошибка при удалении контакта:', error);
+         console.error('Произошла ошибка при удалении контакта:', error);
       });
 };
 // ----------------------------------------------------------------
