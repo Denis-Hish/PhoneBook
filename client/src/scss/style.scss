@@ -436,10 +436,16 @@ svg {
    margin-bottom: 60px;
 
    .header-table {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+      position: fixed;
+      width: 100%;
+      padding: 15px 0;
+      top: 75px;
+      background-color: $color-bg;
+      .container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
 
       .filter {
          box-shadow: $box-shadow-inset;
@@ -487,11 +493,12 @@ svg {
       display: grid;
       box-shadow: $box-shadow;
       padding: 2rem;
+      margin-top: 4.5rem;
       border-radius: 8px;
 
       thead {
          position: sticky;
-         top: 80px;
+         top: 160px;
 
          .header-title,
          .header-title span {

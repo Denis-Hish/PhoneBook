@@ -73,7 +73,7 @@ const Converter = () => {
    };
 
    return (
-      <Button variant="outlined" color="error" onClick={handleConvert}>
+      <Button variant="outlined" color="primary" onClick={handleConvert}>
          Convert to xml
       </Button>
    );

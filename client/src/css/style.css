@@ -344,10 +344,16 @@ svg {
   /*--------------------------------------------------*/
 }
 .contacts .header-table {
+  position: fixed;
+  width: 100%;
+  padding: 15px 0;
+  top: 75px;
+  background-color: #edf1f4;
+}
+.contacts .header-table .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  align-items: center;
 }
 .contacts .header-table .filter {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
@@ -363,11 +369,12 @@ svg {
   display: grid;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   padding: 2rem;
+  margin-top: 4.5rem;
   border-radius: 8px;
 }
 .contacts table thead {
   position: sticky;
-  top: 80px;
+  top: 160px;
 }
 .contacts table thead .header-title,
 .contacts table thead .header-title span {

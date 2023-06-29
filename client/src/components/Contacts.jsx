@@ -13,6 +13,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
 import Snackbar from './Snackbar';
+import Converter from './Converter';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -161,11 +162,16 @@ const Contacts = () => {
             setIsOpenModal={setOpen}
             Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
          />
-         <div className="container">
-            <div className="header-table">
+
+         <div className="header-table">
+            <div className="container">
                <h2>Kontakty:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
+               <Converter />
             </div>
+         </div>
+
+         <div className="container">
             <table>
                <thead>
                   <tr>

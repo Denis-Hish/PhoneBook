@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import ModalAddContact from './components/ModalAddContact';
-import Converter from './components/Converter';
 import Snackbar from './components/Snackbar';
 
 function App() {
@@ -15,11 +14,6 @@ function App() {
          <Header />
          <Contacts />
          <ModalAddContact />
-
-         <div className="container bottom-buttons">
-            <Converter />
-         </div>
-
          <Snackbar />
          <Footer />
       </>

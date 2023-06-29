@@ -20,8 +20,6 @@ const Heder = () => {
                   </div>
                </label>
             </div>
-
-            <div className="table-header"></div>
          </div>
       </header>
    );
