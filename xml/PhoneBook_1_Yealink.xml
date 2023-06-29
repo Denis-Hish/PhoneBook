@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
-  <Menu Name="IT department">
+  <Menu Name="Tatuin">
     <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" Phone2="123-456-789" Phone3="123" default_photo="Resource:"/>
   </Menu>
   <Menu Name="SNR - Biuro">

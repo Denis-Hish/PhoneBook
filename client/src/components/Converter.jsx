@@ -60,7 +60,7 @@ const Converter = () => {
       const file1Url = URL.createObjectURL(file1Blob);
       const file1Link = document.createElement('a');
       file1Link.href = file1Url;
-      file1Link.download = 'TEST_file1.xml';
+      file1Link.download = 'PhoneBook_1_Yealink.xml';
       file1Link.click();
 
       // Сохраняем xmlString2 в файл file2.xml
@@ -68,7 +68,7 @@ const Converter = () => {
       const file2Url = URL.createObjectURL(file2Blob);
       const file2Link = document.createElement('a');
       file2Link.href = file2Url;
-      file2Link.download = 'TEST_file2.xml';
+      file2Link.download = 'PhoneBook_2.xml';
       file2Link.click();
    };
 

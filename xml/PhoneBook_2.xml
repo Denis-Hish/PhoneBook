@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <root_group>
-  <group display_name="IT department" ring="Auto"/>
+  <group display_name="Tatuin" ring="Auto"/>
   <group display_name="SNR - Biuro" ring="Auto"/>
   <group display_name="SNR - Karcz." ring="Auto"/>
   <group display_name="Placówki" ring="Auto"/>
@@ -8,7 +8,7 @@
   <group display_name="ZAZ" ring="Auto"/>
 </root_group><?xml version="1.0" encoding="UTF-8"?>
 <root_contact>
-  <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" mobile_number="123-456-789" other_number="123" line="0" ring="Auto" group_id_name="IT department"/>
+  <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" mobile_number="123-456-789" other_number="123" line="0" ring="Auto" group_id_name="Tatuin"/>
   <contact display_name="Sekretariat" office_number="200" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
   <contact display_name="Prezes" office_number="201" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
   <contact display_name="Wiceprezes" office_number="202" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
