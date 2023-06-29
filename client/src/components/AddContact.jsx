@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { addContact } from '../services/paramsAPI';
+import { addContact, getAllContacts } from '../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
@@ -7,6 +7,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import ComboBox from './ComboBox';
+// import { getContacts } from './Contacts';
 
 const AddContact = ({ onClose }) => {
    const [contact, setContact] = useState({
@@ -31,12 +32,13 @@ const AddContact = ({ onClose }) => {
       }));
    };
 
-   const submitForm = (event) => {
+   const submitForm = async (event) => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
-      addContact(contact);
+      await addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
+      // getContacts(); // Обновление списка контактов после отправки формы
    };
 
    // Focus on input

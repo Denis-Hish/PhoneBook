@@ -16,7 +16,7 @@ export default function Combobox({ onChangeHandler }) {
          const uniqueGroups = [...new Set(allGroups)];
          const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
          const groups = sortedGroups.map((group) => ({ title: group }));
-         console.log('Все группы - ', groups);
+         // console.log('Все группы - ', groups);
          setGroups(groups);
       };
 
