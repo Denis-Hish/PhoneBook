@@ -13,12 +13,12 @@ const Converter = () => {
          .txt('Yealink')
          .up();
 
+      const groupsXml1 = {};
+
       const xml2 = create({ version: '1.0', encoding: 'UTF-8' })
          .ele('root_group')
          .ele('group', { display_name: 'All Contacts', ring: 'Auto' })
          .up();
-
-      const groupsXml1 = {};
 
       contacts.forEach((contact) => {
          const { userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
