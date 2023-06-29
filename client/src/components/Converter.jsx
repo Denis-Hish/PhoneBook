@@ -18,16 +18,16 @@ const Converter = () => {
          .ele('group', { display_name: 'All Contacts', ring: 'Auto' })
          .up();
 
-      const groups = {};
+      const groupsXml1 = {};
 
       contacts.forEach((contact) => {
          const { userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
 
-         if (!groups[group]) {
-            groups[group] = xml1.ele('Menu', { Name: group });
+         if (!groupsXml1[group]) {
+            groupsXml1[group] = xml1.ele('Menu', { Name: group });
          }
 
-         groups[group].ele('Unit', {
+         groupsXml1[group].ele('Unit', {
             Name: userName,
             Phone1: phoneNumber1,
             Phone2: phoneNumber2,
@@ -35,21 +35,8 @@ const Converter = () => {
             default_photo: 'Resource:',
          });
 
-         // xml1
-         //    .ele('Menu', { Name: group })
-         //    .ele('Unit', {
-         //       Name: userName,
-         //       Phone1: phoneNumber1,
-         //       Phone2: phoneNumber2,
-         //       Phone3: phoneNumber3,
-         //       default_photo: 'Resource:',
-         //    })
-         //    .up()
-         //    .up();
-
          xml2
             .ele('group', { display_name: group, ring: 'Auto' })
-            // .up()
             .ele('contact', {
                display_name: userName,
                office_number: phoneNumber1,
@@ -62,7 +49,7 @@ const Converter = () => {
             .up();
       });
 
-      Object.values(groups).forEach((group) => group.up());
+      Object.values(groupsXml1).forEach((group) => group.up());
 
       const xmlString1 = xml1.end({ prettyPrint: true });
       const xmlString2 = xml2.end({ prettyPrint: true });
