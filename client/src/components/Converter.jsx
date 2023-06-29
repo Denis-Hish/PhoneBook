@@ -14,17 +14,21 @@ const Converter = () => {
          .up();
 
       const groupsXml1 = {};
+      const uniqueGroups = new Set();
 
-      const xml2 = create({ version: '1.0', encoding: 'UTF-8' })
-         .ele('root_group')
-         .ele('group', { display_name: 'All Contacts', ring: 'Auto' })
-         .up();
+      const xml2 = create().ele('root_group');
+
+      const xml2Contacts = create({ version: '1.0', encoding: 'UTF-8' }).ele('root_contact');
 
       contacts.forEach((contact) => {
          const { userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
 
          if (!groupsXml1[group]) {
             groupsXml1[group] = xml1.ele('Menu', { Name: group });
+            if (!uniqueGroups.has(group)) {
+               xml2.ele('group', { display_name: group, ring: 'Auto' });
+               uniqueGroups.add(group);
+            }
          }
 
          groupsXml1[group].ele('Unit', {
@@ -35,24 +39,21 @@ const Converter = () => {
             default_photo: 'Resource:',
          });
 
-         xml2
-            .ele('group', { display_name: group, ring: 'Auto' })
-            .ele('contact', {
-               display_name: userName,
-               office_number: phoneNumber1,
-               mobile_number: phoneNumber2,
-               other_number: phoneNumber3,
-               line: '0',
-               ring: 'Auto',
-               group_id_name: group,
-            })
-            .up();
+         xml2Contacts.ele('contact', {
+            display_name: userName,
+            office_number: phoneNumber1,
+            mobile_number: phoneNumber2,
+            other_number: phoneNumber3,
+            line: '0',
+            ring: 'Auto',
+            group_id_name: group,
+         });
       });
 
       Object.values(groupsXml1).forEach((group) => group.up());
 
       const xmlString1 = xml1.end({ prettyPrint: true });
-      const xmlString2 = xml2.end({ prettyPrint: true });
+      const xmlString2 = xml2.end({ prettyPrint: true }) + xml2Contacts.end({ prettyPrint: true });
 
       // Сохраняем xmlString1 в файл file1.xml
       const file1Blob = new Blob([xmlString1], { type: 'text/xml' });
