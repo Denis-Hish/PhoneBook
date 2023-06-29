@@ -6,7 +6,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 export default function Filter({ value, onChange }) {
    const handleClear = () => {
-      onChange({ target: { value: '' } }); // Обновляем значение формы на пустую строку
+      onChange({ target: { value: '' } });
    };
 
    return (
@@ -20,9 +20,11 @@ export default function Filter({ value, onChange }) {
             onChange={onChange}
          />
 
-         <IconButton className="clear-filter-btn" onClick={handleClear}>
-            <ClearIcon />
-         </IconButton>
+         {value && (
+            <IconButton className="clear-filter-btn" onClick={handleClear}>
+               <ClearIcon />
+            </IconButton>
+         )}
       </Box>
    );
 }
