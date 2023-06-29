@@ -1,11 +1,27 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
+import { getAllContacts } from '../services/paramsAPI';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 const filter = createFilterOptions();
 
 export default function Combobox({ onChangeHandler }) {
    const [value, setValue] = React.useState(null);
+   const [groups, setGroups] = React.useState([]);
+
+   React.useEffect(() => {
+      const extractGroups = async () => {
+         const contacts = await getAllContacts();
+         const allGroups = contacts.map((contact) => contact.group);
+         const uniqueGroups = [...new Set(allGroups)];
+         const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
+         const groups = sortedGroups.map((group) => ({ title: group }));
+         console.log('Все группы - ', groups);
+         setGroups(groups);
+      };
+
+      extractGroups();
+   }, []);
 
    return (
       <Autocomplete
@@ -36,13 +52,11 @@ export default function Combobox({ onChangeHandler }) {
                   inputValue,
                   title: `Add new group "${inputValue}"`,
                });
-               // console.log('Ввод текста в input - ', inputValue);
             }
 
             return filtered;
          }}
          selectOnFocus
-         // clearOnBlur={false} // true - очистка поля input при потере фокуса
          handleHomeEndKeys
          options={groups}
          getOptionLabel={(option) => {
@@ -65,7 +79,7 @@ export default function Combobox({ onChangeHandler }) {
    );
 }
 
-const groups = [
+const groupsOld = [
    { title: 'SNR - Biuro' },
    { title: 'SNR - Karcz.' },
    { title: 'Placówki' },
