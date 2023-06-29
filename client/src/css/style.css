@@ -340,7 +340,6 @@ svg {
 .contacts {
   padding-top: 100px;
   margin-bottom: 60px;
-  /* counter css */
   /*--------------------------------------------------*/
 }
 .contacts .header-table {
@@ -358,12 +357,18 @@ svg {
 .contacts .header-table .filter {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
   border-radius: 10px;
-  padding: 0;
+  padding: 0 10px 0 0;
   display: flex;
   align-items: center;
 }
 .contacts .header-table .filter fieldset {
   border: none;
+}
+.contacts .header-table .filter .clear-filter-btn {
+  padding: 4px;
+}
+.contacts .header-table .filter .clear-filter-btn svg {
+  font-size: 1.25rem;
 }
 .contacts table {
   display: grid;

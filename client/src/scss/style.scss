@@ -450,11 +450,9 @@ svg {
       .filter {
          box-shadow: $box-shadow-inset;
          border-radius: 10px;
-         padding: 0;
+         padding: 0 10px 0 0;
          display: flex;
          align-items: center;
-         // margin-left: 5rem;
-         // position: relative;
 
          // & input {
          // }
@@ -463,31 +461,14 @@ svg {
             border: none;
          }
 
-         //.clear-filter-btn {
-         // height: 100%;
-         // position: absolute;
-         // top: 20%;
-         // right: 0;
-         //}
+         .clear-filter-btn {
+            padding: 4px;
+            svg {
+               font-size: 1.25rem;
+            }
+         }
       }
    }
-
-   /* counter css */
-   // table {
-   //    counter-reset: section;
-   //    tbody {
-   //       tr {
-   //          td {
-   //             &:first-child {
-   //                &::before {
-   //                   counter-increment: section;
-   //                   content: counter(section);
-   //                }
-   //             }
-   //          }
-   //       }
-   //    }
-   // }
 
    table {
       display: grid;
