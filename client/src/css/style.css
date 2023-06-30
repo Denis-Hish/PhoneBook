@@ -302,6 +302,9 @@ svg {
   font-weight: 400;
   font-size: 1.25rem;
 }
+.add-contacts .form-wrap .form:not(:hover) .clear-btn {
+  visibility: hidden;
+}
 .add-contacts .form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
   right: 50px;
 }

@@ -387,6 +387,19 @@ svg {
                font-size: 1.25rem;
             }
          }
+
+         &:not(:hover) {
+            .clear-btn {
+               visibility: hidden;
+            }
+         }
+
+         // & input:focus {
+         //    background-color: red;
+         //    .clear-btn {
+         //       visibility: visible;
+         //    }
+         // }
       }
 
       // clear button combo box groups
