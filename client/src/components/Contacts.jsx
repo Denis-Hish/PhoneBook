@@ -14,6 +14,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
 import Snackbar from './Snackbar';
 import Converter from './Converter';
+import ModalAddContact from './ModalAddContact';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -40,7 +41,7 @@ const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
 
 const Contacts = () => {
    const [contacts, setContacts] = useState(null);
-   const [open, setOpen] = useState(false);
+   const [open, setOpen] = useState(false); // малое модальное окно
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
    const [filterValue, setFilterValue] = useState('');
@@ -168,6 +169,8 @@ const Contacts = () => {
             setIsOpenModal={setOpen}
             Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
          />
+
+         {/* <ModalAddContact /> */}
 
          <div className="header-table">
             <div className="container">

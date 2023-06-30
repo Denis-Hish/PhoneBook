@@ -447,6 +447,7 @@ svg {
       padding: 15px 0;
       top: 75px;
       background-color: $color-bg;
+      z-index: 1;
       .container {
          display: flex;
          justify-content: space-between;
@@ -492,6 +493,7 @@ svg {
       thead {
          position: sticky;
          top: 160px;
+         z-index: 1;
 
          .header-title,
          .header-title span {
