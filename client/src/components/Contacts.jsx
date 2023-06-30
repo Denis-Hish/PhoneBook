@@ -14,7 +14,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
 import Snackbar from './Snackbar';
 import Converter from './Converter';
-import ModalAddContact from './ModalAddContact';
+import MadalEditContact from './ModalEditContact';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -46,6 +46,8 @@ const Contacts = () => {
    const [selectedAction, setSelectedAction] = useState(null);
    const [filterValue, setFilterValue] = useState('');
    const [message, setMessage] = useState(null); // Snackbar message
+   const [contactForEdit, setContactForEdit] = useState({});
+   const [openEditModal, setOpenEditModal] = useState(false);
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -56,13 +58,29 @@ const Contacts = () => {
       setContacts(res);
    };
 
-   const getIdEditBtn = (id) => {
-      console.log('Edit ID:', id);
-      // setSelectedId(id);
-      // setOpen(true);
-      // setSelectedAction('Edit');
+   // const getIdEditBtn = id => {
+   //    console.log('Edit ID:', id);
+   // setSelectedId(id);
+   // setOpen(true);
+   // setSelectedAction('Edit');
+   // };
+
+   const handleEdit = id => {
+      const obj = contacts.find(contact => contact.id === id);
+      setContactForEdit(obj);
+      setOpenEditModal(true);
+
+      // setContactForEdit({
+      // id: 'id',
+      // name: 'name',
+      // tel1: 'Tel 1',
+      // tel2: 'Tel 2',
+      // tel3: 'Tel 3',
+      // group: 'Group',
+      // });
    };
-   const getIdDeleteBtn = (id) => {
+
+   const getIdDeleteBtn = id => {
       console.log('Delete ID:', id);
       setSelectedId(id);
       setOpen(true);
@@ -71,7 +89,7 @@ const Contacts = () => {
 
    const handleDeleteContact = async () => {
       try {
-         const contact = contacts?.find((contact) => contact.id === selectedId);
+         const contact = contacts?.find(contact => contact.id === selectedId);
          if (contact) {
             await deleteContact(selectedId);
             // Дополнительные действия после успешного удаления контакта
@@ -94,7 +112,7 @@ const Contacts = () => {
    };
 
    // FILTER ------------------
-   const handleFilterChange = (event) => {
+   const handleFilterChange = event => {
       const filterInput = event.target.value.toLowerCase();
       setFilterValue(filterInput);
    };
@@ -119,7 +137,7 @@ const Contacts = () => {
 
       // Remove the visible-btn class from all arrow-btn elements
       const allArrowButtons = document.querySelectorAll('.arrow-btn');
-      allArrowButtons.forEach((btn) => btn.classList.remove('visible-btn'));
+      allArrowButtons.forEach(btn => btn.classList.remove('visible-btn'));
 
       // Check if the click was on the header-title element
       if (headerTitle.classList.contains('header-title')) {
@@ -144,7 +162,9 @@ const Contacts = () => {
    });
 
    const filteredAndSortedContacts = filterValue
-      ? allContacts.filter((contact) => Object.values(contact).join(' ').toLowerCase().includes(filterValue))
+      ? allContacts.filter(contact =>
+           Object.values(contact).join(' ').toLowerCase().includes(filterValue)
+        )
       : allContacts;
 
    useEffect(() => {
@@ -158,20 +178,29 @@ const Contacts = () => {
    return (
       <div className="contacts">
          {message && <Snackbar {...message} />}
+         <MadalEditContact contact={contactForEdit} openModal={openEditModal} />
          <ModalWindows
             content={
                <>
-                  {selectedAction}: <b>{contacts?.find((contact) => contact.id === selectedId)?.userName}</b>?
-                  {/* ID: {selectedId} */}
+                  {selectedAction}:{' '}
+                  <b>
+                     {
+                        contacts?.find(contact => contact.id === selectedId)
+                           ?.userName
+                     }
+                  </b>
+                  ?{/* ID: {selectedId} */}
                </>
             }
             isOpen={open}
             setIsOpenModal={setOpen}
-            Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
+            Buttons={
+               <Buttons
+                  handleDeleteContact={handleDeleteContact}
+                  handleCloseModal={() => setOpen(false)}
+               />
+            }
          />
-
-         {/* <ModalAddContact /> */}
-
          <div className="header-table">
             <div className="container">
                <h2>Kontakty:</h2>
@@ -179,55 +208,88 @@ const Contacts = () => {
                <Converter />
             </div>
          </div>
-
          <div className="container">
             <table>
                <thead>
                   <tr>
                      <td className="header-title">№</td>
-                     <td className="header-title" onClick={(event) => handleSort('userName', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('userName', event)}
+                     >
                         <span>Name</span>
-                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'userName' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn visible-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'userName' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber1', event)}
+                     >
                         <span>Phone 1</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber1' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber2', event)}
+                     >
                         <span>Phone 2</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber2' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('phoneNumber3', event)}
+                     >
                         <span>Phone 3</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
-                           {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
+                           {sortField === 'phoneNumber3' &&
+                           sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
                               <ArrowDownwardIcon />
                            )}
                         </IconButton>
                      </td>
-                     <td className="header-title" onClick={(event) => handleSort('group', event)}>
+                     <td
+                        className="header-title"
+                        onClick={event => handleSort('group', event)}
+                     >
                         <span>Group</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton
+                           className="arrow-btn"
+                           sx={{ position: 'relative' }}
+                        >
                            {sortField === 'group' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -241,7 +303,17 @@ const Contacts = () => {
                </thead>
                <tbody>
                   {filteredAndSortedContacts?.map(
-                     ({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
+                     (
+                        {
+                           id,
+                           userName,
+                           phoneNumber1,
+                           phoneNumber2,
+                           phoneNumber3,
+                           group,
+                        },
+                        index
+                     ) => (
                         <tr key={id}>
                            <td>{index + 1}</td>
                            <td>{userName}</td>
@@ -250,12 +322,16 @@ const Contacts = () => {
                            <td>{phoneNumber3}</td>
                            <td>{group}</td>
                            <td className="btn-icon-table">
-                              <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
+                              <Tooltip
+                                 title="Edit contact"
+                                 placement="top"
+                                 TransitionComponent={Zoom}
+                                 arrow
+                              >
                                  <IconButton
                                     className="btn-table edit"
                                     onClick={() => {
-                                       // setOpen(true);
-                                       getIdEditBtn(id);
+                                       handleEdit(id);
                                     }}
                                  >
                                     <EditIcon />
@@ -263,7 +339,12 @@ const Contacts = () => {
                               </Tooltip>
                            </td>
                            <td className="btn-icon-table">
-                              <Tooltip title="Delete contact" placement="top" TransitionComponent={Zoom} arrow>
+                              <Tooltip
+                                 title="Delete contact"
+                                 placement="top"
+                                 TransitionComponent={Zoom}
+                                 arrow
+                              >
                                  <IconButton
                                     className="btn-table delete"
                                     onClick={() => {
