@@ -39,6 +39,10 @@ svg {
           backdrop-filter: blur(2px);
 }
 
+.snackbar {
+  margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 767px) {
   .hideOnMobile {
     display: none;
