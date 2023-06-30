@@ -53,12 +53,18 @@ svg {
    vertical-align: unset;
 }
 
+// размер шрифта всплывающей подсказки
 .MuiTooltip-popper .MuiTooltip-tooltip {
    font-size: 12px;
 }
 
+// размытие сзади модального окна
 .MuiBackdrop-root {
    backdrop-filter: blur(2px);
+}
+
+.snackbar {
+   margin-bottom: 20px;
 }
 
 @media only screen and (max-width: $phone) {

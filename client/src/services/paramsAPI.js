@@ -13,7 +13,6 @@ export const addContact = (newContact) => {
          console.error('There was an error!', error); // TODO: Add error handler
       });
 };
-
 // ----------------TESTED------------------------------------------
 export const deleteContact = (contactId) => {
    axios
@@ -25,6 +24,15 @@ export const deleteContact = (contactId) => {
       .catch((error) => {
          console.error('Произошла ошибка при удалении контакта:', error);
       });
+};
+
+//????????????????????????????????????????????????????????????
+export const updateContacts = async () => {
+   try {
+      await getAllContacts();
+   } catch (error) {
+      console.error('There was an error while getting contacts:', error);
+   }
 };
 // ----------------------------------------------------------------
 

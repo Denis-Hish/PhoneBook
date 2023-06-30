@@ -44,7 +44,7 @@ const Contacts = () => {
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
    const [filterValue, setFilterValue] = useState('');
-   const [message, setMessage] = useState(''); // Snackbar message
+   const [message, setMessage] = useState(null); // Snackbar message
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -74,11 +74,17 @@ const Contacts = () => {
          if (contact) {
             await deleteContact(selectedId);
             // Дополнительные действия после успешного удаления контакта
-            setMessage(`Contact ${contact.userName} deleted successfully`);
+            setMessage({
+               message: `Contact ${contact.userName} deleted successfully`,
+               color: 'info',
+            });
             setOpen(false); // Закрыть модальное окно
             getContacts(); // Обновление списка контактов после удаления
          } else {
-            alert('There was an error deleting the contact');
+            setMessage({
+               message: 'There was an error deleting the contact',
+               color: 'error',
+            });
          }
       } catch (error) {
          console.error('There was an error deleting the contact:', error);
@@ -150,7 +156,7 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
-         <Snackbar message={message} color="info" />
+         {message && <Snackbar {...message} />}
          <ModalWindows
             content={
                <>

@@ -24,11 +24,28 @@ export default function CustomizedSnackbars({ message, color }) {
          open={open}
          autoHideDuration={5000}
          onClose={handleClose}
-         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
       >
-         <Alert onClose={handleClose} severity={color} sx={{ width: '100%' }}>
+         <Alert className="snackbar" onClose={handleClose} severity={color} sx={{ width: '100%' }}>
             {message}
          </Alert>
       </Snackbar>
    );
 }
+
+//* const [message, setMessage] = useState(null); // Snackbar message
+
+//* Вместо Alert ->
+//*   setMessage({
+//*      message: `Contact ${contact.userName} deleted successfully`,
+//*      color: 'info',
+//*   });
+
+//* Компонент:
+//* {message && <Snackbar {...message} />}
+
+/// Цвета:
+//* severity="success" - зелёный
+//! severity="error" - красный
+/// severity="warning" - жёлтый
+//? severity="info" - синий

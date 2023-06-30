@@ -9,7 +9,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ComboBox from './ComboBox';
 // import { getContacts } from './Contacts';
 
-const AddContact = ({ onClose }) => {
+const AddContact = ({ onClose, updateContacts }) => {
    const [contact, setContact] = useState({
       userName: '',
       phoneNumber1: '',
@@ -23,6 +23,7 @@ const AddContact = ({ onClose }) => {
       setContact((prevContact) => {
          return { ...prevContact, [name]: value };
       });
+      updateContacts();
    };
 
    const clearInput = (name) => {
@@ -32,13 +33,27 @@ const AddContact = ({ onClose }) => {
       }));
    };
 
+   //!-------------------------------------------------------------
+   // const [contacts, setContacts] = useState(null);
+   // const getContacts = async () => {
+   //    let res = await getAllContacts();
+
+   //    if (res instanceof Array && !res.length) {
+   //       console.log('---No Contacts in DB -', res.length);
+   //    }
+   //    setContacts(res);
+   // };
+
+   //!-------------------------------------------------------------
+
    const submitForm = async (event) => {
       // TODO: Add validation
       event.preventDefault();
       console.log('--contact--', contact);
       await addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
-      // getContacts(); // Обновление списка контактов после отправки формы
+      updateContacts(); //! Обновление списка контактов после отправки формы
+      console.log('AddContact - ', updateContacts());
    };
 
    // Focus on input

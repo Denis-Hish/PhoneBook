@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -8,6 +8,8 @@ import IconButton from '@mui/material/IconButton';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
+
+import { getAllContacts, updateContacts } from '../services/paramsAPI';
 
 const style = {
    position: 'absolute',
@@ -35,6 +37,18 @@ export default function TransitionsModal() {
          window.removeEventListener('keydown', handleKeyDown);
       };
    }, []);
+
+   //!-------------------------------------------------------------
+   // const [contacts, setContacts] = useState(null);
+   // const getContacts = async () => {
+   //    let res = await getAllContacts();
+
+   //    if (res instanceof Array && !res.length) {
+   //       console.log('---No Contacts in DB -', res.length);
+   //    }
+   //    setContacts(res);
+   // };
+   //!-------------------------------------------------------------
 
    return (
       <>
@@ -64,6 +78,12 @@ export default function TransitionsModal() {
                   <AddContact
                      onClose={() => {
                         handleClose();
+                        // getContacts();
+                        // console.log('CLOSE-2');
+                     }}
+                     updateContacts={() => {
+                        updateContacts();
+                        console.log('CLOSE-2', updateContacts());
                      }}
                   />
                </Box>
