@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { addContact } from '../services/paramsAPI';
+import { editContact } from '../services/paramsAPI';
 
 const style = {
    position: 'absolute',
@@ -24,7 +25,8 @@ const ModalEditContact = ({ contact, openModal }) => {
    // const handleOpen = () => setOpen(true);
    // const handleClose = () => setOpen(false);
 
-   const { id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
+   const { id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group } =
+      contact;
 
    return (
       <div>
@@ -44,14 +46,18 @@ const ModalEditContact = ({ contact, openModal }) => {
             <Box sx={style}>
                <Box
                   component="form"
-                  onSubmit={(e) => {
+                  onSubmit={e => {
                      e.preventDefault();
-                     console.log(contact);
-                     addContact(contact);
+                     console.log('Редактируемый контакт', contact);
+                     editContact({ id });
                   }}
                >
-                  <Typography id="transition-modal-title" variant="h6" component="h2">
-                     Edit contact: {userName} ?
+                  <Typography
+                     id="transition-modal-title"
+                     variant="h6"
+                     component="h2"
+                  >
+                     Edit contact: {(userName, id)} ?
                   </Typography>
 
                   <TextField
@@ -61,10 +67,30 @@ const ModalEditContact = ({ contact, openModal }) => {
                      // required // обязательное для заполнения
                      defaultValue={userName}
                   />
-                  <TextField id="outlined-basic" label="Phone 1" variant="outlined" defaultValue={phoneNumber1} />
-                  <TextField id="outlined-basic" label="Phone 2" variant="outlined" defaultValue={phoneNumber2} />
-                  <TextField id="outlined-basic" label="Phone 3" variant="outlined" defaultValue={phoneNumber3} />
-                  <TextField id="outlined-basic" label="Group" variant="outlined" defaultValue={group} />
+                  <TextField
+                     id="outlined-basic"
+                     label="Phone 1"
+                     variant="outlined"
+                     defaultValue={phoneNumber1}
+                  />
+                  <TextField
+                     id="outlined-basic"
+                     label="Phone 2"
+                     variant="outlined"
+                     defaultValue={phoneNumber2}
+                  />
+                  <TextField
+                     id="outlined-basic"
+                     label="Phone 3"
+                     variant="outlined"
+                     defaultValue={phoneNumber3}
+                  />
+                  <TextField
+                     id="outlined-basic"
+                     label="Group"
+                     variant="outlined"
+                     defaultValue={group}
+                  />
                   <Button type="submit" variant="outlined">
                      Save contact
                   </Button>
