@@ -6,17 +6,16 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { editContact } from '../services/paramsAPI';
+import Fade from '@mui/material/Fade';
+import PersonIcon from '@mui/icons-material/Person';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const style = {
    position: 'absolute',
    top: '50%',
    left: '50%',
    transform: 'translate(-50%, -50%)',
-   width: 400,
-   bgcolor: 'background.paper',
-   border: '2px solid #000',
-   boxShadow: 24,
-   p: 4,
 };
 
 const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
@@ -41,7 +40,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
    }, [contact]);
 
    return (
-      <div>
+      <>
          <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -55,75 +54,102 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                },
             }}
          >
-            <Box sx={style}>
-               <button className="btn-close" onClick={closeModal}></button>
-               <Box
-                  component="form"
-                  onSubmit={(e) => {
-                     e.preventDefault();
-                     const updatedContact = {
-                        id,
-                        userName: name,
-                        phoneNumber1: phone1,
-                        phoneNumber2: phone2,
-                        phoneNumber3: phone3,
-                        group: group1,
-                     };
-                     console.log('Редактируемый контакт', updatedContact);
-                     editContact(id, updatedContact);
-                  }}
-               >
-                  <Typography id="transition-modal-title" variant="h6" component="h2">
-                     Edit contact: {userName}, {id} ?
-                  </Typography>
+            <Fade in={openModal}>
+               <Box sx={style} className="modal modal-add-contact">
+                  <button className="btn-close" onClick={closeModal}></button>
+                  <div className="add-contacts">
+                     <h2 className="">Edit contact: {userName} ?</h2>
 
-                  <TextField
-                     // id="outlined-basic"
-                     label="Name"
-                     variant="outlined"
-                     // required // обязательное для заполнения
-                     value={name}
-                     onChange={(e) => setName(e.target.value)}
-                  />
-                  <TextField
-                     // id="outlined-basic"
-                     label="Phone 1"
-                     variant="outlined"
-                     // required // обязательное для заполнения
-                     value={phone1}
-                     onChange={(e) => setPhone1(e.target.value)}
-                  />
-                  <TextField
-                     // id="outlined-basic"
-                     label="Phone 2"
-                     variant="outlined"
-                     // required // обязательное для заполнения
-                     value={phone2}
-                     onChange={(e) => setPhone2(e.target.value)}
-                  />
-                  <TextField
-                     // id="outlined-basic"
-                     label="Phone 3"
-                     variant="outlined"
-                     // required // обязательное для заполнения
-                     value={phone3}
-                     onChange={(e) => setPhone3(e.target.value)}
-                  />
-                  <TextField
-                     // id="outlined-basic"
-                     label="Group"
-                     variant="outlined"
-                     // required // обязательное для заполнения
-                     value={group1}
-                     onChange={(e) => setGroup(e.target.value)}
-                  />
-                  <Button type="submit" variant="outlined">
-                     Save contact
-                  </Button>
+                     <form
+                        className="form-wrap"
+                        onSubmit={(e) => {
+                           e.preventDefault();
+                           const updatedContact = {
+                              id,
+                              userName: name,
+                              phoneNumber1: phone1,
+                              phoneNumber2: phone2,
+                              phoneNumber3: phone3,
+                              group: group1,
+                           };
+                           editContact(id, updatedContact);
+                           closeModal();
+                        }}
+                     >
+                        <div className="form">
+                           <TextField
+                              className="input"
+                              label="Name"
+                              variant="outlined"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
+                           />
+                           <div className="icons">
+                              <PersonIcon />
+                           </div>
+                        </div>
+
+                        <div className="form">
+                           <TextField
+                              className="input"
+                              label="Phone 1"
+                              variant="outlined"
+                              value={phone1}
+                              onChange={(e) => setPhone1(e.target.value)}
+                           />
+                           <div className="icons">
+                              <PhoneEnabledIcon />
+                           </div>
+                        </div>
+
+                        <div className="form">
+                           <TextField
+                              className="input"
+                              label="Phone 2"
+                              variant="outlined"
+                              value={phone2}
+                              onChange={(e) => setPhone2(e.target.value)}
+                           />
+                           <div className="icons">
+                              <PhoneEnabledIcon />
+                           </div>
+                        </div>
+
+                        <div className="form">
+                           <TextField
+                              className="input"
+                              label="Phone 3"
+                              variant="outlined"
+                              value={phone3}
+                              onChange={(e) => setPhone3(e.target.value)}
+                           />
+                           <div className="icons">
+                              <PhoneEnabledIcon />
+                           </div>
+                        </div>
+
+                        <div className="form">
+                           <TextField
+                              className="input"
+                              label="Group"
+                              variant="outlined"
+                              value={group1}
+                              onChange={(e) => setGroup(e.target.value)}
+                           />
+                           <div className="icons">
+                              <GroupsIcon />
+                           </div>
+                        </div>
+
+                        <Button className="btn-edit-contact" type="submit" variant="outlined">
+                           Save contact
+                        </Button>
+                     </form>
+                  </div>
                </Box>
-            </Box>
+            </Fade>
          </Modal>
-      </div>
+      </>
    );
 };
 

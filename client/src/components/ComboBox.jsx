@@ -79,10 +79,10 @@ export default function Combobox({ onChangeHandler }) {
    );
 }
 
-const groupsOld = [
-   { title: 'SNR - Biuro' },
-   { title: 'SNR - Karcz.' },
-   { title: 'Placówki' },
-   { title: 'WS' },
-   { title: 'ZAZ' },
-];
+// const groupsOld = [
+//    { title: 'SNR - Biuro' },
+//    { title: 'SNR - Karcz.' },
+//    { title: 'Placówki' },
+//    { title: 'WS' },
+//    { title: 'ZAZ' },
+// ];

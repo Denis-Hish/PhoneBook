@@ -243,7 +243,8 @@ svg {
   min-width: 500px;
   margin: 0 auto;
 }
-.add-contacts .form-wrap {
+
+.form-wrap {
   display: flex;
   flex-direction: column;
   max-width: inherit;
@@ -252,7 +253,7 @@ svg {
   padding: 1rem;
   border-radius: 8px;
 }
-.add-contacts .form-wrap .input {
+.form-wrap .input {
   margin-bottom: 10px;
   padding-left: 10px;
   background: transparent;
@@ -262,63 +263,74 @@ svg {
   /* input не нажат */
   /* input нажат */
 }
-.add-contacts .form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+.form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
+.form-wrap .input .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   transform: translate(10px, 15px) scale(1);
 }
-.add-contacts .form-wrap .input .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+.form-wrap .input .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root,
+.form-wrap .input .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
   transform: translate(10px, 5px) scale(0.75);
 }
-.add-contacts .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border: none;
+}
+.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
   border-bottom: none;
 }
-.add-contacts .form-wrap .input .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+.form-wrap .input .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border: none;
   border-color: initial;
 }
-.add-contacts .form-wrap .form {
+.form-wrap .form {
   position: relative;
   /* input combo box */
 }
-.add-contacts .form-wrap .form .icons {
+.form-wrap .form .icons {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translate(-50%, -50%);
 }
-.add-contacts .form-wrap .form .icons svg {
+.form-wrap .form .icons svg {
   font-size: 1.5rem;
 }
-.add-contacts .form-wrap .form .combo-box {
+.form-wrap .form .combo-box {
   padding-left: 0;
 }
-.add-contacts .form-wrap .form .clear-btn {
+.form-wrap .form .clear-btn {
   position: absolute;
   padding: 4px;
   top: 50%;
   right: 35px;
   transform: translate(-50%, -50%);
 }
-.add-contacts .form-wrap .form .clear-btn svg {
+.form-wrap .form .clear-btn svg {
   font-weight: 400;
   font-size: 1.25rem;
 }
-.add-contacts .form-wrap .form:not(:hover) .clear-btn {
+.form-wrap .form:not(:hover) .clear-btn {
   visibility: hidden;
 }
-.add-contacts .form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+.form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
   right: 50px;
 }
-.add-contacts .form-wrap .btn-add-contact {
+.form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 12px 2px 2px;
+}
+.form-wrap .btn-add-contact,
+.form-wrap .btn-edit-contact {
   margin: 30px 0 10px;
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
-.add-contacts .form-wrap .btn-add-contact:hover {
+.form-wrap .btn-add-contact:hover,
+.form-wrap .btn-edit-contact:hover {
   background-color: inherit;
 }
-.add-contacts .form-wrap .btn-add-contact:active {
+.form-wrap .btn-add-contact:active,
+.form-wrap .btn-edit-contact:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
 

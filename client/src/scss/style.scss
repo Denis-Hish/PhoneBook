@@ -307,120 +307,131 @@ svg {
 .add-contacts {
    min-width: 500px;
    margin: 0 auto;
+}
 
-   .form-wrap {
-      display: flex;
-      flex-direction: column;
-      max-width: inherit;
-      margin: 0 auto;
-      box-shadow: $box-shadow;
-      padding: 1rem;
-      border-radius: 8px;
+.form-wrap {
+   display: flex;
+   flex-direction: column;
+   max-width: inherit;
+   margin: 0 auto;
+   box-shadow: $box-shadow;
+   padding: 1rem;
+   border-radius: 8px;
 
-      .input {
-         margin-bottom: 10px;
-         padding-left: 10px;
-         background: transparent;
-         border-radius: 10px;
-         box-shadow: $box-shadow-inset;
-         width: 100%;
+   .input {
+      margin-bottom: 10px;
+      padding-left: 10px;
+      background: transparent;
+      border-radius: 10px;
+      box-shadow: $box-shadow-inset;
+      width: 100%;
 
-         /* input не нажат */
-         .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
-            transform: translate(10px, 15px) scale(1);
-         }
+      /* input не нажат */
+      .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
+      .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+         transform: translate(10px, 15px) scale(1);
+      }
 
-         /* input нажат */
-         .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
-            transform: translate(10px, 5px) scale(0.75);
-         }
+      /* input нажат */
+      .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root,
+      .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+         transform: translate(10px, 5px) scale(0.75);
+      }
 
-         // .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
-         // .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
-         // .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
-         // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
-         // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
-         // .css-v4u5dn-MuiInputBase-root-MuiInput-root:before,
-         // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
-         // border-bottom: none;
-         // }
+      // .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
+      // .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+      // .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
+      // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
+      // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+      // .css-v4u5dn-MuiInputBase-root-MuiInput-root:before,
+      // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+      // border-bottom: none;
+      // }
 
-         .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
-            border-bottom: none;
-         }
+      .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+         border: none;
+      }
 
-         .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-            border: none;
-            border-color: initial;
+      .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+         border-bottom: none;
+      }
+
+      .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+         border: none;
+         border-color: initial;
+      }
+   }
+
+   .form {
+      position: relative;
+
+      .icons {
+         position: absolute;
+         top: 50%;
+         right: 0;
+         transform: translate(-50%, -50%);
+
+         svg {
+            font-size: 1.5rem;
          }
       }
 
-      .form {
-         position: relative;
+      /* input combo box */
+      .combo-box {
+         padding-left: 0;
+      }
 
-         .icons {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translate(-50%, -50%);
+      // clear btn
+      .clear-btn {
+         position: absolute;
+         padding: 4px;
+         top: 50%;
+         right: 35px;
+         transform: translate(-50%, -50%);
 
-            svg {
-               font-size: 1.5rem;
-            }
+         svg {
+            font-weight: 400;
+            font-size: 1.25rem;
          }
+      }
 
-         /* input combo box */
-         .combo-box {
-            padding-left: 0;
-         }
-
-         // clear btn
+      &:not(:hover) {
          .clear-btn {
-            position: absolute;
-            padding: 4px;
-            top: 50%;
-            right: 35px;
-            transform: translate(-50%, -50%);
-
-            svg {
-               font-weight: 400;
-               font-size: 1.25rem;
-            }
+            visibility: hidden;
          }
-
-         &:not(:hover) {
-            .clear-btn {
-               visibility: hidden;
-            }
-         }
-
-         // & input:focus {
-         //    background-color: red;
-         //    .clear-btn {
-         //       visibility: visible;
-         //    }
-         // }
       }
 
-      // clear button combo box groups
-      .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
-         right: 50px;
+      // & input:focus {
+      //    background-color: red;
+      //    .clear-btn {
+      //       visibility: visible;
+      //    }
+      // }
+   }
+
+   // clear button combo box groups
+   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+      right: 50px;
+   }
+
+   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+      padding: 12px 2px 2px;
+   }
+
+   .btn-add-contact,
+   .btn-edit-contact {
+      margin: 30px 0 10px;
+      padding: 10px 15px;
+      background: transparent;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+
+      &:hover {
+         background-color: inherit;
       }
 
-      .btn-add-contact {
-         margin: 30px 0 10px;
-         padding: 10px 15px;
-         background: transparent;
-         border-radius: 8px;
-         box-shadow: $box-shadow;
-
-         &:hover {
-            background-color: inherit;
-         }
-
-         &:active {
-            box-shadow: $box-shadow-inset;
-         }
+      &:active {
+         box-shadow: $box-shadow-inset;
       }
    }
 }
