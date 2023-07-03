@@ -5,11 +5,11 @@ export const getAllContacts = async () => {
    return res.data || [];
 };
 
-export const addContact = newContact => {
+export const addContact = (newContact) => {
    axios
       .post('api/contacts/add-contact', newContact)
-      .then(response => alert(`Contact for ${response.data.userName} saved!`)) // TODO: Add success message
-      .catch(error => {
+      .then((response) => alert(`Contact for ${response.data.userName} saved!`)) // TODO: Add success message
+      .catch((error) => {
          console.error('There was an error!', error); // TODO: Add error handler
       });
 };
@@ -17,23 +17,23 @@ export const addContact = newContact => {
 export const editContact = (contactId, updatedContact) => {
    axios
       .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
-      .then(response => {
+      .then((response) => {
          const editedContact = response.data;
          alert(`Контакт ${editedContact.userName} обновлён!`);
       })
-      .catch(error => {
+      .catch((error) => {
          console.error('There was an error editing the contact:', error);
       });
 };
 
-export const deleteContact = contactId => {
+export const deleteContact = (contactId) => {
    axios
       .delete(`api/contacts/delete-contact/${contactId}`)
-      .then(response => {
+      .then((response) => {
          const deletedContact = response.data;
          // alert(`Контакт ${deletedContact.userName} успешно удален`);
       })
-      .catch(error => {
+      .catch((error) => {
          console.error('Произошла ошибка при удалении контакта:', error);
       });
 };

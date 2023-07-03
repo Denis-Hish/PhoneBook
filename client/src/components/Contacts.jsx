@@ -176,7 +176,7 @@ const Contacts = () => {
    return (
       <div className="contacts">
          {message && <Snackbar {...message} />}
-         <MadalEditContact contact={contactForEdit} openModal={openEditModal} />
+         <MadalEditContact contact={contactForEdit} openModal={openEditModal} setOpenModal={setOpenEditModal} />
          <ModalWindows
             content={
                <>
