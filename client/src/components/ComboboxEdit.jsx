@@ -5,8 +5,8 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 const filter = createFilterOptions();
 
-export default function Combobox({ onChangeHandler }) {
-   const [value, setValue] = React.useState(null);
+export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
+   // const [value, setValue] = React.useState('');
    const [groups, setGroups] = React.useState([]);
 
    React.useEffect(() => {
@@ -26,7 +26,7 @@ export default function Combobox({ onChangeHandler }) {
    return (
       <Autocomplete
          className="input combo-box"
-         value={value}
+         value={valueGroup}
          onChange={(event, newValue) => {
             let selectedGroup = '';
             if (newValue && typeof newValue === 'object') {
@@ -77,11 +77,3 @@ export default function Combobox({ onChangeHandler }) {
       />
    );
 }
-
-// const groupsOld = [
-//    { title: 'SNR - Biuro' },
-//    { title: 'SNR - Karcz.' },
-//    { title: 'Placówki' },
-//    { title: 'WS' },
-//    { title: 'ZAZ' },
-// ];

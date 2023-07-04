@@ -9,6 +9,7 @@ import Fade from '@mui/material/Fade';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
+import ComboboxEdit from './ComboboxEdit';
 
 const style = {
    position: 'absolute',
@@ -39,19 +40,42 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
    }, [contact]);
 
    //!-----------------------------------------------
-   const handleEditContact = async () => {
-      const updatedContact = {
-         id,
-         userName: name,
-         phoneNumber1: phone1,
-         phoneNumber2: phone2,
-         phoneNumber3: phone3,
-         group: group1,
-      };
-      await editContact(id, updatedContact);
-      closeModal();
-      await getAllContacts();
+   const [contacts, setContacts] = useState(null);
+
+   const getContacts = async () => {
+      let res = await getAllContacts();
+
+      if (res instanceof Array && !res.length) {
+         console.log('---No Contacts in DB -', res.length);
+      }
+      setContacts(res);
    };
+
+   const handleEditContact = async (e) => {
+      // e.preventDefault();
+      try {
+         const updatedContact = {
+            id,
+            userName: name,
+            phoneNumber1: phone1,
+            phoneNumber2: phone2,
+            phoneNumber3: phone3,
+            group: group1,
+         };
+         if (updatedContact) {
+            await editContact(id, updatedContact);
+            closeModal();
+            getContacts();
+         } else {
+         }
+      } catch (error) {}
+   };
+
+   useEffect(() => {
+      if (!contacts) {
+         getContacts();
+      }
+   }, []);
    //!-----------------------------------------------
 
    // const handleEditContact = async () => {
@@ -102,7 +126,6 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               <PersonIcon />
                            </div>
                         </div>
-
                         <div className="form">
                            <TextField
                               className="input"
@@ -116,7 +139,6 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               <PhoneEnabledIcon />
                            </div>
                         </div>
-
                         <div className="form">
                            <TextField
                               className="input"
@@ -130,7 +152,6 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               <PhoneEnabledIcon />
                            </div>
                         </div>
-
                         <div className="form">
                            <TextField
                               className="input"
@@ -144,21 +165,20 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               <PhoneEnabledIcon />
                            </div>
                         </div>
-
                         <div className="form">
-                           <TextField
+                           <ComboboxEdit onChangeHandler={(e) => setGroup(e.target.value)} valueGroup={group1} />
+                           {/* <TextField
                               className="input"
                               label="Group"
                               variant="standard"
                               value={group1}
                               onChange={(e) => setGroup(e.target.value)}
                               autoComplete="off"
-                           />
+                           /> */}
                            <div className="icons">
                               <GroupsIcon />
                            </div>
                         </div>
-
                         <Button className="btn-edit-contact" type="submit" variant="outlined">
                            Save contact
                         </Button>
