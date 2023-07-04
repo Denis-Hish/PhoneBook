@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { setMessage } from '../components/Snackbar';
 
 export const getAllContacts = async () => {

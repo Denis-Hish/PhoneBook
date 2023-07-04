@@ -31,12 +31,16 @@ const AddContact = ({ onClose }) => {
       }));
    };
 
-   const submitForm = async (event) => {
+   //!-----------------------------------------------
+
+   //!-----------------------------------------------
+
+   const handleAddContact = async () => {
       // TODO: Add validation
-      event.preventDefault();
       console.log('--contact--', contact);
       await addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
+      await getAllContacts(); // Update the contact list after adding
    };
 
    // Focus on input
@@ -48,7 +52,7 @@ const AddContact = ({ onClose }) => {
    return (
       <div className="add-contacts">
          <h2>Add contakt:</h2>
-         <form onSubmit={submitForm} className="form-wrap">
+         <form onSubmit={handleAddContact} className="form-wrap">
             <div className="form">
                <TextField
                   name="userName"

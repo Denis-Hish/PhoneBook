@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { editContact } from '../services/paramsAPI';
+import { editContact, getAllContacts } from '../services/paramsAPI';
 import Fade from '@mui/material/Fade';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
@@ -38,6 +38,36 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
       setGroup(group || '');
    }, [contact]);
 
+   //!-----------------------------------------------
+   const handleEditContact = async () => {
+      const updatedContact = {
+         id,
+         userName: name,
+         phoneNumber1: phone1,
+         phoneNumber2: phone2,
+         phoneNumber3: phone3,
+         group: group1,
+      };
+      await editContact(id, updatedContact);
+      closeModal();
+      await getAllContacts();
+   };
+   //!-----------------------------------------------
+
+   // const handleEditContact = async () => {
+   //    const updatedContact = {
+   //       id,
+   //       userName: name,
+   //       phoneNumber1: phone1,
+   //       phoneNumber2: phone2,
+   //       phoneNumber3: phone3,
+   //       group: group1,
+   //    };
+   //    await editContact(id, updatedContact);
+   //    closeModal();
+   //    await getAllContacts(); // Update the contact list after editing
+   // };
+
    return (
       <>
          <Modal
@@ -58,22 +88,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                   <button className="btn-close" onClick={closeModal}></button>
                   <div className="add-contacts">
                      <h2 className="">Edit contact:</h2>
-                     <form
-                        className="form-wrap"
-                        onSubmit={(e) => {
-                           e.preventDefault();
-                           const updatedContact = {
-                              id,
-                              userName: name,
-                              phoneNumber1: phone1,
-                              phoneNumber2: phone2,
-                              phoneNumber3: phone3,
-                              group: group1,
-                           };
-                           editContact(id, updatedContact);
-                           closeModal();
-                        }}
-                     >
+                     <form className="form-wrap" onSubmit={handleEditContact}>
                         <div className="form">
                            <TextField
                               className="input"

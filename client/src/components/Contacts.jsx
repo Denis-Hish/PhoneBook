@@ -12,7 +12,6 @@ import Zoom from '@mui/material/Zoom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
-import Snackbar from './Snackbar';
 import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
 
@@ -45,7 +44,6 @@ const Contacts = () => {
    const [selectedId, setSelectedId] = useState(null);
    const [selectedAction, setSelectedAction] = useState(null);
    const [filterValue, setFilterValue] = useState('');
-   const [message, setMessage] = useState(null); // Snackbar message
    const [contactForEdit, setContactForEdit] = useState({});
    const [openEditModal, setOpenEditModal] = useState(false);
 
@@ -92,22 +90,12 @@ const Contacts = () => {
          const contact = contacts?.find((contact) => contact.id === selectedId);
          if (contact) {
             await deleteContact(selectedId);
-            // Дополнительные действия после успешного удаления контакта
-            // setMessage({
-            //    message: `Contact ${contact.userName} deleted successfully`,
-            //    color: 'info',
-            // });
             setOpen(false); // Закрыть модальное окно
             getContacts(); // Обновление списка контактов после удаления
          } else {
-            // setMessage({
-            //    message: 'There was an error deleting the contact',
-            //    color: 'error',
-            // });
          }
       } catch (error) {
          console.error('There was an error deleting the contact:', error);
-         // Дополнительные действия в случае ошибки при удалении контакта
       }
    };
 
@@ -175,7 +163,6 @@ const Contacts = () => {
 
    return (
       <div className="contacts">
-         {message && <Snackbar {...message} />}
          <MadalEditContact contact={contactForEdit} openModal={openEditModal} setOpenModal={setOpenEditModal} />
          <ModalWindows
             content={
@@ -281,7 +268,6 @@ const Contacts = () => {
                                  <IconButton
                                     className="btn-table delete"
                                     onClick={() => {
-                                       //setOpen(true);
                                        getIdDeleteBtn(id);
                                     }}
                                  >
