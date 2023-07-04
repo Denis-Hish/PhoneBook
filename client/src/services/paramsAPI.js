@@ -26,7 +26,7 @@ export const editContact = (contactId, updatedContact) => {
 export const deleteContact = (contactId) => {
    axios
       .delete(`api/contacts/delete-contact/${contactId}`)
-      .then((response) => alert(`Контакт ${response.data.userName} успешно удален`))
+      .then(() => alert(`Контакт успешно удален!`))
       .catch((error) => {
          console.error('There was an error deleting the contact:', error);
       });
