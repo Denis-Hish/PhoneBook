@@ -80,7 +80,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <TextField
                               className="input"
                               label="Name"
-                              variant="outlined"
+                              variant="standard"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                            />
@@ -93,7 +93,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <TextField
                               className="input"
                               label="Phone 1"
-                              variant="outlined"
+                              variant="standard"
                               value={phone1}
                               onChange={(e) => setPhone1(e.target.value)}
                            />
@@ -106,7 +106,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <TextField
                               className="input"
                               label="Phone 2"
-                              variant="outlined"
+                              variant="standard"
                               value={phone2}
                               onChange={(e) => setPhone2(e.target.value)}
                            />
@@ -119,7 +119,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <TextField
                               className="input"
                               label="Phone 3"
-                              variant="outlined"
+                              variant="standard"
                               value={phone3}
                               onChange={(e) => setPhone3(e.target.value)}
                            />
@@ -132,7 +132,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <TextField
                               className="input"
                               label="Group"
-                              variant="outlined"
+                              variant="standard"
                               value={group1}
                               onChange={(e) => setGroup(e.target.value)}
                            />

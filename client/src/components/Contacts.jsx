@@ -93,17 +93,17 @@ const Contacts = () => {
          if (contact) {
             await deleteContact(selectedId);
             // Дополнительные действия после успешного удаления контакта
-            setMessage({
-               message: `Contact ${contact.userName} deleted successfully`,
-               color: 'info',
-            });
+            // setMessage({
+            //    message: `Contact ${contact.userName} deleted successfully`,
+            //    color: 'info',
+            // });
             setOpen(false); // Закрыть модальное окно
             getContacts(); // Обновление списка контактов после удаления
          } else {
-            setMessage({
-               message: 'There was an error deleting the contact',
-               color: 'error',
-            });
+            // setMessage({
+            //    message: 'There was an error deleting the contact',
+            //    color: 'error',
+            // });
          }
       } catch (error) {
          console.error('There was an error deleting the contact:', error);

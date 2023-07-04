@@ -327,15 +327,17 @@ svg {
       width: 100%;
 
       /* input не нажат */
-      .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
-      .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+      .MuiInputLabel-standard {
          transform: translate(10px, 15px) scale(1);
       }
 
       /* input нажат */
-      .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root,
-      .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+      .MuiInputLabel-shrink {
          transform: translate(10px, 5px) scale(0.75);
+      }
+
+      .MuiInputBase-root {
+         margin-top: 16px;
       }
 
       // .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
@@ -359,6 +361,13 @@ svg {
       .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
          border: none;
          border-color: initial;
+      }
+   }
+
+   .combo-box {
+      .MuiInputBase-root {
+         padding: 9px !important;
+         margin-top: 0 !important;
       }
    }
 

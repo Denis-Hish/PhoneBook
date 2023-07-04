@@ -263,13 +263,14 @@ svg {
   /* input не нажат */
   /* input нажат */
 }
-.form-wrap .input .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
-.form-wrap .input .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+.form-wrap .input .MuiInputLabel-standard {
   transform: translate(10px, 15px) scale(1);
 }
-.form-wrap .input .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root,
-.form-wrap .input .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+.form-wrap .input .MuiInputLabel-shrink {
   transform: translate(10px, 5px) scale(0.75);
+}
+.form-wrap .input .MuiInputBase-root {
+  margin-top: 16px;
 }
 .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
   border: none;
@@ -280,6 +281,10 @@ svg {
 .form-wrap .input .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border: none;
   border-color: initial;
+}
+.form-wrap .combo-box .MuiInputBase-root {
+  padding: 9px !important;
+  margin-top: 0 !important;
 }
 .form-wrap .form {
   position: relative;
