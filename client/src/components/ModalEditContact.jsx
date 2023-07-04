@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { editContact } from '../services/paramsAPI';
@@ -58,8 +57,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={closeModal}></button>
                   <div className="add-contacts">
-                     <h2 className="">Edit contact: {userName} ?</h2>
-
+                     <h2 className="">Edit contact:</h2>
                      <form
                         className="form-wrap"
                         onSubmit={(e) => {
@@ -83,6 +81,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               variant="standard"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
+                              autoComplete="off"
                            />
                            <div className="icons">
                               <PersonIcon />
@@ -96,6 +95,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               variant="standard"
                               value={phone1}
                               onChange={(e) => setPhone1(e.target.value)}
+                              autoComplete="off"
                            />
                            <div className="icons">
                               <PhoneEnabledIcon />
@@ -109,6 +109,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               variant="standard"
                               value={phone2}
                               onChange={(e) => setPhone2(e.target.value)}
+                              autoComplete="off"
                            />
                            <div className="icons">
                               <PhoneEnabledIcon />
@@ -122,6 +123,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               variant="standard"
                               value={phone3}
                               onChange={(e) => setPhone3(e.target.value)}
+                              autoComplete="off"
                            />
                            <div className="icons">
                               <PhoneEnabledIcon />
@@ -135,6 +137,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                               variant="standard"
                               value={group1}
                               onChange={(e) => setGroup(e.target.value)}
+                              autoComplete="off"
                            />
                            <div className="icons">
                               <GroupsIcon />

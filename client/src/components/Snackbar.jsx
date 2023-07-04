@@ -7,9 +7,22 @@ const Alert = React.forwardRef(function Alert(props, ref) {
    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function CustomizedSnackbars({ message, color }) {
+let setMessageCallback;
+
+export const setMessage = ({ message, color }) => {
+   if (setMessageCallback) {
+      setMessageCallback({ message, color });
+   }
+};
+
+export default function CustomizedSnackbars() {
    const [open, setOpen] = React.useState(false);
    const [transition, setTransition] = React.useState(undefined);
+   const [message, setMessage] = React.useState(null);
+
+   React.useEffect(() => {
+      setMessageCallback = setMessage;
+   }, []);
 
    React.useEffect(() => {
       if (message) {
@@ -34,8 +47,8 @@ export default function CustomizedSnackbars({ message, color }) {
          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
          TransitionComponent={transition}
       >
-         <Alert className="snackbar" onClose={handleClose} severity={color} sx={{ width: '100%' }}>
-            {message}
+         <Alert className="snackbar" onClose={handleClose} severity={message?.color} sx={{ width: '100%' }}>
+            {message?.message}
          </Alert>
       </Snackbar>
    );

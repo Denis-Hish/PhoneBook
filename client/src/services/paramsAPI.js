@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { setMessage } from '../components/Snackbar';
+
 export const getAllContacts = async () => {
    let res = await axios.get('api/contacts/get-all');
    return res.data || [];
@@ -8,7 +10,11 @@ export const getAllContacts = async () => {
 export const addContact = (newContact) => {
    axios
       .post('api/contacts/add-contact', newContact)
-      .then((response) => alert(`Контакт ${response.data.userName} сохранён!`)) // TODO: Add success message
+      .then((response) => {
+         const message = `Contact ${response.data.userName} saved!`;
+         const color = 'info';
+         setMessage({ message, color });
+      }) // TODO: Add success message
       .catch((error) => {
          console.error('There was an error!', error); // TODO: Add error handler
       });
@@ -17,7 +23,11 @@ export const addContact = (newContact) => {
 export const editContact = (contactId, updatedContact) => {
    axios
       .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
-      .then((response) => alert(`Контакт ${response.data.userName} обновлён!`))
+      .then((response) => {
+         const message = `Contact ${response.data.userName} edited!`;
+         const color = 'success';
+         setMessage({ message, color });
+      })
       .catch((error) => {
          console.error('There was an error editing the contact:', error);
       });
@@ -26,7 +36,11 @@ export const editContact = (contactId, updatedContact) => {
 export const deleteContact = (contactId) => {
    axios
       .delete(`api/contacts/delete-contact/${contactId}`)
-      .then(() => alert(`Контакт успешно удален!`))
+      .then(() => {
+         const message = `Contact successfully deleted!`;
+         const color = 'error';
+         setMessage({ message, color });
+      })
       .catch((error) => {
          console.error('There was an error deleting the contact:', error);
       });
