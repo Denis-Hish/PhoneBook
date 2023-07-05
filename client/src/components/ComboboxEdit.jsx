@@ -23,10 +23,13 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
       extractGroups();
    }, []);
 
+   const validGroups = groups.map((group) => group.title);
+   const selectedGroup = validGroups.includes(valueGroup) ? valueGroup : null;
+
    return (
       <Autocomplete
          className="input combo-box"
-         value={valueGroup}
+         value={selectedGroup}
          onChange={(event, newValue) => {
             let selectedGroup = '';
             if (newValue && typeof newValue === 'object') {
