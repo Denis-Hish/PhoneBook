@@ -24,13 +24,6 @@ const AddContact = ({ onClose }) => {
       });
    };
 
-   const clearInput = (name) => {
-      setContact((prevContact) => ({
-         ...prevContact,
-         [name]: '',
-      }));
-   };
-
    //!-----------------------------------------------
 
    //!-----------------------------------------------
@@ -48,6 +41,14 @@ const AddContact = ({ onClose }) => {
    useEffect(() => {
       inputRef.current.focus();
    }, []);
+
+   //Clear input
+   const clearInput = (name) => {
+      setContact((prevContact) => ({
+         ...prevContact,
+         [name]: '',
+      }));
+   };
 
    return (
       <div className="add-contacts">

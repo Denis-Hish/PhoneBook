@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -9,6 +9,8 @@ import Fade from '@mui/material/Fade';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
 import ComboboxEdit from './ComboboxEdit';
 
 const style = {
@@ -40,7 +42,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
    }, [contact]);
 
    //!-----------------------------------------------
-   const [contacts, setContacts] = useState(null);
+   const [contacts, setContact] = useState(null);
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -48,7 +50,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
       if (res instanceof Array && !res.length) {
          console.log('---No Contacts in DB -', res.length);
       }
-      setContacts(res);
+      setContact(res);
    };
 
    const handleEditContact = async (e) => {
@@ -92,6 +94,22 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
    //    await getAllContacts(); // Update the contact list after editing
    // };
 
+   // Focus on input
+   const [isNameInputActive, setNameInputActive] = useState(false);
+   useEffect(() => {
+      if (openModal) {
+         setNameInputActive(true);
+      }
+   }, [openModal]);
+
+   //Clear input
+   const clearInput = (name) => {
+      setContact((prevContact) => ({
+         ...prevContact,
+         [name]: '',
+      }));
+   };
+
    return (
       <>
          <Modal
@@ -116,15 +134,22 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                         <div className="form">
                            <TextField
                               className="input"
+                              name="userName"
                               label="Name"
                               variant="standard"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                               autoComplete="off"
+                              autoFocus
+                              onFocus={() => setNameInputActive(true)}
+                              onBlur={() => setNameInputActive(false)}
                            />
                            <div className="icons">
                               <PersonIcon />
                            </div>
+                           <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex={-1}>
+                              <ClearIcon />
+                           </IconButton>
                         </div>
                         <div className="form">
                            <TextField
