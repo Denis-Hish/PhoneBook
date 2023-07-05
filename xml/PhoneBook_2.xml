@@ -6,7 +6,7 @@
   <group display_name="WS" ring="Auto"/>
   <group display_name="ZAZ" ring="Auto"/>
   <group display_name="Tatuin" ring="Auto"/>
-</root_group><?xml version="1.0"?>
+</root_group>
 <root_contact>
   <contact display_name="Sekretariat" office_number="200" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>
   <contact display_name="Prezes" office_number="201" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="SNR - Biuro"/>

@@ -55,6 +55,9 @@ const Converter = () => {
       const xmlString1 = xml1.end({ prettyPrint: true });
       const xmlString2 = xml2.end({ prettyPrint: true }) + xml2Contacts.end({ prettyPrint: true });
 
+      // Удаление строки '<?xml version="1.0"?>' из xmlString2
+      const modifiedXmlString2 = xmlString2.replace('<?xml version="1.0"?>', '');
+
       // Сохраняем xmlString1 в файл file1.xml
       const file1Blob = new Blob([xmlString1], { type: 'text/xml' });
       const file1Url = URL.createObjectURL(file1Blob);
@@ -64,7 +67,7 @@ const Converter = () => {
       file1Link.click();
 
       // Сохраняем xmlString2 в файл file2.xml
-      const file2Blob = new Blob([xmlString2], { type: 'text/xml' });
+      const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
       const file2Url = URL.createObjectURL(file2Blob);
       const file2Link = document.createElement('a');
       file2Link.href = file2Url;
