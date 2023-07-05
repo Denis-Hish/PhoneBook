@@ -14,6 +14,8 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
 import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
+import ModalAddContact from './ModalAddContact';
+import AddContact from './AddContact';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -55,13 +57,6 @@ const Contacts = () => {
       }
       setContacts(res);
    };
-
-   // const getIdEditBtn = id => {
-   //    console.log('Edit ID:', id);
-   // setSelectedId(id);
-   // setOpen(true);
-   // setSelectedAction('Edit');
-   // };
 
    const handleEdit = (id) => {
       const obj = contacts.find((contact) => contact.id === id);
@@ -159,11 +154,17 @@ const Contacts = () => {
       }
    }, []);
 
-   console.log('---All contacts---', contacts);
+   // console.log('---All contacts---', contacts);
 
    return (
       <div className="contacts">
-         <MadalEditContact contact={contactForEdit} openModal={openEditModal} setOpenModal={setOpenEditModal} />
+         <ModalAddContact updateListContacts={getContacts} />
+         <MadalEditContact
+            contact={contactForEdit}
+            openModal={openEditModal}
+            setOpenModal={setOpenEditModal}
+            updateListContacts={getContacts}
+         />
          <ModalWindows
             content={
                <>

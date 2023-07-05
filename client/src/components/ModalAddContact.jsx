@@ -16,7 +16,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-export default function TransitionsModal() {
+export default function TransitionsModal(updateListContacts) {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -62,10 +62,9 @@ export default function TransitionsModal() {
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={handleClose}></button>
                   <AddContact
+                     updateListContacts={updateListContacts.updateListContacts}
                      onClose={() => {
                         handleClose();
-                        // getContacts();
-                        // console.log('CLOSE-2');
                      }}
                   />
                </Box>

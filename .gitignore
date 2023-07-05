@@ -3,3 +3,4 @@ node_modules
 .env
 info.txt
 *.psd
+install_MongoBD_Win

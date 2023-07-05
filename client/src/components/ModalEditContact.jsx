@@ -20,7 +20,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
 };
 
-const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
+const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts }) => {
    const { id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
 
    const closeModal = () => {
@@ -41,58 +41,20 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
       setGroup(group || '');
    }, [contact]);
 
-   //!-----------------------------------------------
-   const [contacts, setContact] = useState(null);
-
-   const getContacts = async () => {
-      let res = await getAllContacts();
-
-      if (res instanceof Array && !res.length) {
-         console.log('---No Contacts in DB -', res.length);
-      }
-      setContact(res);
-   };
-
    const handleEditContact = async (e) => {
-      // e.preventDefault();
-      try {
-         const updatedContact = {
-            id,
-            userName: name,
-            phoneNumber1: phone1,
-            phoneNumber2: phone2,
-            phoneNumber3: phone3,
-            group: group1,
-         };
-         if (updatedContact) {
-            await editContact(id, updatedContact);
-            closeModal();
-            getContacts();
-         } else {
-         }
-      } catch (error) {}
+      e.preventDefault();
+      const updatedContact = {
+         id,
+         userName: name,
+         phoneNumber1: phone1,
+         phoneNumber2: phone2,
+         phoneNumber3: phone3,
+         group: group1,
+      };
+      await editContact(id, updatedContact);
+      closeModal();
+      updateListContacts();
    };
-
-   useEffect(() => {
-      if (!contacts) {
-         getContacts();
-      }
-   }, []);
-   //!-----------------------------------------------
-
-   // const handleEditContact = async () => {
-   //    const updatedContact = {
-   //       id,
-   //       userName: name,
-   //       phoneNumber1: phone1,
-   //       phoneNumber2: phone2,
-   //       phoneNumber3: phone3,
-   //       group: group1,
-   //    };
-   //    await editContact(id, updatedContact);
-   //    closeModal();
-   //    await getAllContacts(); // Update the contact list after editing
-   // };
 
    // Focus on input
    const [isNameInputActive, setNameInputActive] = useState(false);

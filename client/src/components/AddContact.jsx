@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import ComboBox from './ComboBox';
 
-const AddContact = ({ onClose }) => {
+const AddContact = ({ onClose, updateListContacts }) => {
    const [contact, setContact] = useState({
       userName: '',
       phoneNumber1: '',
@@ -24,16 +24,13 @@ const AddContact = ({ onClose }) => {
       });
    };
 
-   //!-----------------------------------------------
-
-   //!-----------------------------------------------
-
-   const handleAddContact = async () => {
+   const handleAddContact = async (e) => {
+      e.preventDefault();
       // TODO: Add validation
-      console.log('--contact--', contact);
+      // console.log('--contact--', contact);
       await addContact(contact);
       onClose(); // Закрытие модального окна после отправки формы
-      await getAllContacts(); // Update the contact list after adding
+      updateListContacts();
    };
 
    // Focus on input

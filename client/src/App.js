@@ -13,7 +13,7 @@ function App() {
       <>
          <Header />
          <Contacts />
-         <ModalAddContact />
+         {/* <ModalAddContact /> */}
          <Snackbar />
          <Footer />
       </>
