@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
-  <Menu Name="Tatuin">
-    <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" Phone2="123-456-789" Phone3="123" default_photo="Resource:"/>
-  </Menu>
   <Menu Name="SNR - Biuro">
     <Unit Name="Sekretariat" Phone1="200" Phone2="" Phone3="" default_photo="Resource:"/>
     <Unit Name="Prezes" Phone1="201" Phone2="" Phone3="" default_photo="Resource:"/>
@@ -57,7 +54,7 @@
     <Unit Name="ZAZ Smaczek" Phone1="412787238" Phone2="533030207" Phone3="" default_photo="Resource:"/>
     <Unit Name="ZAZ Pralnia" Phone1="531202205" Phone2="533326044" Phone3="" default_photo="Resource:"/>
   </Menu>
-  <Menu Name="">
-    <Unit Name="111" Phone1="" Phone2="" Phone3="" default_photo="Resource:"/>
+  <Menu Name="Tatuin">
+    <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" Phone2="123-456-789" Phone3="123" default_photo="Resource:"/>
   </Menu>
 </YealinkIPPhoneBook>

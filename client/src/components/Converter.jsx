@@ -16,7 +16,7 @@ const Converter = () => {
       const groupsXml1 = {};
       const uniqueGroups = new Set();
 
-      const xml2 = create().ele('root_group');
+      const xml2 = create({ version: '1.0', encoding: 'UTF-8' }).ele('root_group');
 
       const xml2Contacts = create().ele('root_contact');
 
