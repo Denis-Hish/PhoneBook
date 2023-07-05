@@ -7,6 +7,11 @@ const Converter = () => {
    const handleConvert = async () => {
       const contacts = await getAllContacts();
 
+      //!-----------------------------------------------------------------
+      const sortedContacts = contacts.sort((a, b) => a.userName.localeCompare(b.userName));
+      const sortedGroups = [...new Set(sortedContacts.map((contact) => contact.group))].sort();
+      //!-----------------------------------------------------------------
+
       const xml1 = create({ version: '1.0', encoding: 'UTF-8' })
          .ele('YealinkIPPhoneBook')
          .ele('Title')
@@ -20,7 +25,7 @@ const Converter = () => {
 
       const xml2Contacts = create().ele('root_contact');
 
-      contacts.forEach((contact) => {
+      sortedContacts.forEach((contact) => {
          const { userName, phoneNumber1, phoneNumber2, phoneNumber3, group } = contact;
 
          if (!groupsXml1[group]) {
