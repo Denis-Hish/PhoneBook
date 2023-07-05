@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 
 export default function Filter({ value, onChange }) {
-   const handleClear = () => {
+   const clearInput = () => {
       onChange({ target: { value: '' } });
    };
 
@@ -21,7 +21,7 @@ export default function Filter({ value, onChange }) {
          />
 
          {value && (
-            <IconButton className="clear-filter-btn" onClick={handleClear}>
+            <IconButton className="clear-filter-btn" onClick={() => clearInput()}>
                <ClearIcon />
             </IconButton>
          )}

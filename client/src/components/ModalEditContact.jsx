@@ -104,10 +104,17 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
 
    //Clear input
    const clearInput = (name) => {
-      setContact((prevContact) => ({
-         ...prevContact,
-         [name]: '',
-      }));
+      const inputFields = {
+         userName: setName,
+         phone1: setPhone1,
+         phone2: setPhone2,
+         phone3: setPhone3,
+      };
+
+      const clearField = inputFields[name];
+      if (clearField) {
+         clearField('');
+      }
    };
 
    return (
@@ -147,13 +154,16 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <div className="icons">
                               <PersonIcon />
                            </div>
-                           <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex={-1}>
-                              <ClearIcon />
-                           </IconButton>
+                           {name && (
+                              <IconButton className="clear-btn" onClick={() => clearInput('userName')} tabIndex={-1}>
+                                 <ClearIcon />
+                              </IconButton>
+                           )}
                         </div>
                         <div className="form">
                            <TextField
                               className="input"
+                              name="phoneNumber1"
                               label="Phone 1"
                               variant="standard"
                               value={phone1}
@@ -163,10 +173,16 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <div className="icons">
                               <PhoneEnabledIcon />
                            </div>
+                           {phone1 && (
+                              <IconButton className="clear-btn" onClick={() => clearInput('phone1')} tabIndex={-1}>
+                                 <ClearIcon />
+                              </IconButton>
+                           )}
                         </div>
                         <div className="form">
                            <TextField
                               className="input"
+                              name="phoneNumber2"
                               label="Phone 2"
                               variant="standard"
                               value={phone2}
@@ -176,10 +192,16 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <div className="icons">
                               <PhoneEnabledIcon />
                            </div>
+                           {phone2 && (
+                              <IconButton className="clear-btn" onClick={() => clearInput('phone2')} tabIndex={-1}>
+                                 <ClearIcon />
+                              </IconButton>
+                           )}
                         </div>
                         <div className="form">
                            <TextField
                               className="input"
+                              name="phoneNumber3"
                               label="Phone 3"
                               variant="standard"
                               value={phone3}
@@ -189,6 +211,11 @@ const ModalEditContact = ({ contact, openModal, setOpenModal }) => {
                            <div className="icons">
                               <PhoneEnabledIcon />
                            </div>
+                           {phone3 && (
+                              <IconButton className="clear-btn" onClick={() => clearInput('phone3')} tabIndex={-1}>
+                                 <ClearIcon />
+                              </IconButton>
+                           )}
                         </div>
                         <div className="form">
                            <ComboboxEdit onChangeHandler={(e) => setGroup(e.target.value)} valueGroup={group1} />
