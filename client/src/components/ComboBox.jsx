@@ -29,9 +29,13 @@ export default function Combobox({ onChangeHandler }) {
          value={value}
          onChange={(event, newValue) => {
             let selectedGroup = '';
-            if (newValue && typeof newValue === 'object') {
-               selectedGroup = newValue.title;
-            } else if (typeof newValue === 'string') {
+            if (typeof newValue === 'object') {
+               if (newValue.inputValue) {
+                  selectedGroup = newValue.inputValue;
+               } else {
+                  selectedGroup = newValue.title;
+               }
+            } else {
                selectedGroup = newValue;
             }
             onChangeHandler({
