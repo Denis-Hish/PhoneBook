@@ -74,7 +74,7 @@ const Contacts = () => {
    };
 
    const getIdDeleteBtn = (id) => {
-      console.log('Delete ID:', id);
+      // console.log('Delete ID:', id);
       setSelectedId(id);
       setOpen(true);
       setSelectedAction('Delete');

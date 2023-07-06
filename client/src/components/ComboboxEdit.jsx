@@ -46,7 +46,6 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
          }}
          filterOptions={(options, params) => {
             const filtered = filter(options, params);
-
             const { inputValue } = params;
             // Создание нового значения
             const isExisting = options.some((option) => inputValue === option.title);
@@ -56,7 +55,9 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
                   title: `Add new group "${inputValue}"`,
                });
             }
-            return filtered;
+            // Исключение пустых значений
+            const nonEmptyFiltered = filtered.filter((option) => option.title !== '');
+            return nonEmptyFiltered;
          }}
          selectOnFocus
          handleHomeEndKeys
