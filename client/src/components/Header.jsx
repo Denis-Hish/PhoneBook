@@ -1,5 +1,6 @@
 import React from 'react';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
+import ToogleTheme from './Theme';
 
 const Heder = () => {
    return (
@@ -11,15 +12,7 @@ const Heder = () => {
                   <PhoneEnabledRoundedIcon />
                </span>
             </h1>
-
-            <div className="swith swith-toggle-theme">
-               <label className="label">
-                  <div className="toggle">
-                     <input className="toggle-state" type="checkbox" name="check" value="check" />
-                     <div className="indicator"></div>
-                  </div>
-               </label>
-            </div>
+            <ToogleTheme />
          </div>
       </header>
    );
