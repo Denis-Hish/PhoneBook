@@ -4,6 +4,9 @@
   <Menu Name="Alderaan">
     <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" Phone2="123-456-789" Phone3="123" default_photo="Resource:"/>
   </Menu>
+  <Menu Name="Betelgeuse">
+    <Unit Name="1-TESTED" Phone1="123" Phone2="456" Phone3="789" default_photo="Resource:"/>
+  </Menu>
   <Menu Name="Placówki">
     <Unit Name="Bar RONDO" Phone1="" Phone2="534006030" Phone3="" default_photo="Resource:"/>
     <Unit Name="Catering Świętokrzyski" Phone1="" Phone2="533236636" Phone3="" default_photo="Resource:"/>
