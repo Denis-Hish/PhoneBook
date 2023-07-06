@@ -181,14 +181,6 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                         </div>
                         <div className="form">
                            <ComboboxEdit onChangeHandler={(e) => setGroup(e.target.value)} valueGroup={group1} />
-                           {/* <TextField
-                              className="input"
-                              label="Group"
-                              variant="standard"
-                              value={group1}
-                              onChange={(e) => setGroup(e.target.value)}
-                              autoComplete="off"
-                           /> */}
                            <div className="icons">
                               <GroupsIcon />
                            </div>

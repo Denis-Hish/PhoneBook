@@ -32,14 +32,16 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
          value={selectedGroup}
          onChange={(event, newValue) => {
             let selectedGroup = '';
-            if (typeof newValue === 'object') {
-               if (newValue.inputValue) {
-                  selectedGroup = newValue.inputValue;
+            if (newValue !== null) {
+               if (typeof newValue === 'object') {
+                  if (newValue.inputValue) {
+                     selectedGroup = newValue.inputValue;
+                  } else {
+                     selectedGroup = newValue.title;
+                  }
                } else {
-                  selectedGroup = newValue.title;
+                  selectedGroup = newValue;
                }
-            } else {
-               selectedGroup = newValue;
             }
             onChangeHandler({
                target: {
