@@ -22,7 +22,8 @@ $color-blue-1: rgb(25, 118, 210);
 $color-blue-2: rgba(25, 118, 210, 0.7);
 
 $box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+   inset -5px -5px 10px #fff;
 
 /* ---------  ---------- */
 
@@ -34,8 +35,9 @@ $box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #
 }
 
 body {
-   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-      'Droid Sans', 'Helvetica Neue', 'Segoe UI', sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      'Segoe UI', sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
@@ -139,10 +141,10 @@ svg {
          width: 60px;
          border-radius: 15px;
          overflow: hidden;
-         -webkit-box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
-            -4px -4px 4px 0px #ffffff inset;
-         box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
-            -4px -4px 4px 0px #ffffff inset;
+         -webkit-box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+            4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+         box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+            4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
       }
 
       .toggle-state {
@@ -156,7 +158,8 @@ svg {
          border-radius: 15px;
          -webkit-transform: translate3d(-75%, 0, 0);
          transform: translate3d(-75%, 0, 0);
-         -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+         -webkit-transition: -webkit-transform 0.4s
+            cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35),
@@ -350,7 +353,10 @@ svg {
       // border-bottom: none;
       // }
 
-      .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+      .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(
+            .Mui-disabled,
+            .Mui-error
+         ):before {
          border: none;
       }
 
@@ -419,11 +425,15 @@ svg {
    }
 
    // clear button combo box groups
-   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+   .css-6ffsbr-MuiAutocomplete-root
+      .MuiOutlinedInput-root
+      .MuiAutocomplete-endAdornment {
       right: 50px;
    }
 
-   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+   .css-6ffsbr-MuiAutocomplete-root
+      .MuiOutlinedInput-root
+      .MuiAutocomplete-input {
       padding: 12px 2px 2px;
    }
 
@@ -588,9 +598,9 @@ svg {
          border-radius: 10px;
          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 
-         &:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-         }
+         // &:hover {
+         //    background-color: rgba(255, 255, 255, 0.3);
+         // }
 
          td:first-child {
             width: 40px;
@@ -664,8 +674,8 @@ svg {
    }
 
    .swith-toggle-theme .toggle {
-      box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
-         -4px -4px 4px 0px #ffffff inset;
+      box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+         4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
    }
 
    .header-tatle {

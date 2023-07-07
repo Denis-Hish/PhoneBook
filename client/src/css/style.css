@@ -272,7 +272,8 @@ svg {
 .form-wrap .input .MuiInputBase-root {
   margin-top: 16px;
 }
-.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled,
+.Mui-error):before {
   border: none;
 }
 .form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
@@ -456,9 +457,6 @@ svg {
   background: transparent;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-}
-.contacts table tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
 }
 .contacts table tr td:first-child {
   width: 40px;
