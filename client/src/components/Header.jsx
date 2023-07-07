@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
-import ToogleTheme from './Theme';
+import { ThemeContext } from './ThemeContext';
+import ThemeToggle from './ThemeToggle';
 
-const Heder = () => {
+const Header = () => {
+   const { theme } = useContext(ThemeContext);
+
    return (
-      <header className="header">
+      <header className={`header ${theme}`}>
          <div className="container">
             <h1>
                Phone Book{' '}
@@ -12,10 +15,10 @@ const Heder = () => {
                   <PhoneEnabledRoundedIcon />
                </span>
             </h1>
-            <ToogleTheme />
+            <ThemeToggle />
          </div>
       </header>
    );
 };
 
-export default Heder;
+export default Header;

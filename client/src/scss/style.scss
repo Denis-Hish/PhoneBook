@@ -44,9 +44,9 @@ body {
 
 h1 {
    font-family: 'Dancing Script', cursive;
-   font-weight: 700 !important;
-   font-size: 4rem !important;
-   color: $color-blue-1 !important;
+   font-weight: 700;
+   font-size: 4rem;
+   color: $color-blue-1;
 }
 
 svg {
@@ -644,4 +644,31 @@ svg {
    color: #d1d9e6;
    font-size: 18px;
    font-weight: 700;
+}
+
+/* ---------- THEME ------------ */
+.header.light {
+}
+
+.header.dark {
+   $theme-dark-bg: #6c757d;
+   $theme-dark-text: #f8f9fa;
+
+   background-color: $theme-dark-bg;
+
+   h1 {
+      color: $theme-dark-text;
+      span::after {
+         border: 3px solid $theme-dark-text;
+      }
+   }
+
+   .swith-toggle-theme .toggle {
+      box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
+         -4px -4px 4px 0px #ffffff inset;
+   }
+
+   .header-tatle {
+      background-color: $theme-dark-bg;
+   }
 }

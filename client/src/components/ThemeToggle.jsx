@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from './ThemeContext';
 
-const ToogleTheme = () => {
-   const [isChecked, setIsChecked] = useState(false);
-
-   const handleToggle = (event) => {
-      const { checked } = event.target;
-      setIsChecked(checked);
-      console.log(checked ? 'dark' : 'light');
-   };
+const ThemeToggle = () => {
+   const { theme, toggleTheme } = useContext(ThemeContext);
 
    return (
       <div className="swith swith-toggle-theme">
@@ -18,8 +13,8 @@ const ToogleTheme = () => {
                   type="checkbox"
                   name="check"
                   value="check"
-                  checked={isChecked}
-                  onChange={handleToggle}
+                  checked={theme === 'dark'}
+                  onChange={toggleTheme}
                />
                <div className="indicator"></div>
             </div>
@@ -28,4 +23,4 @@ const ToogleTheme = () => {
    );
 };
 
-export default ToogleTheme;
+export default ThemeToggle;

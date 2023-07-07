@@ -21,9 +21,9 @@ body {
 
 h1 {
   font-family: "Dancing Script", cursive;
-  font-weight: 700 !important;
-  font-size: 4rem !important;
-  color: rgb(25, 118, 210) !important;
+  font-weight: 700;
+  font-size: 4rem;
+  color: rgb(25, 118, 210);
 }
 
 svg {
@@ -499,4 +499,21 @@ svg {
   color: #d1d9e6;
   font-size: 18px;
   font-weight: 700;
+}
+
+/* ---------- THEME ------------ */
+.header.dark {
+  background-color: #6c757d;
+}
+.header.dark h1 {
+  color: #f8f9fa;
+}
+.header.dark h1 span::after {
+  border: 3px solid #f8f9fa;
+}
+.header.dark .swith-toggle-theme .toggle {
+  box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+}
+.header.dark .header-tatle {
+  background-color: #6c757d;
 }/*# sourceMappingURL=style.css.map */

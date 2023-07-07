@@ -39,3 +39,7 @@ https://www.youtube.com/watch?v=scVi_6xqAEc&ab_channel=Headhonk
 ### Axios requests example
 https://github.com/yatharth1706/PhoneBook/blob/master/app.js
 ```
+
+### Import
+
+mongoimport <--ignoreBlanks> <connection-string> <phones.csv>
