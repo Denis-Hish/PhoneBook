@@ -395,6 +395,9 @@ svg {
 .contacts .header-table .filter fieldset {
   border: none;
 }
+.contacts .header-table .filter .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  transform: translate(14px, 5px) scale(0.75);
+}
 .contacts .header-table .filter .clear-filter-btn {
   padding: 4px;
 }
