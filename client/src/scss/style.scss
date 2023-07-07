@@ -513,7 +513,7 @@ svg {
          // & input {
          // }
 
-         & fieldset {
+         fieldset {
             border: none;
          }
 
@@ -582,10 +582,16 @@ svg {
                }
             }
 
-            // с 2 до 6
+            // с 2 по 6
             &:nth-child(n + 2):nth-child(-n + 6) {
                cursor: pointer;
             }
+         }
+      }
+
+      tbody {
+         tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
          }
       }
 
@@ -602,15 +608,11 @@ svg {
          border-radius: 10px;
          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 
-         // &:hover {
-         //    background-color: rgba(255, 255, 255, 0.3);
-         // }
-
          td:first-child {
             width: 40px;
          }
 
-         // с 2 до 6
+         // с 2 по 6
          td:nth-child(n + 2):nth-child(-n + 6) {
             flex: 1;
          }
@@ -645,6 +647,22 @@ svg {
    }
 
    /*--------------------------------------------------*/
+}
+
+.up-button {
+   position: fixed;
+   right: 1rem;
+   bottom: 0;
+   width: 4rem;
+   height: 4rem;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+   background-color: #fff !important;
+
+   svg {
+      width: 3rem;
+      height: 3rem;
+      fill: rgba(25, 118, 210, 0.7);
+   }
 }
 
 /* --------- FOOTER ---------- */
