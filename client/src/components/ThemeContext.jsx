@@ -7,13 +7,18 @@ export const ThemeProvider = ({ children }) => {
 
    const setPreferredTheme = (matches) => {
       const preferredTheme = matches ? 'dark' : 'light';
-      if (!localStorage.getItem('theme')) {
+      const storedTheme = localStorage.getItem('theme');
+      if (!storedTheme) {
          setTheme(preferredTheme);
          localStorage.setItem('theme', preferredTheme);
+         document.body.classList.add(preferredTheme);
+      } else if (storedTheme !== preferredTheme) {
+         setTheme(storedTheme);
+         document.body.classList.add(storedTheme);
       } else {
-         setTheme(localStorage.getItem('theme'));
+         setTheme(preferredTheme);
+         document.body.classList.add(preferredTheme);
       }
-      document.body.classList.add(preferredTheme);
    };
 
    useEffect(() => {
