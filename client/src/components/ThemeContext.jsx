@@ -13,6 +13,7 @@ export const ThemeProvider = ({ children }) => {
       } else {
          setTheme(localStorage.getItem('theme'));
       }
+      document.body.classList.add(preferredTheme);
    };
 
    useEffect(() => {
@@ -34,6 +35,8 @@ export const ThemeProvider = ({ children }) => {
       const updatedTheme = theme === 'dark' ? 'light' : 'dark';
       setTheme(updatedTheme);
       localStorage.setItem('theme', updatedTheme);
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
    };
 
    return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;

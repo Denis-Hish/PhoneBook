@@ -651,14 +651,15 @@ svg {
 // }
 
 body.dark {
-   background-color: #6c757d;
-}
-
-.header.dark {
    $theme-dark-bg: #6c757d;
    $theme-dark-text: #f8f9fa;
 
-   background-color: $theme-dark-bg;
+   color: #f8f9fa;
+   background-color: #6c757d;
+
+   .header {
+      background-color: $theme-dark-bg;
+   }
 
    h1 {
       color: $theme-dark-text;

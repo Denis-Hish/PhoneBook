@@ -503,25 +503,25 @@ svg {
 
 /* ---------- THEME ------------ */
 body.dark {
+  color: #f8f9fa;
   background-color: #6c757d;
 }
-
-.header.dark {
+body.dark .header {
   background-color: #6c757d;
 }
-.header.dark h1 {
+body.dark h1 {
   color: #f8f9fa;
 }
-.header.dark h1 span::after {
+body.dark h1 span::after {
   border: 3px solid #f8f9fa;
 }
-.header.dark .swith-toggle-theme .toggle {
+body.dark .swith-toggle-theme .toggle {
   box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99, 4px 4px 4px 0px #878d99 inset, -4px -4px 4px 0px #575757 inset;
 }
-.header.dark .swith-toggle-theme .toggle .indicator {
+body.dark .swith-toggle-theme .toggle .indicator {
   background: #a2a6aa;
   box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99;
 }
-.header.dark .header-table {
+body.dark .header-table {
   background-color: #6c757d;
 }/*# sourceMappingURL=style.css.map */
