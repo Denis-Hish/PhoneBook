@@ -503,20 +503,21 @@ svg {
 
 /* ---------- THEME ------------ */
 body.dark {
-  color: #f8f9fa;
+  color: #f6f5f7;
   background-color: #6c757d;
 }
 body.dark .header {
   background-color: #6c757d;
+  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
 }
 body.dark h1 {
-  color: #f8f9fa;
+  color: #f6f5f7;
 }
 body.dark h1 span::after {
-  border: 3px solid #f8f9fa;
+  border: 3px solid #f6f5f7;
 }
 body.dark .swith-toggle-theme .toggle {
-  box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99, 4px 4px 4px 0px #878d99 inset, -4px -4px 4px 0px #575757 inset;
+  box-shadow: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
 }
 body.dark .swith-toggle-theme .toggle .indicator {
   background: #a2a6aa;
@@ -524,4 +525,7 @@ body.dark .swith-toggle-theme .toggle .indicator {
 }
 body.dark .header-table {
   background-color: #6c757d;
+}
+body.dark .contacts table {
+  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
 }/*# sourceMappingURL=style.css.map */

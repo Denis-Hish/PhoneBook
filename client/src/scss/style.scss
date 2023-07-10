@@ -651,14 +651,17 @@ svg {
 // }
 
 body.dark {
+   $theme-dark-text: #f6f5f7;
    $theme-dark-bg: #6c757d;
-   $theme-dark-text: #f8f9fa;
+   $theme-dark-box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
+   $theme-dark-box-shadow-inset: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
 
-   color: #f8f9fa;
-   background-color: #6c757d;
+   color: $theme-dark-text;
+   background-color: $theme-dark-bg;
 
    .header {
       background-color: $theme-dark-bg;
+      box-shadow: $theme-dark-box-shadow;
    }
 
    h1 {
@@ -669,8 +672,7 @@ body.dark {
    }
 
    .swith-toggle-theme .toggle {
-      box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99, 4px 4px 4px 0px #878d99 inset,
-         -4px -4px 4px 0px #575757 inset;
+      box-shadow: $theme-dark-box-shadow-inset;
 
       .indicator {
          background: #a2a6aa;
@@ -680,5 +682,11 @@ body.dark {
 
    .header-table {
       background-color: $theme-dark-bg;
+   }
+
+   .contacts {
+      table {
+         box-shadow: $theme-dark-box-shadow;
+      }
    }
 }
