@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { editContact, getAllContacts } from '../services/paramsAPI';
+import { editContact } from '../services/paramsAPI';
 import Fade from '@mui/material/Fade';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';

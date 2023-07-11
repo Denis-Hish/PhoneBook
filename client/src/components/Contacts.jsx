@@ -15,7 +15,6 @@ import Filter from './Filter';
 import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
 import ModalAddContact from './ModalAddContact';
-import AddContact from './AddContact';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
