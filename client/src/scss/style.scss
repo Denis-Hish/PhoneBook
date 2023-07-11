@@ -350,17 +350,12 @@ svg {
       // border-bottom: none;
       // }
 
-      .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
-         border: none;
+      .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
+         border: none !important;
       }
 
-      .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
-         border-bottom: none;
-      }
-
-      .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-         border: none;
-         border-color: initial;
+      .MuiInputBase-root:before {
+         border-bottom: none !important;
       }
    }
 
@@ -419,12 +414,12 @@ svg {
    }
 
    // clear button combo box groups
-   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+   button[title='Clear'] {
       right: 50px;
    }
 
-   .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
-      padding: 12px 2px 2px;
+   .combo-box input {
+      padding: 12px 2px 2px !important;
    }
 
    .btn-add-contact,
@@ -443,6 +438,10 @@ svg {
          box-shadow: $box-shadow-inset;
       }
    }
+}
+
+fieldset {
+   border: none !important;
 }
 
 .btn__add-contact {
@@ -502,10 +501,6 @@ svg {
 
          // & input {
          // }
-
-         & fieldset {
-            border: none;
-         }
 
          .clear-filter-btn {
             padding: 4px;

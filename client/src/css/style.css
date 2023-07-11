@@ -272,15 +272,11 @@ svg {
 .form-wrap .input .MuiInputBase-root {
   margin-top: 16px;
 }
-.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
-  border: none;
+.form-wrap .input .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border: none !important;
 }
-.form-wrap .input .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
-  border-bottom: none;
-}
-.form-wrap .input .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-  border: none;
-  border-color: initial;
+.form-wrap .input .MuiInputBase-root:before {
+  border-bottom: none !important;
 }
 .form-wrap .combo-box .MuiInputBase-root {
   padding: 9px !important;
@@ -316,11 +312,11 @@ svg {
 .form-wrap .form:not(:hover) .clear-btn {
   visibility: hidden;
 }
-.form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-endAdornment {
+.form-wrap button[title=Clear] {
   right: 50px;
 }
-.form-wrap .css-6ffsbr-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
-  padding: 12px 2px 2px;
+.form-wrap .combo-box input {
+  padding: 12px 2px 2px !important;
 }
 .form-wrap .btn-add-contact,
 .form-wrap .btn-edit-contact {
@@ -337,6 +333,10 @@ svg {
 .form-wrap .btn-add-contact:active,
 .form-wrap .btn-edit-contact:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+
+fieldset {
+  border: none !important;
 }
 
 .btn__add-contact {
@@ -390,9 +390,6 @@ svg {
 }
 .contacts .header-table .filter .MuiTextField-root {
   width: inherit;
-}
-.contacts .header-table .filter fieldset {
-  border: none;
 }
 .contacts .header-table .filter .clear-filter-btn {
   padding: 4px;
