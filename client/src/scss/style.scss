@@ -67,6 +67,14 @@ svg {
    margin-bottom: 20px;
 }
 
+fieldset {
+   border: none !important;
+}
+
+.add-contacts .form-wrap .form fieldset {
+   border: none !important;
+}
+
 @media only screen and (max-width: $phone) {
    .hideOnMobile {
       display: none;
@@ -350,9 +358,9 @@ svg {
       // border-bottom: none;
       // }
 
-      .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
-         border: none !important;
-      }
+      // .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
+      //    border: none !important;
+      // }
 
       .MuiInputBase-root:before {
          border-bottom: none !important;
@@ -404,18 +412,11 @@ svg {
             visibility: hidden;
          }
       }
-
-      // & input:focus {
-      //    background-color: red;
-      //    .clear-btn {
-      //       visibility: visible;
-      //    }
-      // }
    }
 
    // clear button combo box groups
    button[title='Clear'] {
-      right: 50px;
+      right: 40px;
    }
 
    .combo-box input {
@@ -438,10 +439,6 @@ svg {
          box-shadow: $box-shadow-inset;
       }
    }
-}
-
-fieldset {
-   border: none !important;
 }
 
 .btn__add-contact {
@@ -498,9 +495,6 @@ fieldset {
          .MuiTextField-root {
             width: inherit;
          }
-
-         // & input {
-         // }
 
          .clear-filter-btn {
             padding: 4px;
@@ -647,7 +641,7 @@ fieldset {
 
 body.dark {
    $theme-dark-text: #f6f5f7;
-   $theme-dark-bg: #6c757d;
+   $theme-dark-bg: #7c8790;
    $theme-dark-box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
    $theme-dark-box-shadow-inset: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
 
@@ -680,8 +674,28 @@ body.dark {
    }
 
    .contacts {
+      .header-table .filter {
+         box-shadow: $theme-dark-box-shadow-inset;
+      }
+
       table {
          box-shadow: $theme-dark-box-shadow;
+
+         tr {
+            background-color: $theme-dark-bg;
+            box-shadow: $theme-dark-box-shadow;
+         }
+
+         tbody {
+            tr:hover {
+               background-color: #8f9ba5;
+            }
+         }
       }
+   }
+
+   .btn__add-contact {
+      box-shadow: $theme-dark-box-shadow;
+      background-color: $theme-dark-bg !important;
    }
 }

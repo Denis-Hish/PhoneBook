@@ -131,17 +131,18 @@ const Contacts = () => {
    };
 
    // Отсортированные контакты с учетом текущего поля и направления сортировки
-   const allContacts = contacts?.sort((a, b) => {
-      // Извлекаем значения для сортировки из контактов
-      const valueA = a[sortField] || '';
-      const valueB = b[sortField] || '';
-      // Сравниваем значения в зависимости от направления сортировки
-      if (sortDirection === 'asc') {
-         return valueA.localeCompare(valueB);
-      } else {
-         return valueB.localeCompare(valueA);
-      }
-   });
+   const allContacts = Array.isArray(contacts)
+      ? contacts.sort((a, b) => {
+           const valueA = a[sortField] || '';
+           const valueB = b[sortField] || '';
+
+           if (sortDirection === 'asc') {
+              return valueA.localeCompare(valueB);
+           } else {
+              return valueB.localeCompare(valueA);
+           }
+        })
+      : [];
 
    const filteredAndSortedContacts = filterValue
       ? allContacts.filter((contact) => Object.values(contact).join(' ').toLowerCase().includes(filterValue))
@@ -167,7 +168,8 @@ const Contacts = () => {
          <ModalWindows
             content={
                <>
-                  {selectedAction}: <b>{contacts?.find((contact) => contact.id === selectedId)?.userName}</b>?
+                  {selectedAction}:
+                  <b>{Array.isArray(contacts) && contacts.find((contact) => contact.id === selectedId)?.userName}</b>?
                   {/* ID: {selectedId} */}
                </>
             }

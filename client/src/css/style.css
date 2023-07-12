@@ -43,6 +43,14 @@ svg {
   margin-bottom: 20px;
 }
 
+fieldset {
+  border: none !important;
+}
+
+.add-contacts .form-wrap .form fieldset {
+  border: none !important;
+}
+
 @media only screen and (max-width: 767px) {
   .hideOnMobile {
     display: none;
@@ -272,9 +280,6 @@ svg {
 .form-wrap .input .MuiInputBase-root {
   margin-top: 16px;
 }
-.form-wrap .input .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
-  border: none !important;
-}
 .form-wrap .input .MuiInputBase-root:before {
   border-bottom: none !important;
 }
@@ -313,7 +318,7 @@ svg {
   visibility: hidden;
 }
 .form-wrap button[title=Clear] {
-  right: 50px;
+  right: 40px;
 }
 .form-wrap .combo-box input {
   padding: 12px 2px 2px !important;
@@ -333,10 +338,6 @@ svg {
 .form-wrap .btn-add-contact:active,
 .form-wrap .btn-edit-contact:active {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
-}
-
-fieldset {
-  border: none !important;
 }
 
 .btn__add-contact {
@@ -501,10 +502,10 @@ fieldset {
 /* ---------- THEME ------------ */
 body.dark {
   color: #f6f5f7;
-  background-color: #6c757d;
+  background-color: #7c8790;
 }
 body.dark .header {
-  background-color: #6c757d;
+  background-color: #7c8790;
   box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
 }
 body.dark h1 {
@@ -521,8 +522,22 @@ body.dark .swith-toggle-theme .toggle .indicator {
   box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99;
 }
 body.dark .header-table {
-  background-color: #6c757d;
+  background-color: #7c8790;
+}
+body.dark .contacts .header-table .filter {
+  box-shadow: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
 }
 body.dark .contacts table {
   box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
+}
+body.dark .contacts table tr {
+  background-color: #7c8790;
+  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
+}
+body.dark .contacts table tbody tr:hover {
+  background-color: #8f9ba5;
+}
+body.dark .btn__add-contact {
+  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
+  background-color: #7c8790 !important;
 }/*# sourceMappingURL=style.css.map */

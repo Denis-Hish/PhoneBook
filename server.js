@@ -29,8 +29,8 @@ db.mongoose
 
 // Load UI
 app.get('/', (req, res) => {
-   //   res.redirect('http://localhost:3000')
-   res.redirect('/ui.html');
+   // res.redirect('http://localhost:3000');
+   res.redirect('https://dev.nadziejarodzinie.org.pl/phonebook/');
 });
 
 const PORT = process.env.PORT || 8080;
