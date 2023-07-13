@@ -40,7 +40,6 @@ body {
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
    color: $color-text;
-   overflow-y: clip; // предотвращение смещения элементов при появлении или исчезании вертикальной полосы прокрутки
 }
 
 h1 {
