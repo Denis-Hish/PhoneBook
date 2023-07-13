@@ -17,6 +17,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #edf1f4;
   color: #5a5a5a;
+  overflow-y: auto !important;
+  padding-right: 0 !important;
 }
 
 h1 {
