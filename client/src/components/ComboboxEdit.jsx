@@ -12,7 +12,7 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
    React.useEffect(() => {
       const extractGroups = async () => {
          const contacts = await getAllContacts();
-         const allGroups = contacts.map((contact) => contact.group);
+         const allGroups = Array.isArray(contacts) ? contacts.map((contact) => contact.group) : [];
          const uniqueGroups = [...new Set(allGroups)];
          const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
          const groups = sortedGroups.map((group) => ({ title: group }));
