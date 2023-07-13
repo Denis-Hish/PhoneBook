@@ -17,6 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #edf1f4;
   color: #5a5a5a;
+  overflow-y: clip;
 }
 
 h1 {
@@ -540,4 +541,8 @@ body.dark .contacts table tbody tr:hover {
 body.dark .btn__add-contact {
   box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
   background-color: #7c8790 !important;
+}
+
+.open-modal {
+  padding-right: 17px;
 }/*# sourceMappingURL=style.css.map */
