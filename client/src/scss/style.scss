@@ -40,10 +40,6 @@ body {
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
    color: $color-text;
-
-   // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
-   overflow-y: auto !important;
-   padding-right: 0 !important;
 }
 
 h1 {
@@ -92,6 +88,7 @@ fieldset {
    background-color: $color-bg;
    box-shadow: $box-shadow;
    z-index: 100;
+   padding: 0 calc(20px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 
    .container {
       display: flex;
@@ -477,10 +474,12 @@ fieldset {
    .header-table {
       position: fixed;
       width: 100%;
-      padding: 15px 0;
+      // padding: 15px 0;
       top: 75px;
       background-color: $color-bg;
       z-index: 1;
+      padding: 20px calc(20px - (100vw - 100%)) 15px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+
       .container {
          display: flex;
          justify-content: space-between;
@@ -518,7 +517,7 @@ fieldset {
 
       thead {
          position: sticky;
-         top: 160px;
+         top: 165px;
          z-index: 1;
 
          .header-title,
@@ -637,6 +636,7 @@ fieldset {
    color: #d1d9e6;
    font-size: 18px;
    font-weight: 700;
+   padding: 0 calc(20px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 }
 
 /* ---------- THEME ------------ */
