@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.static(__dirname));
+
 // parse requests of content-type - application/json
 app.use(express.json());
 
@@ -28,10 +30,9 @@ db.mongoose
    });
 
 // Load UI
-app.get('/', (req, res) => {
-   res.redirect('http://localhost:3000');
-   // res.redirect('https://dev.nadziejarodzinie.org.pl/phonebook/');
-});
+// app.get('/', (req, res) => {
+//    res.redirect('http://localhost:3000');
+// });
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

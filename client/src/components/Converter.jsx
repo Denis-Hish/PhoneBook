@@ -46,9 +46,9 @@ const Converter = () => {
 
             groupsXml1[group].ele('Unit', {
                Name: userName,
-               Phone1: phoneNumber1,
-               Phone2: phoneNumber2,
-               Phone3: phoneNumber3,
+               Phone1: phoneNumber1 || '',
+               Phone2: phoneNumber2 || '',
+               Phone3: phoneNumber3 || '',
                default_photo: 'Resource:',
             });
          });
@@ -63,9 +63,9 @@ const Converter = () => {
 
          xml2Contacts.ele('contact', {
             display_name: userName,
-            office_number: phoneNumber1,
-            mobile_number: phoneNumber2,
-            other_number: phoneNumber3,
+            office_number: phoneNumber1 || '',
+            mobile_number: phoneNumber2 || '',
+            other_number: phoneNumber3 || '',
             line: '0',
             ring: 'Auto',
             group_id_name: group,
