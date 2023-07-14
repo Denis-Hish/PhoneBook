@@ -15,6 +15,8 @@ import Filter from './Filter';
 import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
 import ModalAddContact from './ModalAddContact';
+import Converter1 from './Converter1';
+import Converter2 from './Converter2';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>
@@ -181,7 +183,10 @@ const Contacts = () => {
             <div className="container">
                <h2>Kontakty:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
-               <Converter />
+               {/* <Converter /> */}
+
+               <Converter1 />
+               <Converter2 />
             </div>
          </div>
          <div className="container">
