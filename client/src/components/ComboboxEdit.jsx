@@ -83,7 +83,7 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
          renderOption={(props, option) => <li {...props}>{option.title}</li>}
          sx={{ width: 300 }}
          freeSolo
-         renderInput={(params) => <TextField {...params} label="Group" required />}
+         renderInput={(params) => <TextField {...params} label="Group" />}
       />
    );
 }

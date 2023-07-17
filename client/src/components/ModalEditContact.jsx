@@ -27,6 +27,8 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
       setOpenModal(false);
    };
 
+   const [fieldError, setFieldError] = useState(false);
+
    const [name, setName] = useState(userName || '');
    const [phone1, setPhone1] = useState(phoneNumber1 || '');
    const [phone2, setPhone2] = useState(phoneNumber2 || '');
@@ -43,17 +45,28 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
 
    const handleEditContact = async (e) => {
       e.preventDefault();
-      const updatedContact = {
-         id,
-         userName: name,
-         phoneNumber1: phone1,
-         phoneNumber2: phone2,
-         phoneNumber3: phone3,
-         group: group1,
-      };
-      await editContact(id, updatedContact);
-      closeModal();
-      updateListContacts();
+      // Check if the name field is empty and set the error state accordingly
+      if (name.trim() === '') {
+         setFieldError(true);
+      } else {
+         const updatedContact = {
+            id,
+            userName: name,
+            phoneNumber1: phone1,
+            phoneNumber2: phone2,
+            phoneNumber3: phone3,
+            group: group1,
+         };
+         await editContact(id, updatedContact);
+         closeModal();
+         updateListContacts();
+      }
+   };
+
+   const onChangeHandler = (event) => {
+      const { value } = event.target;
+      setName(value);
+      setFieldError(false);
    };
 
    // Focus on input
@@ -107,12 +120,12 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               label="Name"
                               variant="standard"
                               value={name}
-                              onChange={(e) => setName(e.target.value)}
+                              onChange={onChangeHandler}
                               autoComplete="off"
                               autoFocus
                               onFocus={() => setNameInputActive(true)}
                               onBlur={() => setNameInputActive(false)}
-                              required
+                              error={fieldError}
                            />
                            <div className="icons">
                               <PersonIcon />

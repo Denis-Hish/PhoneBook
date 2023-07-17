@@ -17,20 +17,30 @@ const AddContact = ({ onClose, updateListContacts }) => {
       group: '',
    });
 
+   const [fieldError, setFieldError] = useState(false);
+
    const onChangeHandler = (event) => {
       const { name, value } = event.target;
       setContact((prevContact) => {
          return { ...prevContact, [name]: value };
       });
+
+      // Reset the error state whenever the user types something
+      if (name === 'userName') {
+         setFieldError(false);
+      }
    };
 
    const handleAddContact = async (e) => {
       e.preventDefault();
-      // TODO: Add validation
-      // console.log('--contact--', contact);
-      await addContact(contact);
-      onClose(); // Закрытие модального окна после отправки формы
-      updateListContacts();
+      // Check if the userName field is empty and set the error state accordingly
+      if (contact.userName.trim() === '') {
+         setFieldError(true);
+      } else {
+         await addContact(contact);
+         onClose(); // Закрытие модального окна после отправки формы
+         updateListContacts();
+      }
    };
 
    // Focus on input
@@ -61,8 +71,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   className="input name-input"
                   autoComplete="off"
                   inputRef={inputRef}
-                  required
-                  // error
+                  error={fieldError}
                />
                <div className="icons">
                   <PersonIcon />
