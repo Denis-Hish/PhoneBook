@@ -51,6 +51,11 @@ fieldset {
   border: none !important;
 }
 
+.fst-italic {
+  font-style: italic;
+  font-size: 14px;
+}
+
 @media only screen and (max-width: 767px) {
   .hideOnMobile {
     display: none;
@@ -326,7 +331,7 @@ fieldset {
 }
 .form-wrap .btn-add-contact,
 .form-wrap .btn-edit-contact {
-  margin: 30px 0 10px;
+  margin: 10px 0 10px;
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;

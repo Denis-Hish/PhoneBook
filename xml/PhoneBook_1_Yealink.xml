@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
+  <Menu Name="">
+    <Unit Name="1-local" Phone1="" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
   <Menu Name="Placówki">
     <Unit Name="Bar RONDO" Phone1="" Phone2="534006030" Phone3="" default_photo="Resource:"/>
     <Unit Name="Catering Świętokrzyski" Phone1="" Phone2="533236636" Phone3="" default_photo="Resource:"/>

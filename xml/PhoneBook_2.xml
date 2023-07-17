@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root_group>
+  <group display_name="" ring="Auto"/>
   <group display_name="Placówki" ring="Auto"/>
   <group display_name="SNR - Biuro" ring="Auto"/>
   <group display_name="SNR - Karcz." ring="Auto"/>
@@ -8,6 +9,7 @@
   <group display_name="ZAZ" ring="Auto"/>
 </root_group>
 <root_contact>
+  <contact display_name="1-local" office_number="" mobile_number="" other_number="" line="0" ring="Auto" group_id_name=""/>
   <contact display_name="Anakin Skywalker" office_number="+1 234-567-890" mobile_number="123-456-789" other_number="123" line="0" ring="Auto" group_id_name="Tatuin"/>
   <contact display_name="Bar RONDO" office_number="" mobile_number="534006030" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
   <contact display_name="Catering Świętokrzyski" office_number="" mobile_number="533236636" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>

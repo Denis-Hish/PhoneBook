@@ -61,6 +61,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   className="input name-input"
                   autoComplete="off"
                   inputRef={inputRef}
+                  required
+                  // error
                />
                <div className="icons">
                   <PersonIcon />
@@ -146,6 +148,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   <GroupsIcon />
                </div>
             </div>
+            <p className="fst-italic">* This field is required</p>
             <Button className="btn-add-contact" type="submit" variant="outlined">
                Add contact
             </Button>

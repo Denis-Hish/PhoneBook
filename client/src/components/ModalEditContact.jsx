@@ -112,6 +112,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               autoFocus
                               onFocus={() => setNameInputActive(true)}
                               onBlur={() => setNameInputActive(false)}
+                              required
                            />
                            <div className="icons">
                               <PersonIcon />
@@ -185,6 +186,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               <GroupsIcon />
                            </div>
                         </div>
+                        <p className="fst-italic">* This field is required</p>
                         <Button className="btn-edit-contact" type="submit" variant="outlined">
                            Save contact
                         </Button>
