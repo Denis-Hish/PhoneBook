@@ -64,7 +64,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             <div className="form">
                <TextField
                   name="userName"
-                  label="Name"
+                  label="Name *"
                   variant="standard"
                   value={contact.userName}
                   onChange={onChangeHandler}

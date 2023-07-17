@@ -117,7 +117,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                            <TextField
                               className="input"
                               name="userName"
-                              label="Name"
+                              label="Name *"
                               variant="standard"
                               value={name}
                               onChange={onChangeHandler}
