@@ -27,7 +27,8 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
       setOpenModal(false);
    };
 
-   const [fieldError, setFieldError] = useState(false);
+   const [fieldUserNameError, setFieldUserNameError] = useState(false);
+   const [fieldGroupError, setFieldGroupError] = useState(false); //!!!!!!!!!!!!!!!!!!!!!!!
 
    const [name, setName] = useState(userName || '');
    const [phone1, setPhone1] = useState(phoneNumber1 || '');
@@ -47,7 +48,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
       e.preventDefault();
       // Check if the name field is empty and set the error state accordingly
       if (name.trim() === '') {
-         setFieldError(true);
+         setFieldUserNameError(true);
       } else {
          const updatedContact = {
             id,
@@ -66,7 +67,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    // Сброс стилей при потере фокуса у инпута name
    const handleBlur = () => {
       if (name.trim() === '') {
-         setFieldError(false);
+         setFieldUserNameError(false);
       }
       setNameInputActive(false);
    };
@@ -74,7 +75,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    const onChangeHandler = (event) => {
       const { value } = event.target;
       setName(value);
-      setFieldError(false);
+      setFieldUserNameError(false);
    };
 
    // Focus on input
@@ -133,7 +134,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               autoFocus
                               onFocus={() => setNameInputActive(true)}
                               onBlur={handleBlur}
-                              error={fieldError}
+                              error={fieldUserNameError}
                            />
                            <div className="icons">
                               <PersonIcon />
