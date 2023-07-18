@@ -5,7 +5,7 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 const filter = createFilterOptions();
 
-export default function Combobox({ onChangeHandler }) {
+export default function Combobox({ onChangeHandler, fieldGroupError }) {
    const [value, setValue] = React.useState(null);
    const [groups, setGroups] = React.useState([]);
 
@@ -16,16 +16,17 @@ export default function Combobox({ onChangeHandler }) {
          const uniqueGroups = [...new Set(allGroups)];
          const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
          const groups = sortedGroups.map((group) => ({ title: group }));
-         // console.log('Все группы - ', groups);
          setGroups(groups);
       };
 
       extractGroups();
    }, []);
 
+   console.log(fieldGroupError ? 'error - true' : 'no error - false');
+
    return (
       <Autocomplete
-         className="input combo-box error"
+         className={`input combo-box${fieldGroupError ? ' error' : ''}`}
          value={value}
          onChange={(event, newValue) => {
             let selectedGroup = '';
@@ -78,15 +79,7 @@ export default function Combobox({ onChangeHandler }) {
          renderOption={(props, option) => <li {...props}>{option.title}</li>}
          sx={{ width: 300 }}
          freeSolo
-         renderInput={(params) => <TextField {...params} label="Group" />}
+         renderInput={(params) => <TextField {...params} label="Group *" />}
       />
    );
 }
-
-// const groupsOld = [
-//    { title: 'SNR - Biuro' },
-//    { title: 'SNR - Karcz.' },
-//    { title: 'Placówki' },
-//    { title: 'WS' },
-//    { title: 'ZAZ' },
-// ];

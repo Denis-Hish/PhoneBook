@@ -63,6 +63,14 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
       }
    };
 
+   // Сброс стилей при потере фокуса у инпута name
+   const handleBlur = () => {
+      if (name.trim() === '') {
+         setFieldError(false);
+      }
+      setNameInputActive(false);
+   };
+
    const onChangeHandler = (event) => {
       const { value } = event.target;
       setName(value);
@@ -124,7 +132,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               autoComplete="off"
                               autoFocus
                               onFocus={() => setNameInputActive(true)}
-                              onBlur={() => setNameInputActive(false)}
+                              onBlur={handleBlur}
                               error={fieldError}
                            />
                            <div className="icons">

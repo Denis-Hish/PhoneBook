@@ -406,7 +406,8 @@ fieldset {
             border-bottom: 2px solid #d32f2f;
          }
       }
-      .MuiInputLabel-shrink {
+      .MuiInputLabel-shrink,
+      label {
          color: #d32f2f;
       }
    }

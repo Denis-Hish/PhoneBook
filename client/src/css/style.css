@@ -307,7 +307,8 @@ fieldset {
 .form-wrap .MuiAutocomplete-root.error .Mui-focused::after {
   border-bottom: 2px solid #d32f2f;
 }
-.form-wrap .MuiAutocomplete-root.error .MuiInputLabel-shrink {
+.form-wrap .MuiAutocomplete-root.error .MuiInputLabel-shrink,
+.form-wrap .MuiAutocomplete-root.error label {
   color: #d32f2f;
 }
 .form-wrap .form {

@@ -17,7 +17,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
       group: '',
    });
 
-   const [fieldError, setFieldError] = useState(false);
+   const [fieldUserNameError, setFieldUserNameError] = useState(false);
+   const [fieldGroupError, setFieldGroupError] = useState(false);
 
    const onChangeHandler = (event) => {
       const { name, value } = event.target;
@@ -27,7 +28,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
 
       // Reset the error state whenever the user types something
       if (name === 'userName') {
-         setFieldError(false);
+         setFieldUserNameError(false);
       }
    };
 
@@ -35,15 +36,18 @@ const AddContact = ({ onClose, updateListContacts }) => {
    const handleBlur = (event) => {
       const { name, value } = event.target;
       if (name === 'userName' && value.trim() === '') {
-         setFieldError(false);
+         setFieldUserNameError(false);
       }
    };
 
    const handleAddContact = async (e) => {
       e.preventDefault();
-      // Check if the userName field is empty and set the error state accordingly
+      // Check if the userName and group field is empty and set the error state accordingly
       if (contact.userName.trim() === '') {
-         setFieldError(true);
+         setFieldUserNameError(true);
+         setFieldGroupError(true);
+      } else if (contact.group.trim() === '') {
+         setFieldGroupError(true);
       } else {
          await addContact(contact);
          onClose(); // Закрытие модального окна после отправки формы
@@ -65,6 +69,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
       }));
    };
 
+   // console.log(fieldUserNameError ? 'Name - error' : 'Name - no error');
+
    return (
       <div className="add-contacts">
          <h2>Add contakt:</h2>
@@ -79,7 +85,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   className="input name-input"
                   autoComplete="off"
                   inputRef={inputRef}
-                  error={fieldError}
+                  error={fieldUserNameError}
                   onBlur={handleBlur}
                />
                <div className="icons">
@@ -151,6 +157,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             </div>
             <div className="form">
                <ComboBox
+                  fieldGroupError={fieldGroupError}
                   value={contact.group}
                   onChange={(event, newValue) =>
                      onChangeHandler({
