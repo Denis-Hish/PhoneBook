@@ -183,10 +183,11 @@ const Contacts = () => {
             <div className="container">
                <h2>Kontakty:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
-               {/* <Converter /> */}
 
-               <Converter1 />
-               <Converter2 />
+               <Converter />
+
+               {/* <Converter1 /> */}
+               {/* <Converter2 /> */}
             </div>
          </div>
          <div className="container">

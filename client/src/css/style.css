@@ -47,10 +47,6 @@ fieldset {
   border: none !important;
 }
 
-.add-contacts .form-wrap .form fieldset {
-  border: none !important;
-}
-
 .fst-italic {
   font-style: italic;
   font-size: 14px;
@@ -290,8 +286,29 @@ fieldset {
   border-bottom: none !important;
 }
 .form-wrap .combo-box .MuiInputBase-root {
-  padding: 9px !important;
   margin-top: 0 !important;
+  padding: 10px 10px 3px !important;
+}
+.form-wrap .MuiAutocomplete-root .MuiInputBase-root::after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+.form-wrap .MuiAutocomplete-root .MuiInputBase-root.Mui-focused::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid #1976d2;
+  transform: scaleX(1) translateX(0);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+.form-wrap .MuiAutocomplete-root.error .Mui-focused::after {
+  border-bottom: 2px solid #d32f2f;
+}
+.form-wrap .MuiAutocomplete-root.error .MuiInputLabel-shrink {
+  color: #d32f2f;
 }
 .form-wrap .form {
   position: relative;
@@ -327,7 +344,7 @@ fieldset {
   right: 40px;
 }
 .form-wrap .combo-box input {
-  padding: 12px 2px 2px !important;
+  padding: 10px 2px 2px !important;
 }
 .form-wrap .btn-add-contact,
 .form-wrap .btn-edit-contact {

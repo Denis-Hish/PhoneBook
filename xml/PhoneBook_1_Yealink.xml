@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
-  <Menu Name="">
-    <Unit Name="1-local" Phone1="" Phone2="" Phone3="" default_photo="Resource:"/>
-  </Menu>
   <Menu Name="Placówki">
     <Unit Name="Bar RONDO" Phone1="" Phone2="534006030" Phone3="" default_photo="Resource:"/>
     <Unit Name="Catering Świętokrzyski" Phone1="" Phone2="533236636" Phone3="" default_photo="Resource:"/>
@@ -59,5 +56,8 @@
     <Unit Name="ZAZ Sekretariat" Phone1="300" Phone2="" Phone3="" default_photo="Resource:"/>
     <Unit Name="ZAZ Smaczek" Phone1="412787238" Phone2="533030207" Phone3="" default_photo="Resource:"/>
     <Unit Name="ZAZ Trenerzy" Phone1="302" Phone2="" Phone3="" default_photo="Resource:"/>
+  </Menu>
+  <Menu Name="tested">
+    <Unit Name="1-Local PC" Phone1="123" Phone2="456" Phone3="789" default_photo="Resource:"/>
   </Menu>
 </YealinkIPPhoneBook>

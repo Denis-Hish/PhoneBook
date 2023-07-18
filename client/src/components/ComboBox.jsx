@@ -25,7 +25,7 @@ export default function Combobox({ onChangeHandler }) {
 
    return (
       <Autocomplete
-         className="input combo-box"
+         className="input combo-box error"
          value={value}
          onChange={(event, newValue) => {
             let selectedGroup = '';

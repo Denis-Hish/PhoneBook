@@ -31,6 +31,14 @@ const AddContact = ({ onClose, updateListContacts }) => {
       }
    };
 
+   // Сброс стилей при потере фокуса у инпута
+   const handleBlur = (event) => {
+      const { name, value } = event.target;
+      if (name === 'userName' && value.trim() === '') {
+         setFieldError(false);
+      }
+   };
+
    const handleAddContact = async (e) => {
       e.preventDefault();
       // Check if the userName field is empty and set the error state accordingly
@@ -72,6 +80,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   autoComplete="off"
                   inputRef={inputRef}
                   error={fieldError}
+                  onBlur={handleBlur}
                />
                <div className="icons">
                   <PersonIcon />
