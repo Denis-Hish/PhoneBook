@@ -181,7 +181,7 @@ const Contacts = () => {
          />
          <div className="header-table">
             <div className="container">
-               <h2>Kontakty:</h2>
+               <h2>Contacts:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
 
                <Converter />

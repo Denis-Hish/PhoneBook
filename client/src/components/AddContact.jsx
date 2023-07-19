@@ -45,11 +45,15 @@ const AddContact = ({ onClose, updateListContacts }) => {
    const handleAddContact = async (e) => {
       e.preventDefault();
       // Check if the userName and group field is empty and set the error state accordingly
-      if (contact.userName.trim() === '') {
+      if (contact.userName.trim() === '' && contact.group.trim() === '') {
          setFieldUserNameError(true);
          setFieldGroupError(true);
-      } else if (contact.group.trim() === '') {
+      } else if (contact.userName.trim() !== '' && contact.group.trim() === '') {
+         setFieldUserNameError(false);
          setFieldGroupError(true);
+      } else if (contact.userName.trim() === '' && contact.group.trim() !== '') {
+         setFieldUserNameError(true);
+         setFieldGroupError(false);
       } else {
          await addContact(contact);
          onClose(); // Закрытие модального окна после отправки формы
