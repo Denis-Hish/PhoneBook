@@ -5,7 +5,7 @@ import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 const filter = createFilterOptions();
 
-export default function Combobox({ onChangeHandler, fieldGroupError }) {
+export default function Combobox({ onChangeHandler, fieldGroupError, onBlur }) {
    const [value, setValue] = React.useState(null);
    const [groups, setGroups] = React.useState([]);
 
@@ -46,6 +46,7 @@ export default function Combobox({ onChangeHandler, fieldGroupError }) {
                },
             });
          }}
+         onBlur={onBlur}
          filterOptions={(options, params) => {
             const filtered = filter(options, params);
             const { inputValue } = params;

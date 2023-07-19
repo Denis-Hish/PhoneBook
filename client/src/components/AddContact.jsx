@@ -30,6 +30,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
       if (name === 'userName') {
          setFieldUserNameError(false);
       }
+      setFieldGroupError(false); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    };
 
    // Сброс стилей при потере фокуса у инпута
@@ -38,6 +39,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
       if (name === 'userName' && value.trim() === '') {
          setFieldUserNameError(false);
       }
+      setFieldGroupError(false); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    };
 
    const handleAddContact = async (e) => {
@@ -157,7 +159,6 @@ const AddContact = ({ onClose, updateListContacts }) => {
             </div>
             <div className="form">
                <ComboBox
-                  fieldGroupError={fieldGroupError}
                   value={contact.group}
                   onChange={(event, newValue) =>
                      onChangeHandler({
@@ -168,6 +169,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
                      })
                   }
                   onChangeHandler={onChangeHandler}
+                  fieldGroupError={fieldGroupError} // для добавления класса "error"
+                  onBlur={handleBlur}
                />
                <div className="icons">
                   <GroupsIcon />
