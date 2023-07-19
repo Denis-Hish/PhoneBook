@@ -180,6 +180,15 @@ fieldset {
          transform: translate3d(25%, 0, 0);
       }
    }
+
+   .swith-language {
+      width: 130px;
+      margin-left: 30px;
+
+      img {
+         width: 40px;
+      }
+   }
 }
 
 /* --------- MODAL WINDOW ---------- */

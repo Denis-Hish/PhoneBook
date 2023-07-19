@@ -131,6 +131,13 @@ fieldset {
 .header .swith-toggle-theme .toggle-state:checked ~ .indicator {
   transform: translate3d(25%, 0, 0);
 }
+.header .swith-language {
+  width: 130px;
+  margin-left: 30px;
+}
+.header .swith-language img {
+  width: 40px;
+}
 
 /* --------- MODAL WINDOW ---------- */
 .modal {

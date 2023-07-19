@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
 import { ThemeContext } from './ThemeContext';
 import ThemeToggle from './ThemeToggle';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
    const { theme } = useContext(ThemeContext);
@@ -16,6 +17,7 @@ const Header = () => {
                </span>
             </h1>
             <ThemeToggle />
+            <LanguageSwitcher />
          </div>
       </header>
    );
