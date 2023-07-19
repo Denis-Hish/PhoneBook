@@ -47,8 +47,15 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    const handleEditContact = async (e) => {
       e.preventDefault();
       // Check if the name field is empty and set the error state accordingly
-      if (name.trim() === '') {
+      if (name.trim() === '' && group1.trim() === '') {
          setFieldUserNameError(true);
+         setFieldGroupError(true);
+      } else if (name.trim() !== '' && group1.trim() === '') {
+         setFieldUserNameError(false);
+         setFieldGroupError(true);
+      } else if (name.trim() === '' && group1.trim() !== '') {
+         setFieldUserNameError(true);
+         setFieldGroupError(false);
       } else {
          const updatedContact = {
             id,
