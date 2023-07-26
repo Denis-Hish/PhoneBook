@@ -1,4 +1,5 @@
 {
+   "contact": "Kontakt",
    "contacts": "Kontakty",
    "filter_contacts": "Filtruj kontakty",
    "convert_to_xml": "Konwertuj na xml",
@@ -8,7 +9,16 @@
    "edit_contact": "Edytuj kontakt",
    "delete_contact": "Usuń kontakt",
    "add_contact": "Dodaj kontakt",
+   "save_contact": "Zapisz kontakt",
    "light_theme": "Jasny motyw",
    "dark_theme": "Ciemny motyw",
-   "language": "Język"
+   "language": "Język",
+   "required": "* To pole jest wymagane",
+   "add_new_group": "Dodaj nową grupę ",
+   "delete?": "Usunąć",
+   "delete": "Usuń",
+   "cancel": "Anuluj",
+   "saved": "zapisany!",
+   "edited": "edytowany!",
+   "deleted": "pomyślnie usunięty!"
 }

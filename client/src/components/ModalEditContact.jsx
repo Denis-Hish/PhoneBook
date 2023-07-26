@@ -12,6 +12,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import ComboboxEdit from './ComboboxEdit';
+import { useTranslation } from 'react-i18next';
 
 const style = {
    position: 'absolute',
@@ -35,6 +36,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    const [phone2, setPhone2] = useState(phoneNumber2 || '');
    const [phone3, setPhone3] = useState(phoneNumber3 || '');
    const [group1, setGroup] = useState(group || '');
+   const { t } = useTranslation();
 
    useEffect(() => {
       setName(userName || '');
@@ -127,13 +129,13 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                <Box sx={style} className="modal modal-add-contact">
                   <button className="btn-close" onClick={closeModal}></button>
                   <div className="add-contacts">
-                     <h2 className="">Edit contact:</h2>
+                     <h2 className="mb-2">{t('edit_contact')}:</h2>
                      <form className="form-wrap" onSubmit={handleEditContact}>
                         <div className="form">
                            <TextField
                               className="input"
                               name="userName"
-                              label="Name *"
+                              label={`${t('name')} *`}
                               variant="standard"
                               value={name}
                               onChange={onChangeHandler}
@@ -156,7 +158,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                            <TextField
                               className="input"
                               name="phoneNumber1"
-                              label="Phone 1"
+                              label={`${t('phone')} 1`}
                               variant="standard"
                               value={phone1}
                               onChange={(e) => setPhone1(e.target.value)}
@@ -175,7 +177,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                            <TextField
                               className="input"
                               name="phoneNumber2"
-                              label="Phone 2"
+                              label={`${t('phone')} 2`}
                               variant="standard"
                               value={phone2}
                               onChange={(e) => setPhone2(e.target.value)}
@@ -194,7 +196,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                            <TextField
                               className="input"
                               name="phoneNumber3"
-                              label="Phone 3"
+                              label={`${t('phone')} 3`}
                               variant="standard"
                               value={phone3}
                               onChange={(e) => setPhone3(e.target.value)}
@@ -215,9 +217,9 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               <GroupsIcon />
                            </div>
                         </div>
-                        <p className="fst-italic">* This field is required</p>
+                        <p className="fst-italic">{t('required')}</p>
                         <Button className="btn-edit-contact" type="submit" variant="outlined">
-                           Save contact
+                           {t('save_contact')}
                         </Button>
                      </form>
                   </div>

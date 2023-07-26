@@ -1,4 +1,5 @@
 {
+   "contact": "Контакт",
    "contacts": "Контакти",
    "filter_contacts": "Фільтр контактів",
    "convert_to_xml": "Конвертувати на xml",
@@ -8,7 +9,15 @@
    "edit_contact": "Редагувати контакт",
    "delete_contact": "Видалити контакт",
    "add_contact": "Додати контакт",
+   "save_contact": "Зберегти контакт",
    "light_theme": "Світла тема",
    "dark_theme": "Темна тема",
-   "language": "Мова"
+   "language": "Мова",
+   "required": "* Обов'язкове поле",
+   "add_new_group": "Додати нову групу ",
+   "delete": "Видалити",
+   "cancel": "Скасувати",
+   "saved": "збережено!",
+   "edited": "відредаговано!",
+   "deleted": "успішно видалено!"
 }

@@ -2,12 +2,14 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { getAllContacts } from '../services/paramsAPI';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import { useTranslation } from 'react-i18next';
 
 const filter = createFilterOptions();
 
 export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
    // const [value, setValue] = React.useState('');
    const [groups, setGroups] = React.useState([]);
+   const { t } = useTranslation();
 
    React.useEffect(() => {
       const extractGroups = async () => {
@@ -58,7 +60,7 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
             if (inputValue !== '' && !isExisting) {
                filtered.push({
                   inputValue,
-                  title: `Add new group "${inputValue}"`,
+                  title: t('add_new_group') + `"${inputValue}"`,
                });
             }
             // Исключение пустых значений
@@ -83,7 +85,7 @@ export default function ComboboxEdit({ onChangeHandler, valueGroup }) {
          renderOption={(props, option) => <li {...props}>{option.title}</li>}
          sx={{ width: 300 }}
          freeSolo
-         renderInput={(params) => <TextField {...params} label="Group" />}
+         renderInput={(params) => <TextField {...params} label={`${t('group')} *`} />}
       />
    );
 }

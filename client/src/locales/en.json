@@ -1,4 +1,5 @@
 {
+   "contact": "Contact",
    "contacts": "Contacts",
    "filter_contacts": "Filter contacts",
    "convert_to_xml": "Convert to xml",
@@ -8,7 +9,15 @@
    "edit_contact": "Edit contact",
    "delete_contact": "Delete contact",
    "add_contact": "Add contact",
+   "save_contact": "Save contact",
    "light_theme": "Light theme",
    "dark_theme": "Dark theme",
-   "language": "Language"
+   "language": "Language",
+   "required": "* This field is required",
+   "add_new_group": "Add new group ",
+   "delete": "Delete",
+   "cancel": "Cancel",
+   "saved": "збережено!",
+   "edited": "відредаговано!",
+   "deleted": "видалено!"
 }

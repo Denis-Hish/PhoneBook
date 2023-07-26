@@ -82,12 +82,12 @@ const AddContact = ({ onClose, updateListContacts }) => {
 
    return (
       <div className="add-contacts">
-         <h2>Add contakt:</h2>
+         <h2 className="mb-2">{t('add_contact')}:</h2>
          <form onSubmit={handleAddContact} className="form-wrap">
             <div className="form">
                <TextField
                   name="userName"
-                  label="Name *"
+                  label={`${t('name')} *`}
                   variant="standard"
                   value={contact.userName}
                   onChange={onChangeHandler}
@@ -110,7 +110,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             <div className="form">
                <TextField
                   name="phoneNumber1"
-                  label="Phone 1"
+                  label={`${t('phone')} 1`}
                   variant="standard"
                   value={contact.phoneNumber1}
                   onChange={onChangeHandler}
@@ -129,7 +129,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             <div className="form">
                <TextField
                   name="phoneNumber2"
-                  label="Phone 2"
+                  label={`${t('phone')} 2`}
                   variant="standard"
                   value={contact.phoneNumber2}
                   onChange={onChangeHandler}
@@ -148,7 +148,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             <div className="form">
                <TextField
                   name="phoneNumber3"
-                  label="Phone 3"
+                  label={`${t('phone')} 3`}
                   variant="standard"
                   value={contact.phoneNumber3}
                   onChange={onChangeHandler}
@@ -183,9 +183,9 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   <GroupsIcon />
                </div>
             </div>
-            <p className="fst-italic">* This field is required</p>
+            <p className="fst-italic">{t('required')}</p>
             <Button className="btn-add-contact" type="submit" variant="outlined">
-               Add contact
+               {t('add_contact')}
             </Button>
          </form>
       </div>
