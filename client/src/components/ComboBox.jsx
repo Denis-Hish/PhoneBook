@@ -22,7 +22,7 @@ export default function Combobox({ onChangeHandler, fieldGroupError, onBlur }) {
       extractGroups();
    }, []);
 
-   console.log(fieldGroupError ? 'error - true' : 'no error - false');
+   // console.log(fieldGroupError ? 'error - true' : 'no error - false');
 
    return (
       <Autocomplete

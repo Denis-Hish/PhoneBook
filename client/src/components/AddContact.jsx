@@ -7,6 +7,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import ComboBox from './ComboBox';
+import { useTranslation } from 'react-i18next';
 
 const AddContact = ({ onClose, updateListContacts }) => {
    const [contact, setContact] = useState({
@@ -19,6 +20,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
 
    const [fieldUserNameError, setFieldUserNameError] = useState(false);
    const [fieldGroupError, setFieldGroupError] = useState(false);
+
+   const { t } = useTranslation();
 
    const onChangeHandler = (event) => {
       const { name, value } = event.target;

@@ -3,8 +3,11 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useTranslation } from 'react-i18next';
 
 export default function Filter({ value, onChange }) {
+   const { t } = useTranslation();
+
    const clearInput = () => {
       onChange({ target: { value: '' } });
    };
@@ -13,7 +16,7 @@ export default function Filter({ value, onChange }) {
       <Box className="filter" component="form" noValidate autoComplete="off">
          <TextField
             id="outlined-basic"
-            label="Filter contacts"
+            label={t('filter_contacts')}
             variant="outlined"
             color="primary"
             value={value}

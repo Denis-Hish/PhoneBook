@@ -1,0 +1,14 @@
+{
+   "contacts": "Контакти",
+   "filter_contacts": "Фільтр контактів",
+   "convert_to_xml": "Конвертувати на xml",
+   "name": "Ім'я",
+   "phone": "Телефон",
+   "group": "Група",
+   "edit_contact": "Редагувати контакт",
+   "delete_contact": "Видалити контакт",
+   "add_contact": "Додати контакт",
+   "light_theme": "Світла тема",
+   "dark_theme": "Темна тема",
+   "language": "Мова"
+}

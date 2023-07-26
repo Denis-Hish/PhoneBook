@@ -100,6 +100,7 @@ fieldset {
    h1 {
       text-align: center;
       flex: 1;
+      margin-left: 126px;
 
       span {
          position: relative;
@@ -180,14 +181,31 @@ fieldset {
          transform: translate3d(25%, 0, 0);
       }
    }
+}
 
-   .swith-language {
-      width: 130px;
-      margin-left: 30px;
+/* --------- SWITH LANGUAGE ---------- */
+.swith-language {
+   margin-left: 30px;
+   padding-bottom: 7px;
 
-      img {
-         width: 40px;
-      }
+   .lng {
+      color: $color-text;
+   }
+
+   svg {
+      // top: calc(50% - 0.6em);
+      display: none;
+   }
+
+   .MuiSelect-select {
+      border-radius: 50px !important;
+      padding: 3px !important;
+      width: 30px !important;
+      height: 30px !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      box-shadow: $box-shadow-inset, $box-shadow;
    }
 }
 
@@ -491,11 +509,11 @@ fieldset {
 .btn__add-contact {
    position: fixed !important;
    bottom: 3rem;
-   right: 1rem;
    width: 4rem;
    height: 4rem;
    box-shadow: $box-shadow;
    background-color: #fff !important;
+   right: calc(2rem - (100vw - 100%));
 
    svg {
       width: 3rem;
@@ -532,10 +550,16 @@ fieldset {
          align-items: center;
       }
 
+      h2,
+      .filter,
+      .btn-converter {
+         width: 210px;
+      }
+
       .filter {
          box-shadow: $box-shadow-inset;
          border-radius: 10px;
-         padding: 0 10px 0 0;
+         // padding: 0 10px 0 0;
          display: flex;
          align-items: center;
          justify-content: space-between;
@@ -547,9 +571,22 @@ fieldset {
 
          .clear-filter-btn {
             padding: 4px;
+            margin-right: 1rem;
             svg {
                font-size: 1.25rem;
             }
+         }
+
+         .MuiInputLabel-root {
+            transform: translate(14px, 14px) scale(1);
+         }
+
+         .MuiInputLabel-shrink {
+            transform: translate(14px, 3px) scale(0.75);
+         }
+
+         .MuiInputBase-input {
+            padding: 16.5px 14px 8.5px 14px;
          }
       }
    }

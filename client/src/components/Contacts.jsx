@@ -15,6 +15,7 @@ import Filter from './Filter';
 import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
 import ModalAddContact from './ModalAddContact';
+import { useTranslation } from 'react-i18next';
 import Converter1 from './Converter1';
 import Converter2 from './Converter2';
 
@@ -49,6 +50,7 @@ const Contacts = () => {
    const [filterValue, setFilterValue] = useState('');
    const [contactForEdit, setContactForEdit] = useState({});
    const [openEditModal, setOpenEditModal] = useState(false);
+   const { t } = useTranslation();
 
    const getContacts = async () => {
       let res = await getAllContacts();
@@ -181,7 +183,7 @@ const Contacts = () => {
          />
          <div className="header-table">
             <div className="container">
-               <h2>Contacts:</h2>
+               <h2>{t('contacts')}:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
 
                <Converter />
@@ -196,7 +198,7 @@ const Contacts = () => {
                   <tr>
                      <td className="header-title">№</td>
                      <td className="header-title" onClick={(event) => handleSort('userName', event)}>
-                        <span>Name</span>
+                        <span>{t('name')}</span>
                         <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }}>
                            {sortField === 'userName' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
@@ -206,7 +208,7 @@ const Contacts = () => {
                         </IconButton>
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
-                        <span>Phone 1</span>
+                        <span>{t('phone')} 1</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
@@ -216,7 +218,7 @@ const Contacts = () => {
                         </IconButton>
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
-                        <span>Phone 2</span>
+                        <span>{t('phone')} 2</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
@@ -226,7 +228,7 @@ const Contacts = () => {
                         </IconButton>
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
-                        <span>Phone 3</span>
+                        <span>{t('phone')} 3</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
@@ -236,7 +238,7 @@ const Contacts = () => {
                         </IconButton>
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('group', event)}>
-                        <span>Group</span>
+                        <span>{t('group')}</span>
                         <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
                            {sortField === 'group' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
@@ -260,7 +262,7 @@ const Contacts = () => {
                            <td>{phoneNumber3}</td>
                            <td>{group}</td>
                            <td className="btn-icon-table">
-                              <Tooltip title="Edit contact" placement="top" TransitionComponent={Zoom} arrow>
+                              <Tooltip title={t('edit_contact')} placement="top" TransitionComponent={Zoom} arrow>
                                  <IconButton
                                     className="btn-table edit"
                                     onClick={() => {
@@ -272,7 +274,7 @@ const Contacts = () => {
                               </Tooltip>
                            </td>
                            <td className="btn-icon-table">
-                              <Tooltip title="Delete contact" placement="top" TransitionComponent={Zoom} arrow>
+                              <Tooltip title={t('delete_contact')} placement="top" TransitionComponent={Zoom} arrow>
                                  <IconButton
                                     className="btn-table delete"
                                     onClick={() => {

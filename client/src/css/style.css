@@ -75,6 +75,7 @@ fieldset {
 .header h1 {
   text-align: center;
   flex: 1;
+  margin-left: 126px;
 }
 .header h1 span {
   position: relative;
@@ -131,12 +132,27 @@ fieldset {
 .header .swith-toggle-theme .toggle-state:checked ~ .indicator {
   transform: translate3d(25%, 0, 0);
 }
-.header .swith-language {
-  width: 130px;
+
+/* --------- SWITH LANGUAGE ---------- */
+.swith-language {
   margin-left: 30px;
+  padding-bottom: 7px;
 }
-.header .swith-language img {
-  width: 40px;
+.swith-language .lng {
+  color: #5a5a5a;
+}
+.swith-language svg {
+  display: none;
+}
+.swith-language .MuiSelect-select {
+  border-radius: 50px !important;
+  padding: 3px !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff, 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 
 /* --------- MODAL WINDOW ---------- */
@@ -374,11 +390,11 @@ fieldset {
 .btn__add-contact {
   position: fixed !important;
   bottom: 3rem;
-  right: 1rem;
   width: 4rem;
   height: 4rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   background-color: #fff !important;
+  right: calc(2rem - (100vw - 100%));
 }
 .btn__add-contact svg {
   width: 3rem;
@@ -411,10 +427,14 @@ fieldset {
   justify-content: space-between;
   align-items: center;
 }
+.contacts .header-table h2,
+.contacts .header-table .filter,
+.contacts .header-table .btn-converter {
+  width: 210px;
+}
 .contacts .header-table .filter {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
   border-radius: 10px;
-  padding: 0 10px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -425,9 +445,19 @@ fieldset {
 }
 .contacts .header-table .filter .clear-filter-btn {
   padding: 4px;
+  margin-right: 1rem;
 }
 .contacts .header-table .filter .clear-filter-btn svg {
   font-size: 1.25rem;
+}
+.contacts .header-table .filter .MuiInputLabel-root {
+  transform: translate(14px, 14px) scale(1);
+}
+.contacts .header-table .filter .MuiInputLabel-shrink {
+  transform: translate(14px, 3px) scale(0.75);
+}
+.contacts .header-table .filter .MuiInputBase-input {
+  padding: 16.5px 14px 8.5px 14px;
 }
 .contacts table {
   display: grid;

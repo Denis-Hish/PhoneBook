@@ -1,0 +1,14 @@
+{
+   "contacts": "Contacts",
+   "filter_contacts": "Filter contacts",
+   "convert_to_xml": "Convert to xml",
+   "name": "Name",
+   "phone": "Phone",
+   "group": "Group",
+   "edit_contact": "Edit contact",
+   "delete_contact": "Delete contact",
+   "add_contact": "Add contact",
+   "light_theme": "Light theme",
+   "dark_theme": "Dark theme",
+   "language": "Language"
+}

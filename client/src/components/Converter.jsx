@@ -2,8 +2,11 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
+import { useTranslation } from 'react-i18next';
 
 const Converter = () => {
+   const { t } = useTranslation();
+
    const handleConvert = async () => {
       const contacts = await getAllContacts();
 
@@ -98,8 +101,8 @@ const Converter = () => {
    };
 
    return (
-      <Button variant="outlined" color="primary" onClick={handleConvert}>
-         Convert to xml
+      <Button className="btn-converter" variant="outlined" color="primary" onClick={handleConvert}>
+         {t('convert_to_xml')}
       </Button>
    );
 };

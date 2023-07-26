@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
+import { useTranslation } from 'react-i18next';
 
 const style = {
    position: 'absolute',
@@ -20,6 +21,7 @@ export default function TransitionsModal(updateListContacts) {
    const [open, setOpen] = React.useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
+   const { t } = useTranslation();
 
    useEffect(() => {
       const handleKeyDown = (event) => {
@@ -38,7 +40,7 @@ export default function TransitionsModal(updateListContacts) {
 
    return (
       <>
-         <Tooltip title="Add contact, (Insert)" placement="left" TransitionComponent={Zoom} arrow>
+         <Tooltip title={`${t('add_contact')}, (Insert)`} placement="left" TransitionComponent={Zoom} arrow>
             <IconButton className="btn btn__add-contact" onClick={handleOpen}>
                <AddCircleOutlineIcon />
             </IconButton>
