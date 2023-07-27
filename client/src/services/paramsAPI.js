@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { setMessage } from '../components/Snackbar';
-import { useTranslation } from 'react-i18next';
 
 export const getAllContacts = async () => {
    let res = await axios.get('api/contacts/get-all');
