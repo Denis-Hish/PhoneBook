@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { getAllContacts } from '../services/paramsAPI';
+import { getAllContacts } from '../../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 
 const Converter2 = () => {

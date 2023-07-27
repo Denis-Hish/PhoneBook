@@ -16,8 +16,8 @@ import Converter from './Converter';
 import MadalEditContact from './ModalEditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
-import Converter1 from './Converter1';
-import Converter2 from './Converter2';
+// import Converter1 from './Converter1';
+// import Converter2 from './Converter2';
 
 const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
    <>

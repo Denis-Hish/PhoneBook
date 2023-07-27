@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import { getAllContacts } from '../services/paramsAPI';
+import { getAllContacts } from '../../services/paramsAPI';
 import { create } from 'xmlbuilder2';
+import { saveAs } from 'file-saver';
 
 const Converter1 = () => {
    const handleConvert = async () => {
@@ -53,13 +54,9 @@ const Converter1 = () => {
 
       const xmlString1 = xml1.end({ prettyPrint: true });
 
-      // Save xmlString1 to file file1.xml
+      // Save xmlString1 to file file1.xml on the server
       const file1Blob = new Blob([xmlString1], { type: 'text/xml' });
-      const file1Url = URL.createObjectURL(file1Blob);
-      const file1Link = document.createElement('a');
-      file1Link.href = file1Url;
-      file1Link.download = 'PhoneBook_1_Yealink.xml';
-      file1Link.click();
+      saveAs(file1Blob, 'PhoneBook_1_Yealink.xml');
    };
 
    return (
@@ -70,3 +67,5 @@ const Converter1 = () => {
 };
 
 export default Converter1;
+
+// при нажатии на кнопку "Convert to XML-1", файл будет сохраняться на сервере в корень программы без вопроса браузера о сохранении. Библиотека FileSaver.js позаботится о сохранении файла на стороне клиента. Обратите внимание, что это сохранение происходит на стороне клиента, и для сохранения файла на сервере вы должны предоставить соответствующий механизм на своем сервере (например, использование серверного API для сохранения файла).
