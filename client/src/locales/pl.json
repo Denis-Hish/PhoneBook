@@ -15,10 +15,11 @@
    "language": "Język",
    "required": "* To pole jest wymagane",
    "add_new_group": "Dodaj nową grupę ",
-   "delete?": "Usunąć",
-   "delete": "Usuń",
+   "delete": "Usunąć",
+   "delete-btn": "Usuń",
    "cancel": "Anuluj",
    "saved": "zapisany!",
    "edited": "edytowany!",
-   "deleted": "pomyślnie usunięty!"
+   "deleted": "pomyślnie usunięty!",
+   "save_changes": "zapisz zmiany"
 }

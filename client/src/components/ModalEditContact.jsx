@@ -67,7 +67,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
             phoneNumber3: phone3,
             group: group1,
          };
-         await editContact(id, updatedContact);
+         await editContact(id, updatedContact, t);
          closeModal();
          updateListContacts();
       }
@@ -219,7 +219,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                         </div>
                         <p className="fst-italic">{t('required')}</p>
                         <Button className="btn-edit-contact" type="submit" variant="outlined">
-                           {t('save_contact')}
+                           {t('save_changes')}
                         </Button>
                      </form>
                   </div>

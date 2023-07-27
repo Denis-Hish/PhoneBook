@@ -16,8 +16,10 @@
    "required": "* This field is required",
    "add_new_group": "Add new group ",
    "delete": "Delete",
+   "delete-btn": "Delete",
    "cancel": "Cancel",
-   "saved": "збережено!",
-   "edited": "відредаговано!",
-   "deleted": "видалено!"
+   "saved": "saved!",
+   "edited": "edited!",
+   "deleted": "deleted!",
+   "save_changes": "save changes"
 }

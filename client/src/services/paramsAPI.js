@@ -1,29 +1,30 @@
 import axios from 'axios';
 import { setMessage } from '../components/Snackbar';
+import { useTranslation } from 'react-i18next';
 
 export const getAllContacts = async () => {
    let res = await axios.get('api/contacts/get-all');
    return res.data || [];
 };
 
-export const addContact = (newContact) => {
+export const addContact = (newContact, t) => {
    axios
       .post('api/contacts/add-contact', newContact)
       .then((response) => {
-         const message = `Contact ${response.data.userName} saved!`;
+         const message = `${t('contact')} ${response.data.userName} ${t('saved')}`;
          const color = 'info';
          setMessage({ message, color });
-      }) // TODO: Add success message
+      })
       .catch((error) => {
-         console.error('There was an error!', error); // TODO: Add error handler
+         console.error('There was an error!', error);
       });
 };
 
-export const editContact = (contactId, updatedContact) => {
+export const editContact = (contactId, updatedContact, t) => {
    axios
       .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
       .then((response) => {
-         const message = `Contact ${response.data.userName} edited!`;
+         const message = `${t('contact')} ${response.data.userName} ${t('edited')}`;
          const color = 'success';
          setMessage({ message, color });
       })
@@ -32,11 +33,11 @@ export const editContact = (contactId, updatedContact) => {
       });
 };
 
-export const deleteContact = (contactId) => {
+export const deleteContact = (contactId, t) => {
    axios
       .delete(`api/contacts/delete-contact/${contactId}`)
       .then(() => {
-         const message = `Contact successfully deleted!`;
+         const message = `${t('contact')} ${t('deleted')}`;
          const color = 'error';
          setMessage({ message, color });
       })

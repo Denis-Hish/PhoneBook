@@ -58,7 +58,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
          setFieldUserNameError(true);
          setFieldGroupError(false);
       } else {
-         await addContact(contact);
+         await addContact(contact, t);
          onClose(); // Закрытие модального окна после отправки формы
          updateListContacts();
       }
