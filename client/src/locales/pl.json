@@ -21,5 +21,11 @@
    "saved": "zapisany!",
    "edited": "edytowany!",
    "deleted": "pomyślnie usunięty!",
-   "save_changes": "zapisz zmiany"
+   "save_changes": "zapisz zmiany",
+   "user_name": "Nazwa użytkownika",
+   "password": "Hasło",
+   "hello": "Cześć!",
+   "welcome_back": "Witamy spowrotem!",
+   "keep_me_logged_in": "Zapamiętaj mnie",
+   "login": "Zaloguj sie"
 }

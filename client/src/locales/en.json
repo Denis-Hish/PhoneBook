@@ -21,5 +21,11 @@
    "saved": "saved!",
    "edited": "edited!",
    "deleted": "deleted!",
-   "save_changes": "save changes"
+   "save_changes": "save changes",
+   "user_name": "User name",
+   "password": "Password",
+   "hello": "Hello!",
+   "welcome_back": "Welcome back!",
+   "keep_me_logged_in": "Keep me logged in",
+   "login": "Log in"
 }

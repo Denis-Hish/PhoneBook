@@ -606,4 +606,152 @@ body.dark .btn__add-contact {
 
 .open-modal {
   padding-right: 17px;
+}
+
+/* ----- Login form ----- */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 77px;
+}
+
+.login {
+  position: relative;
+  width: 380px;
+  padding: 50px;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 20px rgba(255, 255, 255, 0.7333333333);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login form {
+  position: relative;
+  width: 100%;
+}
+
+.login form h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  line-height: 0.9em;
+}
+
+.login form h2 span {
+  font-weight: 300;
+  font-size: 0.65em;
+}
+
+.login form .input-box {
+  position: relative;
+  display: flex;
+}
+
+.login form .input-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.login form .input-box input[type=text],
+.login form .input-box input[type=password] {
+  width: 100%;
+  padding: 20px 20px 10px 10px;
+  margin-bottom: 20px;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+
+.login form .input-box input[type=submit] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 20px;
+  font-weight: 600;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  cursor: pointer;
+}
+
+.login form .input-box input[type=submit]:focus {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+
+.login form .input-box svg {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+}
+
+.login form label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.login form label input[type=checkbox] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+@keyframes animate {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.login-test {
+  padding-top: 100px;
+}
+
+.login {
+  /* input не нажат */
+  /* input нажат */
+}
+.login .MuiInputBase-root:before {
+  border-bottom: none !important;
+}
+.login .MuiInputLabel-standard {
+  transform: translate(10px, 15px) scale(1);
+}
+.login .MuiInputLabel-shrink {
+  transform: translate(10px, 5px) scale(0.75);
+}
+.login .MuiInputBase-root {
+  margin-top: 0;
+}
+.login .MuiInputBase-root::after {
+  bottom: 23px;
+  left: 10px;
+  right: 10px;
+}
+.login .input-form {
+  width: 100%;
+}
+.login .btn-login {
+  margin: 36px 0 0px;
+  padding: 10px 15px;
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  width: 100%;
+}
+.login .btn-login:hover {
+  background-color: inherit;
+}
+.login .btn-login:active {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+.login .clear-btn {
+  right: 30px;
+}
+.login .clear-btn svg {
+  width: 20px;
+  height: 20px;
 }/*# sourceMappingURL=style.css.map */
