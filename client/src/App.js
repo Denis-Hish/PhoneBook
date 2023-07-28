@@ -10,7 +10,7 @@ import Snackbar from './components/Snackbar';
 import LoginForm from './components/LoginForm';
 
 function App() {
-   const countdown = 1 * 60 * 1000; // timer in minutes
+   const countdown = 10 * 60 * 1000; // timer in minutes
    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
    const handleLogin = () => {

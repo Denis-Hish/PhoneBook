@@ -99,11 +99,11 @@ const Contacts = () => {
       const headerTitle = event.currentTarget;
       const arrowButton = headerTitle.querySelector('.arrow-btn');
 
-      // Remove the visible-btn class from all arrow-btn elements
+      // Удаление класса "visible-btn" из всех элементов "arrow-btn"
       const allArrowButtons = document.querySelectorAll('.arrow-btn');
       allArrowButtons.forEach((btn) => btn.classList.remove('visible-btn'));
 
-      // Check if the click was on the header-title element
+      // Проверка, был ли клик по элементу "header-title"
       if (headerTitle.classList.contains('header-title')) {
          // Check if the arrowButton doesn't have the visible-btn class
          if (arrowButton && !arrowButton.classList.contains('visible-btn')) {
@@ -119,8 +119,12 @@ const Contacts = () => {
            const valueB = b[sortField] || '';
 
            if (sortDirection === 'asc') {
+              if (valueA === '' && valueB !== '') return 1; // If A is empty and B is not, move A to the end
+              if (valueA !== '' && valueB === '') return -1; // If B is empty and A is not, move B to the end
               return valueA.localeCompare(valueB);
            } else {
+              if (valueA === '' && valueB !== '') return -1; // If A is empty and B is not, move B to the beginning
+              if (valueA !== '' && valueB === '') return 1; // If B is empty and A is not, move A to the beginning
               return valueB.localeCompare(valueA);
            }
         })
