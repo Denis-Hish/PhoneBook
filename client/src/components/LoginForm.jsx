@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import { setMessage } from '../components/Snackbar';
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ onLogin, isAuthenticated }) => {
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
    const [isUsernameFocused, setIsUsernameFocused] = useState(false);
@@ -79,10 +79,10 @@ const LoginForm = ({ onLogin }) => {
                   )}
                   <LockIcon className="icons" />
                </div>
-               <label>
+               {/* <label>
                   <input type="checkbox" />
                   {t('keep_me_logged_in')}
-               </label>
+               </label> */}
                <div className="input-box">
                   <Button className="btn-login" type="submit" variant="outlined">
                      {t('login')}

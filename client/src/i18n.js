@@ -14,8 +14,8 @@ i18n
          escapeValue: false,
       },
       backend: {
-         loadPath: '/client/src/locales/{{lng}}.json', // Путь к вашим файлам с переводами local (*.json)
-         // loadPath: '/static/locales/{{lng}}.json', // Путь к вашим файлам с переводами server (*.json)
+         loadPath: '/client/src/locales/{{lng}}.json', // Путь к файлам с переводами local (*.json)
+         // loadPath: '/static/locales/{{lng}}.json', // Путь к файлам с переводами server (*.json)
       },
    });
 

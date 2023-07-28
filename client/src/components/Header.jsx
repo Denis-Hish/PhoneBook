@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
 import { ThemeContext } from './ThemeContext';
 import ThemeToggle from './ThemeToggle';
@@ -23,9 +23,6 @@ const Header = ({ onLogout, isAuthenticated }) => {
    return (
       <header className={`header ${theme}`}>
          <div className="container">
-            <p className="timer-logout">
-               До окончания сессии осталось:<span>0:39</span>
-            </p>
             <h1>
                Phone Book{' '}
                <span>

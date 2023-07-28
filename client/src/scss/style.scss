@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import 'fonts.scss';
 
 /* --------- VARIABLES ---------- */
 $color-one: #1f1f1f;
@@ -34,12 +32,13 @@ $box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #
 }
 
 body {
-   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
    color: $color-text;
+
+   font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -100,8 +99,7 @@ fieldset {
    h1 {
       text-align: center;
       flex: 1;
-      // margin-left: 192px;
-      margin-left: -34px;
+      margin-left: 192px;
 
       span {
          position: relative;
@@ -692,8 +690,13 @@ fieldset {
          }
       }
 
-      tbody tr:hover {
-         background-color: rgba(255, 255, 255, 0.3);
+      tbody {
+         font-family: 'Poppins', sans-serif;
+         tr {
+            &:hover {
+               background-color: rgba(255, 255, 255, 0.3);
+            }
+         }
       }
 
       tr {
@@ -943,7 +946,7 @@ body.dark {
    }
 
    .btn-login {
-      margin: 36px 0 0px;
+      margin: 26px 0 0px;
       padding: 10px 15px;
       background: transparent;
       border-radius: 8px;
