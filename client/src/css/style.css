@@ -818,17 +818,4 @@ body.dark .btn__add-contact {
 }
 .login .input-box:not(:hover) .clear-btn {
   visibility: hidden;
-}
-
-/* animation login form */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.fade-in {
-  animation: fadeIn 0.5s ease;
 }/*# sourceMappingURL=style.css.map */
