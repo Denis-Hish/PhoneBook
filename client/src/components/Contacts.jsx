@@ -119,12 +119,12 @@ const Contacts = () => {
            const valueB = b[sortField] || '';
 
            if (sortDirection === 'asc') {
-              if (valueA === '' && valueB !== '') return 1; // If A is empty and B is not, move A to the end
-              if (valueA !== '' && valueB === '') return -1; // If B is empty and A is not, move B to the end
+              if (valueA === '' && valueB !== '') return 1;
+              if (valueA !== '' && valueB === '') return -1;
               return valueA.localeCompare(valueB);
            } else {
-              if (valueA === '' && valueB !== '') return -1; // If A is empty and B is not, move B to the beginning
-              if (valueA !== '' && valueB === '') return 1; // If B is empty and A is not, move A to the beginning
+              if (valueA === '' && valueB !== '') return -1;
+              if (valueA !== '' && valueB === '') return 1;
               return valueB.localeCompare(valueA);
            }
         })

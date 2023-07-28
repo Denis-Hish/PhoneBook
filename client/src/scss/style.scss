@@ -582,7 +582,7 @@ fieldset {
       top: 75px;
       background-color: $color-bg;
       z-index: 1;
-      padding: 20px calc(20px - (100vw - 100%)) 15px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+      padding: 20px calc(20px - (100vw - 100%)) 20px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 
       .container {
          display: flex;
@@ -640,7 +640,7 @@ fieldset {
 
       thead {
          position: sticky;
-         top: 165px;
+         top: 160px;
          z-index: 1;
 
          .header-title,

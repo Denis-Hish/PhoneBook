@@ -471,7 +471,7 @@ fieldset {
   top: 75px;
   background-color: #edf1f4;
   z-index: 1;
-  padding: 20px calc(20px - (100vw - 100%)) 15px 0;
+  padding: 20px calc(20px - (100vw - 100%)) 20px 0;
 }
 .contacts .header-table .container {
   display: flex;
@@ -519,7 +519,7 @@ fieldset {
 }
 .contacts table thead {
   position: sticky;
-  top: 165px;
+  top: 160px;
   z-index: 1;
 }
 .contacts table thead .header-title,
