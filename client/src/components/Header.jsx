@@ -23,6 +23,9 @@ const Header = ({ onLogout, isAuthenticated }) => {
    return (
       <header className={`header ${theme}`}>
          <div className="container">
+            <p className="timer-logout">
+               До окончания сессии осталось:<span>0:39</span>
+            </p>
             <h1>
                Phone Book{' '}
                <span>

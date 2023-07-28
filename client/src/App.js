@@ -23,7 +23,7 @@ function App() {
    return (
       <ThemeProvider>
          <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
-         {isAuthenticated ? <Contacts /> : <LoginForm onLogin={handleLogin} />}
+         {isAuthenticated ? <Contacts /> : <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />}
          <Snackbar />
          <Footer />
       </ThemeProvider>

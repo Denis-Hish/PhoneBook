@@ -100,7 +100,8 @@ fieldset {
    h1 {
       text-align: center;
       flex: 1;
-      margin-left: 192px;
+      // margin-left: 192px;
+      margin-left: -34px;
 
       span {
          position: relative;
@@ -193,6 +194,21 @@ fieldset {
       width: 36px;
       margin: 0 0 7px 30px;
       padding: 0;
+   }
+
+   .timer-logout {
+      font-style: italic;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      span {
+         font-size: 1rem;
+         text-align: right;
+         width: 40px;
+         background-color: rgba(0, 162, 255, 0.5);
+      }
    }
 }
 
@@ -488,9 +504,9 @@ fieldset {
       .clear-btn {
          position: absolute;
          padding: 4px;
-         top: 50%;
-         right: 35px;
-         transform: translate(-50%, -50%);
+         top: 20%;
+         right: 48px;
+         // transform: translate(-50%, -50%);
 
          svg {
             font-weight: 400;
@@ -880,10 +896,11 @@ body.dark {
 .login form .input-box input[type='submit']:focus {
    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
-.login form .input-box svg {
+.login form .input-box .icons {
    position: absolute;
    right: 10px;
    top: 25%;
+   font-size: 1.5rem;
 }
 .login form label {
    display: flex;
@@ -893,20 +910,6 @@ body.dark {
 .login form label input[type='checkbox'] {
    margin-right: 5px;
    cursor: pointer;
-}
-
-@keyframes animate {
-   0%,
-   100% {
-      opacity: 1;
-   }
-   50% {
-      opacity: 0.5;
-   }
-}
-
-.login-test {
-   padding-top: 100px;
 }
 
 .login {
@@ -957,19 +960,22 @@ body.dark {
    }
 
    .clear-btn {
-      // position: absolute;
-      // padding: 4px;
-      // top: 50%;
-      // right: 35px;
-      // transform: translate(-50%, -50%);
-
-      right: 30px;
+      position: absolute;
+      padding: 4px;
+      right: 35px;
+      top: 22%;
 
       svg {
-         //    width: 1rem;
-         //    height: 1rem;
-         width: 20px;
-         height: 20px;
+         font-weight: 400;
+         font-size: 1.25rem;
+      }
+   }
+
+   .input-box {
+      &:not(:hover) {
+         .clear-btn {
+            visibility: hidden;
+         }
       }
    }
 }

@@ -27,5 +27,6 @@
    "hello": "Hello!",
    "welcome_back": "Welcome back!",
    "keep_me_logged_in": "Keep me logged in",
-   "login": "Log in"
+   "login": "Log in",
+   "wrong_login": "Wrong login or password"
 }

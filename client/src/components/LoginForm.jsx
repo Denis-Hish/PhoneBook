@@ -1,24 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import { TextField, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
+import { setMessage } from '../components/Snackbar';
 
 const LoginForm = ({ onLogin }) => {
    const [username, setUsername] = useState('');
    const [password, setPassword] = useState('');
+   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
+   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
    const { t } = useTranslation();
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      // Проверка логина и пароля
+      // Проверка и установка логина и пароля
       if (username === '' && password === '') {
          onLogin();
       } else {
-         alert('Неверный логин или пароль');
+         const message = t('wrong_login');
+         const color = 'error';
+         setMessage({ message, color });
       }
+   };
+
+   // Clear input
+   const handleClearUsername = () => {
+      setUsername('');
+   };
+
+   const handleClearPassword = () => {
+      setPassword('');
    };
 
    return (
@@ -39,11 +53,13 @@ const LoginForm = ({ onLogin }) => {
                      onChange={(e) => setUsername(e.target.value)}
                      variant="standard"
                      autoComplete="off"
+                     onMouseEnter={() => setIsUsernameFocused(true)}
                   />
-                  <IconButton className="clear-btn">
-                     <ClearIcon />
-                  </IconButton>
-
+                  {isUsernameFocused && username !== '' && (
+                     <IconButton className="clear-btn" onClick={handleClearUsername}>
+                        <ClearIcon />
+                     </IconButton>
+                  )}
                   <PersonIcon className="icons" />
                </div>
                <div className="input-box">
@@ -54,11 +70,13 @@ const LoginForm = ({ onLogin }) => {
                      value={password}
                      onChange={(e) => setPassword(e.target.value)}
                      variant="standard"
+                     onMouseEnter={() => setIsPasswordFocused(true)}
                   />
-                  <IconButton className="clear-btn">
-                     <ClearIcon />
-                  </IconButton>
-
+                  {isPasswordFocused && password !== '' && (
+                     <IconButton className="clear-btn" onClick={handleClearPassword}>
+                        <ClearIcon />
+                     </IconButton>
+                  )}
                   <LockIcon className="icons" />
                </div>
                <label>

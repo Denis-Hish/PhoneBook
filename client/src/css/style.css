@@ -75,7 +75,7 @@ fieldset {
 .header h1 {
   text-align: center;
   flex: 1;
-  margin-left: 192px;
+  margin-left: -34px;
 }
 .header h1 span {
   position: relative;
@@ -141,6 +141,19 @@ fieldset {
   width: 36px;
   margin: 0 0 7px 30px;
   padding: 0;
+}
+.header .timer-logout {
+  font-style: italic;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.header .timer-logout span {
+  font-size: 1rem;
+  text-align: right;
+  width: 40px;
+  background-color: rgba(0, 162, 255, 0.5);
 }
 
 /* --------- SWITH LANGUAGE ---------- */
@@ -374,9 +387,8 @@ fieldset {
 .form-wrap .form .clear-btn {
   position: absolute;
   padding: 4px;
-  top: 50%;
-  right: 35px;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  right: 48px;
 }
 .form-wrap .form .clear-btn svg {
   font-weight: 400;
@@ -702,10 +714,11 @@ body.dark .btn__add-contact {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
 
-.login form .input-box svg {
+.login form .input-box .icons {
   position: absolute;
   right: 10px;
   top: 25%;
+  font-size: 1.5rem;
 }
 
 .login form label {
@@ -717,18 +730,6 @@ body.dark .btn__add-contact {
 .login form label input[type=checkbox] {
   margin-right: 5px;
   cursor: pointer;
-}
-
-@keyframes animate {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-.login-test {
-  padding-top: 100px;
 }
 
 .login {
@@ -770,9 +771,15 @@ body.dark .btn__add-contact {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
 .login .clear-btn {
-  right: 30px;
+  position: absolute;
+  padding: 4px;
+  right: 35px;
+  top: 22%;
 }
 .login .clear-btn svg {
-  width: 20px;
-  height: 20px;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+.login .input-box:not(:hover) .clear-btn {
+  visibility: hidden;
 }/*# sourceMappingURL=style.css.map */
