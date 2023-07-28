@@ -20,7 +20,10 @@ $color-blue-1: rgb(25, 118, 210);
 $color-blue-2: rgba(25, 118, 210, 0.7);
 
 $box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+   inset -5px -5px 10px #fff;
+
+$transition: all 0.25s ease-in-out;
 
 /* ---------  ---------- */
 
@@ -32,7 +35,8 @@ $box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #
 }
 
 body {
-   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen',
+      'Cantarell', 'Fira Sans', sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
@@ -128,6 +132,10 @@ fieldset {
    .swith-toggle-theme {
       margin-left: auto;
 
+      .toggle {
+         transition: $transition;
+      }
+
       &:hover .toggle {
          background-color: rgba(0, 0, 0, 0.03);
       }
@@ -154,10 +162,10 @@ fieldset {
          width: 60px;
          border-radius: 15px;
          overflow: hidden;
-         -webkit-box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
-            -4px -4px 4px 0px #ffffff inset;
-         box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6, 4px 4px 4px 0px #d1d9e6 inset,
-            -4px -4px 4px 0px #ffffff inset;
+         -webkit-box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+            4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+         box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+            4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
       }
 
       .toggle-state {
@@ -171,7 +179,8 @@ fieldset {
          border-radius: 15px;
          -webkit-transform: translate3d(-75%, 0, 0);
          transform: translate3d(-75%, 0, 0);
-         -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+         -webkit-transition: -webkit-transform 0.4s
+            cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: -webkit-transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35),
@@ -192,6 +201,11 @@ fieldset {
       width: 36px;
       margin: 0 0 7px 30px;
       padding: 0;
+      transition: $transition;
+
+      &:hover svg {
+         fill: #f44336;
+      }
    }
 
    .timer-logout {
@@ -222,14 +236,19 @@ fieldset {
       display: flex;
       justify-content: center;
       align-items: center;
-   }
+      transition: $transition;
 
-   &:hover div {
-      background-color: rgba(0, 0, 0, 0.01);
-   }
+      .lng {
+         color: $color-text;
+      }
 
-   .lng {
-      color: $color-text;
+      &:hover {
+         background-color: rgba(0, 0, 0, 0.01);
+
+         .lng {
+            color: $color-blue-1;
+         }
+      }
    }
 
    svg {
@@ -554,11 +573,14 @@ fieldset {
    box-shadow: $box-shadow;
    background-color: #fff !important;
    right: calc(2rem - (100vw - 100%));
+   transition: $transition !important;
+   z-index: 1;
 
    svg {
       width: 3rem;
       height: 3rem;
       fill: $color-blue-2;
+      transition: $transition;
    }
 
    &:hover {
@@ -730,6 +752,8 @@ fieldset {
          .btn-table {
             opacity: 0;
             background-color: rgba(255, 255, 255, 0.3);
+            transition: all 0.2s;
+
             &:hover {
                background-color: rgba(0, 0, 0, 0.1);
             }
@@ -775,7 +799,8 @@ body.dark {
    $theme-dark-text: #f6f5f7;
    $theme-dark-bg: #7c8790;
    $theme-dark-box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
-   $theme-dark-box-shadow-inset: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
+   $theme-dark-box-shadow-inset: 20px 20px 60px #5c636a inset,
+      -20px -20px 60px #7c8790 inset;
 
    color: $theme-dark-text;
    background-color: $theme-dark-bg;
@@ -849,7 +874,8 @@ body.dark {
    position: relative;
    width: 380px;
    padding: 50px;
-   box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 20px rgba(255, 255, 255, 0.7333333333);
+   box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1),
+      -15px -15px 20px rgba(255, 255, 255, 0.7333333333);
    border-radius: 20px;
    display: flex;
    justify-content: center;
@@ -981,4 +1007,18 @@ body.dark {
          }
       }
    }
+}
+
+/* animation login form */
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.fade-in {
+   animation: fadeIn 0.5s ease;
 }
