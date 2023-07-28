@@ -100,7 +100,7 @@ fieldset {
    h1 {
       text-align: center;
       flex: 1;
-      margin-left: 126px;
+      margin-left: 192px;
 
       span {
          position: relative;
@@ -128,6 +128,11 @@ fieldset {
    /* SWITH TOGGLE */
    .swith-toggle-theme {
       margin-left: auto;
+
+      &:hover .toggle {
+         background-color: rgba(0, 0, 0, 0.03);
+      }
+
       .label {
          display: -webkit-inline-box;
          display: -ms-inline-flexbox;
@@ -181,12 +186,33 @@ fieldset {
          transform: translate3d(25%, 0, 0);
       }
    }
+
+   .btn-logout {
+      box-shadow: $box-shadow, $box-shadow-inset;
+      height: 36px;
+      width: 36px;
+      margin: 0 0 7px 30px;
+      padding: 0;
+   }
 }
 
 /* --------- SWITH LANGUAGE ---------- */
 .swith-language {
    margin-left: 30px;
    padding-bottom: 7px;
+
+   div {
+      width: 34px;
+      height: 34px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &:hover div {
+      background-color: rgba(0, 0, 0, 0.01);
+   }
 
    .lng {
       color: $color-text;

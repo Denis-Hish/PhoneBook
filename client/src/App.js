@@ -22,12 +22,8 @@ function App() {
 
    return (
       <ThemeProvider>
-         <Header />
-         {isAuthenticated ? ( // Условное отображение на основе isAuthenticated
-            <Contacts />
-         ) : (
-            <LoginForm onLogin={handleLogin} />
-         )}
+         <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
+         {isAuthenticated ? <Contacts /> : <LoginForm onLogin={handleLogin} />}
          <Snackbar />
          <Footer />
       </ThemeProvider>

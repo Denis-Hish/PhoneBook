@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Select, MenuItem } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ logoutButton }) => {
    const { i18n, t } = useTranslation(); // Initialize useTranslation
    const [selectedLanguage, setSelectedLanguage] = useState('');
 
@@ -36,7 +36,12 @@ const LanguageSwitcher = () => {
    };
 
    return (
-      <Select className="swith-language" value={selectedLanguage} onChange={handleLanguageChange}>
+      <Select
+         className="swith-language"
+         value={selectedLanguage}
+         onChange={handleLanguageChange}
+         style={logoutButton ? null : { marginRight: '66px' }}
+      >
          <MenuItem value="en">
             <div className="lng">EN</div>
          </MenuItem>

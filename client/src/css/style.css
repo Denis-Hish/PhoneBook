@@ -75,7 +75,7 @@ fieldset {
 .header h1 {
   text-align: center;
   flex: 1;
-  margin-left: 126px;
+  margin-left: 192px;
 }
 .header h1 span {
   position: relative;
@@ -98,6 +98,9 @@ fieldset {
 }
 .header .swith-toggle-theme {
   margin-left: auto;
+}
+.header .swith-toggle-theme:hover .toggle {
+  background-color: rgba(0, 0, 0, 0.03);
 }
 .header .swith-toggle-theme .label {
   display: inline-flex;
@@ -132,11 +135,29 @@ fieldset {
 .header .swith-toggle-theme .toggle-state:checked ~ .indicator {
   transform: translate3d(25%, 0, 0);
 }
+.header .btn-logout {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  height: 36px;
+  width: 36px;
+  margin: 0 0 7px 30px;
+  padding: 0;
+}
 
 /* --------- SWITH LANGUAGE ---------- */
 .swith-language {
   margin-left: 30px;
   padding-bottom: 7px;
+}
+.swith-language div {
+  width: 34px;
+  height: 34px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swith-language:hover div {
+  background-color: rgba(0, 0, 0, 0.01);
 }
 .swith-language .lng {
   color: #5a5a5a;

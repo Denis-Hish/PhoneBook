@@ -3,9 +3,22 @@ import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
 import { ThemeContext } from './ThemeContext';
 import ThemeToggle from './ThemeToggle';
 import LanguageSwitcher from './LanguageSwitcher';
+import IconButton from '@mui/material/IconButton';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
-const Header = () => {
+const Header = ({ onLogout, isAuthenticated }) => {
    const { theme } = useContext(ThemeContext);
+
+   const handleLogout = () => {
+      // Выполните здесь необходимую логику выхода из системы, например, установите isAuthenticated в false
+      onLogout();
+   };
+
+   const logoutButton = isAuthenticated ? (
+      <IconButton className="btn-logout" onClick={handleLogout}>
+         <PowerSettingsNewIcon />
+      </IconButton>
+   ) : null;
 
    return (
       <header className={`header ${theme}`}>
@@ -17,7 +30,12 @@ const Header = () => {
                </span>
             </h1>
             <ThemeToggle />
-            <LanguageSwitcher />
+            <LanguageSwitcher logoutButton={logoutButton} />
+            {isAuthenticated && (
+               <IconButton className="btn-logout" onClick={handleLogout}>
+                  <PowerSettingsNewIcon />
+               </IconButton>
+            )}
          </div>
       </header>
    );
