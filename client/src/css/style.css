@@ -167,19 +167,6 @@ fieldset {
 .header .btn-logout:hover svg {
   fill: #f44336;
 }
-.header .timer-logout {
-  font-style: italic;
-  font-size: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-.header .timer-logout span {
-  font-size: 1rem;
-  text-align: right;
-  width: 40px;
-  background-color: rgba(0, 162, 255, 0.5);
-}
 
 /* --------- SWITH LANGUAGE ---------- */
 .swith-language {
@@ -187,12 +174,6 @@ fieldset {
   padding-bottom: 7px;
 }
 .swith-language div {
-  width: 34px;
-  height: 34px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.25s ease-in-out;
 }
 .swith-language div .lng {
@@ -325,7 +306,6 @@ fieldset {
   left: 50%;
   width: 3rem;
   height: 3rem;
-  border: 2px solid blue;
 }
 
 .bottom-buttons {
@@ -601,7 +581,6 @@ fieldset {
 .contacts table tr .btn-table {
   opacity: 0;
   background-color: rgba(255, 255, 255, 0.3);
-  transition: all 0.2s;
 }
 .contacts table tr .btn-table:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -628,49 +607,6 @@ fieldset {
   font-size: 18px;
   font-weight: 700;
   padding: 0 calc(20px - (100vw - 100%)) 0 0;
-}
-
-/* ---------- THEME ------------ */
-body.dark {
-  color: #f6f5f7;
-  background-color: #7c8790;
-}
-body.dark .header {
-  background-color: #7c8790;
-  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
-}
-body.dark h1 {
-  color: #f6f5f7;
-}
-body.dark h1 span::after {
-  border: 3px solid #f6f5f7;
-}
-body.dark .swith-toggle-theme .toggle {
-  box-shadow: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
-}
-body.dark .swith-toggle-theme .toggle .indicator {
-  background: #a2a6aa;
-  box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99;
-}
-body.dark .header-table {
-  background-color: #7c8790;
-}
-body.dark .contacts .header-table .filter {
-  box-shadow: 20px 20px 60px #5c636a inset, -20px -20px 60px #7c8790 inset;
-}
-body.dark .contacts table {
-  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
-}
-body.dark .contacts table tr {
-  background-color: #7c8790;
-  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
-}
-body.dark .contacts table tbody tr:hover {
-  background-color: #8f9ba5;
-}
-body.dark .btn__add-contact {
-  box-shadow: 20px 20px 60px #5c636a, -20px -20px 60px #7c8790;
-  background-color: #7c8790 !important;
 }
 
 .open-modal {
@@ -818,4 +754,49 @@ body.dark .btn__add-contact {
 }
 .login .input-box:not(:hover) .clear-btn {
   visibility: hidden;
+}
+
+/* ---------- THEME ------------ */
+body.dark {
+  color: #f0f0f0;
+  background-color: #7c8790;
+}
+body.dark .header {
+  background-color: #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+}
+body.dark h1 {
+  color: #f0f0f0;
+}
+body.dark h1 span::after {
+  border: 3px solid #f0f0f0;
+}
+body.dark .swith-toggle-theme .toggle {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+}
+body.dark .header-table {
+  background-color: #7c8790;
+}
+body.dark .contacts .header-table .filter {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+}
+body.dark .contacts table {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+}
+body.dark .contacts table tr {
+  background-color: #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+}
+body.dark .contacts table tbody tr:hover {
+  background-color: #8f9ba5;
+}
+body.dark .btn__add-contact {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+  background-color: #7c8790 !important;
+}
+body.dark .btn-logout {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+}
+body.dark .swith-language .MuiSelect-select {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
 }/*# sourceMappingURL=style.css.map */
