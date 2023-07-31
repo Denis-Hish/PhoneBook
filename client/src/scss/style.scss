@@ -896,7 +896,7 @@ fieldset {
    }
 
    .btn-login {
-      margin: 26px 0 0px;
+      margin: 26px 0 0;
       padding: 10px 15px;
       background: transparent;
       border-radius: 8px;
@@ -933,14 +933,11 @@ fieldset {
    }
 
    .remember-me-form {
-      margin-top: 1rem;
+      margin-top: 12px;
    }
 }
 
 /* ---------- THEME ------------ */
-// .header.light {
-// }
-
 body.dark {
    $color-dark-bg: #7c8790;
    $color-dark-text: #f0f0f0;
@@ -1021,4 +1018,8 @@ body.dark {
    .btn-logout {
       box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
    }
+}
+
+.btn-download {
+   box-shadow: $box-shadow, $box-shadow-inset;
 }

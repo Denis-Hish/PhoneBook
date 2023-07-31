@@ -18,6 +18,8 @@ import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
 // import Converter1 from './Converter1';
 // import Converter2 from './Converter2';
+// import Converter from './Converter_test';
+import Demo from './test/demo';
 
 const Contacts = () => {
    const [contacts, setContacts] = useState(null);
@@ -192,6 +194,8 @@ const Contacts = () => {
                <Filter value={filterValue} onChange={handleFilterChange} />
 
                <Converter />
+
+               {/* <Demo /> */}
 
                {/* <Converter1 /> */}
                {/* <Converter2 /> */}

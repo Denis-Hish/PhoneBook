@@ -729,7 +729,7 @@ fieldset {
   width: 100%;
 }
 .login .btn-login {
-  margin: 26px 0 0px;
+  margin: 26px 0 0;
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;
@@ -756,7 +756,7 @@ fieldset {
   visibility: hidden;
 }
 .login .remember-me-form {
-  margin-top: 1rem;
+  margin-top: 12px;
 }
 
 /* ---------- THEME ------------ */
@@ -809,4 +809,8 @@ body.dark .swith-language .MuiSelect-select {
 }
 body.dark .btn-logout {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+}
+
+.btn-download {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }/*# sourceMappingURL=style.css.map */
