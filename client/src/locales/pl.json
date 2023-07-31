@@ -26,7 +26,7 @@
    "password": "Hasło",
    "hello": "Cześć!",
    "welcome_back": "Witamy spowrotem!",
-   "keep_me_logged_in": "Zapamiętaj mnie",
+   "remember_me": "Zapamiętaj nazwę użytkownika",
    "login": "Zaloguj sie",
    "wrong_login": "Błędny login lub hasło"
 }

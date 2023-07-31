@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import { TextField, Button } from '@mui/material';
@@ -8,23 +8,55 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { setMessage } from '../components/Snackbar';
 
 const LoginForm = ({ onLogin }) => {
-   const [username, setUsername] = useState('');
+   const rememberedUsername = localStorage.getItem('rememberedUsername');
+   const initialUsername = rememberedUsername ? rememberedUsername : '';
+   const [username, setUsername] = useState(initialUsername);
+
    const [password, setPassword] = useState('');
    const [isUsernameFocused, setIsUsernameFocused] = useState(false);
    const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+   const [rememberMe, setRememberMe] = useState(false);
    const { t } = useTranslation();
 
    const handleSubmit = (e) => {
       e.preventDefault();
       // Проверка и установка логина и пароля
-      if (username === '' && password === '') {
+      if (username === 'admin' && password === '') {
          onLogin();
+         if (rememberMe) {
+            // Сохраняем имя пользователя в localStorage
+            localStorage.setItem('rememberedUsername', username);
+         } else {
+            // Если галочка "Remember Me" снята, удаляем сохраненное имя пользователя из localStorage
+            localStorage.removeItem('rememberedUsername');
+         }
       } else {
          const message = t('wrong_login');
          const color = 'error';
          setMessage({ message, color });
       }
    };
+
+   // Запомнить имя пользователя
+   const handleRememberMeChange = (e) => {
+      setRememberMe(e.target.checked);
+      if (e.target.checked) {
+         // Если галочка "Remember Me" установлена, получаем имя пользователя из localStorage (если есть)
+         const rememberedUsername = localStorage.getItem('rememberedUsername');
+         if (rememberedUsername) {
+            setUsername(rememberedUsername);
+         }
+      } else {
+         // Если галочка "Remember Me" снята, удаляем сохраненное имя пользователя из localStorage
+         localStorage.removeItem('rememberedUsername');
+      }
+   };
+
+   // Проверка наличия данных в localStorage и установка состояния галочки "Remember Me"
+   useEffect(() => {
+      const rememberedUsername = localStorage.getItem('rememberedUsername');
+      setRememberMe(!!rememberedUsername);
+   }, []);
 
    // Clear input
    const handleClearUsername = () => {
@@ -79,10 +111,10 @@ const LoginForm = ({ onLogin }) => {
                   )}
                   <LockIcon className="icons" />
                </div>
-               {/* <label>
-                  <input type="checkbox" />
-                  {t('keep_me_logged_in')}
-               </label> */}
+               <label className="remember-me-form">
+                  <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
+                  {t('remember_me')}
+               </label>
                <div className="input-box">
                   <Button className="btn-login" type="submit" variant="outlined">
                      {t('login')}

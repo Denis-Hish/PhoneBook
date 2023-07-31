@@ -755,6 +755,9 @@ fieldset {
 .login .input-box:not(:hover) .clear-btn {
   visibility: hidden;
 }
+.login .remember-me-form {
+  margin-top: 1rem;
+}
 
 /* ---------- THEME ------------ */
 body.dark {

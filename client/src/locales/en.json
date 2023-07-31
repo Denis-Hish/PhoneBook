@@ -22,11 +22,11 @@
    "edited": "edited!",
    "deleted": "deleted!",
    "save_changes": "save changes",
-   "user_name": "User name",
+   "user_name": "Username",
    "password": "Password",
    "hello": "Hello!",
    "welcome_back": "Welcome back!",
-   "keep_me_logged_in": "Keep me logged in",
+   "remember_me": "Remember username",
    "login": "Log in",
    "wrong_login": "Wrong login or password"
 }
