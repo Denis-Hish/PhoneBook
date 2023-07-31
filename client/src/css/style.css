@@ -794,9 +794,16 @@ body.dark .btn__add-contact {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
   background-color: #7c8790 !important;
 }
-body.dark .btn-logout {
+body.dark .swith-toggle-theme .toggle {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
 }
+body.dark .swith-toggle-theme .toggle .indicator {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  background: #7c8790;
+}
 body.dark .swith-language .MuiSelect-select {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+}
+body.dark .btn-logout {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
 }/*# sourceMappingURL=style.css.map */

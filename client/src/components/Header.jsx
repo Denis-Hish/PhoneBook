@@ -10,7 +10,6 @@ const Header = ({ onLogout, isAuthenticated }) => {
    const { theme } = useContext(ThemeContext);
 
    const handleLogout = () => {
-      // Выполните здесь необходимую логику выхода из системы, например, установите isAuthenticated в false
       onLogout();
    };
 

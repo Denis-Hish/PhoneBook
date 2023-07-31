@@ -22,6 +22,9 @@ function App() {
    const handleLogout = () => {
       setIsAuthenticated(false);
       localStorage.removeItem('authData');
+      console.log('Вылогирован');
+      // clearContactsData(); //! Очистить данные контактов
+      window.location.reload(); //! Перезагрузка страницы для очистки данных?
    };
 
    useEffect(() => {
