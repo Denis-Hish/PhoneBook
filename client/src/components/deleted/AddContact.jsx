@@ -1,15 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { addContact, getAllContacts } from '../services/paramsAPI';
+import { addContact } from '../../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import ComboBox from './ComboBox';
 import { useTranslation } from 'react-i18next';
-
-const filter = createFilterOptions();
 
 const AddContact = ({ onClose, updateListContacts }) => {
    const [contact, setContact] = useState({
@@ -22,7 +20,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
 
    const [fieldUserNameError, setFieldUserNameError] = useState(false);
    const [fieldGroupError, setFieldGroupError] = useState(false);
-   const [groups, setGroups] = useState([]);
+
    const { t } = useTranslation();
 
    const onChangeHandler = (event) => {
@@ -35,9 +33,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
       if (name === 'userName') {
          setFieldUserNameError(false);
       }
-      if (name === 'group') {
-         setFieldGroupError(false);
-      }
+      setFieldGroupError(false); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    };
 
    // Сброс стилей при потере фокуса у инпута
@@ -46,46 +42,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
       if (name === 'userName' && value.trim() === '') {
          setFieldUserNameError(false);
       }
-      if (name === 'group' && value.trim() === '') {
-         setFieldGroupError(false);
-      }
-   };
-
-   useEffect(() => {
-      const extractGroups = async () => {
-         const contacts = await getAllContacts();
-         const allGroups = Array.isArray(contacts) ? contacts.map((contact) => contact.group) : [];
-         const uniqueGroups = [...new Set(allGroups)];
-         const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
-         setGroups(sortedGroups);
-      };
-
-      extractGroups();
-   }, []);
-
-   // Focus on input
-   const inputRef = useRef(null);
-   useEffect(() => {
-      inputRef.current.focus();
-   }, []);
-
-   //Clear input
-   const clearInput = (name) => {
-      setContact((prevContact) => ({
-         ...prevContact,
-         [name]: '',
-      }));
-   };
-
-   // reset the contact form
-   const resetContactForm = () => {
-      setContact({
-         userName: '',
-         phoneNumber1: '',
-         phoneNumber2: '',
-         phoneNumber3: '',
-         group: '',
-      });
+      setFieldGroupError(false); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    };
 
    const handleAddContact = async (e) => {
@@ -104,9 +61,24 @@ const AddContact = ({ onClose, updateListContacts }) => {
          await addContact(contact, t);
          onClose(); // Закрытие модального окна после отправки формы
          updateListContacts();
-         resetContactForm(); // Reset the contact form after successful submission
       }
    };
+
+   // Focus on input
+   const inputRef = useRef(null);
+   useEffect(() => {
+      inputRef.current.focus();
+   }, []);
+
+   //Clear input
+   const clearInput = (name) => {
+      setContact((prevContact) => ({
+         ...prevContact,
+         [name]: '',
+      }));
+   };
+
+   // console.log(fieldUserNameError ? 'Name - error' : 'Name - no error');
 
    return (
       <div className="add-contacts">
@@ -193,36 +165,19 @@ const AddContact = ({ onClose, updateListContacts }) => {
                )}
             </div>
             <div className="form">
-               <Autocomplete
-                  className={`input combo-box${fieldGroupError ? ' error' : ''}`}
+               <ComboBox
                   value={contact.group}
                   onChange={(event, newValue) =>
                      onChangeHandler({
                         target: {
                            name: 'group',
-                           value: newValue ? newValue : '',
+                           value: newValue ? newValue.title : '',
                         },
                      })
                   }
+                  onChangeHandler={onChangeHandler}
+                  fieldGroupError={fieldGroupError} // для добавления класса "error"
                   onBlur={handleBlur}
-                  filterOptions={(options, params) => {
-                     const filtered = filter(options, params);
-                     const { inputValue } = params;
-                     // Создание нового значения
-                     const isExisting = options.some((option) => inputValue === option);
-                     if (inputValue !== '' && !isExisting) {
-                        filtered.push(inputValue);
-                     }
-                     // Исключение пустых значений
-                     const nonEmptyFiltered = filtered.filter((option) => option !== '');
-                     return nonEmptyFiltered;
-                  }}
-                  selectOnFocus
-                  handleHomeEndKeys
-                  options={groups}
-                  sx={{ width: 300 }}
-                  freeSolo
-                  renderInput={(params) => <TextField {...params} label={`${t('group')} *`} />}
                />
                <div className="icons">
                   <GroupsIcon />

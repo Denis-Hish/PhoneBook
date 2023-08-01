@@ -4,14 +4,14 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { editContact } from '../services/paramsAPI';
+import { editContact } from '../../services/paramsAPI';
 import Fade from '@mui/material/Fade';
 import PersonIcon from '@mui/icons-material/Person';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import GroupsIcon from '@mui/icons-material/Groups';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
-import ComboboxEdit from './ComboboxEdit';
+import ComboboxEdit from '../ComboboxEdit';
 import { useTranslation } from 'react-i18next';
 
 const style = {

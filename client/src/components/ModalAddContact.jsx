@@ -3,13 +3,12 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-// import AddContact from './AddContact';
+import AddContact from './AddContact';
 import IconButton from '@mui/material/IconButton';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 import { useTranslation } from 'react-i18next';
-import AddContact from './AddContact_test';
 
 const style = {
    position: 'absolute',
