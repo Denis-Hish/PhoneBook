@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 import { useTranslation } from 'react-i18next';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 const Converter = () => {
    const { t } = useTranslation();
@@ -101,7 +102,13 @@ const Converter = () => {
    };
 
    return (
-      <Button className="btn-converter" variant="outlined" color="primary" onClick={handleConvert}>
+      <Button
+         className="btn-converter"
+         variant="outlined"
+         color="primary"
+         onClick={handleConvert}
+         endIcon={<AutorenewIcon />}
+      >
          {t('convert_to_xml')}
       </Button>
    );
