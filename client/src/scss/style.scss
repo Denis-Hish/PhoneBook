@@ -77,6 +77,10 @@ fieldset {
    font-size: 14px;
 }
 
+.button {
+   box-shadow: $box-shadow, $box-shadow-inset;
+}
+
 @media only screen and (max-width: $phone) {
    .hideOnMobile {
       display: none;

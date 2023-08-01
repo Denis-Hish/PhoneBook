@@ -70,6 +70,10 @@ fieldset {
   font-size: 14px;
 }
 
+.button {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+
 @media only screen and (max-width: 767px) {
   .hideOnMobile {
     display: none;

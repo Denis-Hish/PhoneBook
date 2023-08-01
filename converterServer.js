@@ -1,31 +1,34 @@
 const express = require('express');
-const { getAllContacts } = require('./services/paramsAPI');
 const app = express();
-const PORT = 3001; // Change this to any port number you prefer
+const port = 3000;
+const fs = require('fs');
 
 app.use(express.json());
 
-// Endpoint for file conversion and saving
-app.get('/convert-files', async (req, res) => {
-   try {
-      const contacts = await getAllContacts();
+app.post('/create-xml-files', (req, res) => {
+   const { xmlString1, xmlString2 } = req.body;
 
-      // ... Your existing code for generating XML files ...
+   // Сохраняем xmlString1 в файл file1.xml
+   fs.writeFile('file1.xml', xmlString1, (err) => {
+      if (err) {
+         console.error(err);
+         return res.status(500).json({ message: 'Error saving file1.xml' });
+      }
+      console.log('File1 saved successfully');
+   });
 
-      // Save xmlString1 to file1.xml
-      const fs = require('fs');
-      fs.writeFileSync('test_file1.xml', xmlString1);
+   // Сохраняем xmlString2 в файл file2.xml
+   fs.writeFile('file2.xml', xmlString2, (err) => {
+      if (err) {
+         console.error(err);
+         return res.status(500).json({ message: 'Error saving file2.xml' });
+      }
+      console.log('File2 saved successfully');
 
-      // Save xmlString2 to file2.xml
-      fs.writeFileSync('test_file2.xml', modifiedXmlString2);
-
-      res.json({ success: true, message: 'Files created and saved successfully!' });
-   } catch (error) {
-      console.error('Error converting and saving files:', error);
-      res.status(500).json({ success: false, error: 'An error occurred while converting and saving files.' });
-   }
+      return res.json({ message: 'Files saved successfully' });
+   });
 });
 
-app.listen(PORT, () => {
-   console.log(`Server running on http://localhost:${PORT}`);
+app.listen(port, () => {
+   console.log(`Сервер работает по адресу http://localhost:${port}`);
 });

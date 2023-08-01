@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 import { useTranslation } from 'react-i18next';
@@ -101,6 +100,21 @@ const Converter = () => {
       file2Link.href = file2Url;
       file2Link.download = 'PhoneBook_2.xml';
       file2Link.click();
+
+      // Отправляем данные на сервер
+      axios
+         .post('http://localhost:3000/test-created-xml-files', {
+            xmlString1: xmlString1,
+            xmlString2: modifiedXmlString2,
+         })
+         .then((response) => {
+            console.log(response.data); // Success message from the server
+            // Возможно, здесь вы захотите обновить пользовательский интерфейс, чтобы отразить успешное сохранение на сервере.
+         })
+         .catch((error) => {
+            console.error(error); // Error message if something went wrong
+            // Возможно, здесь вы захотите обновить пользовательский интерфейс, чтобы отразить ошибку сохранения.
+         });
    };
 
    // ? ---------------------------------------------------------

@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import IconButton from '@mui/material/IconButton';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import Settings from './Settings';
 
 const Header = ({ onLogout, isAuthenticated }) => {
    const { theme } = useContext(ThemeContext);
@@ -22,6 +23,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
    return (
       <header className={`header ${theme}`}>
          <div className="container">
+            {/* <Settings /> */}
             <h1>
                Phone Book{' '}
                <span>

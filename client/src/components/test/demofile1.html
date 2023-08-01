@@ -1,8 +1,107 @@
+<!DOCTYPE html>
 <html>
 
+<head>
+   <title>Node.js File System Module</title>
+</head>
+
 <body>
-   <h1>My Header</h1>
-   <p>My paragraph.</p>
+   <h1>Node.js File System Module</h1>
+
+   <button onclick="readFile()">Read File</button>
+
+   <button onclick="createFile()">Create File</button>
+   <input type="text" id="create-content" placeholder="Content">
+
+   <button onclick="updateFile()">Update File</button>
+   <input type="text" id="update-content" placeholder="Updated Content">
+
+   <button onclick="deleteFile()">Delete File</button>
+
+   <button onclick="renameFile()">Rename File</button>
+   <input type="text" id="new-file-name" placeholder="New File Name">
+
+   <div id="output"></div>
+
+   <script>
+      function readFile() {
+         fetch('http://localhost:8080')
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('output').innerText = data;
+            })
+            .catch(error => {
+               document.getElementById('output').innerText = 'Ошибка чтения файла';
+            });
+      }
+
+      function createFile() {
+         const content = document.getElementById('create-content').value;
+         fetch('http://localhost:8080', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content })
+         })
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('output').innerText = data;
+            })
+            .catch(error => {
+               document.getElementById('output').innerText = 'Ошибка создания файла';
+            });
+      }
+
+      function updateFile() {
+         const content = document.getElementById('update-content').value;
+         fetch('http://localhost:8080', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content })
+         })
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('output').innerText = data;
+            })
+            .catch(error => {
+               document.getElementById('output').innerText = 'Ошибка обновления файла';
+            });
+      }
+
+      function deleteFile() {
+         fetch('http://localhost:8080', {
+            method: 'DELETE'
+         })
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('output').innerText = data;
+            })
+            .catch(error => {
+               document.getElementById('output').innerText = 'Ошибка удаления файла';
+            });
+      }
+
+      function renameFile() {
+         const newFileName = document.getElementById('new-file-name').value;
+         fetch('http://localhost:8080', {
+            method: 'PUT',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ newFileName })
+         })
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById('output').innerText = data;
+            })
+            .catch(error => {
+               document.getElementById('output').innerText = 'Ошибка переименования файла';
+            });
+      }
+   </script>
 </body>
 
 </html>
