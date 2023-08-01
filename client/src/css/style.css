@@ -766,53 +766,47 @@ fieldset {
 /* ---------- THEME ------------ */
 body.dark {
   color: #f0f0f0;
-  background-color: #7c8790;
+  background-color: #868e96;
 }
 body.dark .header {
-  background-color: #7c8790;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
-}
-body.dark h1 {
-  color: #f0f0f0;
-}
-body.dark h1 span::after {
-  border: 3px solid #f0f0f0;
+  background-color: #868e96;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
 }
 body.dark .swith-toggle-theme .toggle {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
 }
 body.dark .header-table {
-  background-color: #7c8790;
+  background-color: #868e96;
 }
 body.dark .contacts .header-table .filter {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
 }
 body.dark .contacts table {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
 }
 body.dark .contacts table tr {
-  background-color: #7c8790;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
+  background-color: #868e96;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
 }
 body.dark .contacts table tbody tr:hover {
   background-color: #8f9ba5;
 }
 body.dark .btn__add-contact {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790;
-  background-color: #7c8790 !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+  background-color: #868e96 !important;
 }
 body.dark .swith-toggle-theme .toggle {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
 }
 body.dark .swith-toggle-theme .toggle .indicator {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
-  background: #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  background: #868e96;
 }
 body.dark .swith-language .MuiSelect-select {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
 }
 body.dark .btn-logout {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #7c8790, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #7c8790;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
 }
 
 .btn-download {
