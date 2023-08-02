@@ -31,5 +31,6 @@
    "wrong_login": "Wrong login or password",
    "files_saved": "Files saved successfully",
    "error_saving": "Error saving files",
-   "logout": "Logout"
+   "logout": "Logout",
+   "welcome": "Welcome to the system"
 }

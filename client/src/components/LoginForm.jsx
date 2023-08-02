@@ -23,6 +23,7 @@ const LoginForm = ({ onLogin }) => {
       // Проверка и установка логина и пароля
       if (username === 'admin' && password === '') {
          onLogin();
+         setMessage({ message: t('welcome'), color: 'success' });
          if (rememberMe) {
             // Сохраняем имя пользователя в localStorage
             localStorage.setItem('rememberedUsername', username);

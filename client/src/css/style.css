@@ -477,8 +477,7 @@ fieldset {
   align-items: center;
 }
 .contacts .header-table h2,
-.contacts .header-table .filter,
-.contacts .header-table .btn-converter {
+.contacts .header-table .plug {
   width: 226px;
 }
 .contacts .header-table .filter {
@@ -488,7 +487,6 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   width: 20rem;
-  margin-right: 386px;
 }
 .contacts .header-table .filter .MuiTextField-root {
   width: inherit;
@@ -825,4 +823,16 @@ body.dark .btn-logout {
 }
 .btn-download .downloaded {
   color: #2e7d32;
+}
+
+.btn-settings {
+  margin-bottom: 7px !important;
+  width: 36px;
+  height: 36px;
+}
+.btn-settings svg {
+  transition: all 0.25s ease-in-out;
+}
+.btn-settings:hover svg {
+  color: #c51e3a;
 }/*# sourceMappingURL=style.css.map */

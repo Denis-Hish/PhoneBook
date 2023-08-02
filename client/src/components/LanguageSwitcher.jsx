@@ -56,7 +56,7 @@ const LanguageSwitcher = ({ logoutButton }) => {
                className="swith-language"
                value={selectedLanguage}
                onChange={handleLanguageChange}
-               style={logoutButton ? null : { marginRight: '66px' }}
+               style={logoutButton ? null : { marginRight: '132px' }}
                onMouseEnter={handleMouseEnter}
                onMouseLeave={handleMouseLeave}
                onOpen={() => setShowTooltip(false)}

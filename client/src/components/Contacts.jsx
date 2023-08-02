@@ -187,13 +187,7 @@ const Contacts = () => {
             <div className="container">
                <h2>{t('contacts')}:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
-
-               {/* <Converter /> */}
-
-               {/* <Demo /> */}
-
-               {/* <Converter1 /> */}
-               {/* <Converter2 /> */}
+               <div className="plug" />
             </div>
          </div>
          <div className="container">

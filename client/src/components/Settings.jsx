@@ -16,7 +16,7 @@ const style = {
    transform: 'translate(-50%, -50%)',
    width: 400,
    bgcolor: 'background.paper',
-   border: '2px solid #000',
+   // border: '2px solid #000',
    boxShadow: 24,
    p: 4,
 };
@@ -42,9 +42,10 @@ const Settings = ({ countdown, setCountdown }) => {
 
    return (
       <>
-         <IconButton className="button btn-settings" style={{ color: '#C51E3A' }} onClick={handleOpen}>
+         <IconButton className="button btn-settings" onClick={handleOpen}>
             <SettingsIcon />
          </IconButton>
+
          <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -67,7 +68,7 @@ const Settings = ({ countdown, setCountdown }) => {
                   <TextField
                      id="outlined-basic"
                      type="number"
-                     label="Outlined"
+                     label="Countdown (min)"
                      variant="standard"
                      autoComplete="off"
                      onChange={handleChangeCountdown}

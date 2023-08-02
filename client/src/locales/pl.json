@@ -31,5 +31,6 @@
    "wrong_login": "Błędny login lub hasło",
    "files_saved": "Pliki zostały pomyślnie zapisane",
    "error_saving": "Błąd podczas zapisywania plików",
-   "logout": "Wyloguj"
+   "logout": "Wyloguj",
+   "welcome": "Witamy w systemie"
 }

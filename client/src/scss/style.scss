@@ -593,8 +593,7 @@ fieldset {
       }
 
       h2,
-      .filter,
-      .btn-converter {
+      .plug {
          width: 226px;
       }
 
@@ -605,7 +604,7 @@ fieldset {
          align-items: center;
          justify-content: space-between;
          width: 20rem;
-         margin-right: 386px;
+         // margin-right: 386px;
 
          .MuiTextField-root {
             width: inherit;
@@ -1026,5 +1025,19 @@ body.dark {
 
    .downloaded {
       color: #2e7d32;
+   }
+}
+
+.btn-settings {
+   margin-bottom: 7px !important;
+   width: 36px;
+   height: 36px;
+
+   svg {
+      transition: $transition;
+   }
+
+   &:hover svg {
+      color: #c51e3a;
    }
 }
