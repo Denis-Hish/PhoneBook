@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import IconButton from '@mui/material/IconButton';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import DownloadIcon from '@mui/icons-material/Download';
 import Settings from './Settings';
 
 const Header = ({ onLogout, isAuthenticated }) => {

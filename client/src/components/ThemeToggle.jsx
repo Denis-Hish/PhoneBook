@@ -9,7 +9,7 @@ const ThemeToggle = () => {
    const tooltipTitle = theme === 'dark' ? t('dark_theme') : t('light_theme');
 
    return (
-      <Tooltip title={tooltipTitle} placement="left" arrow>
+      <Tooltip title={tooltipTitle} placement="bottom" arrow>
          <div className="swith swith-toggle-theme">
             <label className="label">
                <div className="toggle">

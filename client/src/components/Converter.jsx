@@ -1,12 +1,18 @@
-import React from 'react';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
+import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
+import { setMessage } from './Snackbar';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import DownloadIcon from '@mui/icons-material/Download';
+import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
+import Tooltip from '@mui/material/Tooltip';
 
 const Converter = () => {
    const { t } = useTranslation();
+   const [icon, setIcon] = useState('download');
 
    const handleConvert = async () => {
       const contacts = await getAllContacts();
@@ -84,33 +90,59 @@ const Converter = () => {
       // Remove the '<?xml version="1.0"?>' string from xmlString2
       const modifiedXmlString2 = xmlString2.replace('<?xml version="1.0"?>', '');
 
+      // Сохранение файлов с запросом браузера о сохранении
       // Save xmlString1 to file file1.xml
-      const file1Blob = new Blob([xmlString1], { type: 'text/xml' });
-      const file1Url = URL.createObjectURL(file1Blob);
-      const file1Link = document.createElement('a');
-      file1Link.href = file1Url;
-      file1Link.download = 'PhoneBook_1_Yealink.xml';
-      file1Link.click();
+      // const file1Blob = new Blob([xmlString1], { type: 'text/xml' });
+      // const file1Url = URL.createObjectURL(file1Blob);
+      // const file1Link = document.createElement('a');
+      // file1Link.href = file1Url;
+      // file1Link.download = 'PhoneBook_1_Yealink.xml';
+      // file1Link.click();
 
       // Save xmlString2 to file file2.xml
-      const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
-      const file2Url = URL.createObjectURL(file2Blob);
-      const file2Link = document.createElement('a');
-      file2Link.href = file2Url;
-      file2Link.download = 'PhoneBook_2.xml';
-      file2Link.click();
+      // const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
+      // const file2Url = URL.createObjectURL(file2Blob);
+      // const file2Link = document.createElement('a');
+      // file2Link.href = file2Url;
+      // file2Link.download = 'PhoneBook_2.xml';
+      // file2Link.click();
+
+      const data = {
+         xmlString1: xmlString1,
+         xmlString2: modifiedXmlString2,
+      };
+
+      // Отправка POST-запроса на сервер для сохранения файлов без запроса браузера о сохранении
+      axios
+         .post('http://localhost:8080/create-xml-files', data)
+         .then((response) => {
+            // console.log(response.data); // Успешное сообщение от сервера (выводится в консоль)
+            setMessage({ message: t('files_saved'), color: 'success' });
+
+            // Toggle the icon to "DoneIcon"
+            setIcon('done');
+            setTimeout(() => {
+               setIcon('download'); // Change the icon back to "DownloadIcon" after xx miliseconds
+            }, 3000);
+         })
+         .catch((error) => {
+            console.error(error); // Сообщение об ошибке, если что-то пошло не так
+            setMessage({ message: t('error_saving'), color: 'error' });
+         });
    };
 
    return (
-      <Button
-         className="btn-converter"
-         variant="outlined"
-         color="primary"
-         onClick={handleConvert}
-         endIcon={<AutorenewIcon />}
-      >
-         {t('convert_to_xml')}
-      </Button>
+      <Tooltip title={t('convert_to_xml')} placement="left" arrow>
+         <div style={{ marginLeft: '170px' }}>
+            <IconButton className="btn-download" color="primary" onClick={handleConvert}>
+               {icon === 'download' ? (
+                  <DownloadIcon className="download-icon" />
+               ) : (
+                  <FileDownloadDoneIcon className="download-icon downloaded" />
+               )}
+            </IconButton>
+         </div>
+      </Tooltip>
    );
 };
 

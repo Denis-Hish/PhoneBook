@@ -811,4 +811,14 @@ body.dark .btn-logout {
 
 .btn-download {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  color: #5a5a5a !important;
+}
+.btn-download .download-icon {
+  transition: all 0.25s ease-in-out;
+}
+.btn-download .download-icon.downloaded {
+  color: #2e7d32;
+}
+.btn-download .download-icon:hover {
+  color: rgb(25, 118, 210);
 }/*# sourceMappingURL=style.css.map */

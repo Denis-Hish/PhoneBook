@@ -1,10 +1,9 @@
 import React from 'react';
-import { getAllContacts } from '../services/paramsAPI';
+import Button from '@mui/material/Button';
+import { getAllContacts } from '../../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 import { useTranslation } from 'react-i18next';
-import IconButton from '@mui/material/IconButton';
-import DownloadIcon from '@mui/icons-material/Download';
-import axios from 'axios';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 const Converter = () => {
    const { t } = useTranslation();
@@ -100,38 +99,18 @@ const Converter = () => {
       file2Link.href = file2Url;
       file2Link.download = 'PhoneBook_2.xml';
       file2Link.click();
-
-      // Отправляем данные на сервер
-      axios
-         .post('http://localhost:3000/test-created-xml-files', {
-            xmlString1: xmlString1,
-            xmlString2: modifiedXmlString2,
-         })
-         .then((response) => {
-            console.log(response.data); // Success message from the server
-            // Возможно, здесь вы захотите обновить пользовательский интерфейс, чтобы отразить успешное сохранение на сервере.
-         })
-         .catch((error) => {
-            console.error(error); // Error message if something went wrong
-            // Возможно, здесь вы захотите обновить пользовательский интерфейс, чтобы отразить ошибку сохранения.
-         });
    };
 
-   // ? ---------------------------------------------------------
-
-   // ? ---------------------------------------------------------
-
    return (
-      <>
-         {/* <Button className="btn-converter" variant="outlined" color="primary" onClick={handleConvert}>
-            {t('convert_to_xml')}
-         </Button> */}
-         <div style={{ width: '210px', textAlign: 'right' }}>
-            <IconButton className="btn-download" color="primary" onClick={handleConvert}>
-               <DownloadIcon />
-            </IconButton>
-         </div>
-      </>
+      <Button
+         className="btn-converter"
+         variant="outlined"
+         color="primary"
+         onClick={handleConvert}
+         endIcon={<AutorenewIcon />}
+      >
+         {t('convert_to_xml')}
+      </Button>
    );
 };
 

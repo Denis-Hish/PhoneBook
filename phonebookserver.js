@@ -1,7 +1,12 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.static(__dirname));
 
@@ -28,6 +33,39 @@ db.mongoose
       console.log('Cannot connect to the database!', err);
       process.exit();
    });
+
+// Обработчик POST-запроса для сохранения файлов
+app.post('/create-xml-files', (req, res) => {
+   const { xmlString1, xmlString2 } = req.body;
+
+   // Создаем папку "converted", если ее нет
+   const convertedDir = path.join(__dirname, 'xml'); // каталог для сохранения
+   if (!fs.existsSync(convertedDir)) {
+      fs.mkdirSync(convertedDir);
+   }
+
+   // Сохраняем xmlString1
+   const file1Path = path.join(convertedDir, 'PhoneBook_1_Yealink.xml');
+   fs.writeFile(file1Path, xmlString1, (err) => {
+      if (err) {
+         console.error(err);
+         return res.status(500).json({ message: 'Error saving PhoneBook_1_Yealink.xml' });
+      }
+      console.log('File1 saved successfully');
+   });
+
+   // Сохраняем xmlString2
+   const file2Path = path.join(convertedDir, 'PhoneBook_2.xml');
+   fs.writeFile(file2Path, xmlString2, (err) => {
+      if (err) {
+         console.error(err);
+         return res.status(500).json({ message: 'Error saving PhoneBook_2.xml' });
+      }
+      console.log('File2 saved successfully');
+
+      return res.json({ message: 'Files saved successfully' });
+   });
+});
 
 // Load UI
 // app.get('/', (req, res) => {

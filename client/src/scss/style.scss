@@ -1026,4 +1026,17 @@ body.dark {
 
 .btn-download {
    box-shadow: $box-shadow, $box-shadow-inset;
+   color: $color-text !important;
+
+   .download-icon {
+      transition: $transition;
+
+      &.downloaded {
+         color: #2e7d32;
+      }
+
+      &:hover {
+         color: $color-blue-1;
+      }
+   }
 }
