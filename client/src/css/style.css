@@ -97,7 +97,7 @@ fieldset {
 .header h1 {
   text-align: center;
   flex: 1;
-  margin-left: 192px;
+  margin-left: 262px;
 }
 .header h1 span {
   position: relative;
@@ -174,14 +174,14 @@ fieldset {
 
 /* --------- SWITH LANGUAGE ---------- */
 .swith-language {
-  margin-left: 30px;
-  padding-bottom: 7px;
+  margin: 0 0 7px 30px;
 }
 .swith-language div {
   transition: all 0.25s ease-in-out;
 }
 .swith-language div .lng {
   color: #5a5a5a;
+  font-weight: 500;
 }
 .swith-language div:hover {
   background-color: rgba(0, 0, 0, 0.01);
@@ -488,6 +488,7 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   width: 20rem;
+  margin-right: 386px;
 }
 .contacts .header-table .filter .MuiTextField-root {
   width: inherit;
@@ -810,15 +811,18 @@ body.dark .btn-logout {
 }
 
 .btn-download {
+  margin: 0 0 7px 30px !important;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
   color: #5a5a5a !important;
+  width: 36px;
+  height: 36px;
 }
-.btn-download .download-icon {
+.btn-download .download {
   transition: all 0.25s ease-in-out;
 }
-.btn-download .download-icon.downloaded {
-  color: #2e7d32;
-}
-.btn-download .download-icon:hover {
+.btn-download:hover .download {
   color: rgb(25, 118, 210);
+}
+.btn-download .downloaded {
+  color: #2e7d32;
 }/*# sourceMappingURL=style.css.map */

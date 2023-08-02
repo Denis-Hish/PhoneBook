@@ -4,7 +4,6 @@ import { create } from 'xmlbuilder2';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { setMessage } from './Snackbar';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
@@ -132,16 +131,14 @@ const Converter = () => {
    };
 
    return (
-      <Tooltip title={t('convert_to_xml')} placement="left" arrow>
-         <div style={{ marginLeft: '170px' }}>
-            <IconButton className="btn-download" color="primary" onClick={handleConvert}>
-               {icon === 'download' ? (
-                  <DownloadIcon className="download-icon" />
-               ) : (
-                  <FileDownloadDoneIcon className="download-icon downloaded" />
-               )}
-            </IconButton>
-         </div>
+      <Tooltip title={t('convert_to_xml')} placement="bottom" arrow>
+         <IconButton className="btn-download" color="primary" onClick={handleConvert}>
+            {icon === 'download' ? (
+               <DownloadIcon className="download-icon download" />
+            ) : (
+               <FileDownloadDoneIcon className="download-icon downloaded" />
+            )}
+         </IconButton>
       </Tooltip>
    );
 };

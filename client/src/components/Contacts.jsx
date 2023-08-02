@@ -12,7 +12,6 @@ import Zoom from '@mui/material/Zoom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Filter from './Filter';
-import Converter from './Converter';
 import MadalEditContact from './EditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
@@ -189,7 +188,7 @@ const Contacts = () => {
                <h2>{t('contacts')}:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
 
-               <Converter />
+               {/* <Converter /> */}
 
                {/* <Demo /> */}
 

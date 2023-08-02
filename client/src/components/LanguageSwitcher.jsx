@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Select, MenuItem } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import Tooltip from '@mui/material/Tooltip';
 
 const LanguageSwitcher = ({ logoutButton }) => {
    const { i18n, t } = useTranslation(); // Initialize useTranslation
    const [selectedLanguage, setSelectedLanguage] = useState('');
+   const [showTooltip, setShowTooltip] = useState(false);
 
    // Check if a language is saved in localStorage, otherwise detect the language
    useEffect(() => {
@@ -35,23 +37,43 @@ const LanguageSwitcher = ({ logoutButton }) => {
       i18n.changeLanguage(language); // Set i18n language when the user selects a language
    };
 
+   const handleMouseEnter = () => {
+      setShowTooltip(true);
+   };
+
+   const handleMouseLeave = () => {
+      setShowTooltip(false);
+   };
+
+   const handleClose = () => {
+      setShowTooltip(false); // Hide the tooltip when the select menu is closed
+   };
+
    return (
-      <Select
-         className="swith-language"
-         value={selectedLanguage}
-         onChange={handleLanguageChange}
-         style={logoutButton ? null : { marginRight: '66px' }}
-      >
-         <MenuItem value="en">
-            <div className="lng">EN</div>
-         </MenuItem>
-         <MenuItem value="pl">
-            <div className="lng">PL</div>
-         </MenuItem>
-         <MenuItem value="ua">
-            <div className="lng">UA</div>
-         </MenuItem>
-      </Select>
+      <>
+         <Tooltip title={t('language')} placement="bottom" arrow open={showTooltip}>
+            <Select
+               className="swith-language"
+               value={selectedLanguage}
+               onChange={handleLanguageChange}
+               style={logoutButton ? null : { marginRight: '66px' }}
+               onMouseEnter={handleMouseEnter}
+               onMouseLeave={handleMouseLeave}
+               onOpen={() => setShowTooltip(false)}
+               onClose={handleClose} // Close the tooltip when the select menu is closed
+            >
+               <MenuItem value="en">
+                  <div className="lng">EN</div>
+               </MenuItem>
+               <MenuItem value="pl">
+                  <div className="lng">PL</div>
+               </MenuItem>
+               <MenuItem value="ua">
+                  <div className="lng">UA</div>
+               </MenuItem>
+            </Select>
+         </Tooltip>
+      </>
    );
 };
 

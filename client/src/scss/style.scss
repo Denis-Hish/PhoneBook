@@ -105,7 +105,7 @@ fieldset {
    h1 {
       text-align: center;
       flex: 1;
-      margin-left: 192px;
+      margin-left: 262px;
 
       span {
          position: relative;
@@ -208,33 +208,18 @@ fieldset {
          fill: #f44336;
       }
    }
-
-   // .timer-logout {
-   //    font-style: italic;
-   //    font-size: 0.75rem;
-   //    display: flex;
-   //    align-items: center;
-   //    gap: 0.25rem;
-
-   //    span {
-   //       font-size: 1rem;
-   //       text-align: right;
-   //       width: 40px;
-   //       background-color: rgba(0, 162, 255, 0.5);
-   //    }
-   // }
 }
 
 /* --------- SWITH LANGUAGE ---------- */
 .swith-language {
-   margin-left: 30px;
-   padding-bottom: 7px;
+   margin: 0 0 7px 30px;
 
    div {
       transition: $transition;
 
       .lng {
          color: $color-text;
+         font-weight: 500;
       }
 
       &:hover {
@@ -616,11 +601,11 @@ fieldset {
       .filter {
          box-shadow: $box-shadow-inset;
          border-radius: 10px;
-         // padding: 0 10px 0 0;
          display: flex;
          align-items: center;
          justify-content: space-between;
          width: 20rem;
+         margin-right: 386px;
 
          .MuiTextField-root {
             width: inherit;
@@ -1025,18 +1010,21 @@ body.dark {
 }
 
 .btn-download {
+   margin: 0 0 7px 30px !important;
    box-shadow: $box-shadow, $box-shadow-inset;
    color: $color-text !important;
+   width: 36px;
+   height: 36px;
 
-   .download-icon {
+   .download {
       transition: $transition;
+   }
 
-      &.downloaded {
-         color: #2e7d32;
-      }
+   &:hover .download {
+      color: $color-blue-1;
+   }
 
-      &:hover {
-         color: $color-blue-1;
-      }
+   .downloaded {
+      color: #2e7d32;
    }
 }
