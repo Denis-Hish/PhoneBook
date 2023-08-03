@@ -27,23 +27,29 @@ const Header = ({ onLogout, isAuthenticated }) => {
    return (
       <header className={`header ${theme}`}>
          <div className="container">
-            {isAuthenticated && <Settings />}
-            <h1 style={{ marginLeft: isAuthenticated ? '226px' : '262px' }}>
-               Phone Book{' '}
-               <span>
-                  <PhoneEnabledRoundedIcon />
-               </span>
-            </h1>
-            <ThemeToggle />
-            <LanguageSwitcher logoutButton={logoutButton} />
-            {isAuthenticated && <Converter />}
-            {isAuthenticated && (
-               <Tooltip title={t('logout')} placement="bottom" arrow>
-                  <IconButton className="btn-logout" onClick={handleLogout}>
-                     <PowerSettingsNewIcon />
-                  </IconButton>
-               </Tooltip>
-            )}
+            <div className="header-content">
+               <div className="header-content__left">{isAuthenticated && <Settings />}</div>
+               <div className="header-content__center">
+                  <h1>
+                     Phone Book{' '}
+                     <span>
+                        <PhoneEnabledRoundedIcon />
+                     </span>
+                  </h1>
+               </div>
+               <div className="header-content__right">
+                  <ThemeToggle />
+                  <LanguageSwitcher logoutButton={logoutButton} />
+                  {isAuthenticated && <Converter />}
+                  {isAuthenticated && (
+                     <Tooltip title={t('logout')} placement="bottom" arrow>
+                        <IconButton className="btn-logout" onClick={handleLogout}>
+                           <PowerSettingsNewIcon />
+                        </IconButton>
+                     </Tooltip>
+                  )}
+               </div>
+            </div>
          </div>
       </header>
    );
