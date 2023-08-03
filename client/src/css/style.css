@@ -835,4 +835,20 @@ body.dark .btn-logout {
 }
 .btn-settings:hover svg {
   color: #f44336;
+}
+
+.btn-animated {
+  display: flex !important;
+  flex-direction: column;
+  position: relative !important;
+}
+.btn-animated svg {
+  position: absolute;
+  transition: width 0.6s ease-in-out;
+}
+.btn-animated svg:nth-child(1) {
+  color: #2f9e44 !important;
+}
+.btn-animated:hover svg:nth-child(2) {
+  color: #1c7ed6 !important;
 }/*# sourceMappingURL=style.css.map */

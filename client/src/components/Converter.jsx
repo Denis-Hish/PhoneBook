@@ -117,12 +117,6 @@ const Converter = () => {
          .then((response) => {
             // console.log(response.data); // Успешное сообщение от сервера (выводится в консоль)
             setMessage({ message: t('files_saved'), color: 'success' });
-
-            // Toggle the icon to "DoneIcon"
-            setIcon('done');
-            setTimeout(() => {
-               setIcon('download'); // Change the icon back to "DownloadIcon" after xx miliseconds
-            }, 3000);
          })
          .catch((error) => {
             console.error(error); // Сообщение об ошибке, если что-то пошло не так
@@ -130,16 +124,42 @@ const Converter = () => {
          });
    };
 
+   // Animation download button
+   const [icon1Width, setIcon1Width] = useState(0);
+   const [icon2Width, setIcon2Width] = useState(100);
+   const [isClicked, setIsClicked] = useState(false);
+   const timerChange = 6000; // Через X милисекунды сбрасываем состояния
+
+   const handleButtonClick = () => {
+      // Обновляем состояние клика и ширину иконок
+      setIsClicked(true);
+      setIcon1Width(100);
+      setIcon2Width(0);
+
+      // Через X милисекунды сбрасываем состояния
+      setTimeout(() => {
+         setIsClicked(false);
+         setIcon1Width(0);
+         setIcon2Width(100);
+      }, timerChange);
+   };
+
    return (
-      <Tooltip title={t('convert_to_xml')} placement="bottom" arrow>
-         <IconButton className="btn-download" color="primary" onClick={handleConvert}>
-            {icon === 'download' ? (
-               <DownloadIcon className="download-icon download" />
-            ) : (
-               <FileDownloadDoneIcon className="download-icon downloaded" />
-            )}
-         </IconButton>
-      </Tooltip>
+      <>
+         <Tooltip title={t('convert_to_xml')} placement="bottom" arrow>
+            <IconButton
+               className="btn-download btn-animated"
+               color="primary"
+               onClick={() => {
+                  handleButtonClick();
+                  handleConvert();
+               }}
+            >
+               <FileDownloadDoneIcon style={{ width: `${icon1Width}%` }} />
+               <DownloadIcon style={{ width: `${icon2Width}%` }} />
+            </IconButton>
+         </Tooltip>
+      </>
    );
 };
 
