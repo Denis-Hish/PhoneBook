@@ -107,7 +107,6 @@ const Settings = ({ countdown, setCountdown }) => {
                         label="Countdown active session (min)"
                         variant="standard"
                         autoComplete="off"
-                        onChange={handleChangeCountdown}
                      />
                      <TextField
                         label="Selecting a folder to save the File-1.xml"
@@ -120,7 +119,7 @@ const Settings = ({ countdown, setCountdown }) => {
                         autoComplete="off"
                      />
 
-                     <Button className="btn-save" variant="outlined" onClick={handleSaveCountdown}>
+                     <Button className="btn-save" variant="outlined">
                         Save
                      </Button>
                   </div>

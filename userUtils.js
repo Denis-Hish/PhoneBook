@@ -52,10 +52,10 @@ const getAllUserLogins = async () => {
 // 'новый логин' и 'новый пароль'
 // createOrUpdateAdminUser('den', '1');
 
-// Вызов функции для удаления записи пользователя по логину
+// Удаления записи пользователя по логину
 // deleteUserByUsername('den');
 
-// Вызов функции для получения и вывода всех логинов
+// Получения и вывода всех логинов
 // getAllUserLogins();
 
 module.exports = { createOrUpdateAdminUser };
