@@ -8,6 +8,7 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import TextField from '@mui/material/TextField';
+// import { createOrUpdateAdminUser, deleteUserByUsername, getAllUserLogins } from '../../../userUtils';
 
 const style = {
    position: 'absolute',
@@ -27,6 +28,10 @@ const Settings = ({ countdown, setCountdown }) => {
    const handleClose = () => setOpen(false);
    const [inputCountdown, setInputCountdown] = useState(countdown);
 
+   // Состояния для имени пользователя и пароля
+   // const [username, setUsername] = useState('');
+   // const [password, setPassword] = useState('');
+
    const handleChangeCountdown = (event) => {
       setInputCountdown(event.target.value);
    };
@@ -37,6 +42,36 @@ const Settings = ({ countdown, setCountdown }) => {
       setCountdown(inputCountdown);
       handleClose();
    };
+
+   // // Обработчик сохранения изменений пользователя
+   // const handleSaveUserChanges = async () => {
+   //    try {
+   //       await createOrUpdateAdminUser(username, password);
+   //       console.log('User created or updated successfully');
+   //    } catch (error) {
+   //       console.error('Error creating or updating user:', error);
+   //    }
+   // };
+
+   // // Обработчик удаления пользователя
+   // const handleDeleteUser = async () => {
+   //    try {
+   //       await deleteUserByUsername(username);
+   //       console.log('User deleted successfully');
+   //    } catch (error) {
+   //       console.error('Error deleting user:', error);
+   //    }
+   // };
+
+   // // Обработчик получения списка логинов
+   // const handleGetAllUserLogins = async () => {
+   //    try {
+   //       const logins = await getAllUserLogins();
+   //       console.log('User Logins:', logins);
+   //    } catch (error) {
+   //       console.error('Error getting user logins:', error);
+   //    }
+   // };
 
    // console.log('countdown - ', countdown);
 
@@ -60,25 +95,35 @@ const Settings = ({ countdown, setCountdown }) => {
             }}
          >
             <Fade in={open}>
-               <Box sx={style}>
-                  <Typography id="transition-modal-title" variant="h6" component="h2">
-                     Settings
-                  </Typography>
+               <Box className="settings-modal-windows" sx={style}>
+                  <div className="settings-input">
+                     <Typography id="transition-modal-title" variant="h6" component="h2">
+                        Settings
+                     </Typography>
+                     <TextField type="text" label="current username" variant="standard" autoComplete="off" />
+                     <TextField type="password" label="current password" variant="standard" autoComplete="off" />
+                     <TextField
+                        type="number"
+                        label="Countdown active session (min)"
+                        variant="standard"
+                        autoComplete="off"
+                        onChange={handleChangeCountdown}
+                     />
+                     <TextField
+                        label="Selecting a folder to save the File-1.xml"
+                        variant="standard"
+                        autoComplete="off"
+                     />
+                     <TextField
+                        label="Selecting a folder to save the File-2.xml"
+                        variant="standard"
+                        autoComplete="off"
+                     />
 
-                  <TextField id="outlined-basic" label="new username" variant="standard" autoComplete="off" />
-
-                  <TextField id="outlined-basic" label="new password" variant="standard" autoComplete="off" />
-
-                  <TextField
-                     id="outlined-basic"
-                     type="number"
-                     label="Countdown (min)"
-                     variant="standard"
-                     autoComplete="off"
-                     onChange={handleChangeCountdown}
-                  />
-
-                  <Button onClick={handleSaveCountdown}>Save</Button>
+                     <Button className="btn-save" variant="outlined" onClick={handleSaveCountdown}>
+                        Save
+                     </Button>
+                  </div>
                </Box>
             </Fade>
          </Modal>

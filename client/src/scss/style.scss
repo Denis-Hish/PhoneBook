@@ -95,7 +95,7 @@ fieldset {
    background-color: $color-bg;
    box-shadow: $box-shadow;
    z-index: 100;
-   padding: 0 calc(20px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+   padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 
    .header-content {
       display: flex;
@@ -634,7 +634,7 @@ fieldset {
       top: 75px;
       background-color: $color-bg;
       z-index: 1;
-      padding: 20px calc(20px - (100vw - 100%)) 20px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+      padding: 20px calc(17px - (100vw - 100%)) 20px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 
       .container {
          display: flex;
@@ -775,7 +775,7 @@ fieldset {
          .btn-icon-table {
             width: 40px;
             display: flex;
-            justify-content: end;
+            justify-content: flex-end;
          }
 
          .btn-table {
@@ -817,7 +817,7 @@ fieldset {
    color: #d1d9e6;
    font-size: 18px;
    font-weight: 700;
-   padding: 0 calc(20px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+   padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 }
 
 .open-modal {
@@ -1055,5 +1055,18 @@ body.dark {
 
    .btn-logout {
       box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
+   }
+}
+
+/* ----------------------------------------------------- */
+.settings-modal-windows {
+   .settings-input {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .btn-save {
+      margin: 2rem auto 0;
    }
 }

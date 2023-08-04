@@ -73,7 +73,7 @@ function App() {
             window.removeEventListener('keydown', resetIdleTimer);
          };
       }
-   }, [isAuthenticated]);
+   }, [isAuthenticated, countdown]);
 
    return (
       <ThemeProvider>

@@ -86,7 +86,7 @@ fieldset {
   background-color: #edf1f4;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   z-index: 100;
-  padding: 0 calc(20px - (100vw - 100%)) 0 0;
+  padding: 0 calc(17px - (100vw - 100%)) 0 0;
 }
 .header .header-content {
   display: flex;
@@ -514,7 +514,7 @@ fieldset {
   top: 75px;
   background-color: #edf1f4;
   z-index: 1;
-  padding: 20px calc(20px - (100vw - 100%)) 20px 0;
+  padding: 20px calc(17px - (100vw - 100%)) 20px 0;
 }
 .contacts .header-table .container {
   display: flex;
@@ -624,7 +624,7 @@ fieldset {
 .contacts table tr .btn-icon-table {
   width: 40px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .contacts table tr .btn-table {
   opacity: 0;
@@ -654,7 +654,7 @@ fieldset {
   color: #d1d9e6;
   font-size: 18px;
   font-weight: 700;
-  padding: 0 calc(20px - (100vw - 100%)) 0 0;
+  padding: 0 calc(17px - (100vw - 100%)) 0 0;
 }
 
 .open-modal {
@@ -851,4 +851,14 @@ body.dark .swith-language .MuiSelect-select {
 }
 body.dark .btn-logout {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+
+/* ----------------------------------------------------- */
+.settings-modal-windows .settings-input {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.settings-modal-windows .btn-save {
+  margin: 2rem auto 0;
 }/*# sourceMappingURL=style.css.map */

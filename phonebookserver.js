@@ -69,6 +69,9 @@ app.post('/create-xml-files', (req, res) => {
    });
 });
 
+// Подключение маршрутов для управления пользователями (логин, пароль)
+app.use('/api/user', require('./app/routes/user.routes'));
+
 // Load UI
 // app.get('/', (req, res) => {
 //    res.redirect('http://localhost:3000');
