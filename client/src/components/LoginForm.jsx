@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import { setMessage } from '../components/Snackbar';
-import axios from 'axios';
 
 const LoginForm = ({ onLogin }) => {
    const rememberedUsername = localStorage.getItem('rememberedUsername');

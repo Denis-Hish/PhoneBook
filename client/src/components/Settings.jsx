@@ -26,22 +26,22 @@ const Settings = ({ countdown, setCountdown }) => {
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   const [inputCountdown, setInputCountdown] = useState(countdown);
+   // const [inputCountdown, setInputCountdown] = useState(countdown);
 
    // Состояния для имени пользователя и пароля
    // const [username, setUsername] = useState('');
    // const [password, setPassword] = useState('');
 
-   const handleChangeCountdown = (event) => {
-      setInputCountdown(event.target.value);
-   };
+   // const handleChangeCountdown = (event) => {
+   //    setInputCountdown(event.target.value);
+   // };
 
    // Обработка сохранения измененного значения countdown
-   const handleSaveCountdown = () => {
-      // Здесь можно выполнить дополнительные проверки и обработку перед сохранением значения
-      setCountdown(inputCountdown);
-      handleClose();
-   };
+   // const handleSaveCountdown = () => {
+   //    // Здесь можно выполнить дополнительные проверки и обработку перед сохранением значения
+   //    setCountdown(inputCountdown);
+   //    handleClose();
+   // };
 
    // // Обработчик сохранения изменений пользователя
    // const handleSaveUserChanges = async () => {
