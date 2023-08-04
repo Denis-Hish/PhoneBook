@@ -18,7 +18,7 @@
 To run server only:
 
 ```
-node phonebookserver.js OR npm run start
+node phonebookServer.js OR npm run start
 
 
 The app will be served at `localhost:3000`.

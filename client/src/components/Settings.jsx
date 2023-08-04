@@ -38,7 +38,7 @@ const Settings = ({ countdown, setCountdown }) => {
       handleClose();
    };
 
-   console.log('countdown - ', countdown);
+   // console.log('countdown - ', countdown);
 
    return (
       <>
@@ -64,6 +64,10 @@ const Settings = ({ countdown, setCountdown }) => {
                   <Typography id="transition-modal-title" variant="h6" component="h2">
                      Settings
                   </Typography>
+
+                  <TextField id="outlined-basic" label="new username" variant="standard" autoComplete="off" />
+
+                  <TextField id="outlined-basic" label="new password" variant="standard" autoComplete="off" />
 
                   <TextField
                      id="outlined-basic"

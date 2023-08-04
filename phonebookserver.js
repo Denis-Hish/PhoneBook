@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const { createOrUpdateAdminUser } = require('./userUtils');
 
 const app = express();
 
@@ -28,6 +29,7 @@ db.mongoose
    })
    .then(() => {
       console.log('Connected to the database!');
+      createOrUpdateAdminUser();
    })
    .catch((err) => {
       console.log('Cannot connect to the database!', err);

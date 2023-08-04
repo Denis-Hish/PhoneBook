@@ -3,13 +3,13 @@
    "name": "node-express-mongodb",
    "version": "1.0.0",
    "description": "Node.js Restful CRUD API with Node.js, Express and MongoDB",
-   "main": "phonebookserver.js",
+   "main": "phonebookServer.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "client": "npm run start --prefix client",
-      "server": "nodemon phonebookserver.js",
+      "server": "nodemon phonebookServer.js",
       "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-      "start": "node phonebookserver.js"
+      "start": "node phonebookServer.js"
    },
    "keywords": [
       "nodejs",
