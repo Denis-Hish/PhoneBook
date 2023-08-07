@@ -44,8 +44,10 @@ const getAllUserLogins = async () => {
       const users = await User.find({}, 'username'); // Находим всех пользователей, но выбираем только поле "username"
       const logins = users.map((user) => user.username); // Извлекаем только логины из результатов
       console.log('User Logins:', logins);
+      return logins; // Возвращаем массив логинов
    } catch (error) {
       console.error('Error getting user logins:', error);
+      throw error;
    }
 };
 
@@ -58,4 +60,4 @@ const getAllUserLogins = async () => {
 // Получения и вывода всех логинов
 // getAllUserLogins();
 
-module.exports = { createOrUpdateAdminUser };
+module.exports = { createOrUpdateAdminUser, deleteUserByUsername, getAllUserLogins };

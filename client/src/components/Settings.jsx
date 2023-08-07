@@ -8,7 +8,7 @@ import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import TextField from '@mui/material/TextField';
-// import { createOrUpdateAdminUser, deleteUserByUsername, getAllUserLogins } from '../../../userUtils';
+import axios from 'axios';
 
 const style = {
    position: 'absolute',
@@ -22,58 +22,50 @@ const style = {
    p: 4,
 };
 
-const Settings = ({ countdown, setCountdown }) => {
+const Settings = () => {
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
-   // const [inputCountdown, setInputCountdown] = useState(countdown);
 
-   // Состояния для имени пользователя и пароля
-   // const [username, setUsername] = useState('');
-   // const [password, setPassword] = useState('');
+   const [newUsername, setNewUsername] = useState('');
+   const [newPassword, setNewPassword] = useState('');
+   const [deleteUsername, setDeleteUsername] = useState('');
 
-   // const handleChangeCountdown = (event) => {
-   //    setInputCountdown(event.target.value);
-   // };
+   const createOrUpdateUser = async () => {
+      try {
+         const response = await axios.post('/api/user/createOrUpdateUser', {
+            username: newUsername,
+            password: newPassword,
+         });
+         console.log(response.data.message);
+         console.log('User created');
+      } catch (error) {
+         console.error('Error creating or updating user:', error);
+      }
+   };
 
-   // Обработка сохранения измененного значения countdown
-   // const handleSaveCountdown = () => {
-   //    // Здесь можно выполнить дополнительные проверки и обработку перед сохранением значения
-   //    setCountdown(inputCountdown);
-   //    handleClose();
-   // };
+   const deleteUser = async (username) => {
+      try {
+         const response = await axios.delete(`/api/user/deleteUser/${username}`);
+         console.log(response.data.message);
+         console.log('User deleted');
+      } catch (error) {
+         console.error('Error deleting user:', error);
+      }
+   };
 
-   // // Обработчик сохранения изменений пользователя
-   // const handleSaveUserChanges = async () => {
-   //    try {
-   //       await createOrUpdateAdminUser(username, password);
-   //       console.log('User created or updated successfully');
-   //    } catch (error) {
-   //       console.error('Error creating or updating user:', error);
-   //    }
-   // };
+   const getAllUserLogins = async () => {
+      try {
+         const response = await axios.get('/api/user/getAllUserLogins');
+         const logins = response.data.logins;
+         console.log('User Logins:', logins);
 
-   // // Обработчик удаления пользователя
-   // const handleDeleteUser = async () => {
-   //    try {
-   //       await deleteUserByUsername(username);
-   //       console.log('User deleted successfully');
-   //    } catch (error) {
-   //       console.error('Error deleting user:', error);
-   //    }
-   // };
-
-   // // Обработчик получения списка логинов
-   // const handleGetAllUserLogins = async () => {
-   //    try {
-   //       const logins = await getAllUserLogins();
-   //       console.log('User Logins:', logins);
-   //    } catch (error) {
-   //       console.error('Error getting user logins:', error);
-   //    }
-   // };
-
-   // console.log('countdown - ', countdown);
+         // Выводим сообщение в консоли браузера
+         // alert('User Logins: ' + logins.join(', '));
+      } catch (error) {
+         console.error('Error getting user logins:', error);
+      }
+   };
 
    return (
       <>
@@ -100,27 +92,67 @@ const Settings = ({ countdown, setCountdown }) => {
                      <Typography id="transition-modal-title" variant="h6" component="h2">
                         Settings
                      </Typography>
-                     <TextField type="text" label="current username" variant="standard" autoComplete="off" />
-                     <TextField type="password" label="current password" variant="standard" autoComplete="off" />
+
+                     <TextField
+                        type="text"
+                        label="new username"
+                        variant="standard"
+                        autoComplete="off"
+                        value={newUsername}
+                        onChange={(e) => setNewUsername(e.target.value)}
+                     />
+
+                     <TextField
+                        type="password"
+                        label="new password"
+                        variant="standard"
+                        autoComplete="off"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                     />
+
+                     <Button className="btn-save" variant="outlined" onClick={createOrUpdateUser}>
+                        Create or update user
+                     </Button>
+
+                     <TextField
+                        type="text"
+                        label="delete user"
+                        variant="standard"
+                        autoComplete="off"
+                        value={deleteUsername}
+                        onChange={(e) => setDeleteUsername(e.target.value)}
+                     />
+
+                     <Button className="btn-save" variant="outlined" onClick={() => deleteUser(deleteUsername)}>
+                        Delete User
+                     </Button>
+
                      <TextField
                         type="number"
                         label="Countdown active session (min)"
                         variant="standard"
                         autoComplete="off"
                      />
+
                      <TextField
                         label="Selecting a folder to save the File-1.xml"
                         variant="standard"
                         autoComplete="off"
                      />
+
                      <TextField
                         label="Selecting a folder to save the File-2.xml"
                         variant="standard"
                         autoComplete="off"
                      />
 
-                     <Button className="btn-save" variant="outlined">
+                     {/* <Button className="btn-save" variant="outlined">
                         Save
+                     </Button> */}
+
+                     <Button className="btn-save" variant="outlined" onClick={() => getAllUserLogins()}>
+                        Get All User Logins
                      </Button>
                   </div>
                </Box>
