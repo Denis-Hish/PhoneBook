@@ -44,6 +44,7 @@ export const deleteContact = (contactId, t) => {
          console.error('There was an error deleting the contact:', error);
       });
 };
+
 // ----------------------------------------------------------------
 
 // TODO: Add error handler everywhere with popap in UI

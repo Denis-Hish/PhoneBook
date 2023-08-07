@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import { setMessage } from '../components/Snackbar';
+import axios from 'axios';
 
 const LoginForm = ({ onLogin }) => {
    const rememberedUsername = localStorage.getItem('rememberedUsername');
@@ -18,23 +19,60 @@ const LoginForm = ({ onLogin }) => {
    const [rememberMe, setRememberMe] = useState(false);
    const { t } = useTranslation();
 
-   const handleSubmit = (e) => {
+   // Lical
+   // const handleSubmit = (e) => {
+   //    e.preventDefault();
+   //    // Проверка и установка логина и пароля
+   //    if (username === 'admin' && password === '') {
+   //       onLogin();
+   //       setMessage({ message: t('welcome'), color: 'success' });
+   //       if (rememberMe) {
+   //          // Сохраняем имя пользователя в localStorage
+   //          localStorage.setItem('rememberedUsername', username);
+   //       } else {
+   //          // Если галочка "Remember Me" снята, удаляем сохраненное имя пользователя из localStorage
+   //          localStorage.removeItem('rememberedUsername');
+   //       }
+   //    } else {
+   //       const message = t('wrong_login');
+   //       const color = 'error';
+   //       setMessage({ message, color });
+   //    }
+   // };
+
+   // MongoDB
+   const handleSubmit = async (e) => {
       e.preventDefault();
-      // Проверка и установка логина и пароля
-      if (username === 'admin' && password === '') {
-         onLogin();
-         setMessage({ message: t('welcome'), color: 'success' });
-         if (rememberMe) {
-            // Сохраняем имя пользователя в localStorage
-            localStorage.setItem('rememberedUsername', username);
+
+      try {
+         const response = await axios.post('/api/auth/login', { username, password });
+
+         if (response.data.success) {
+            // Успешная аутентификация
+            onLogin();
+            setMessage({ message: t('welcome'), color: 'success' });
+            if (rememberMe) {
+               localStorage.setItem('rememberedUsername', username);
+            } else {
+               localStorage.removeItem('rememberedUsername');
+            }
          } else {
-            // Если галочка "Remember Me" снята, удаляем сохраненное имя пользователя из localStorage
-            localStorage.removeItem('rememberedUsername');
+            // Ошибка аутентификации
+            const errorCode = response.data.errorCode; // Здесь подставьте правильное поле с идентификатором ошибки
+            const message = errorCode === 'invalid_credentials' ? t('wrong_login') : t('other_error_message');
+            const color = 'error';
+            setMessage({ message, color });
          }
-      } else {
-         const message = t('wrong_login');
-         const color = 'error';
-         setMessage({ message, color });
+      } catch (error) {
+         // Обработка ошибки
+         if (error.response && error.response.status === 401) {
+            const message = t('wrong_login');
+            const color = 'error';
+            setMessage({ message, color });
+         } else {
+            // Ошибка при запросе
+            console.error('Error during login:', error);
+         }
       }
    };
 

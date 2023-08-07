@@ -72,6 +72,9 @@ app.post('/create-xml-files', (req, res) => {
 // Подключение маршрутов для управления пользователями (логин, пароль)
 app.use('/api/user', require('./app/routes/user.routes'));
 
+// Подключение маршрутов для аутентификации пользователя (логин, пароль)
+app.use('/api/auth', require('./app/routes/auth.routes'));
+
 // Load UI
 // app.get('/', (req, res) => {
 //    res.redirect('http://localhost:3000');

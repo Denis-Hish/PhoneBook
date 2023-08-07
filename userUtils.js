@@ -50,7 +50,7 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль'
-// createOrUpdateAdminUser('den', '1');
+// createOrUpdateAdminUser('admin', '1');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');
