@@ -35,6 +35,9 @@
   <Menu Name="Tatuin">
     <Unit Name="Anakin Skywalker" Phone1="+1 234-567-890" Phone2="123-456-789" Phone3="123" default_photo="Resource:"/>
   </Menu>
+  <Menu Name="tested">
+    <Unit Name="1-Local PC" Phone1="123" Phone2="456" Phone3="789" default_photo="Resource:"/>
+  </Menu>
   <Menu Name="WS">
     <Unit Name="WS Barwinek" Phone1="785980385" Phone2="" Phone3="" default_photo="Resource:"/>
     <Unit Name="WS Grzymałków" Phone1="" Phone2="533011750" Phone3="" default_photo="Resource:"/>
@@ -56,8 +59,5 @@
     <Unit Name="ZAZ Sekretariat" Phone1="300" Phone2="" Phone3="" default_photo="Resource:"/>
     <Unit Name="ZAZ Smaczek" Phone1="412787238" Phone2="533030207" Phone3="" default_photo="Resource:"/>
     <Unit Name="ZAZ Trenerzy" Phone1="302" Phone2="" Phone3="" default_photo="Resource:"/>
-  </Menu>
-  <Menu Name="tested">
-    <Unit Name="1-Local PC" Phone1="123" Phone2="456" Phone3="789" default_photo="Resource:"/>
   </Menu>
 </YealinkIPPhoneBook>

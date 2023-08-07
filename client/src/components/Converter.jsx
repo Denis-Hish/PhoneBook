@@ -11,7 +11,6 @@ import Tooltip from '@mui/material/Tooltip';
 
 const Converter = () => {
    const { t } = useTranslation();
-   const [icon, setIcon] = useState('download');
 
    const handleConvert = async () => {
       const contacts = await getAllContacts();
@@ -29,14 +28,18 @@ const Converter = () => {
 
       const xml2Contacts = create().ele('root_contact');
 
-      // Sorted group
-      const sortedGroups = [...new Set(contacts.map((contact) => contact.group))].sort();
-
-      // Sort contacts by userName and group
+      // Sort contacts by userName and group, ignoring case
       contacts.sort((a, b) => {
-         const nameComparison = a.userName.localeCompare(b.userName);
-         return nameComparison !== 0 ? nameComparison : a.group.localeCompare(b.group);
+         const nameComparison = a.userName.localeCompare(b.userName, undefined, { sensitivity: 'base' });
+         return nameComparison !== 0
+            ? nameComparison
+            : a.group.localeCompare(b.group, undefined, { sensitivity: 'base' });
       });
+
+      // Sort groups, ignoring case
+      const sortedGroups = [...new Set(contacts.map((contact) => contact.group))].sort((a, b) =>
+         a.localeCompare(b, undefined, { sensitivity: 'base' })
+      );
 
       // Sort contacts by group and add to XML structures
       sortedGroups.forEach((group) => {
