@@ -19,7 +19,7 @@ const LoginForm = ({ onLogin }) => {
    const [rememberMe, setRememberMe] = useState(false);
    const { t } = useTranslation();
 
-   // Lical
+   // Local authentication
    // const handleSubmit = (e) => {
    //    e.preventDefault();
    //    // Проверка и установка логина и пароля
@@ -40,7 +40,7 @@ const LoginForm = ({ onLogin }) => {
    //    }
    // };
 
-   // MongoDB
+   // MongoDB authentication
    const handleSubmit = async (e) => {
       e.preventDefault();
 

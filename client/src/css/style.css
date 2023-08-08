@@ -506,7 +506,6 @@ fieldset {
 .contacts {
   padding-top: 100px;
   margin-bottom: 60px;
-  /*--------------------------------------------------*/
 }
 .contacts .header-table {
   position: fixed;
@@ -854,8 +853,45 @@ body.dark .btn-logout {
 }
 
 /* ----------------------------------------------------- */
+.settings-modal-windows {
+  /* input не нажат */
+  /* input нажат */
+}
 .settings-modal-windows .settings-input {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+.settings-modal-windows .MuiInputBase-root:before {
+  border-bottom: none !important;
+}
+.settings-modal-windows .MuiInputBase-root::after {
+  left: 10px;
+  right: 10px;
+}
+.settings-modal-windows input {
+  margin: 0 10px;
+}
+.settings-modal-windows .input {
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+}
+.settings-modal-windows .input .clear-btn {
+  position: absolute;
+  padding: 4px;
+  right: 10px;
+  bottom: 25%;
+}
+.settings-modal-windows .input .clear-btn svg {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+.settings-modal-windows .input:not(:hover) .clear-btn {
+  visibility: hidden;
+}
+.settings-modal-windows .MuiInputLabel-standard {
+  transform: translate(10px, 15px) scale(1);
+}
+.settings-modal-windows .MuiInputLabel-shrink {
+  transform: translate(10px, 5px) scale(0.75);
 }/*# sourceMappingURL=style.css.map */
