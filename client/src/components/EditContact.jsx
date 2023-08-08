@@ -32,7 +32,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    };
 
    const [fieldUserNameError, setFieldUserNameError] = useState(false);
-   const [fieldGroupError, setFieldGroupError] = useState(false); //!!!!!!!!!!!!!!!!!!!!!!!
+   const [fieldGroupError, setFieldGroupError] = useState(false);
 
    const [name, setName] = useState(userName || '');
    const [phone1, setPhone1] = useState(phoneNumber1 || '');
@@ -47,7 +47,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
       setPhone2(phoneNumber2 || '');
       setPhone3(phoneNumber3 || '');
       setGroup(group || '');
-   }, [contact]);
+   }, [group, phoneNumber1, phoneNumber2, phoneNumber3, userName]);
 
    const handleEditContact = async (e) => {
       e.preventDefault();
@@ -91,6 +91,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
    };
 
    // Focus on input
+   // eslint-disable-next-line no-unused-vars
    const [isNameInputActive, setNameInputActive] = useState(false);
    useEffect(() => {
       if (openModal) {

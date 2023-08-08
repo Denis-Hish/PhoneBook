@@ -128,9 +128,10 @@ const Converter = () => {
    };
 
    // Animation download button
+   // eslint-disable-next-line no-unused-vars
+   const [isClicked, setIsClicked] = useState(false);
    const [icon1Width, setIcon1Width] = useState(0);
    const [icon2Width, setIcon2Width] = useState(100);
-   const [isClicked, setIsClicked] = useState(false);
    const timerChange = 6000; // Через X милисекунды сбрасываем состояния
 
    const handleButtonClick = () => {

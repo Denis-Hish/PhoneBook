@@ -135,7 +135,7 @@ const Contacts = () => {
       if (!contacts) {
          getContacts();
       }
-   }, []);
+   }, [contacts]);
 
    // console.log('---All contacts---', contacts);
 

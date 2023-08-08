@@ -43,7 +43,7 @@ function App() {
             localStorage.removeItem('authData');
          }
       }
-   }, []);
+   }, [isAuthenticated, countdown]);
 
    useEffect(() => {
       // Start the idle timer whenever the authentication status changes
