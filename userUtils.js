@@ -26,23 +26,26 @@ const createOrUpdateAdminUser = async (newUsername, newPassword) => {
    }
 };
 
-const deleteUserByUsername = async username => {
+const deleteUserByUsername = async (username) => {
    try {
       const result = await User.deleteOne({ username });
       if (result.deletedCount > 0) {
          console.log('User deleted successfully');
+         return true; // Успешное удаление
       } else {
          console.log('User not found');
+         return false; // Пользователь не найден
       }
    } catch (error) {
       console.error('Error deleting user:', error);
+      throw error;
    }
 };
 
 const getAllUserLogins = async () => {
    try {
       const users = await User.find({}, 'username'); // Находим всех пользователей, но выбираем только поле "username"
-      const logins = users.map(user => user.username); // Извлекаем только логины из результатов
+      const logins = users.map((user) => user.username); // Извлекаем только логины из результатов
       console.log('User Logins:', logins);
       return logins; // Возвращаем массив логинов
    } catch (error) {

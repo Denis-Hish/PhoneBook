@@ -51,7 +51,7 @@ const Settings = () => {
             password: newPassword,
          });
          console.log(response.data.message);
-         setMessage({ message: 'User created or updated', color: 'success' });
+         setMessage({ message: 'User created or updated successfully', color: 'success' });
       } catch (error) {
          console.error('Error creating or updating user:', error);
       }
@@ -67,10 +67,17 @@ const Settings = () => {
 
       try {
          const response = await axios.delete(`/api/user/deleteUser/${username}`);
-         console.log(response.data.message);
-         setMessage({ message: 'User deleted', color: 'error' });
+         // console.log(response.data.message);
+
+         if (response.data.message === 'User not found') {
+            setMessage({ message: 'Пользователь с таким именем не найден', color: 'error' });
+         } else if (response.data.message === 'User deleted successfully') {
+            setMessage({ message: 'Пользователь удалён успешно', color: 'success' });
+         }
       } catch (error) {
-         console.error('Error deleting user:', error);
+         // console.error('Error deleting user:', error);
+         // console.log(error.response);
+         setMessage({ message: 'Пользователь с таким именем не существует-123', color: 'error' });
       }
    };
 
@@ -79,7 +86,7 @@ const Settings = () => {
          const response = await axios.get('/api/user/getAllUserLogins');
          const logins = response.data.logins;
          console.log('A list of users:', logins);
-         setMessage({ message: `A list of users: ${logins.join(', ')}`, color: 'error' });
+         setMessage({ message: `A list of users: ${logins.join(', ')}`, color: 'info' });
 
          // alert('User Logins: ' + logins.join(', '));
       } catch (error) {
