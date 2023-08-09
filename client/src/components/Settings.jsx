@@ -51,8 +51,8 @@ const Settings = () => {
             password: newPassword,
          });
          console.log(response.data.message);
-         console.log('Пользователь создан или обновлён');
-         setMessage({ message: 'Пользователь создан или обновлён', color: 'success' });
+         console.log(`Пользователь "${newUsername}" создан или обновлён`);
+         setMessage({ message: `Пользователь "${newUsername}" создан или обновлён`, color: 'success' });
       } catch (error) {
          console.error('Error creating or updating user:', error);
       }
@@ -82,17 +82,17 @@ const Settings = () => {
          console.log(response.data.message);
 
          if (response.data.message === 'User deleted successfully') {
-            setMessage({ message: 'Пользователь удалён успешно', color: 'success' });
+            setMessage({ message: `Пользователь "${username}" удалён успешно`, color: 'success' });
             console.log(response.data.message);
-            console.log('Пользователь с таким именем не найден');
+            console.log(`Пользователь "${username}" удалён успешно`);
          } else if (response.data.message === 'User not found') {
-            setMessage({ message: 'Пользователь с таким именем не найден', color: 'error' });
+            setMessage({ message: `Пользователь с именем "${username}" не найден`, color: 'error' });
             console.log(response.data.message);
-            console.log('Пользователь удалён успешно');
+            console.log(`Пользователь с именем "${username}" не найден`);
          }
       } catch (error) {
          console.error('Error deleting user:', error);
-         console.log('Какая-то ошибка!');
+         console.log(`Какая-то ошибка! "${username}"`);
       }
    };
 
