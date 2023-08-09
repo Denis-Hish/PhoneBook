@@ -81,11 +81,11 @@ const Settings = () => {
          const response = await axios.delete(`/api/user/deleteUser/${username}`);
          console.log(response.data.message);
 
-         if (response.data.message === 'User deleted successfully') {
+         if (response.data.message === 200) {
             setMessage({ message: `Пользователь "${username}" удалён успешно`, color: 'success' });
             console.log(response.data.message);
             console.log(`Пользователь "${username}" удалён успешно`);
-         } else if (response.data.message === 'User not found') {
+         } else if (response.data.message === 404) {
             setMessage({ message: `Пользователь с именем "${username}" не найден`, color: 'error' });
             console.log(response.data.message);
             console.log(`Пользователь с именем "${username}" не найден`);
