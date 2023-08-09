@@ -17,7 +17,7 @@ router.delete('/deleteUser/:username', async (req, res) => {
    const { username } = req.params;
    try {
       const result = await deleteUserByUsername(username);
-      if (result.deletedCount > 0) {
+      if (result) {
          res.status(200).json({ message: 'User deleted successfully' });
       } else {
          res.status(404).json({ message: 'User not found' });

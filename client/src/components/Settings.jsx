@@ -39,60 +39,41 @@ const Settings = () => {
 
    const createOrUpdateUser = async () => {
       if (!newUsername.trim()) {
-         setMessage({ message: 'Field "username" cannot be empty!', color: 'error' });
          setErrorUsername(true);
          usernameInputRef.current.focus();
          return;
       }
-
       try {
-         const response = await axios.post('/api/user/createOrUpdateUser', {
+         await axios.post('/api/user/createOrUpdateUser', {
             username: newUsername,
             password: newPassword,
          });
-         console.log(response.data.message);
-         console.log(`Пользователь "${newUsername}" создан или обновлён`);
-         setMessage({ message: `Пользователь "${newUsername}" создан или обновлён`, color: 'success' });
+         setMessage({ message: `Пользователь "${newUsername}" добавлен или обновлён`, color: 'success' });
+         setNewUsername('');
+         setNewPassword('');
       } catch (error) {
          console.error('Error creating or updating user:', error);
       }
    };
 
-   // const deleteUser = async (username) => {
-   //    try {
-   //       const response = await axios.delete(`/api/user/deleteUser/${username}`);
-   //       console.log(response.data.message);
-   //       console.log('Пользователь удалён успешно');
-   //       setMessage({ message: 'Пользователь удалён успешно', color: 'success' });
-   //    } catch (error) {
-   //       console.error('Error deleting user:', error);
-   //    }
-   // };
-
    const deleteUser = async (username) => {
       if (!username.trim()) {
-         setMessage({ message: 'Field "delete user" cannot be empty!', color: 'error' });
          setErrorDeleteUser(true);
          deleteInputRef.current.focus();
          return;
       }
-
       try {
          const response = await axios.delete(`/api/user/deleteUser/${username}`);
-         console.log(response.data.message);
-
-         if (response.data.message === 200) {
-            setMessage({ message: `Пользователь "${username}" удалён успешно`, color: 'success' });
-            console.log(response.data.message);
-            console.log(`Пользователь "${username}" удалён успешно`);
-         } else if (response.data.message === 404) {
-            setMessage({ message: `Пользователь с именем "${username}" не найден`, color: 'error' });
-            console.log(response.data.message);
-            console.log(`Пользователь с именем "${username}" не найден`);
+         if (response.status === 200) {
+            setMessage({ message: `Пользователь "${username}" удалён успешно`, color: 'warning' });
+            setDeleteUsername('');
          }
       } catch (error) {
-         console.error('Error deleting user:', error);
-         console.log(`Какая-то ошибка! "${username}"`);
+         if (error.response && error.response.status === 404) {
+            setMessage({ message: `Пользователь с именем "${username}" не найден`, color: 'error' });
+         } else {
+            console.error('Error deleting user:', error);
+         }
       }
    };
 
@@ -100,7 +81,6 @@ const Settings = () => {
       try {
          const response = await axios.get('/api/user/getAllUserLogins');
          const logins = response.data.logins;
-         console.log('A list of users:', logins);
          setMessage({ message: `Список пользователей: ${logins.join(', ')}`, color: 'info' });
       } catch (error) {
          console.error('Error getting user logins:', error);
