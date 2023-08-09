@@ -158,6 +158,7 @@ const Converter = () => {
                   handleButtonClick();
                   handleConvert();
                }}
+               tabIndex={-1}
             >
                <FileDownloadDoneIcon style={{ width: `${icon1Width}%` }} />
                <DownloadIcon style={{ width: `${icon2Width}%` }} />

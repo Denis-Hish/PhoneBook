@@ -127,7 +127,7 @@ const LoginForm = ({ onLogin }) => {
                      onMouseEnter={() => setIsUsernameFocused(true)}
                   />
                   {isUsernameFocused && username !== '' && (
-                     <IconButton className="clear-btn" onClick={handleClearUsername}>
+                     <IconButton className="clear-btn" onClick={handleClearUsername} tabIndex={-1}>
                         <ClearIcon />
                      </IconButton>
                   )}
@@ -144,7 +144,7 @@ const LoginForm = ({ onLogin }) => {
                      onMouseEnter={() => setIsPasswordFocused(true)}
                   />
                   {isPasswordFocused && password !== '' && (
-                     <IconButton className="clear-btn" onClick={handleClearPassword}>
+                     <IconButton className="clear-btn" onClick={handleClearPassword} tabIndex={-1}>
                         <ClearIcon />
                      </IconButton>
                   )}

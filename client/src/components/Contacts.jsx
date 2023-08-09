@@ -197,7 +197,7 @@ const Contacts = () => {
                      <td className="header-title">№</td>
                      <td className="header-title" onClick={(event) => handleSort('userName', event)}>
                         <span>{t('name')}</span>
-                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }} tabIndex={-1}>
                            {sortField === 'userName' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -207,7 +207,7 @@ const Contacts = () => {
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
                         <span>{t('phone')} 1</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
                            {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -217,7 +217,7 @@ const Contacts = () => {
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
                         <span>{t('phone')} 2</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
                            {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -227,7 +227,7 @@ const Contacts = () => {
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
                         <span>{t('phone')} 3</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
                            {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -237,7 +237,7 @@ const Contacts = () => {
                      </td>
                      <td className="header-title" onClick={(event) => handleSort('group', event)}>
                         <span>{t('group')}</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }}>
+                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
                            {sortField === 'group' && sortDirection === 'asc' ? (
                               <ArrowUpwardIcon className="arrow-up" />
                            ) : (
@@ -266,6 +266,7 @@ const Contacts = () => {
                                     onClick={() => {
                                        handleEdit(id);
                                     }}
+                                    tabIndex={-1}
                                  >
                                     <EditIcon />
                                  </IconButton>
@@ -278,6 +279,7 @@ const Contacts = () => {
                                     onClick={() => {
                                        getIdDeleteBtn(id);
                                     }}
+                                    tabIndex={-1}
                                  >
                                     <DeleteIcon />
                                  </IconButton>

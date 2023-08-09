@@ -61,6 +61,7 @@ const LanguageSwitcher = ({ logoutButton }) => {
                onMouseLeave={handleMouseLeave}
                onOpen={() => setShowTooltip(false)}
                onClose={handleClose} // Close the tooltip when the select menu is closed
+               tabIndex={-1}
             >
                <MenuItem value="en">
                   <div className="lng">EN</div>

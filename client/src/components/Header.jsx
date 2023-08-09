@@ -43,7 +43,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
                   {isAuthenticated && <Converter />}
                   {isAuthenticated && (
                      <Tooltip title={t('logout')} placement="bottom" arrow>
-                        <IconButton className="btn-logout" onClick={handleLogout}>
+                        <IconButton className="btn-logout" onClick={handleLogout} tabIndex={-1}>
                            <PowerSettingsNewIcon />
                         </IconButton>
                      </Tooltip>

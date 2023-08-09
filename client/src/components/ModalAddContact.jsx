@@ -41,7 +41,7 @@ export default function TransitionsModal(updateListContacts) {
    return (
       <>
          <Tooltip title={`${t('add_contact')}, (Insert)`} placement="left" TransitionComponent={Zoom} arrow>
-            <IconButton className="btn btn__add-contact" onClick={handleOpen}>
+            <IconButton className="btn btn__add-contact" onClick={handleOpen} tabIndex={-1}>
                <AddCircleOutlineIcon />
             </IconButton>
          </Tooltip>

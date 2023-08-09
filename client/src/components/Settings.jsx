@@ -90,7 +90,7 @@ const Settings = () => {
    const ClearButton = ({ value, onClick }) => (
       <InputAdornment position="end">
          {value && (
-            <IconButton className="clear-btn" onClick={onClick}>
+            <IconButton className="clear-btn" onClick={onClick} tabIndex={-1}>
                <ClearIcon />
             </IconButton>
          )}
@@ -99,7 +99,7 @@ const Settings = () => {
 
    return (
       <>
-         <IconButton className="button btn-settings" onClick={handleOpen}>
+         <IconButton className="button btn-settings" onClick={handleOpen} tabIndex={-1}>
             <SettingsIcon />
          </IconButton>
 
