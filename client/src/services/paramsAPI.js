@@ -10,7 +10,7 @@ export const addContact = (newContact, t) => {
    axios
       .post('api/contacts/add-contact', newContact)
       .then((response) => {
-         const message = `${t('contact')} ${response.data.userName} ${t('saved')}`;
+         const message = `${t('contact')} "${response.data.userName}" ${t('saved')}`;
          const color = 'info';
          setMessage({ message, color });
       })
@@ -23,7 +23,7 @@ export const editContact = (contactId, updatedContact, t) => {
    axios
       .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
       .then((response) => {
-         const message = `${t('contact')} ${response.data.userName} ${t('edited')}`;
+         const message = `${t('contact')} "${response.data.userName}" ${t('edited')}`;
          const color = 'success';
          setMessage({ message, color });
       })

@@ -174,7 +174,7 @@ const Contacts = () => {
          <ModalWindows
             content={
                <>
-                  {selectedAction}:
+                  {selectedAction}:{' '}
                   <b>{Array.isArray(contacts) && contacts.find((contact) => contact.id === selectedId)?.userName}</b>?
                   {/* ID: {selectedId} */}
                </>

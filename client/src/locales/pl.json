@@ -18,8 +18,8 @@
    "delete": "Usunąć",
    "delete-btn": "Usuń",
    "cancel": "Anuluj",
-   "saved": "zapisany!",
-   "edited": "edytowany!",
+   "saved": "zapisany",
+   "edited": "edytowany",
    "deleted": "pomyślnie usunięty!",
    "save_changes": "zapisz zmiany",
    "user_name": "Nazwa użytkownika",
@@ -29,8 +29,14 @@
    "remember_me": "Zapamiętaj nazwę użytkownika",
    "login": "Zaloguj sie",
    "wrong_login": "Błędny login lub hasło",
-   "files_saved": "Pliki zostały pomyślnie zapisane",
+   "files_saved": "Pliki zostały pomyślnie zapisane!",
    "error_saving": "Błąd podczas zapisywania plików",
    "logout": "Wyloguj",
-   "welcome": "Witamy w systemie"
+   "welcome": "Witamy w systemie!",
+   "settings": "Ustawienia",
+   "p_add_new_user": "Dodaj nowego użytkownika lub zaktualizuj hasło istniejącego użytkownika",
+   "p_delete_user": "Usuń użytkownika",
+   "btn_create_or_update": "Utwórz lub zaktualizuj",
+   "show_logins": "Pokaż loginy wszystkich użytkowników",
+   "btn_show_logins": "Pokaż"
 }

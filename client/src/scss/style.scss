@@ -1082,6 +1082,7 @@ body.dark {
    .input {
       border-radius: 10px;
       box-shadow: $box-shadow-inset;
+      // width: 100%;
 
       // clear btn
       .clear-btn {
@@ -1111,5 +1112,9 @@ body.dark {
    /* input нажат */
    .MuiInputLabel-shrink {
       transform: translate(10px, 5px) scale(0.75);
+   }
+
+   button {
+      box-shadow: $box-shadow;
    }
 }

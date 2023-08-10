@@ -12,15 +12,15 @@ import { setMessage } from '../components/Snackbar';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputAdornment } from '@mui/material';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const style = {
    position: 'absolute',
    top: '50%',
    left: '50%',
    transform: 'translate(-50%, -50%)',
-   width: 400,
+   width: 500,
    bgcolor: 'background.paper',
-   // border: '2px solid #000',
    boxShadow: 24,
    p: 4,
 };
@@ -36,6 +36,7 @@ const Settings = () => {
    const [isErrorDeleteUser, setErrorDeleteUser] = useState(false);
    const usernameInputRef = useRef(null);
    const deleteInputRef = useRef(null);
+   const { t } = useTranslation();
 
    const createOrUpdateUser = async () => {
       if (!newUsername.trim()) {
@@ -48,7 +49,10 @@ const Settings = () => {
             username: newUsername,
             password: newPassword,
          });
-         setMessage({ message: `Пользователь "${newUsername}" добавлен или обновлён`, color: 'success' });
+         setMessage({
+            message: `${t('snb_user2')} "${newUsername}" ${t('snb_added_user')}`,
+            color: 'success',
+         });
          setNewUsername('');
          setNewPassword('');
       } catch (error) {
@@ -65,12 +69,15 @@ const Settings = () => {
       try {
          const response = await axios.delete(`/api/user/deleteUser/${username}`);
          if (response.status === 200) {
-            setMessage({ message: `Пользователь "${username}" удалён успешно`, color: 'warning' });
+            setMessage({ message: `${t('snb_user2')} "${username}" ${t('snb_deleted_user')}`, color: 'error' });
             setDeleteUsername('');
          }
       } catch (error) {
          if (error.response && error.response.status === 404) {
-            setMessage({ message: `Пользователь с именем "${username}" не найден`, color: 'error' });
+            setMessage({
+               message: `${t('snb_user2')} ${t('with_name')} "${username}" ${t('not_found')}`,
+               color: 'error',
+            });
          } else {
             console.error('Error deleting user:', error);
          }
@@ -81,7 +88,7 @@ const Settings = () => {
       try {
          const response = await axios.get('/api/user/getAllUserLogins');
          const logins = response.data.logins;
-         setMessage({ message: `Список пользователей: ${logins.join(', ')}`, color: 'info' });
+         setMessage({ message: `${t('list_of_users')}: ${logins.join(', ')}`, color: 'info' });
       } catch (error) {
          console.error('Error getting user logins:', error);
       }
@@ -118,15 +125,18 @@ const Settings = () => {
          >
             <Fade in={open}>
                <Box className="settings-modal-windows" sx={style}>
+                  <button className="btn-close" onClick={handleClose}></button>
                   <div className="settings-input">
                      <Typography id="transition-modal-title" variant="h6" component="h2">
-                        Settings:
+                        {t('settings')}:
                      </Typography>
 
+                     {/* <div className="settings-wrapper"> */}
+                     <p>{t('p_add_new_user')}</p>
                      <TextField
                         className="input"
                         type="text"
-                        label="username"
+                        label={`${t('user_name')}`}
                         variant="standard"
                         autoComplete="off"
                         value={newUsername}
@@ -145,7 +155,7 @@ const Settings = () => {
                      <TextField
                         className="input"
                         type="password"
-                        label="password"
+                        label={`${t('password')}`}
                         variant="standard"
                         autoComplete="off"
                         value={newPassword}
@@ -156,13 +166,14 @@ const Settings = () => {
                      />
 
                      <Button className="btn-settings" variant="outlined" onClick={createOrUpdateUser}>
-                        Create or update user
+                        {t('btn_create_or_update')}
                      </Button>
 
+                     <p>{t('p_delete_user')}</p>
                      <TextField
                         className="input"
                         type="text"
-                        label="delete user"
+                        label={`${t('user_name')}`}
                         variant="standard"
                         autoComplete="off"
                         value={deleteUsername}
@@ -178,11 +189,22 @@ const Settings = () => {
                         }}
                      />
 
-                     <Button className="btn-settings" variant="outlined" onClick={() => deleteUser(deleteUsername)}>
-                        Delete User
+                     <Button
+                        className="btn-settings"
+                        variant="outlined"
+                        onClick={() => deleteUser(deleteUsername)}
+                        color="error"
+                     >
+                        {t('delete-btn')}
+                     </Button>
+
+                     <p>{t('show_logins')}</p>
+                     <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
+                        {t('btn_show_logins')}
                      </Button>
 
                      <TextField
+                        className="input"
                         type="number"
                         label="Countdown active session (min)"
                         variant="standard"
@@ -190,20 +212,19 @@ const Settings = () => {
                      />
 
                      <TextField
+                        className="input"
                         label="Selecting a folder to save the File-1.xml"
                         variant="standard"
                         autoComplete="off"
                      />
 
                      <TextField
+                        className="input"
                         label="Selecting a folder to save the File-2.xml"
                         variant="standard"
                         autoComplete="off"
                      />
-
-                     <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
-                        Get All User Logins
-                     </Button>
+                     {/* </div> */}
                   </div>
                </Box>
             </Fade>

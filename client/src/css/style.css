@@ -894,4 +894,7 @@ body.dark .btn-logout {
 }
 .settings-modal-windows .MuiInputLabel-shrink {
   transform: translate(10px, 5px) scale(0.75);
+}
+.settings-modal-windows button {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }/*# sourceMappingURL=style.css.map */
