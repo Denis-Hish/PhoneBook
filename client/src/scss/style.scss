@@ -1058,63 +1058,74 @@ body.dark {
 
 /* ----------------------------------------------------- */
 .settings-modal-windows {
-   .settings-input {
+   background-color: $color-bg !important;
+
+   .settings-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-   }
+      gap: 1.25rem;
 
-   .MuiInputBase-root {
-      &:before {
-         border-bottom: none !important;
+      .settings-section {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+         box-shadow: $box-shadow;
+         padding: 1rem;
+         border-radius: 8px;
       }
 
-      &::after {
-         left: 10px;
-         right: 10px;
-      }
-   }
+      .MuiInputBase-root {
+         &:before {
+            border-bottom: none !important;
+         }
 
-   input {
-      margin: 0 10px;
-   }
-
-   .input {
-      border-radius: 10px;
-      box-shadow: $box-shadow-inset;
-      // width: 100%;
-
-      // clear btn
-      .clear-btn {
-         position: absolute;
-         padding: 4px;
-         right: 10px;
-         bottom: 25%;
-
-         svg {
-            font-weight: 400;
-            font-size: 1.25rem;
+         &::after {
+            left: 10px;
+            right: 10px;
          }
       }
 
-      &:not(:hover) {
+      input {
+         margin: 0 10px;
+      }
+
+      .input {
+         border-radius: 10px;
+         box-shadow: $box-shadow-inset;
+         // width: 100%;
+
+         // clear btn
          .clear-btn {
-            visibility: hidden;
+            position: absolute;
+            padding: 4px;
+            right: 10px;
+            bottom: 25%;
+
+            svg {
+               font-weight: 400;
+               font-size: 1.25rem;
+            }
+         }
+
+         &:not(:hover) {
+            .clear-btn {
+               visibility: hidden;
+            }
          }
       }
-   }
 
-   /* input не нажат */
-   .MuiInputLabel-standard {
-      transform: translate(10px, 15px) scale(1);
-   }
+      /* input не нажат */
+      .MuiInputLabel-standard {
+         transform: translate(10px, 15px) scale(1);
+      }
 
-   /* input нажат */
-   .MuiInputLabel-shrink {
-      transform: translate(10px, 5px) scale(0.75);
-   }
+      /* input нажат */
+      .MuiInputLabel-shrink {
+         transform: translate(10px, 5px) scale(0.75);
+      }
 
-   button {
-      box-shadow: $box-shadow;
+      button {
+         box-shadow: $box-shadow;
+      }
    }
 }

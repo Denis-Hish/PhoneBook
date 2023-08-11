@@ -854,47 +854,56 @@ body.dark .btn-logout {
 
 /* ----------------------------------------------------- */
 .settings-modal-windows {
+  background-color: #edf1f4 !important;
+}
+.settings-modal-windows .settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   /* input не нажат */
   /* input нажат */
 }
-.settings-modal-windows .settings-input {
+.settings-modal-windows .settings-wrapper .settings-section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  padding: 1rem;
+  border-radius: 8px;
 }
-.settings-modal-windows .MuiInputBase-root:before {
+.settings-modal-windows .settings-wrapper .MuiInputBase-root:before {
   border-bottom: none !important;
 }
-.settings-modal-windows .MuiInputBase-root::after {
+.settings-modal-windows .settings-wrapper .MuiInputBase-root::after {
   left: 10px;
   right: 10px;
 }
-.settings-modal-windows input {
+.settings-modal-windows .settings-wrapper input {
   margin: 0 10px;
 }
-.settings-modal-windows .input {
+.settings-modal-windows .settings-wrapper .input {
   border-radius: 10px;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
 }
-.settings-modal-windows .input .clear-btn {
+.settings-modal-windows .settings-wrapper .input .clear-btn {
   position: absolute;
   padding: 4px;
   right: 10px;
   bottom: 25%;
 }
-.settings-modal-windows .input .clear-btn svg {
+.settings-modal-windows .settings-wrapper .input .clear-btn svg {
   font-weight: 400;
   font-size: 1.25rem;
 }
-.settings-modal-windows .input:not(:hover) .clear-btn {
+.settings-modal-windows .settings-wrapper .input:not(:hover) .clear-btn {
   visibility: hidden;
 }
-.settings-modal-windows .MuiInputLabel-standard {
+.settings-modal-windows .settings-wrapper .MuiInputLabel-standard {
   transform: translate(10px, 15px) scale(1);
 }
-.settings-modal-windows .MuiInputLabel-shrink {
+.settings-modal-windows .settings-wrapper .MuiInputLabel-shrink {
   transform: translate(10px, 5px) scale(0.75);
 }
-.settings-modal-windows button {
+.settings-modal-windows .settings-wrapper button {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }/*# sourceMappingURL=style.css.map */

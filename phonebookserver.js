@@ -40,30 +40,37 @@ db.mongoose
 app.post('/create-xml-files', (req, res) => {
    const { xmlString1, xmlString2 } = req.body;
 
-   // Создаем папку "converted", если ее нет
-   const convertedDir = path.join(__dirname, 'xml'); // каталог для сохранения
-   if (!fs.existsSync(convertedDir)) {
-      fs.mkdirSync(convertedDir);
+   // Создаем папку, если ее нет
+   // каталог для сохранения xml1
+   const convertedDirXml1 = path.join(__dirname, 'xml');
+   if (!fs.existsSync(convertedDirXml1)) {
+      fs.mkdirSync(convertedDirXml1);
+   }
+
+   // каталог для сохранения xml2
+   const convertedDirXml2 = path.join(__dirname, 'xml');
+   if (!fs.existsSync(convertedDirXml2)) {
+      fs.mkdirSync(convertedDirXml2);
    }
 
    // Сохраняем xmlString1
-   const file1Path = path.join(convertedDir, 'PhoneBook_1_Yealink.xml');
+   const file1Path = path.join(convertedDirXml1, 'PhoneBook_1_Yealink.xml');
    fs.writeFile(file1Path, xmlString1, (err) => {
       if (err) {
          console.error(err);
          return res.status(500).json({ message: 'Error saving PhoneBook_1_Yealink.xml' });
       }
-      console.log('File1 saved successfully');
+      console.log('File xml-1 saved successfully');
    });
 
    // Сохраняем xmlString2
-   const file2Path = path.join(convertedDir, 'PhoneBook_2.xml');
+   const file2Path = path.join(convertedDirXml2, 'PhoneBook_2.xml');
    fs.writeFile(file2Path, xmlString2, (err) => {
       if (err) {
          console.error(err);
          return res.status(500).json({ message: 'Error saving PhoneBook_2.xml' });
       }
-      console.log('File2 saved successfully');
+      console.log('File xml-2 saved successfully');
 
       return res.json({ message: 'Files saved successfully' });
    });

@@ -23,7 +23,7 @@ const style = {
    width: 500,
    bgcolor: 'background.paper',
    boxShadow: 24,
-   p: 4,
+   p: 2,
 };
 
 const Settings = () => {
@@ -129,84 +129,89 @@ const Settings = () => {
             <Fade in={open}>
                <Box className="settings-modal-windows" sx={style}>
                   <button className="btn-close" onClick={handleClose}></button>
-                  <div className="settings-input">
-                     <Typography id="transition-modal-title" variant="h6" component="h2">
-                        {t('settings')}:
-                     </Typography>
+                  <h2 className="mb-2">{t('settings')}:</h2>
 
-                     {/* <div className="settings-wrapper"> */}
-                     <p>{t('p_add_new_user')}</p>
-                     <TextField
-                        className="input"
-                        type="text"
-                        label={`${t('user_name')}`}
-                        variant="standard"
-                        autoComplete="off"
-                        value={newUsername}
-                        onChange={(e) => {
-                           setNewUsername(e.target.value);
-                           setErrorUsername(false);
-                        }}
-                        onBlur={() => setErrorUsername(false)}
-                        error={isErrorUsername}
-                        inputRef={usernameInputRef}
-                        InputProps={{
-                           endAdornment: <ClearButton value={newUsername} onClick={() => setNewUsername('')} />,
-                        }}
-                     />
+                  <div className="settings-wrapper">
+                     <div className="settings-section">
+                        <p>{t('p_add_new_user')}</p>
+                        <TextField
+                           className="input"
+                           type="text"
+                           label={`${t('user_name')}`}
+                           variant="standard"
+                           autoComplete="off"
+                           value={newUsername}
+                           onChange={(e) => {
+                              setNewUsername(e.target.value);
+                              setErrorUsername(false);
+                           }}
+                           onBlur={() => setErrorUsername(false)}
+                           error={isErrorUsername}
+                           inputRef={usernameInputRef}
+                           InputProps={{
+                              endAdornment: <ClearButton value={newUsername} onClick={() => setNewUsername('')} />,
+                           }}
+                        />
 
-                     <TextField
-                        className="input"
-                        type="password"
-                        label={`${t('password')}`}
-                        variant="standard"
-                        autoComplete="off"
-                        value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
-                        InputProps={{
-                           endAdornment: <ClearButton value={newPassword} onClick={() => setNewPassword('')} />,
-                        }}
-                     />
+                        <TextField
+                           className="input"
+                           type="password"
+                           label={`${t('password')}`}
+                           variant="standard"
+                           autoComplete="off"
+                           value={newPassword}
+                           onChange={(e) => setNewPassword(e.target.value)}
+                           InputProps={{
+                              endAdornment: <ClearButton value={newPassword} onClick={() => setNewPassword('')} />,
+                           }}
+                        />
 
-                     <Button className="btn-settings" variant="outlined" onClick={createOrUpdateUser}>
-                        {t('btn_create_or_update')}
-                     </Button>
+                        <Button className="btn-settings" variant="outlined" onClick={createOrUpdateUser}>
+                           {t('btn_create_or_update')}
+                        </Button>
+                     </div>
 
-                     <p>{t('p_delete_user')}</p>
-                     <TextField
-                        className="input"
-                        type="text"
-                        label={`${t('user_name')}`}
-                        variant="standard"
-                        autoComplete="off"
-                        value={deleteUsername}
-                        onChange={(e) => {
-                           setDeleteUsername(e.target.value);
-                           setErrorDeleteUser(false);
-                        }}
-                        onBlur={() => setErrorDeleteUser(false)}
-                        error={isErrorDeleteUser}
-                        inputRef={deleteInputRef}
-                        InputProps={{
-                           endAdornment: <ClearButton value={deleteUsername} onClick={() => setDeleteUsername('')} />,
-                        }}
-                     />
+                     <div className="settings-section">
+                        <p>{t('p_delete_user')}</p>
+                        <TextField
+                           className="input"
+                           type="text"
+                           label={`${t('user_name')}`}
+                           variant="standard"
+                           autoComplete="off"
+                           value={deleteUsername}
+                           onChange={(e) => {
+                              setDeleteUsername(e.target.value);
+                              setErrorDeleteUser(false);
+                           }}
+                           onBlur={() => setErrorDeleteUser(false)}
+                           error={isErrorDeleteUser}
+                           inputRef={deleteInputRef}
+                           InputProps={{
+                              endAdornment: (
+                                 <ClearButton value={deleteUsername} onClick={() => setDeleteUsername('')} />
+                              ),
+                           }}
+                        />
 
-                     <Button
-                        className="btn-settings"
-                        variant="outlined"
-                        onClick={() => deleteUser(deleteUsername)}
-                        color="error"
-                     >
-                        {t('delete-btn')}
-                     </Button>
+                        <Button
+                           className="btn-settings"
+                           variant="outlined"
+                           onClick={() => deleteUser(deleteUsername)}
+                           color="error"
+                        >
+                           {t('delete-btn')}
+                        </Button>
+                     </div>
 
-                     <p>{t('show_logins')}</p>
-                     <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
-                        {t('btn_show_logins')}
-                     </Button>
+                     <div className="settings-section">
+                        <p>{t('show_logins')}</p>
+                        <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
+                           {t('btn_show_logins')}
+                        </Button>
+                     </div>
 
-                     <TextField
+                     {/* <TextField
                         className="input"
                         type="number"
                         label="Countdown active session (min)"
@@ -226,8 +231,7 @@ const Settings = () => {
                         label="Selecting a folder to save the File-2.xml"
                         variant="standard"
                         autoComplete="off"
-                     />
-                     {/* </div> */}
+                     /> */}
                   </div>
                </Box>
             </Fade>
