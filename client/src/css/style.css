@@ -86,6 +86,7 @@ fieldset {
   background-color: #edf1f4;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   z-index: 100;
+  overflow: hidden;
   padding: 0 calc(17px - (100vw - 100%)) 0 0;
 }
 .header .header-content {
@@ -117,16 +118,23 @@ fieldset {
 .header .header-content .header-content__center h1 {
   text-align: center;
 }
-.header .header-content .header-content__center h1 span {
+.header .header-content .header-content__center h1 .phone-circle {
   position: relative;
-  margin-right: 10px;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
 }
-.header .header-content .header-content__center h1 span svg {
+.header .header-content .header-content__center h1 .phone-circle svg {
   font-size: 2.3rem;
   vertical-align: baseline;
   color: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.header .header-content .header-content__center h1 span::after {
+.header .header-content .header-content__center h1 .phone-circle::after {
   content: "";
   position: absolute;
   width: 3rem;
@@ -815,53 +823,6 @@ fieldset {
   margin-top: 12px;
 }
 
-/* ---------- DARK THEME ------------ */
-body.dark {
-  color: #f0f0f0;
-  background-color: #868e96;
-}
-body.dark .header {
-  background-color: #868e96;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-}
-body.dark .swith-toggle-theme .toggle {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-}
-body.dark .header-table {
-  background-color: #868e96;
-}
-body.dark .contacts .header-table .filter {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-}
-body.dark .contacts table {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-}
-body.dark .contacts table tr {
-  background-color: #868e96;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-}
-body.dark .contacts table tbody tr:hover {
-  background-color: #8f9ba5;
-}
-body.dark .btn__add-contact {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-  background-color: #868e96 !important;
-}
-body.dark .swith-toggle-theme .toggle {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-}
-body.dark .swith-toggle-theme .toggle .indicator {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-  background: #868e96;
-}
-body.dark .swith-language .MuiSelect-select {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-}
-body.dark .btn-logout {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-}
-
-/* ----------------------------------------------------- */
 .settings-modal-windows {
   background-color: #edf1f4 !important;
 }
@@ -915,4 +876,159 @@ body.dark .btn-logout {
 }
 .settings-modal-windows .settings-wrapper button {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* ---------- ANIMATED HEADER TITLE ---------- */
+.letter-title {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-header-title-1 {
+  animation: slide-out-blurred-bottom 0.45s cubic-bezier(0.755, 0.05, 0.855, 0.06) both;
+}
+
+.animated-header-title-2 {
+  animation: bounce-top 0.9s both;
+}
+
+.animated-header-title-1:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.animated-header-title-1:nth-child(2) {
+  animation-delay: 0.42;
+}
+
+.animated-header-title-1:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.animated-header-title-1:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.animated-header-title-1:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.animated-header-title-1:nth-child(7) {
+  animation-delay: 0.45s;
+}
+
+.animated-header-title-1:nth-child(8) {
+  animation-delay: 0.25s;
+}
+
+.animated-header-title-1:nth-child(8) {
+  animation-delay: 0.15s;
+}
+
+.animated-header-title-1:nth-child(10) {
+  animation-delay: 0.35s;
+}
+
+.animated-header-title-1:nth-child(12) {
+  animation-delay: 0.7s;
+}
+
+.animated-header-title-2 {
+  animation-delay: 0s !important;
+}
+
+@keyframes slide-out-blurred-bottom {
+  0% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000px) scaleY(2) scaleX(0.2);
+    transform-origin: 50% 100%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+}
+@keyframes bounce-top {
+  0% {
+    transform: translateY(-77px);
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-24px);
+    animation-timing-function: ease-in;
+  }
+  65% {
+    transform: translateY(-12px);
+    animation-timing-function: ease-in;
+  }
+  82% {
+    transform: translateY(-6px);
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: translateY(-4px);
+    animation-timing-function: ease-in;
+  }
+  25%, 55%, 75%, 87% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
+/* ---------- DARK THEME ------------ */
+body.dark {
+  color: #f0f0f0;
+  background-color: #868e96;
+}
+body.dark .header {
+  background-color: #868e96;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+}
+body.dark .swith-toggle-theme .toggle {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+body.dark .header-table {
+  background-color: #868e96;
+}
+body.dark .contacts .header-table .filter {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+body.dark .contacts table {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+}
+body.dark .contacts table tr {
+  background-color: #868e96;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+}
+body.dark .contacts table tbody tr:hover {
+  background-color: #8f9ba5;
+}
+body.dark .btn__add-contact {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+  background-color: #868e96 !important;
+}
+body.dark .swith-toggle-theme .toggle {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+body.dark .swith-toggle-theme .toggle .indicator {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  background: #868e96;
+}
+body.dark .swith-language .MuiSelect-select {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+body.dark .btn-logout {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+}
+
+/* ----------------------------------------------------- *//*# sourceMappingURL=style.css.map */

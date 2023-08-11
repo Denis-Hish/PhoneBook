@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
 import { ThemeContext } from './ThemeContext';
 import ThemeToggle from './ThemeToggle';
@@ -24,6 +24,52 @@ const Header = ({ onLogout, isAuthenticated }) => {
       </IconButton>
    ) : null;
 
+   const [isAnimated1, setIsAnimated1] = useState(false);
+   const [isAnimated2, setIsAnimated2] = useState(false);
+
+   const handlePhoneClick = () => {
+      setIsAnimated1(true);
+   };
+
+   useEffect(() => {
+      if (isAnimated1) {
+         setTimeout(() => {
+            setIsAnimated2(true);
+         }, 3000);
+      }
+   }, [isAnimated1]);
+
+   useEffect(() => {
+      if (isAnimated2) {
+         setTimeout(() => {
+            setIsAnimated1(false);
+            setIsAnimated2(false);
+         }, 3000);
+      }
+   }, [isAnimated2]);
+
+   const getLetterClasses = () => {
+      const classes = ['letter-title'];
+      if (isAnimated1) {
+         classes.push('animated-header-title-1');
+      }
+      if (isAnimated2) {
+         classes.push('animated-header-title-2');
+      }
+      return classes.join(' ');
+   };
+
+   const getPhoneCircleClasses = () => {
+      const classes = ['phone-circle'];
+      if (isAnimated1) {
+         classes.push('animated-header-title-1');
+      }
+      if (isAnimated2) {
+         classes.push('animated-header-title-2');
+      }
+      return classes.join(' ');
+   };
+
    return (
       <header className={`header ${theme}`}>
          <div className="container">
@@ -31,8 +77,18 @@ const Header = ({ onLogout, isAuthenticated }) => {
                <div className="header-content__left">{isAuthenticated && <Settings />}</div>
                <div className="header-content__center">
                   <h1>
-                     Phone Book{' '}
-                     <span>
+                     <span className={getLetterClasses(0)}>P</span>
+                     <span className={getLetterClasses(1)}>h</span>
+                     <span className={getLetterClasses(2)}>o</span>
+                     <span className={getLetterClasses(3)}>n</span>
+                     <span className={getLetterClasses(4)}>e</span>
+                     <span> </span>
+                     <span className={getLetterClasses(5)}>B</span>
+                     <span className={getLetterClasses(6)}>o</span>
+                     <span className={getLetterClasses(7)}>o</span>
+                     <span className={getLetterClasses(8)}>k</span>
+                     <span> </span>
+                     <span className={getPhoneCircleClasses()} onClick={handlePhoneClick}>
                         <PhoneEnabledRoundedIcon />
                      </span>
                   </h1>
