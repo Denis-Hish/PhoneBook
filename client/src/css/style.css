@@ -271,6 +271,7 @@ fieldset {
   border: none;
   transition: all var(--transition-btn-close) ease-in-out;
   z-index: 100;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   cursor: pointer;
 }
 .btn-close:hover {
@@ -799,8 +800,9 @@ fieldset {
 .login .clear-btn {
   position: absolute;
   padding: 4px;
-  right: 35px;
+  right: 40px;
   top: 22%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 .login .clear-btn svg {
   font-weight: 400;

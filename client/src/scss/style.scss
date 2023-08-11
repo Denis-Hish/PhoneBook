@@ -321,6 +321,7 @@ fieldset {
    border: none;
    transition: all var(--transition-btn-close) ease-in-out;
    z-index: 100;
+   box-shadow: $box-shadow;
    cursor: pointer;
 
    &:hover {
@@ -959,8 +960,9 @@ fieldset {
    .clear-btn {
       position: absolute;
       padding: 4px;
-      right: 35px;
+      right: 40px;
       top: 22%;
+      box-shadow: $box-shadow;
 
       svg {
          font-weight: 400;
