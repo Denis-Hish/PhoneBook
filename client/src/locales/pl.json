@@ -38,5 +38,12 @@
    "p_delete_user": "Usuń użytkownika",
    "btn_create_or_update": "Utwórz lub zaktualizuj",
    "show_logins": "Pokaż loginy wszystkich użytkowników",
-   "btn_show_logins": "Pokaż"
+   "btn_show_logins": "Pokaż",
+   "snb_user1": "Користувач",
+   "snb_user2": "Użytkownik",
+   "snb_added_user": "został pomyślnie dodany lub zaktualizowany!",
+   "snb_deleted_user": "został pomyślnie usunięty!",
+   "with_name": "o nazwie",
+   "not_found": "nie znaleziony",
+   "list_of_users": "Lista użytkowników"
 }

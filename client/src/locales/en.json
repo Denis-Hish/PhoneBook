@@ -38,5 +38,12 @@
    "p_delete_user": "Delete user",
    "btn_create_or_update": "Create or update",
    "show_logins": "Show logins of all users",
-   "btn_show_logins": "Show"
+   "btn_show_logins": "Show",
+   "snb_user1": "Користувач",
+   "snb_user2": "User",
+   "snb_added_user": "added or updated successfully!",
+   "snb_deleted_user": "deleted successfully!",
+   "with_name": "with name",
+   "not_found": "not found",
+   "list_of_users": "List of users"
 }

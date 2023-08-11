@@ -11,8 +11,9 @@ import TextField from '@mui/material/TextField';
 import { setMessage } from '../components/Snackbar';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputAdornment } from '@mui/material';
-import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import Tooltip from '@mui/material/Tooltip';
+import axios from 'axios';
 
 const style = {
    position: 'absolute',
@@ -106,9 +107,11 @@ const Settings = () => {
 
    return (
       <>
-         <IconButton className="button btn-settings" onClick={handleOpen} tabIndex={-1}>
-            <SettingsIcon />
-         </IconButton>
+         <Tooltip title={t('settings')} placement="bottom" arrow>
+            <IconButton className="button btn-settings" onClick={handleOpen} tabIndex={-1}>
+               <SettingsIcon />
+            </IconButton>
+         </Tooltip>
 
          <Modal
             aria-labelledby="transition-modal-title"
