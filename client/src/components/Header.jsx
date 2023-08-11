@@ -35,7 +35,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
       if (isAnimated1) {
          setTimeout(() => {
             setIsAnimated2(true);
-         }, 3000);
+         }, 6000);
       }
    }, [isAnimated1]);
 
@@ -74,7 +74,9 @@ const Header = ({ onLogout, isAuthenticated }) => {
       <header className={`header ${theme}`}>
          <div className="container">
             <div className="header-content">
-               <div className="header-content__left">{isAuthenticated && <Settings />}</div>
+               <div className="header-content__left">
+                  {isAuthenticated && <Settings />}
+               </div>
                <div className="header-content__center">
                   <h1>
                      <span className={getLetterClasses(0)}>P</span>
@@ -82,13 +84,16 @@ const Header = ({ onLogout, isAuthenticated }) => {
                      <span className={getLetterClasses(2)}>o</span>
                      <span className={getLetterClasses(3)}>n</span>
                      <span className={getLetterClasses(4)}>e</span>
-                     <span> </span>
+                     <span className="gap"> </span>
                      <span className={getLetterClasses(5)}>B</span>
                      <span className={getLetterClasses(6)}>o</span>
                      <span className={getLetterClasses(7)}>o</span>
                      <span className={getLetterClasses(8)}>k</span>
-                     <span> </span>
-                     <span className={getPhoneCircleClasses()} onClick={handlePhoneClick}>
+                     <span className="gap"> </span>
+                     <span
+                        className={getPhoneCircleClasses()}
+                        onClick={handlePhoneClick}
+                     >
                         <PhoneEnabledRoundedIcon />
                      </span>
                   </h1>
@@ -99,7 +104,11 @@ const Header = ({ onLogout, isAuthenticated }) => {
                   {isAuthenticated && <Converter />}
                   {isAuthenticated && (
                      <Tooltip title={t('logout')} placement="bottom" arrow>
-                        <IconButton className="btn-logout" onClick={handleLogout} tabIndex={-1}>
+                        <IconButton
+                           className="btn-logout"
+                           onClick={handleLogout}
+                           tabIndex={-1}
+                        >
                            <PowerSettingsNewIcon />
                         </IconButton>
                      </Tooltip>

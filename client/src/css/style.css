@@ -123,7 +123,6 @@ fieldset {
   display: inline-block;
   width: 3rem;
   height: 3rem;
-  cursor: pointer;
 }
 .header .header-content .header-content__center h1 .phone-circle svg {
   font-size: 2.3rem;
@@ -879,6 +878,14 @@ fieldset {
 }
 
 /* ---------- ANIMATED HEADER TITLE ---------- */
+.letter-title,
+.gap {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 .letter-title {
   position: relative;
   display: inline-block;
@@ -901,11 +908,11 @@ fieldset {
 }
 
 .animated-header-title-1:nth-child(3) {
-  animation-delay: 0.3s;
+  animation-delay: 0.27s;
 }
 
 .animated-header-title-1:nth-child(4) {
-  animation-delay: 0.4s;
+  animation-delay: 0.43s;
 }
 
 .animated-header-title-1:nth-child(5) {
@@ -930,10 +937,6 @@ fieldset {
 
 .animated-header-title-1:nth-child(12) {
   animation-delay: 0.7s;
-}
-
-.animated-header-title-2 {
-  animation-delay: 0s !important;
 }
 
 @keyframes slide-out-blurred-bottom {
