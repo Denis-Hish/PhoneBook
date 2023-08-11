@@ -554,6 +554,7 @@ fieldset {
          top: 20%;
          right: 48px;
          // transform: translate(-50%, -50%);
+         box-shadow: $box-shadow;
 
          svg {
             font-weight: 400;
@@ -562,7 +563,8 @@ fieldset {
       }
 
       &:not(:hover) {
-         .clear-btn {
+         .clear-btn,
+         button[title='Clear'] {
             visibility: hidden;
          }
       }
@@ -571,6 +573,11 @@ fieldset {
    // clear button combo box groups
    button[title='Clear'] {
       right: 40px;
+      box-shadow: $box-shadow;
+   }
+
+   .clear-btn-group-add-contact {
+      right: 60px !important;
    }
 
    .combo-box input {
@@ -663,6 +670,7 @@ fieldset {
          .clear-filter-btn {
             padding: 4px;
             margin-right: 1rem;
+            box-shadow: $box-shadow;
             svg {
                font-size: 1.25rem;
             }

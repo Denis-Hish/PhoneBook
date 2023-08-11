@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const filter = createFilterOptions();
 
@@ -222,7 +223,28 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   options={groups}
                   sx={{ width: 300 }}
                   freeSolo
-                  renderInput={(params) => <TextField {...params} label={`${t('group')} *`} />}
+                  renderInput={(params) => (
+                     <TextField
+                        {...params}
+                        label={`${t('group')} *`}
+                        InputProps={{
+                           ...params.InputProps,
+                           endAdornment: contact.group.trim() !== '' && (
+                              <InputAdornment position="end">
+                                 <IconButton
+                                    onClick={() => clearInput('group')}
+                                    edge="end"
+                                    aria-label="clear group input"
+                                    className="clear-btn clear-btn-group-add-contact"
+                                    title="Clear"
+                                 >
+                                    <ClearIcon />
+                                 </IconButton>
+                              </InputAdornment>
+                           ),
+                        }}
+                     />
+                  )}
                />
                <div className="icons">
                   <GroupsIcon />

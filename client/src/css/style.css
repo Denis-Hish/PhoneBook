@@ -447,16 +447,22 @@ fieldset {
   padding: 4px;
   top: 20%;
   right: 48px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 .form-wrap .form .clear-btn svg {
   font-weight: 400;
   font-size: 1.25rem;
 }
-.form-wrap .form:not(:hover) .clear-btn {
+.form-wrap .form:not(:hover) .clear-btn,
+.form-wrap .form:not(:hover) button[title=Clear] {
   visibility: hidden;
 }
 .form-wrap button[title=Clear] {
   right: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+}
+.form-wrap .clear-btn-group-add-contact {
+  right: 60px !important;
 }
 .form-wrap .combo-box input {
   padding: 10px 2px 2px !important;
@@ -538,6 +544,7 @@ fieldset {
 .contacts .header-table .filter .clear-filter-btn {
   padding: 4px;
   margin-right: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
 }
 .contacts .header-table .filter .clear-filter-btn svg {
   font-size: 1.25rem;
