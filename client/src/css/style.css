@@ -900,43 +900,43 @@ fieldset {
 }
 
 .animated-header-title-1:nth-child(1) {
-  animation-delay: 0.1s;
+  animation-delay: 1.2s;
 }
 
 .animated-header-title-1:nth-child(2) {
-  animation-delay: 0.42;
+  animation-delay: 1.32s;
 }
 
 .animated-header-title-1:nth-child(3) {
-  animation-delay: 0.27s;
+  animation-delay: 1.37s;
 }
 
 .animated-header-title-1:nth-child(4) {
-  animation-delay: 0.43s;
+  animation-delay: 1.53s;
 }
 
 .animated-header-title-1:nth-child(5) {
-  animation-delay: 0.2s;
+  animation-delay: 1.3s;
 }
 
 .animated-header-title-1:nth-child(7) {
-  animation-delay: 0.45s;
+  animation-delay: 1.45s;
 }
 
 .animated-header-title-1:nth-child(8) {
-  animation-delay: 0.25s;
+  animation-delay: 1.35s;
 }
 
-.animated-header-title-1:nth-child(8) {
-  animation-delay: 0.15s;
+.animated-header-title-1:nth-child(9) {
+  animation-delay: 1.25s;
 }
 
 .animated-header-title-1:nth-child(10) {
-  animation-delay: 0.35s;
+  animation-delay: 1.45s;
 }
 
 .animated-header-title-1:nth-child(12) {
-  animation-delay: 0.7s;
+  animation-delay: 0.1s;
 }
 
 @keyframes slide-out-blurred-bottom {

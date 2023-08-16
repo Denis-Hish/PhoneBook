@@ -35,7 +35,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
       if (isAnimated1) {
          setTimeout(() => {
             setIsAnimated2(true);
-         }, 6000);
+         }, 3000);
       }
    }, [isAnimated1]);
 
@@ -74,26 +74,21 @@ const Header = ({ onLogout, isAuthenticated }) => {
       <header className={`header ${theme}`}>
          <div className="container">
             <div className="header-content">
-               <div className="header-content__left">
-                  {isAuthenticated && <Settings />}
-               </div>
+               <div className="header-content__left">{isAuthenticated && <Settings />}</div>
                <div className="header-content__center">
                   <h1>
-                     <span className={getLetterClasses(0)}>P</span>
-                     <span className={getLetterClasses(1)}>h</span>
-                     <span className={getLetterClasses(2)}>o</span>
-                     <span className={getLetterClasses(3)}>n</span>
-                     <span className={getLetterClasses(4)}>e</span>
+                     <span className={getLetterClasses(1)}>P</span>
+                     <span className={getLetterClasses(2)}>h</span>
+                     <span className={getLetterClasses(3)}>o</span>
+                     <span className={getLetterClasses(4)}>n</span>
+                     <span className={getLetterClasses(5)}>e</span>
                      <span className="gap"> </span>
-                     <span className={getLetterClasses(5)}>B</span>
-                     <span className={getLetterClasses(6)}>o</span>
-                     <span className={getLetterClasses(7)}>o</span>
-                     <span className={getLetterClasses(8)}>k</span>
+                     <span className={getLetterClasses(7)}>B</span>
+                     <span className={getLetterClasses(8)}>o</span>
+                     <span className={getLetterClasses(9)}>o</span>
+                     <span className={getLetterClasses(10)}>k</span>
                      <span className="gap"> </span>
-                     <span
-                        className={getPhoneCircleClasses()}
-                        onClick={handlePhoneClick}
-                     >
+                     <span className={getPhoneCircleClasses(12)} onClick={handlePhoneClick}>
                         <PhoneEnabledRoundedIcon />
                      </span>
                   </h1>
@@ -104,11 +99,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
                   {isAuthenticated && <Converter />}
                   {isAuthenticated && (
                      <Tooltip title={t('logout')} placement="bottom" arrow>
-                        <IconButton
-                           className="btn-logout"
-                           onClick={handleLogout}
-                           tabIndex={-1}
-                        >
+                        <IconButton className="btn-logout" onClick={handleLogout} tabIndex={-1}>
                            <PowerSettingsNewIcon />
                         </IconButton>
                      </Tooltip>

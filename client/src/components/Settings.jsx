@@ -5,7 +5,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
 import Backdrop from '@mui/material/Backdrop';
 import TextField from '@mui/material/TextField';
 import { setMessage } from '../components/Snackbar';
@@ -61,21 +60,17 @@ const Settings = () => {
       }
    };
 
-   const deleteUser = async username => {
+   const deleteUser = async (username) => {
       if (!username.trim()) {
          setErrorDeleteUser(true);
          deleteInputRef.current.focus();
          return;
       }
       try {
-         const response = await axios.delete(
-            `/api/user/deleteUser/${username}`
-         );
+         const response = await axios.delete(`/api/user/deleteUser/${username}`);
          if (response.status === 200) {
             setMessage({
-               message: `${t('snb_user')} "${username}" ${t(
-                  'snb_deleted_user'
-               )}`,
+               message: `${t('snb_user')} "${username}" ${t('snb_deleted_user')}`,
                color: 'error',
             });
             setDeleteUsername('');
@@ -83,9 +78,7 @@ const Settings = () => {
       } catch (error) {
          if (error.response && error.response.status === 404) {
             setMessage({
-               message: `${t('snb_user')} ${t('with_name')} "${username}" ${t(
-                  'not_found'
-               )}`,
+               message: `${t('snb_user')} ${t('with_name')} "${username}" ${t('not_found')}`,
                color: 'error',
             });
          } else {
@@ -120,11 +113,7 @@ const Settings = () => {
    return (
       <>
          <Tooltip title={t('settings')} placement="bottom" arrow>
-            <IconButton
-               className="button btn-settings"
-               onClick={handleOpen}
-               tabIndex={-1}
-            >
+            <IconButton className="button btn-settings" onClick={handleOpen} tabIndex={-1}>
                <SettingsIcon />
             </IconButton>
          </Tooltip>
@@ -150,11 +139,7 @@ const Settings = () => {
                   <div className="settings-wrapper">
                      <div className="settings-section">
                         <p>{t('show_logins')}</p>
-                        <Button
-                           className="btn-settings"
-                           variant="outlined"
-                           onClick={() => getAllUserLogins()}
-                        >
+                        <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
                            {t('btn_show_logins')}
                         </Button>
                      </div>
@@ -168,7 +153,7 @@ const Settings = () => {
                            variant="standard"
                            autoComplete="off"
                            value={newUsername}
-                           onChange={e => {
+                           onChange={(e) => {
                               setNewUsername(e.target.value);
                               setErrorUsername(false);
                            }}
@@ -176,12 +161,7 @@ const Settings = () => {
                            error={isErrorUsername}
                            inputRef={usernameInputRef}
                            InputProps={{
-                              endAdornment: (
-                                 <ClearButton
-                                    value={newUsername}
-                                    onClick={() => setNewUsername('')}
-                                 />
-                              ),
+                              endAdornment: <ClearButton value={newUsername} onClick={() => setNewUsername('')} />,
                            }}
                         />
 
@@ -192,22 +172,13 @@ const Settings = () => {
                            variant="standard"
                            autoComplete="off"
                            value={newPassword}
-                           onChange={e => setNewPassword(e.target.value)}
+                           onChange={(e) => setNewPassword(e.target.value)}
                            InputProps={{
-                              endAdornment: (
-                                 <ClearButton
-                                    value={newPassword}
-                                    onClick={() => setNewPassword('')}
-                                 />
-                              ),
+                              endAdornment: <ClearButton value={newPassword} onClick={() => setNewPassword('')} />,
                            }}
                         />
 
-                        <Button
-                           className="btn-settings"
-                           variant="outlined"
-                           onClick={createOrUpdateUser}
-                        >
+                        <Button className="btn-settings" variant="outlined" onClick={createOrUpdateUser}>
                            {t('btn_create_or_update')}
                         </Button>
                      </div>
@@ -221,7 +192,7 @@ const Settings = () => {
                            variant="standard"
                            autoComplete="off"
                            value={deleteUsername}
-                           onChange={e => {
+                           onChange={(e) => {
                               setDeleteUsername(e.target.value);
                               setErrorDeleteUser(false);
                            }}
@@ -230,10 +201,7 @@ const Settings = () => {
                            inputRef={deleteInputRef}
                            InputProps={{
                               endAdornment: (
-                                 <ClearButton
-                                    value={deleteUsername}
-                                    onClick={() => setDeleteUsername('')}
-                                 />
+                                 <ClearButton value={deleteUsername} onClick={() => setDeleteUsername('')} />
                               ),
                            }}
                         />
