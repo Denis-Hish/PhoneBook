@@ -1,15 +1,6 @@
 @import 'fonts.scss';
 
 /* --------- VARIABLES ---------- */
-$color-bg: #edf1f4;
-$color-text: #5a5a5a;
-$color-black: #363636;
-$color-red: #f44336;
-$border: #9e9e9e;
-$color-one: #1f1f1f;
-$color-two: #5f4128;
-$color-three: #a24d06;
-
 $max-width: 1200px;
 $max-shop-width: 2500px;
 $max-width-modal: 1000px;
@@ -17,11 +8,17 @@ $max-width-modal: 1000px;
 $phone: 768px - 1;
 $tablet: 1024px - 1;
 
+$color-bg: #edf1f4;
+$color-text: #5a5a5a;
+$color-black: #363636;
+$color-red: #f44336;
+$border: #9e9e9e;
+
 $color-blue-1: rgb(25, 118, 210);
 $color-blue-2: rgba(25, 118, 210, 0.7);
 
-$box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
-$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+$box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
+$box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
 
 $transition: all 0.25s ease-in-out;
 
@@ -35,13 +32,12 @@ $transition: all 0.25s ease-in-out;
 }
 
 body {
-   font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', sans-serif;
+   font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Poppins', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans',
+      sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-color: $color-bg;
    color: $color-text;
-
-   font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -255,6 +251,7 @@ fieldset {
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 50%;
          }
       }
 
@@ -1180,84 +1177,84 @@ fieldset {
 
 /* ---------- DARK THEME ------------ */
 body.dark {
-   $color-dark-bg: #868e96;
-   $color-dark-text: #f0f0f0;
-   $color-dark-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-   $color-dark-box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+   $color-bg: #495057;
+   $color-text: #f6f5f7;
+   $color-box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+   $color-box-shadow-inset: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 
-   color: $color-dark-text;
-   background-color: $color-dark-bg;
+   color: $color-text;
+   background-color: $color-bg;
 
    .header {
-      background-color: $color-dark-bg;
-      box-shadow: $color-dark-box-shadow;
+      background-color: $color-bg;
+      box-shadow: $color-box-shadow;
    }
 
    // h1 {
-   //    color: $color-dark-text;
+   //    color: $color-text;
    //    span::after {
-   //       border: 3px solid $color-dark-text;
+   //       border: 3px solid $color-text;
    //    }
    // }
 
-   .swith-toggle-theme .toggle {
-      box-shadow: $color-dark-box-shadow-inset;
+   // .swith-toggle-theme .toggle {
+   // box-shadow: $color-box-shadow-inset;
 
-      // .indicator {
-      //    background: #a2a6aa;
-      //    box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99;
-      // }
-   }
+   // .indicator {
+   // background: #a2a6aa;
+   // box-shadow: -8px -4px 8px 0px #575757, 8px 4px 12px 0px #878d99;
+   // }
+   // }
 
    .header-table {
-      background-color: $color-dark-bg;
+      background-color: $color-bg;
    }
 
    .contacts {
       .header-table .filter {
-         box-shadow: $color-dark-box-shadow-inset;
+         box-shadow: $color-box-shadow-inset;
       }
 
       table {
-         box-shadow: $color-dark-box-shadow;
+         box-shadow: $color-box-shadow;
 
          tr {
-            background-color: $color-dark-bg;
-            box-shadow: $color-dark-box-shadow;
+            background-color: $color-bg;
+            box-shadow: $color-box-shadow;
          }
 
          tbody {
             tr:hover {
-               background-color: #8f9ba5;
+               background-color: #6c757d;
             }
          }
       }
    }
 
    .btn__add-contact {
-      box-shadow: $color-dark-box-shadow;
-      background-color: $color-dark-bg !important;
+      box-shadow: $color-box-shadow;
+      background-color: $color-bg !important;
    }
 
    .swith-toggle-theme {
       .toggle {
-         box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
+         box-shadow: $color-box-shadow, $color-box-shadow-inset;
 
          .indicator {
-            box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
-            background: $color-dark-bg;
+            box-shadow: $color-box-shadow, $color-box-shadow-inset;
+            background: $color-bg;
          }
       }
    }
 
    .swith-language {
       .MuiSelect-select {
-         box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
+         box-shadow: $color-box-shadow, $color-box-shadow-inset;
       }
    }
 
    .btn-logout {
-      box-shadow: $color-dark-box-shadow, $color-dark-box-shadow-inset;
+      box-shadow: $color-box-shadow, $color-box-shadow-inset;
    }
 }
 

@@ -29,12 +29,11 @@ Montserrat - yes
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Roboto", "Oxygen", "Cantarell", "Fira Sans", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Poppins", "Roboto", "Oxygen", "Cantarell", "Fira Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #edf1f4;
   color: #5a5a5a;
-  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -71,7 +70,7 @@ fieldset {
 }
 
 .button {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
 }
 
 @media only screen and (max-width: 767px) {
@@ -84,7 +83,7 @@ fieldset {
   position: fixed;
   width: 100%;
   background-color: #edf1f4;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   z-index: 100;
   overflow: hidden;
   padding: 0 calc(17px - (100vw - 100%)) 0 0;
@@ -195,7 +194,7 @@ fieldset {
 .header .header-content .swith-language {
   margin-bottom: 7px;
   border-radius: 50px;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff, 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255), 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .header .header-content .swith-language div {
   transition: all 0.25s ease-in-out;
@@ -220,10 +219,11 @@ fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
 }
 .header .header-content .btn-download {
   margin-bottom: 7px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
   color: #5a5a5a;
   width: 36px;
   height: 36px;
@@ -244,7 +244,7 @@ fieldset {
   color: #1c7ed6;
 }
 .header .header-content .btn-logout {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff, inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255), inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
   height: 36px;
   width: 36px;
   margin-bottom: 7px;
@@ -278,7 +278,7 @@ fieldset {
   border: none;
   transition: all var(--transition-btn-close) ease-in-out;
   z-index: 100;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   cursor: pointer;
 }
 .btn-close:hover {
@@ -329,7 +329,7 @@ fieldset {
 .modal .modal-wrapper {
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .modal .modal-header {
   margin-bottom: 3rem;
@@ -349,7 +349,7 @@ fieldset {
 }
 .modal .modal-buttons .btn-modal {
   width: 8rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .modal .modal-icon {
   font-size: 2rem;
@@ -382,7 +382,7 @@ fieldset {
   flex-direction: column;
   max-width: inherit;
   margin: 0 auto;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 8px;
 }
@@ -391,7 +391,7 @@ fieldset {
   padding-left: 10px;
   background: transparent;
   border-radius: 10px;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
   width: 100%;
   /* input не нажат */
   /* input нажат */
@@ -455,7 +455,7 @@ fieldset {
   padding: 4px;
   top: 20%;
   right: 48px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .form-wrap .form .clear-btn svg {
   font-weight: 400;
@@ -467,7 +467,7 @@ fieldset {
 }
 .form-wrap button[title=Clear] {
   right: 40px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .form-wrap .clear-btn-group-add-contact {
   right: 60px !important;
@@ -481,7 +481,7 @@ fieldset {
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .form-wrap .btn-add-contact:hover,
 .form-wrap .btn-edit-contact:hover {
@@ -489,7 +489,7 @@ fieldset {
 }
 .form-wrap .btn-add-contact:active,
 .form-wrap .btn-edit-contact:active {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
 }
 
 .btn__add-contact {
@@ -497,7 +497,7 @@ fieldset {
   bottom: 3rem;
   width: 4rem;
   height: 4rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   background-color: #fff !important;
   right: calc(2rem - (100vw - 100%));
   transition: all 0.25s ease-in-out !important;
@@ -539,7 +539,7 @@ fieldset {
   width: 226px;
 }
 .contacts .header-table .filter {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -552,7 +552,7 @@ fieldset {
 .contacts .header-table .filter .clear-filter-btn {
   padding: 4px;
   margin-right: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .contacts .header-table .filter .clear-filter-btn svg {
   font-size: 1.25rem;
@@ -568,7 +568,7 @@ fieldset {
 }
 .contacts table {
   display: grid;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   padding: 2rem;
   margin-top: 4.5rem;
   border-radius: 8px;
@@ -795,21 +795,21 @@ fieldset {
   padding: 10px 15px;
   background: transparent;
   border-radius: 8px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   width: 100%;
 }
 .login .btn-login:hover {
   background-color: inherit;
 }
 .login .btn-login:active {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
 }
 .login .clear-btn {
   position: absolute;
   padding: 4px;
   right: 40px;
   top: 22%;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .login .clear-btn svg {
   font-weight: 400;
@@ -836,7 +836,7 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 8px;
 }
@@ -852,7 +852,7 @@ fieldset {
 }
 .settings-modal-windows .settings-wrapper .input {
   border-radius: 10px;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px #fff;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
 }
 .settings-modal-windows .settings-wrapper .input .clear-btn {
   position: absolute;
@@ -874,7 +874,7 @@ fieldset {
   transform: translate(10px, 5px) scale(0.75);
 }
 .settings-modal-windows .settings-wrapper button {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 
 /* ---------- ANIMATED HEADER TITLE ---------- */
@@ -990,48 +990,45 @@ fieldset {
 }
 /* ---------- DARK THEME ------------ */
 body.dark {
-  color: #f0f0f0;
-  background-color: #868e96;
+  color: #f6f5f7;
+  background-color: #495057;
 }
 body.dark .header {
-  background-color: #868e96;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-}
-body.dark .swith-toggle-theme .toggle {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  background-color: #495057;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
 body.dark .header-table {
-  background-color: #868e96;
+  background-color: #495057;
 }
 body.dark .contacts .header-table .filter {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 }
 body.dark .contacts table {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
 body.dark .contacts table tr {
-  background-color: #868e96;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
+  background-color: #495057;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
 body.dark .contacts table tbody tr:hover {
-  background-color: #8f9ba5;
+  background-color: #6c757d;
 }
 body.dark .btn__add-contact {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96;
-  background-color: #868e96 !important;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+  background-color: #495057 !important;
 }
 body.dark .swith-toggle-theme .toggle {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 }
 body.dark .swith-toggle-theme .toggle .indicator {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
-  background: #868e96;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+  background: #495057;
 }
 body.dark .swith-language .MuiSelect-select {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 }
 body.dark .btn-logout {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px #868e96, inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px #868e96;
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 }
 
 /* ----------------------------------------------------- *//*# sourceMappingURL=style.css.map */
