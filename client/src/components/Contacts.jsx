@@ -142,7 +142,7 @@ const Contacts = () => {
    const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
       <>
          <Button
-            className="btn-modal btn-modal__cancel"
+            className="btn-modal btn-modal__cancel btn-blue"
             variant="outlined"
             color="primary"
             startIcon={<CancelOutlinedIcon />}
@@ -151,7 +151,7 @@ const Contacts = () => {
             {t('cancel')}
          </Button>
          <Button
-            className="btn-modal btn-modal__delete"
+            className="btn-modal btn-modal__delete btn-red"
             variant="outlined"
             color="error"
             endIcon={<DeleteOutlineOutlinedIcon />}

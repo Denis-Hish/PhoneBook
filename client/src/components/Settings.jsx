@@ -132,19 +132,19 @@ const Settings = () => {
             }}
          >
             <Fade in={open}>
-               <Box className="settings-modal-windows" sx={style}>
+               <Box className="modal settings-modal-windows" sx={style}>
                   <button className="btn-close" onClick={handleClose}></button>
                   <h2 className="mb-2">{t('settings')}:</h2>
 
                   <div className="settings-wrapper">
-                     <div className="settings-section">
+                     <div className="settings-section modal-section">
                         <p>{t('show_logins')}</p>
-                        <Button className="btn-settings" variant="outlined" onClick={() => getAllUserLogins()}>
+                        <Button className="btn-settings btn-blue" variant="outlined" onClick={() => getAllUserLogins()}>
                            {t('btn_show_logins')}
                         </Button>
                      </div>
 
-                     <div className="settings-section">
+                     <div className="settings-section modal-section">
                         <p>{t('p_add_new_user')}</p>
                         <TextField
                            className="input"
@@ -178,12 +178,12 @@ const Settings = () => {
                            }}
                         />
 
-                        <Button className="btn-settings" variant="outlined" onClick={createOrUpdateUser}>
+                        <Button className="btn-settings btn-blue" variant="outlined" onClick={createOrUpdateUser}>
                            {t('btn_create_or_update')}
                         </Button>
                      </div>
 
-                     <div className="settings-section">
+                     <div className="settings-section modal-section">
                         <p>{t('p_delete_user')}</p>
                         <TextField
                            className="input"
@@ -207,7 +207,7 @@ const Settings = () => {
                         />
 
                         <Button
-                           className="btn-settings"
+                           className="btn-settings btn-red"
                            variant="outlined"
                            onClick={() => deleteUser(deleteUsername)}
                            color="error"

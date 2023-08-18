@@ -109,10 +109,10 @@ fieldset {
   height: 36px;
 }
 .header .header-content .header-content__left .btn-settings svg {
-  transition: all 0.25s ease-in-out;
+  transition: fill 0.25s ease-in-out;
 }
 .header .header-content .header-content__left .btn-settings:hover svg {
-  color: #f44336;
+  fill: #f44336;
 }
 .header .header-content .header-content__center h1 {
   text-align: center;
@@ -153,10 +153,10 @@ fieldset {
   margin: auto 0;
 }
 .header .header-content .header-content__right .swith-toggle-theme .toggle {
-  transition: all 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
 }
 .header .header-content .header-content__right .swith-toggle-theme:hover .toggle {
-  background-color: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.03);
 }
 .header .header-content .header-content__right .swith-toggle-theme .label {
   display: inline-flex;
@@ -197,14 +197,14 @@ fieldset {
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255), 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
 }
 .header .header-content .swith-language div {
-  transition: all 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
 }
 .header .header-content .swith-language div .lng {
   color: #5a5a5a;
   font-weight: 500;
 }
 .header .header-content .swith-language div:hover {
-  background-color: rgba(0, 0, 0, 0.01);
+  background: rgba(0, 0, 0, 0.01);
 }
 .header .header-content .swith-language div:hover .lng {
   color: rgb(25, 118, 210);
@@ -249,7 +249,7 @@ fieldset {
   width: 36px;
   margin-bottom: 7px;
   padding: 0;
-  transition: all 0.25s ease-in-out;
+  transition: fill 0.25s ease-in-out;
 }
 .header .header-content .btn-logout:hover svg {
   fill: #f44336;
@@ -500,14 +500,14 @@ fieldset {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   background-color: #fff !important;
   right: calc(2rem - (100vw - 100%));
-  transition: all 0.25s ease-in-out !important;
+  transition: 0.25s ease-in-out !important;
   z-index: 1;
 }
 .btn__add-contact svg {
   width: 3rem;
   height: 3rem;
   fill: rgba(25, 118, 210, 0.7);
-  transition: all 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 .btn__add-contact:hover {
   background-color: #f5f5f5 !important;
@@ -997,38 +997,186 @@ body.dark .header {
   background-color: #495057;
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
+body.dark .header .header-content .header-content__left button {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+  color: #f6f5f7;
+}
+body.dark .header .header-content .header-content__center h1 {
+  color: rgb(116, 192, 252);
+}
+body.dark .header .header-content .header-content__center h1 .phone-circle::after {
+  border: 3px solid rgb(116, 192, 252);
+}
+body.dark .header .header-content .header-content__right .swith-toggle-theme:hover .toggle {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+body.dark .header .header-content .header-content__right .swith-toggle-theme .label {
+  color: #394a56;
+}
+body.dark .header .header-content .header-content__right .swith-toggle-theme .toggle {
+  box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64, 4px 4px 4px 0px #545c64 inset, -4px -4px 4px 0px #3e444a inset;
+}
+body.dark .header .header-content .header-content__right .swith-toggle-theme .indicator {
+  background: #5a6269;
+  box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64;
+}
+body.dark .header .header-content .header-content__right .swith-language {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+}
+body.dark .header .header-content .header-content__right .swith-language div .lng {
+  color: #f6f5f7;
+}
+body.dark .header .header-content .header-content__right .swith-language div:hover .lng {
+  color: rgb(116, 192, 252);
+}
+body.dark .header .header-content .header-content__right .btn-download {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+  color: #f6f5f7;
+}
+body.dark .header .header-content .header-content__right .btn-downloaded:hover svg:nth-child(2) {
+  color: rgb(116, 192, 252);
+}
+body.dark .header .header-content .header-content__right .btn-logout {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+  color: #f6f5f7;
+}
 body.dark .header-table {
   background-color: #495057;
 }
 body.dark .contacts .header-table .filter {
   box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
 }
+body.dark .contacts .header-table .filter input {
+  color: #f6f5f7;
+}
+body.dark .contacts .header-table .filter .MuiInputLabel-root {
+  color: #f6f5f7;
+}
+body.dark .contacts .header-table .filter .MuiInputLabel-shrink {
+  color: rgb(116, 192, 252);
+}
+body.dark .contacts .header-table .filter .clear-filter-btn {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .contacts .header-table .filter .clear-filter-btn svg {
+  fill: #f6f5f7;
+}
 body.dark .contacts table {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .contacts table thead .header-title span {
+  color: rgb(116, 192, 252);
 }
 body.dark .contacts table tr {
   background-color: #495057;
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
+body.dark .contacts table tr .header-title {
+  color: rgb(116, 192, 252);
+}
+body.dark .contacts table tr .header-title svg {
+  fill: rgb(116, 192, 252);
+}
+body.dark .contacts table tr .btn-table {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+body.dark .contacts table tr .btn-table:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 body.dark .contacts table tbody tr:hover {
-  background-color: #6c757d;
+  background-color: #4e545a;
 }
 body.dark .btn__add-contact {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
   background-color: #495057 !important;
 }
-body.dark .swith-toggle-theme .toggle {
-  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+body.dark .btn__add-contact svg {
+  fill: rgba(116, 192, 252, 0.7);
 }
-body.dark .swith-toggle-theme .toggle .indicator {
-  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
-  background: #495057;
+body.dark .btn__add-contact:hover {
+  background-color: #6c757d !important;
 }
-body.dark .swith-language .MuiSelect-select {
-  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+body.dark .btn__add-contact:hover svg {
+  fill: rgb(116, 192, 252);
 }
-body.dark .btn-logout {
-  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64, inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+body.dark .login {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .login form input[type=text],
+body.dark .login form input[type=password] {
+  box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+  color: #f6f5f7;
+}
+body.dark .login form .MuiInputLabel-root {
+  color: #f6f5f7;
+}
+body.dark .login form .MuiInputLabel-shrink {
+  color: rgb(116, 192, 252);
+}
+body.dark .login form .input-box button {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .MuiPaper-root {
+  background-color: #495057;
+}
+body.dark .MuiPaper-root .lng {
+  color: #f6f5f7;
+}
+body.dark .modal {
+  background-color: #495057 !important;
+}
+body.dark .modal .btn-close {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+  background-color: #495057;
+}
+body.dark .modal .btn-close::after, body.dark .modal .btn-close::before {
+  background-color: #f6f5f7;
+}
+body.dark .modal .btn-close:hover {
+  background-color: rgb(116, 192, 252);
+}
+body.dark .modal .btn-close:hover::after, body.dark .modal .btn-close:hover::before {
+  background-color: #495057;
+}
+body.dark .modal .modal-section {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .modal .input {
+  box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+}
+body.dark .modal input {
+  color: #f6f5f7;
+}
+body.dark .modal .MuiInputLabel-root {
+  color: #f6f5f7;
+}
+body.dark .modal .MuiInputLabel-shrink {
+  color: rgb(116, 192, 252);
+}
+body.dark .modal button {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .btn-modal {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64 !important;
+}
+body.dark .btn-blue {
+  border-color: rgb(116, 192, 252);
+  color: rgb(116, 192, 252);
+}
+body.dark .btn-red {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+body.dark button[title=Clear],
+body.dark .clear-btn {
+  box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64 !important;
+}
+body.dark button[title=Clear] svg,
+body.dark .clear-btn svg {
+  fill: #f6f5f7 !important;
+}
+body.dark .MuiInputBase-root::after {
+  border-color: rgb(116, 192, 252) !important;
 }
 
 /* ----------------------------------------------------- *//*# sourceMappingURL=style.css.map */

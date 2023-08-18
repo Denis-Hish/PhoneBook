@@ -151,7 +151,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                   <button className="btn-close" onClick={closeModal}></button>
                   <div className="add-contacts">
                      <h2 className="mb-2">{t('edit_contact')}:</h2>
-                     <form className="form-wrap" onSubmit={handleEditContact}>
+                     <form className="form-wrap modal-section" onSubmit={handleEditContact}>
                         <div className="form">
                            <TextField
                               className="input"
@@ -293,7 +293,7 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                            </div>
                         </div>
                         <p className="fst-italic">{t('required')}</p>
-                        <Button className="btn-edit-contact" type="submit" variant="outlined">
+                        <Button className="btn-edit-contact btn-blue" type="submit" variant="outlined">
                            {t('save_changes')}
                         </Button>
                      </form>

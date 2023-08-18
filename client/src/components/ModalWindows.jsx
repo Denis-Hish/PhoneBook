@@ -36,7 +36,7 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
          >
             <Fade in={isOpen}>
                <Box sx={style} className="modal modal-add-contact">
-                  <div className="modal-wrapper">
+                  <div className="modal-wrapper modal-section">
                      <Typography className="modal-header">
                         <button className="btn-close" onClick={handleClose}></button>
                      </Typography>

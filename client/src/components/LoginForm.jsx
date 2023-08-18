@@ -155,7 +155,7 @@ const LoginForm = ({ onLogin }) => {
                   {t('remember_me')}
                </label>
                <div className="input-box">
-                  <Button className="btn-login" type="submit" variant="outlined">
+                  <Button className="btn-login btn-blue" type="submit" variant="outlined">
                      {t('login')}
                   </Button>
                </div>

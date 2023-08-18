@@ -112,7 +112,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
    return (
       <div className="add-contacts">
          <h2 className="mb-2">{t('add_contact')}:</h2>
-         <form onSubmit={handleAddContact} className="form-wrap">
+         <form onSubmit={handleAddContact} className="form-wrap modal-section">
             <div className="form">
                <TextField
                   name="userName"
@@ -251,7 +251,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
                </div>
             </div>
             <p className="fst-italic">{t('required')}</p>
-            <Button className="btn-add-contact" type="submit" variant="outlined">
+            <Button className="btn-add-contact btn-blue" type="submit" variant="outlined">
                {t('add_contact')}
             </Button>
          </form>
