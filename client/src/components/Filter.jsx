@@ -17,7 +17,7 @@ export default function Filter({ value, onChange }) {
          <TextField
             id="outlined-basic"
             label={t('filter_contacts')}
-            variant="outlined"
+            variant="standard"
             color="primary"
             value={value}
             onChange={onChange}

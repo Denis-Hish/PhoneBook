@@ -405,6 +405,10 @@ fieldset {
 .form-wrap .input .MuiInputBase-root {
   margin-top: 16px;
 }
+.form-wrap .input .MuiInputBase-root::after {
+  position: absolute;
+  right: 10px;
+}
 .form-wrap .input .MuiInputBase-root:before {
   border-bottom: none !important;
 }
@@ -414,6 +418,7 @@ fieldset {
 }
 .form-wrap .MuiAutocomplete-root .MuiInputBase-root::after {
   content: "";
+  right: 10px !important;
   transform: scaleX(0);
   transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
@@ -487,10 +492,6 @@ fieldset {
 .form-wrap .btn-edit-contact:hover {
   background-color: inherit;
 }
-.form-wrap .btn-add-contact:active,
-.form-wrap .btn-edit-contact:active {
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255);
-}
 
 .btn__add-contact {
   position: fixed !important;
@@ -545,11 +546,14 @@ fieldset {
   align-items: center;
   justify-content: space-between;
   width: 20rem;
+  position: relative;
 }
 .contacts .header-table .filter .MuiTextField-root {
   width: inherit;
 }
 .contacts .header-table .filter .clear-filter-btn {
+  position: absolute;
+  right: 0;
   padding: 4px;
   margin-right: 1rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
@@ -564,7 +568,13 @@ fieldset {
   transform: translate(14px, 3px) scale(0.75);
 }
 .contacts .header-table .filter .MuiInputBase-input {
-  padding: 16.5px 14px 8.5px 14px;
+  padding: 0.5px 14px 8.5px 14px;
+}
+.contacts .header-table .filter .MuiInputBase-root:before {
+  border-bottom: none !important;
+}
+.contacts .header-table .filter .MuiInputBase-root::after {
+  inset: 0 10px;
 }
 .contacts table {
   display: grid;
@@ -783,9 +793,7 @@ fieldset {
   margin-top: 0;
 }
 .login .MuiInputBase-root::after {
-  bottom: 23px;
-  left: 10px;
-  right: 10px;
+  inset: 0 10px 23px 10px;
 }
 .login .input-form {
   width: 100%;
@@ -1116,10 +1124,10 @@ body.dark .login form .MuiInputLabel-shrink {
 body.dark .login form .input-box button {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
-body.dark .MuiPaper-root {
+body.dark .MuiMenu-paper {
   background-color: #495057;
 }
-body.dark .MuiPaper-root .lng {
+body.dark .MuiMenu-paper .lng {
   color: #f6f5f7;
 }
 body.dark .modal {
@@ -1138,6 +1146,9 @@ body.dark .modal .btn-close:hover {
 body.dark .modal .btn-close:hover::after, body.dark .modal .btn-close:hover::before {
   background-color: #495057;
 }
+body.dark .modal .btn-close:active {
+  background-color: rgba(116, 192, 252, 0.7);
+}
 body.dark .modal .modal-section {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
 }
@@ -1147,14 +1158,21 @@ body.dark .modal .input {
 body.dark .modal input {
   color: #f6f5f7;
 }
-body.dark .modal .MuiInputLabel-root {
-  color: #f6f5f7;
-}
-body.dark .modal .MuiInputLabel-shrink {
-  color: rgb(116, 192, 252);
-}
 body.dark .modal button {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+}
+body.dark .Mui-error,
+body.dark .MuiAutocomplete-root.error {
+  color: #ff6b6b !important;
+}
+body.dark .MuiAutocomplete-root.error label {
+  color: #ff6b6b;
+}
+body.dark .MuiInputLabel-root {
+  color: #f6f5f7;
+}
+body.dark .MuiInputLabel-shrink {
+  color: rgb(116, 192, 252);
 }
 body.dark .btn-modal {
   box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64 !important;
@@ -1175,8 +1193,15 @@ body.dark button[title=Clear] svg,
 body.dark .clear-btn svg {
   fill: #f6f5f7 !important;
 }
-body.dark .MuiInputBase-root::after {
-  border-color: rgb(116, 192, 252) !important;
+body.dark .MuiInputBase-root::after,
+body.dark .MuiAutocomplete-root::after {
+  border-color: rgb(116, 192, 252);
+}
+body.dark .form-wrap .MuiAutocomplete-root.error::after {
+  border-color: #ff6b6b !important;
+}
+body.dark .Mui-error::after {
+  border-color: #ff6b6b !important;
 }
 
 /* ----------------------------------------------------- *//*# sourceMappingURL=style.css.map */

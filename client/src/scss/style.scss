@@ -470,6 +470,11 @@ fieldset {
 
       .MuiInputBase-root {
          margin-top: 16px;
+
+         &::after {
+            position: absolute;
+            right: 10px;
+         }
       }
 
       // .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
@@ -503,7 +508,7 @@ fieldset {
       content: '';
       // position: absolute;
       // left: 0;
-      // right: 0;
+      right: 10px !important;
       // bottom: 0;
       // border-bottom: 1px solid #1976d2;
       transform: scaleX(0);
@@ -602,9 +607,9 @@ fieldset {
          background-color: inherit;
       }
 
-      &:active {
-         box-shadow: $box-shadow-inset;
-      }
+      // &:active {
+      //    box-shadow: $box-shadow-inset;
+      // }
    }
 }
 
@@ -667,13 +672,15 @@ fieldset {
          align-items: center;
          justify-content: space-between;
          width: 20rem;
-         // margin-right: 386px;
+         position: relative;
 
          .MuiTextField-root {
             width: inherit;
          }
 
          .clear-filter-btn {
+            position: absolute;
+            right: 0;
             padding: 4px;
             margin-right: 1rem;
             box-shadow: $box-shadow;
@@ -691,7 +698,16 @@ fieldset {
          }
 
          .MuiInputBase-input {
-            padding: 16.5px 14px 8.5px 14px;
+            padding: 0.5px 14px 8.5px 14px;
+         }
+
+         .MuiInputBase-root {
+            &:before {
+               border-bottom: none !important;
+            }
+            &::after {
+               inset: 0 10px;
+            }
          }
       }
    }
@@ -935,9 +951,7 @@ fieldset {
 
       // нижняя синяя линия при фокусе
       &::after {
-         bottom: 23px;
-         left: 10px;
-         right: 10px;
+         inset: 0 10px 23px 10px;
       }
    }
 
@@ -1376,7 +1390,7 @@ body.dark {
       }
    }
 
-   .MuiPaper-root {
+   .MuiMenu-paper {
       background-color: $color-bg;
 
       .lng {
@@ -1404,6 +1418,10 @@ body.dark {
                background-color: $color-bg;
             }
          }
+
+         &:active {
+            background-color: $color-blue-2;
+         }
       }
 
       .modal-section {
@@ -1418,16 +1436,26 @@ body.dark {
          color: $color-text;
       }
 
-      .MuiInputLabel-root {
-         color: $color-text;
-      }
-      .MuiInputLabel-shrink {
-         color: $color-blue-1;
-      }
-
       button {
          box-shadow: $box-shadow;
       }
+   }
+
+   .Mui-error,
+   .MuiAutocomplete-root.error {
+      color: $color-red !important;
+   }
+
+   .MuiAutocomplete-root.error label {
+      color: $color-red;
+   }
+
+   .MuiInputLabel-root {
+      color: $color-text;
+   }
+
+   .MuiInputLabel-shrink {
+      color: $color-blue-1;
    }
 
    .btn-modal {
@@ -1452,10 +1480,26 @@ body.dark {
       }
    }
 
-   .MuiInputBase-root {
+   .MuiInputBase-root,
+   .MuiAutocomplete-root {
       // нижняя синяя линия при фокусе
       &::after {
-         border-color: $color-blue-1 !important;
+         border-color: $color-blue-1;
+      }
+   }
+
+   // .form-wrap .MuiInputBase-root.Mui-focused::after {
+   // border-bottom: 2px solid $color-blue-1;
+   // }
+
+   .form-wrap .MuiAutocomplete-root.error::after {
+      border-color: $color-red !important;
+   }
+
+   .Mui-error {
+      // нижняя красная линия при ошибке
+      &::after {
+         border-color: $color-red !important;
       }
    }
 }
