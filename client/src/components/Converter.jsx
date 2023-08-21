@@ -116,7 +116,8 @@ const Converter = () => {
 
       // Отправка POST-запроса на сервер для сохранения файлов без запроса браузера о сохранении
       axios
-         .post('http://localhost:8080/create-xml-files', data)
+         // .post('http://localhost:8080/create-xml-files', data)
+         .post('create-xml-files', data)
          .then((response) => {
             // console.log(response.data); // Успешное сообщение от сервера (выводится в консоль)
             setMessage({ message: t('files_saved'), color: 'success' });
