@@ -22,7 +22,6 @@ function App() {
    const handleLogout = () => {
       setIsAuthenticated(false);
       localStorage.removeItem('authData');
-      console.log('Вылогирован');
       // clearContactsData(); //! Очистить данные контактов
       window.location.reload(); //! Перезагрузка страницы для очистки данных?
    };
@@ -52,6 +51,7 @@ function App() {
             // Log out the user after the idle timeout
             setIsAuthenticated(false);
             localStorage.removeItem('authData');
+            window.location.reload();
          }, countdown);
 
          // Reset the idle timer on user activity
@@ -60,6 +60,7 @@ function App() {
             idleTimer = setTimeout(() => {
                setIsAuthenticated(false);
                localStorage.removeItem('authData');
+               window.location.reload();
             }, countdown);
          };
 
