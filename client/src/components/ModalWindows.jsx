@@ -13,12 +13,10 @@ const style = {
 };
 
 const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
-   // const handleOpen = () => setOpen(true);
    const handleClose = () => setIsOpenModal(false);
 
    return (
       <>
-         {/* <Button onClick={handleOpen}>Open modal</Button> */}
          <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
@@ -43,24 +41,7 @@ const TransitionsModal = ({ id, content, isOpen, setIsOpenModal, Buttons }) => {
 
                      <Typography className="modal-content">{content}</Typography>
 
-                     <Typography className="modal-buttons">
-                        {/* <Button
-                        className="btn-modal btn-modal__cancel"
-                        onClick={handleClose}
-                        variant="outlined"
-                        color="success"
-                     >
-                        CANCEL
-                     </Button>
-                     <Button
-                        className="btn-modal btn-modal__save"
-                        variant="outlined"
-                        color="error"
-                     >
-                        DELETE
-                     </Button> */}
-                        {Buttons}
-                     </Typography>
+                     <Typography className="modal-buttons">{Buttons}</Typography>
                   </div>
                </Box>
             </Fade>

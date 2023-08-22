@@ -215,28 +215,6 @@ const Settings = () => {
                            {t('delete-btn')}
                         </Button>
                      </div>
-
-                     {/* <TextField
-                        className="input"
-                        type="number"
-                        label="Countdown active session (min)"
-                        variant="standard"
-                        autoComplete="off"
-                     />
-
-                     <TextField
-                        className="input"
-                        label="Selecting a folder to save the File-1.xml"
-                        variant="standard"
-                        autoComplete="off"
-                     />
-
-                     <TextField
-                        className="input"
-                        label="Selecting a folder to save the File-2.xml"
-                        variant="standard"
-                        autoComplete="off"
-                     /> */}
                   </div>
                </Box>
             </Fade>

@@ -39,22 +39,11 @@ const Contacts = () => {
       const obj = contacts.find((contact) => contact.id === id);
       setContactForEdit(obj);
       setOpenEditModal(true);
-
-      // setContactForEdit({
-      // id: 'id',
-      // name: 'name',
-      // tel1: 'Tel 1',
-      // tel2: 'Tel 2',
-      // tel3: 'Tel 3',
-      // group: 'Group',
-      // });
    };
 
    const getIdDeleteBtn = (id) => {
-      // console.log('Delete ID:', id);
       setSelectedId(id);
       setOpen(true);
-      // setSelectedAction('Delete');
       setSelectedAction(t('delete'));
    };
 
