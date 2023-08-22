@@ -20,7 +20,6 @@ Caveat - yes
 Montserrat - yes
 */
 /* --------- VARIABLES ---------- */
-/* ---------  ---------- */
 /* --------- GENERAL STYLES ---------- */
 * {
   margin: 0;
@@ -318,7 +317,6 @@ fieldset {
 }
 
 /* Modal Windows */
-/* ОБЩИЕ */
 .modal {
   padding: 1rem;
   border-radius: 8px;
@@ -501,7 +499,7 @@ fieldset {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
   background-color: #fff !important;
   right: calc(2rem - (100vw - 100%));
-  transition: 0.25s ease-in-out !important;
+  transition: background-color 0.25s ease-in-out !important;
   z-index: 1;
 }
 .btn__add-contact svg {
@@ -679,6 +677,9 @@ fieldset {
   font-size: 18px;
   font-weight: 700;
   padding: 0 calc(17px - (100vw - 100%)) 0 0;
+}
+.footer p {
+  margin-left: 1rem;
 }
 
 .open-modal {

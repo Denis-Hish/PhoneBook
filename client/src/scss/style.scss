@@ -22,8 +22,6 @@ $box-shadow-inset: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px r
 
 $transition: 0.25s ease-in-out;
 
-/* ---------  ---------- */
-
 /* --------- GENERAL STYLES ---------- */
 * {
    margin: 0;
@@ -373,7 +371,6 @@ fieldset {
 }
 
 /* Modal Windows */
-/* ОБЩИЕ */
 .modal {
    padding: 1rem;
    border-radius: 8px;
@@ -424,7 +421,6 @@ fieldset {
          left: 50%;
          width: 3rem;
          height: 3rem;
-         // border: 2px solid blue;
       }
    }
 }
@@ -564,7 +560,6 @@ fieldset {
          padding: 4px;
          top: 20%;
          right: 48px;
-         // transform: translate(-50%, -50%);
          box-shadow: $box-shadow;
 
          svg {
@@ -606,10 +601,6 @@ fieldset {
       &:hover {
          background-color: inherit;
       }
-
-      // &:active {
-      //    box-shadow: $box-shadow-inset;
-      // }
    }
 }
 
@@ -621,7 +612,7 @@ fieldset {
    box-shadow: $box-shadow;
    background-color: #fff !important;
    right: calc(2rem - (100vw - 100%));
-   transition: $transition !important;
+   transition: background-color $transition !important;
    z-index: 1;
 
    svg {
@@ -811,7 +802,6 @@ fieldset {
          .btn-table {
             opacity: 0;
             background-color: rgba(255, 255, 255, 0.3);
-            // transition: all 0.2s;
 
             &:hover {
                background-color: rgba(0, 0, 0, 0.1);
@@ -846,6 +836,10 @@ fieldset {
    font-size: 18px;
    font-weight: 700;
    padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+
+   p {
+      margin-left: 1rem;
+   }
 }
 
 .open-modal {
@@ -1037,7 +1031,6 @@ fieldset {
       .input {
          border-radius: 10px;
          box-shadow: $box-shadow-inset;
-         // width: 100%;
 
          // clear btn
          .clear-btn {
