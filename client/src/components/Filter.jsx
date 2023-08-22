@@ -16,6 +16,7 @@ export default function Filter({ value, onChange }) {
       <Box className="filter" component="form" noValidate autoComplete="off">
          <TextField
             id="outlined-basic"
+            name="filter"
             label={t('filter_contacts')}
             variant="standard"
             color="primary"

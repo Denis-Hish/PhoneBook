@@ -996,6 +996,15 @@ fieldset {
    }
 }
 
+// перекрытие стилей автозаполнения браузера
+.login form .input-box {
+   input:-webkit-autofill {
+      -webkit-box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgb(255, 255, 255),
+         inset 0 0 0 50px $color-bg;
+      -webkit-text-fill-color: $color-text;
+   }
+}
+
 .settings-modal-windows {
    background-color: $color-bg !important;
 
@@ -1493,6 +1502,14 @@ body.dark {
       // нижняя красная линия при ошибке
       &::after {
          border-color: $color-red !important;
+      }
+   }
+
+   // перекрытие стилей автозаполнения браузера
+   .login form .input-box {
+      input:-webkit-autofill {
+         -webkit-box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64, inset 0 0 0 50px $color-bg;
+         -webkit-text-fill-color: $color-text;
       }
    }
 }

@@ -119,6 +119,7 @@ const LoginForm = ({ onLogin }) => {
                   <TextField
                      className="input-form"
                      type="text"
+                     name="username"
                      label={t('user_name')}
                      value={username}
                      onChange={(e) => setUsername(e.target.value)}
@@ -137,6 +138,7 @@ const LoginForm = ({ onLogin }) => {
                   <TextField
                      className="input-form"
                      type="password"
+                     name="password"
                      label={t('password')}
                      value={password}
                      onChange={(e) => setPassword(e.target.value)}
