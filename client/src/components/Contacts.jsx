@@ -151,6 +151,80 @@ const Contacts = () => {
       </>
    );
 
+   const specialPrefixes = [
+      '12',
+      '13',
+      '14',
+      '15',
+      '16',
+      '17',
+      '18',
+      '22',
+      '23',
+      '24',
+      '25',
+      '29',
+      '32',
+      '33',
+      '34',
+      '35',
+      '41',
+      '42',
+      '43',
+      '44',
+      '46',
+      '48',
+      '52',
+      '54',
+      '55',
+      '56',
+      '58',
+      '59',
+      '61',
+      '62',
+      '63',
+      '65',
+      '67',
+      '68',
+      '71',
+      '74',
+      '75',
+      '76',
+      '77',
+      '81',
+      '82',
+      '83',
+      '84',
+      '85',
+      '86',
+      '87',
+      '89',
+      '91',
+      '94',
+      '95',
+   ];
+
+   const formatPhoneNumber = (phoneNumber) => {
+      if (!phoneNumber) {
+         return '';
+      }
+
+      // Проверка, начинается ли номер с одной из специальных комбинаций
+      const isSpecialPrefix = specialPrefixes.some((prefix) => phoneNumber.startsWith(prefix));
+
+      if (isSpecialPrefix && phoneNumber.length > 3) {
+         // Формат для номеров, начинающихся с специальных комбинаций
+         return `${phoneNumber.slice(0, 2)}-${phoneNumber.slice(2, 5)}-${phoneNumber.slice(5, 7)}-${phoneNumber.slice(
+            7
+         )}`;
+      } else if (phoneNumber.length > 6) {
+         // Формат для остальных номеров
+         return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+      } else {
+         return phoneNumber;
+      }
+   };
+
    return (
       <div className="contacts">
          <ModalAddContact updateListContacts={getContacts} />
@@ -244,9 +318,9 @@ const Contacts = () => {
                         <tr key={id}>
                            <td>{index + 1}</td>
                            <td>{userName}</td>
-                           <td>{phoneNumber1}</td>
-                           <td>{phoneNumber2}</td>
-                           <td>{phoneNumber3}</td>
+                           <td>{formatPhoneNumber(phoneNumber1)}</td>
+                           <td>{formatPhoneNumber(phoneNumber2)}</td>
+                           <td>{formatPhoneNumber(phoneNumber3)}</td>
                            <td>{group}</td>
                            <td className="btn-icon-table">
                               <Tooltip title={t('edit_contact')} placement="top" TransitionComponent={Zoom} arrow>
