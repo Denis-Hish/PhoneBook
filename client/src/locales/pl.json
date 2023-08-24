@@ -44,5 +44,6 @@
    "snb_deleted_user": "został pomyślnie usunięty!",
    "with_name": "o nazwie",
    "not_found": "nie znaleziony",
-   "list_of_users": "Lista użytkowników"
+   "list_of_users": "Lista użytkowników",
+   "number_exists": "Ten numer już istnieje"
 }

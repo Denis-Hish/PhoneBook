@@ -44,5 +44,6 @@
    "snb_deleted_user": "видалено успішно!",
    "with_name": "з ім'ям",
    "not_found": "не знайдено",
-   "list_of_users": "Список користувачів"
+   "list_of_users": "Список користувачів",
+   "number_exists": "Такий номер вже існує"
 }
