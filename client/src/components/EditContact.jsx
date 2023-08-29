@@ -14,6 +14,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { getAllContacts } from '../services/paramsAPI';
+import InputMask from 'react-input-mask';
+import { phoneNumberMask } from './PhonesCodes';
 
 const style = {
    position: 'absolute',
@@ -182,9 +184,19 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               label={`${t('phone')} 1`}
                               variant="standard"
                               value={phone1}
-                              onChange={(e) => setPhone1(e.target.value)}
                               autoComplete="off"
+                              onChange={(e) => setPhone1(e.target.value.replace(/[^0-9]/g, ''))}
+                              InputProps={{
+                                 inputComponent: InputMask,
+                                 inputProps: {
+                                    mask: phoneNumberMask(phone1),
+                                    onChange: (e) => setPhone1(e.target.value.replace(/[^0-9]/g, '')),
+                                    value: phone1,
+                                    maskPlaceholder: '',
+                                 },
+                              }}
                            />
+
                            <div className="icons">
                               <PhoneEnabledIcon />
                            </div>
@@ -201,8 +213,17 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               label={`${t('phone')} 2`}
                               variant="standard"
                               value={phone2}
-                              onChange={(e) => setPhone2(e.target.value)}
                               autoComplete="off"
+                              onChange={(e) => setPhone2(e.target.value.replace(/[^0-9]/g, ''))}
+                              InputProps={{
+                                 inputComponent: InputMask,
+                                 inputProps: {
+                                    mask: phoneNumberMask(phone2),
+                                    onChange: (e) => setPhone2(e.target.value.replace(/[^0-9]/g, '')),
+                                    value: phone2,
+                                    maskPlaceholder: '',
+                                 },
+                              }}
                            />
                            <div className="icons">
                               <PhoneEnabledIcon />
@@ -220,8 +241,17 @@ const ModalEditContact = ({ contact, openModal, setOpenModal, updateListContacts
                               label={`${t('phone')} 3`}
                               variant="standard"
                               value={phone3}
-                              onChange={(e) => setPhone3(e.target.value)}
                               autoComplete="off"
+                              onChange={(e) => setPhone3(e.target.value.replace(/[^0-9]/g, ''))}
+                              InputProps={{
+                                 inputComponent: InputMask,
+                                 inputProps: {
+                                    mask: phoneNumberMask(phone3),
+                                    onChange: (e) => setPhone3(e.target.value.replace(/[^0-9]/g, '')),
+                                    value: phone3,
+                                    maskPlaceholder: '',
+                                 },
+                              }}
                            />
                            <div className="icons">
                               <PhoneEnabledIcon />

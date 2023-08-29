@@ -17,10 +17,10 @@ const TestedInput = () => {
    return (
       <form onSubmit={handleSubmit}>
          <TextField
-            autoComplete="off"
             className="test"
             variant="standard"
             label="Phone Number"
+            autoComplete="off"
             InputProps={{
                inputComponent: InputMask,
                inputProps: {

@@ -181,9 +181,9 @@ const Contacts = () => {
                <h2>{t('contacts')}:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
 
-               <TestedInput />
+               {/* <TestedInput /> */}
 
-               {/* <div className="plug" /> */}
+               <div className="plug" />
             </div>
          </div>
          <div className="container">
@@ -254,6 +254,9 @@ const Contacts = () => {
                            <td>{formatPhoneNumber(phoneNumber1)}</td>
                            <td>{formatPhoneNumber(phoneNumber2)}</td>
                            <td>{formatPhoneNumber(phoneNumber3)}</td>
+                           {/* <td>{phoneNumber1}</td>
+                           <td>{phoneNumber2}</td>
+                           <td>{phoneNumber3}</td> */}
                            <td>{group}</td>
                            <td className="btn-icon-table">
                               <Tooltip title={t('edit_contact')} placement="top" TransitionComponent={Zoom} arrow>

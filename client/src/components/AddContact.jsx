@@ -9,6 +9,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
+import InputMask from 'react-input-mask';
+import { phoneNumberMask } from './PhonesCodes';
 
 const filter = createFilterOptions();
 
@@ -109,6 +111,16 @@ const AddContact = ({ onClose, updateListContacts }) => {
       }
    };
 
+   // Handler for changing phone numbers with masking
+   const handlePhoneNumberChange = (name, value) => {
+      const maskedValue = phoneNumberMask(value);
+      setContact((prevContact) => ({
+         ...prevContact,
+         [name]: value.replace(/[^0-9]/g, ''), // Keep only digits for data submission
+      }));
+      return maskedValue;
+   };
+
    return (
       <div className="add-contacts">
          <h2 className="mb-2">{t('add_contact')}:</h2>
@@ -142,9 +154,16 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   label={`${t('phone')} 1`}
                   variant="standard"
                   value={contact.phoneNumber1}
-                  onChange={onChangeHandler}
+                  onChange={(e) => handlePhoneNumberChange('phoneNumber1', e.target.value)}
                   className="input phone-input"
                   autoComplete="off"
+                  InputProps={{
+                     inputComponent: InputMask,
+                     inputProps: {
+                        mask: phoneNumberMask(contact.phoneNumber1),
+                        maskPlaceholder: '',
+                     },
+                  }}
                />
                <div className="icons">
                   <PhoneEnabledIcon />
@@ -161,9 +180,16 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   label={`${t('phone')} 2`}
                   variant="standard"
                   value={contact.phoneNumber2}
-                  onChange={onChangeHandler}
+                  onChange={(e) => handlePhoneNumberChange('phoneNumber2', e.target.value)}
                   className="input phone-input"
                   autoComplete="off"
+                  InputProps={{
+                     inputComponent: InputMask,
+                     inputProps: {
+                        mask: phoneNumberMask(contact.phoneNumber2),
+                        maskPlaceholder: '',
+                     },
+                  }}
                />
                <div className="icons">
                   <PhoneEnabledIcon />
@@ -180,9 +206,16 @@ const AddContact = ({ onClose, updateListContacts }) => {
                   label={`${t('phone')} 3`}
                   variant="standard"
                   value={contact.phoneNumber3}
-                  onChange={onChangeHandler}
+                  onChange={(e) => handlePhoneNumberChange('phoneNumber3', e.target.value)}
                   className="input phone-input"
                   autoComplete="off"
+                  InputProps={{
+                     inputComponent: InputMask,
+                     inputProps: {
+                        mask: phoneNumberMask(contact.phoneNumber3),
+                        maskPlaceholder: '',
+                     },
+                  }}
                />
                <div className="icons">
                   <PhoneEnabledIcon />
