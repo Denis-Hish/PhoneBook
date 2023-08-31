@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import InputMask from 'react-input-mask';
-import { phoneNumberMask } from './PhonesCodes';
+import { phoneNumberMask } from '../PhonesCodes';
 
 const TestedInput = () => {
    const [phoneNumber, setPhoneNumber] = useState('');

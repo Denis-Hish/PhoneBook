@@ -15,10 +15,7 @@ import Filter from './Filter';
 import MadalEditContact from './EditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
-import TextField from '@mui/material/TextField';
-import TestedInput from './TestedInput';
-import { formatPhoneNumber, phoneNumberMask } from './PhonesCodes';
-import InputMask from 'react-input-mask';
+import { formatPhoneNumber } from './PhonesCodes';
 
 const Contacts = () => {
    const [contacts, setContacts] = useState(null);
@@ -180,9 +177,6 @@ const Contacts = () => {
             <div className="container">
                <h2>{t('contacts')}:</h2>
                <Filter value={filterValue} onChange={handleFilterChange} />
-
-               {/* <TestedInput /> */}
-
                <div className="plug" />
             </div>
          </div>
@@ -254,9 +248,6 @@ const Contacts = () => {
                            <td>{formatPhoneNumber(phoneNumber1)}</td>
                            <td>{formatPhoneNumber(phoneNumber2)}</td>
                            <td>{formatPhoneNumber(phoneNumber3)}</td>
-                           {/* <td>{phoneNumber1}</td>
-                           <td>{phoneNumber2}</td>
-                           <td>{phoneNumber3}</td> */}
                            <td>{group}</td>
                            <td className="btn-icon-table">
                               <Tooltip title={t('edit_contact')} placement="top" TransitionComponent={Zoom} arrow>
