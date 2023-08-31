@@ -116,6 +116,15 @@ fieldset {
 .header .header-content .header-content__center h1 {
   text-align: center;
 }
+.header .header-content .header-content__center h1 .letter-title {
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.header .header-content .header-content__center h1 .phone-circle::after {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.header .header-content .header-content__center h1 .phone-circle svg {
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+}
 .header .header-content .header-content__center h1 .phone-circle {
   position: relative;
   display: inline-block;
