@@ -35,6 +35,23 @@ body {
   color: #5a5a5a;
 }
 
+body::-webkit-scrollbar {
+  width: 14px;
+  background-color: #edf1f4;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5a5a5a;
+  border: 2px solid #5a5a5a;
+}
+body input {
+  caret-color: rgb(25, 118, 210);
+}
+
 h1 {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
@@ -1221,6 +1238,22 @@ body.dark .Mui-error::after {
 body.dark .login form .input-box input:-webkit-autofill {
   -webkit-box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64, inset 0 0 0 50px #495057;
   -webkit-text-fill-color: #f6f5f7;
+}
+body.dark::-webkit-scrollbar {
+  width: 14px;
+  background-color: #495057;
+}
+body.dark::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: transparent;
+}
+body.dark::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #f6f5f7;
+  border: 2px solid #f6f5f7;
+}
+body.dark input {
+  caret-color: rgb(116, 192, 252);
 }
 
 /* ----------------------------------------------------- *//*# sourceMappingURL=style.css.map */

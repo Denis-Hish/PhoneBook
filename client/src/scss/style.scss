@@ -38,6 +38,30 @@ body {
    color: $color-text;
 }
 
+body {
+   // устанавливает ширину элемента скроллинга и его фоновый цвет
+   &::-webkit-scrollbar {
+      width: 14px;
+      background-color: $color-bg;
+   }
+   // устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет
+   &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: transparent;
+   }
+   // устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу
+   &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $color-text;
+      border: 2px solid $color-text;
+   }
+
+   // цвет курсора
+   input {
+      caret-color: $color-blue-1;
+   }
+}
+
 h1 {
    font-family: 'Dancing Script', cursive;
    font-weight: 700;
@@ -1524,6 +1548,28 @@ body.dark {
          -webkit-box-shadow: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64, inset 0 0 0 50px $color-bg;
          -webkit-text-fill-color: $color-text;
       }
+   }
+
+   // устанавливает ширину элемента скроллинга и его фоновый цвет
+   &::-webkit-scrollbar {
+      width: 14px;
+      background-color: $color-bg;
+   }
+   // устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет
+   &::-webkit-scrollbar-track {
+      border-radius: 3px;
+      background-color: transparent;
+   }
+   // устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу
+   &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $color-text;
+      border: 2px solid $color-text;
+   }
+
+   // цвет курсора
+   input {
+      caret-color: $color-blue-1;
    }
 }
 
