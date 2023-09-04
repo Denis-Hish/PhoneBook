@@ -102,12 +102,12 @@ const Converter = () => {
       // file1Link.click();
 
       // Save xmlString2 to file file2.xml
-      // const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
-      // const file2Url = URL.createObjectURL(file2Blob);
-      // const file2Link = document.createElement('a');
-      // file2Link.href = file2Url;
-      // file2Link.download = 'PhoneBook_2.xml';
-      // file2Link.click();
+      const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
+      const file2Url = URL.createObjectURL(file2Blob);
+      const file2Link = document.createElement('a');
+      file2Link.href = file2Url;
+      file2Link.download = 'PhoneBook_2.xml';
+      file2Link.click();
 
       const data = {
          xmlString1: xmlString1,
