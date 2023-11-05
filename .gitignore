@@ -1,6 +1,7 @@
 node_modules
 .idea
 .env
-info.txt
 *.psd
-install_MongoBD_Win
+ReadME_D.md
+ReadMe_My.md
+xml

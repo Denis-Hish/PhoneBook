@@ -26,7 +26,7 @@ const createOrUpdateAdminUser = async (newUsername, newPassword) => {
    }
 };
 
-const deleteUserByUsername = async (username) => {
+const deleteUserByUsername = async username => {
    try {
       const result = await User.deleteOne({ username });
       if (result.deletedCount > 0) {
@@ -45,7 +45,7 @@ const deleteUserByUsername = async (username) => {
 const getAllUserLogins = async () => {
    try {
       const users = await User.find({}, 'username'); // Находим всех пользователей, но выбираем только поле "username"
-      const logins = users.map((user) => user.username); // Извлекаем только логины из результатов
+      const logins = users.map(user => user.username); // Извлекаем только логины из результатов
       console.log('User Logins:', logins);
       return logins; // Возвращаем массив логинов
    } catch (error) {
@@ -55,7 +55,7 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль'
-// createOrUpdateAdminUser('admin', '');
+createOrUpdateAdminUser('admin', '');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');

@@ -31,7 +31,7 @@ db.mongoose
       console.log('Connected to the database!');
       createOrUpdateAdminUser();
    })
-   .catch((err) => {
+   .catch(err => {
       console.log('Cannot connect to the database!', err);
       process.exit();
    });
@@ -55,20 +55,24 @@ app.post('/create-xml-files', (req, res) => {
 
    // Сохраняем xmlString1
    const file1Path = path.join(convertedDirXml1, 'PhoneBook_1_Yealink.xml');
-   fs.writeFile(file1Path, xmlString1, (err) => {
+   fs.writeFile(file1Path, xmlString1, err => {
       if (err) {
          console.error(err);
-         return res.status(500).json({ message: 'Error saving PhoneBook_1_Yealink.xml' });
+         return res
+            .status(500)
+            .json({ message: 'Error saving PhoneBook_1_Yealink.xml' });
       }
       console.log('File xml-1 saved successfully');
    });
 
    // Сохраняем xmlString2
    const file2Path = path.join(convertedDirXml2, 'PhoneBook_2.xml');
-   fs.writeFile(file2Path, xmlString2, (err) => {
+   fs.writeFile(file2Path, xmlString2, err => {
       if (err) {
          console.error(err);
-         return res.status(500).json({ message: 'Error saving PhoneBook_2.xml' });
+         return res
+            .status(500)
+            .json({ message: 'Error saving PhoneBook_2.xml' });
       }
       console.log('File xml-2 saved successfully');
 
@@ -82,12 +86,13 @@ app.use('/api/user', require('./app/routes/user.routes'));
 // Подключение маршрутов для аутентификации пользователя (логин, пароль)
 app.use('/api/auth', require('./app/routes/auth.routes'));
 
-// Load UI
-// app.get('/', (req, res) => {
-//    res.redirect('http://localhost:3000');
-// });
+// Load UI (клиентская часть приложения на порту 3000)
+app.get('/', (req, res) => {
+   res.redirect('http://localhost:3000');
+});
 
-const PORT = process.env.PORT || 8080; // для сервера порт: 3000 / для локального порт: 8080
+// Серверная часть приложения на порту 8080
+const PORT = process.env.PORT || 8080; //? для сервера порт: 3000 / для локального порт: 8080
 app.listen(PORT, () => {
    console.log(`Server is running on port ${PORT}.`);
 });
