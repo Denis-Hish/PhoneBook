@@ -1,13 +1,10 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const { createOrUpdateAdminUser } = require('./userUtils');
+// const { createOrUpdateAdminUser } = require('./userUtils');
 
 const app = express();
-
-app.use(cors());
 
 app.use(express.static(__dirname));
 
@@ -27,7 +24,7 @@ db.sequelize
   .then(() => {
     // force: true для пересоздания таблиц, если нужно
     console.log('Connected to the database!');
-    createOrUpdateAdminUser();
+    // createOrUpdateAdminUser();
   })
   .catch(err => {
     console.error('Cannot connect to the database!', err);

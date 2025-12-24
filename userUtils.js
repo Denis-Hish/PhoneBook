@@ -59,7 +59,7 @@ const getAllUserLogins = async () => {
 // getAllUserLogins();
 
 module.exports = {
-  createOrUpdateAdminUser,
+  // createOrUpdateAdminUser,
   deleteUserByUsername,
   getAllUserLogins,
 };
