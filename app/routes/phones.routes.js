@@ -1,78 +1,81 @@
 const db = require('../models');
 const ContactDetails = db.contactDetails;
 
-module.exports = (app) => {
-   let router = require('express').Router();
+module.exports = app => {
+  let router = require('express').Router();
 
-   // Get all the contacts
-   router.get('/get-all', (req, res) => {
-      ContactDetails.find({})
-         .then((contactDetails) => {
-            res.send(contactDetails);
-         })
-         .catch((e) => {
-            res.send(e);
-         });
-   });
+  // Get all the contacts
+  router.get('/get-all', async (req, res) => {
+    try {
+      const contactDetails = await ContactDetails.findAll();
+      res.send(contactDetails);
+    } catch (e) {
+      res.status(500).send(e);
+    }
+  });
 
-   // Create new contact
-   router.post('/add-contact', (req, res) => {
-      // TODO: add express validation
-      const newContact = new ContactDetails({
-         userName: req.body.userName,
-         phoneNumber1: req.body.phoneNumber1,
-         phoneNumber2: req.body.phoneNumber2,
-         phoneNumber3: req.body.phoneNumber3,
-         group: req.body.group,
+  // Create new contact
+  router.post('/add-contact', async (req, res) => {
+    try {
+      const newContact = await ContactDetails.create({
+        userName: req.body.userName,
+        phoneNumber1: req.body.phoneNumber1,
+        phoneNumber2: req.body.phoneNumber2,
+        phoneNumber3: req.body.phoneNumber3,
+        group: req.body.group,
       });
+      res.send(newContact);
+    } catch (err) {
+      console.log('----- Error during record insertion : ' + err);
+      res.status(500).send(err);
+    }
+  });
 
-      newContact
-         .save()
-         .then((newContactDetails) => {
-            res.send(newContactDetails);
-         })
-         .catch((err) => {
-            console.log('----- Error during record insertion : ' + err);
-            res.send(err);
-         });
-   });
+  // Update a contact by ID
+  router.put('/edit-contact/:id', async (req, res) => {
+    const contactId = req.params.id;
+    const updatedContact = {
+      userName: req.body.userName,
+      phoneNumber1: req.body.phoneNumber1,
+      phoneNumber2: req.body.phoneNumber2,
+      phoneNumber3: req.body.phoneNumber3,
+      group: req.body.group,
+    };
 
-   // Update a contact by ID
-   router.put('/edit-contact/:id', (req, res) => {
-      const contactId = req.params.id;
+    try {
+      const [updated] = await ContactDetails.update(updatedContact, {
+        where: { id: contactId },
+      });
+      if (updated) {
+        const updatedDetails = await ContactDetails.findByPk(contactId);
+        res.send(updatedDetails);
+      } else {
+        res.status(404).send({ message: 'Contact not found' });
+      }
+    } catch (err) {
+      console.log('----- Error during contact update: ' + err);
+      res.status(500).send(err);
+    }
+  });
 
-      const updatedContact = {
-         userName: req.body.userName,
-         phoneNumber1: req.body.phoneNumber1,
-         phoneNumber2: req.body.phoneNumber2,
-         phoneNumber3: req.body.phoneNumber3,
-         group: req.body.group,
-      };
+  // Delete a contact by ID
+  router.delete('/delete-contact/:id', async (req, res) => {
+    const contactId = req.params.id;
 
-      ContactDetails.findByIdAndUpdate(contactId, updatedContact, { new: true })
-         .then((updatedContactDetails) => {
-            res.send(updatedContactDetails);
-         })
-         .catch((err) => {
-            console.log('----- Error during contact update: ' + err);
-            res.send(err);
-         });
-   });
+    try {
+      const deleted = await ContactDetails.destroy({
+        where: { id: contactId },
+      });
+      if (deleted) {
+        res.send({ message: 'Контакт успешно удален' });
+      } else {
+        res.status(404).send({ message: 'Contact not found' });
+      }
+    } catch (err) {
+      console.log('----- Ошибка при удалении записи: ' + err);
+      res.status(500).send(err);
+    }
+  });
 
-   // Delete a contact by ID
-   router.delete('/delete-contact/:id', (req, res) => {
-      const contactId = req.params.id;
-
-      ContactDetails.findByIdAndDelete(contactId)
-         .then(() => {
-            res.send({ message: 'Контакт успешно удален' });
-         })
-         .catch((err) => {
-            console.log('----- Ошибка при удалении записи: ' + err);
-            res.send(err);
-         });
-   });
-   // ----------------------------------------------------------------
-
-   app.use('/api/contacts', router);
+  app.use('/api/contacts', router);
 };

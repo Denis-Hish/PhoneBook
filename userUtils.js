@@ -1,26 +1,21 @@
 const argon2 = require('argon2');
-const User = require('./app/models/authentication.model');
+const db = require('./app/models');
+const User = db.User;
 
 // если такой логин есть - обновится пароль
 // если логина нет - создастся новая запись в БД с логином и паролем
 const createOrUpdateAdminUser = async (newUsername, newPassword) => {
   try {
-    const existingUser = await User.findOne({ username: newUsername });
-
-    if (existingUser) {
-      // Если пользователь с заданным именем уже существует, обновляем его хэшированный пароль
-      existingUser.hashedPassword = await argon2.hash(newPassword);
-      await existingUser.save();
-      console.log('Admin user updated successfully');
-    } else {
-      // Если пользователь не существует, создаем новую запись
-      const adminUser = {
-        username: newUsername,
-        hashedPassword: await argon2.hash(newPassword), // Хэшируем пароль с помощью Argon2
-      };
-      await User.create(adminUser);
-      console.log('Admin user created successfully');
-    }
+    const hashedPassword = await argon2.hash(newPassword);
+    const [user, created] = await User.upsert({
+      username: newUsername,
+      hashedPassword,
+    });
+    console.log(
+      created
+        ? 'Admin user created successfully'
+        : 'Admin user updated successfully'
+    );
   } catch (error) {
     console.error('Error updating or creating admin user:', error);
   }
@@ -28,8 +23,8 @@ const createOrUpdateAdminUser = async (newUsername, newPassword) => {
 
 const deleteUserByUsername = async username => {
   try {
-    const result = await User.deleteOne({ username });
-    if (result.deletedCount > 0) {
+    const deleted = await User.destroy({ where: { username } });
+    if (deleted) {
       console.log('User deleted successfully');
       return true; // Успешное удаление
     } else {
@@ -44,8 +39,8 @@ const deleteUserByUsername = async username => {
 
 const getAllUserLogins = async () => {
   try {
-    const users = await User.find({}, 'username'); // Находим всех пользователей, но выбираем только поле "username"
-    const logins = users.map(user => user.username); // Извлекаем только логины из результатов
+    const users = await User.findAll({ attributes: ['username'] });
+    const logins = users.map(user => user.username);
     console.log('User Logins:', logins);
     return logins; // Возвращаем массив логинов
   } catch (error) {
@@ -55,7 +50,7 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль'
-createOrUpdateAdminUser('admin', 'admin');
+// createOrUpdateAdminUser('admin', 'admin');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');
