@@ -1,27 +1,25 @@
 {
-  "homepage": "./",
-  "name": "node-express-mongodb",
+  "name": "phonebook",
   "version": "2.0.0",
-  "description": "Node.js Restful CRUD API with Node.js, Express and MongoDB",
-  "main": "phonebookServer.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm run start --prefix client",
-    "server": "nodemon phonebookServer.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "start": "node phonebookServer.js"
+  "description": "",
+  "homepage": "https://github.com/Denis-Hish/PhoneBook#readme",
+  "bugs": {
+    "url": "https://github.com/Denis-Hish/PhoneBook/issues"
   },
-  "author": "Denis Nazarow",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denis-Hish/PhoneBook.git"
+  },
   "license": "ISC",
-  "dependencies": {
-    "argon2": "^0.44.0",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "mysql2": "^3.16.0",
-    "sequelize": "^6.37.7"
+  "author": "Denis Nazarow",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server --prefix backend\" \"npm run dev --prefix frontend\"",
+    "server": "npm run server --prefix backend",
+    "client": "npm run dev --prefix frontend"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1",
-    "nodemon": "^3.1.11"
+    "concurrently": "^9.2.1"
   }
 }

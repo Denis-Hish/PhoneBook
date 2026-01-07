@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // must be after "app.use(express.json())" and "app.use(express.urlencoded())"
-require('./app/routes/phones.routes')(app);
+require('./routes/phones.routes')(app);
 
 // Connect DB
-const db = require('./app/models');
+const db = require('./models');
 db.sequelize
   .sync({ force: false })
   .then(() => {
@@ -74,10 +74,10 @@ app.post('/create-xml-files', (req, res) => {
 });
 
 // Подключение маршрутов для управления пользователями (логин, пароль)
-app.use('/api/user', require('./app/routes/user.routes'));
+app.use('/api/user', require('./routes/user.routes'));
 
 // Подключение маршрутов для аутентификации пользователя (логин, пароль)
-app.use('/api/auth', require('./app/routes/auth.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 // Load UI (клиентская часть приложения на порту 3000)
 app.get('/', (req, res) => {
