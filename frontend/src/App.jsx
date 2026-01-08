@@ -10,8 +10,26 @@ import Snackbar from './components/Snackbar';
 import LoginForm from './components/LoginForm';
 
 function App() {
-  const countdown = 30 * 60 * 1000; // timer in minutes
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const countdown = 30 * 60 * 1000; // timer in milliseconds
+
+  // Initialize authentication from localStorage once (avoid setting state inside effects synchronously)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    try {
+      const authData = JSON.parse(localStorage.getItem('authData'));
+      if (authData && authData.isAuthenticated) {
+        const currentTime = Date.now();
+        const loginTime = authData.loginTime;
+        if (currentTime - loginTime < countdown) {
+          return true;
+        }
+        // expired — remove stored data
+        localStorage.removeItem('authData');
+      }
+    } catch {
+      // ignore parse errors
+    }
+    return false;
+  });
 
   const handleLogin = () => {
     setIsAuthenticated(true);
@@ -28,24 +46,6 @@ function App() {
     // clearContactsData(); //! Очистить данные контактов
     window.location.reload(); //! Перезагрузка страницы для очистки данных?
   };
-
-  useEffect(() => {
-    // Check if there's authentication data in localStorage
-    const authData = JSON.parse(localStorage.getItem('authData'));
-    if (authData && authData.isAuthenticated) {
-      // Check if the user's session has expired since login
-      const currentTime = Date.now();
-      const loginTime = authData.loginTime;
-
-      if (currentTime - loginTime < countdown) {
-        setIsAuthenticated(true);
-      } else {
-        // If the session has expired, log the user out
-        setIsAuthenticated(false);
-        localStorage.removeItem('authData');
-      }
-    }
-  }, [isAuthenticated, countdown]);
 
   useEffect(() => {
     // Start the idle timer whenever the authentication status changes
@@ -75,6 +75,7 @@ function App() {
         // Clean up event listeners when the component unmounts
         window.removeEventListener('mousemove', resetIdleTimer);
         window.removeEventListener('keydown', resetIdleTimer);
+        clearTimeout(idleTimer);
       };
     }
   }, [isAuthenticated, countdown]);
