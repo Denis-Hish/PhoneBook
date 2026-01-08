@@ -2,10 +2,7 @@
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
   <Menu Name="Alderaan">
-    <Unit Name="Leia Organa" Phone1="921235468" Phone2="357951284" Phone3="123" default_photo="Resource:"/>
-  </Menu>
-  <Menu Name="delete">
-    <Unit Name="Afdkjvbfdkvd" Phone1="532453435" Phone2="125345345" Phone3="454454" default_photo="Resource:"/>
+    <Unit Name="Leia Organa" Phone1="921235468" Phone2="357951284" Phone3="456" default_photo="Resource:"/>
   </Menu>
   <Menu Name="Galactic empire">
     <Unit Name="Kylo Ren" Phone1="201234567" Phone2="147852369" Phone3="951" default_photo="Resource:"/>

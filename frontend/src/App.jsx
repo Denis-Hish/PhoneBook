@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import './scss/style.scss';
-// import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import './scss/bootstrap-grid.css';
 
 import Header from './components/Header';
 import Contacts from './components/Contacts';
