@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root_group>
-  <group display_name="Alderaan" ring="Auto"/>
-  <group display_name="Galactic empire" ring="Auto"/>
+  <group display_name="Naboo" ring="Auto"/>
   <group display_name="Tatooine" ring="Auto"/>
 </root_group>
 <root_contact>
-  <contact display_name="Anakin Skywalker" office_number="456789123" mobile_number="123456789" other_number="123" line="0" ring="Auto" group_id_name="Tatooine"/>
-  <contact display_name="Kylo Ren" office_number="201234567" mobile_number="147852369" other_number="951" line="0" ring="Auto" group_id_name="Galactic empire"/>
-  <contact display_name="Leia Organa" office_number="921235468" mobile_number="357951284" other_number="456" line="0" ring="Auto" group_id_name="Alderaan"/>
+  <contact display_name="Anakin Skywalker" office_number="123456789" mobile_number="456789123" other_number="123" line="0" ring="Auto" group_id_name="Tatooine"/>
+  <contact display_name="Padme Amidala" office_number="321454554" mobile_number="789456321" other_number="123" line="0" ring="Auto" group_id_name="Naboo"/>
 </root_contact>

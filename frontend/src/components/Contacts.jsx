@@ -192,160 +192,164 @@ const Contacts = () => {
         </div>
       </div>
       <div className='container'>
-        <table>
-          <thead>
-            <tr>
-              <td className='header-title'>№</td>
-              <td
-                className='header-title'
-                onClick={event => handleSort('userName', event)}
-              >
-                <span>{t('name')}</span>
-                <IconButton
-                  className='arrow-btn visible-btn'
-                  sx={{ position: 'relative' }}
-                  tabIndex={-1}
+        {Array.isArray(contacts) && contacts.length === 0 ? (
+          <p className='no-records-in-db'>{t('no-records-in-db')}</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <td className='header-title'>№</td>
+                <td
+                  className='header-title'
+                  onClick={event => handleSort('userName', event)}
                 >
-                  {sortField === 'userName' && sortDirection === 'asc' ? (
-                    <ArrowUpwardIcon className='arrow-up' />
-                  ) : (
-                    <ArrowDownwardIcon />
-                  )}
-                </IconButton>
-              </td>
-              <td
-                className='header-title'
-                onClick={event => handleSort('phoneNumber1', event)}
-              >
-                <span>{t('phone')} 1</span>
-                <IconButton
-                  className='arrow-btn'
-                  sx={{ position: 'relative' }}
-                  tabIndex={-1}
+                  <span>{t('name')}</span>
+                  <IconButton
+                    className='arrow-btn visible-btn'
+                    sx={{ position: 'relative' }}
+                    tabIndex={-1}
+                  >
+                    {sortField === 'userName' && sortDirection === 'asc' ? (
+                      <ArrowUpwardIcon className='arrow-up' />
+                    ) : (
+                      <ArrowDownwardIcon />
+                    )}
+                  </IconButton>
+                </td>
+                <td
+                  className='header-title'
+                  onClick={event => handleSort('phoneNumber1', event)}
                 >
-                  {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
-                    <ArrowUpwardIcon className='arrow-up' />
-                  ) : (
-                    <ArrowDownwardIcon />
-                  )}
-                </IconButton>
-              </td>
-              <td
-                className='header-title'
-                onClick={event => handleSort('phoneNumber2', event)}
-              >
-                <span>{t('phone')} 2</span>
-                <IconButton
-                  className='arrow-btn'
-                  sx={{ position: 'relative' }}
-                  tabIndex={-1}
+                  <span>{t('phone')} 1</span>
+                  <IconButton
+                    className='arrow-btn'
+                    sx={{ position: 'relative' }}
+                    tabIndex={-1}
+                  >
+                    {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
+                      <ArrowUpwardIcon className='arrow-up' />
+                    ) : (
+                      <ArrowDownwardIcon />
+                    )}
+                  </IconButton>
+                </td>
+                <td
+                  className='header-title'
+                  onClick={event => handleSort('phoneNumber2', event)}
                 >
-                  {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
-                    <ArrowUpwardIcon className='arrow-up' />
-                  ) : (
-                    <ArrowDownwardIcon />
-                  )}
-                </IconButton>
-              </td>
-              <td
-                className='header-title'
-                onClick={event => handleSort('phoneNumber3', event)}
-              >
-                <span>{t('phone')} 3</span>
-                <IconButton
-                  className='arrow-btn'
-                  sx={{ position: 'relative' }}
-                  tabIndex={-1}
+                  <span>{t('phone')} 2</span>
+                  <IconButton
+                    className='arrow-btn'
+                    sx={{ position: 'relative' }}
+                    tabIndex={-1}
+                  >
+                    {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
+                      <ArrowUpwardIcon className='arrow-up' />
+                    ) : (
+                      <ArrowDownwardIcon />
+                    )}
+                  </IconButton>
+                </td>
+                <td
+                  className='header-title'
+                  onClick={event => handleSort('phoneNumber3', event)}
                 >
-                  {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
-                    <ArrowUpwardIcon className='arrow-up' />
-                  ) : (
-                    <ArrowDownwardIcon />
-                  )}
-                </IconButton>
-              </td>
-              <td
-                className='header-title'
-                onClick={event => handleSort('group', event)}
-              >
-                <span>{t('group')}</span>
-                <IconButton
-                  className='arrow-btn'
-                  sx={{ position: 'relative' }}
-                  tabIndex={-1}
+                  <span>{t('phone')} 3</span>
+                  <IconButton
+                    className='arrow-btn'
+                    sx={{ position: 'relative' }}
+                    tabIndex={-1}
+                  >
+                    {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
+                      <ArrowUpwardIcon className='arrow-up' />
+                    ) : (
+                      <ArrowDownwardIcon />
+                    )}
+                  </IconButton>
+                </td>
+                <td
+                  className='header-title'
+                  onClick={event => handleSort('group', event)}
                 >
-                  {sortField === 'group' && sortDirection === 'asc' ? (
-                    <ArrowUpwardIcon className='arrow-up' />
-                  ) : (
-                    <ArrowDownwardIcon />
-                  )}
-                </IconButton>
-              </td>
-              <td className='btn-icon-table' />
-              <td className='btn-icon-table' />
-            </tr>
-          </thead>
-          <tbody>
-            {filteredAndSortedContacts?.map(
-              (
-                {
-                  id,
-                  userName,
-                  phoneNumber1,
-                  phoneNumber2,
-                  phoneNumber3,
-                  group,
-                },
-                index
-              ) => (
-                <tr key={id}>
-                  <td>{index + 1}</td>
-                  <td>{userName}</td>
-                  <td>{maskedPhoneForDisplay(phoneNumber1)}</td>
-                  <td>{maskedPhoneForDisplay(phoneNumber2)}</td>
-                  <td>{maskedPhoneForDisplay(phoneNumber3)}</td>
-                  <td>{group}</td>
-                  <td className='btn-icon-table'>
-                    <Tooltip
-                      title={t('edit_contact')}
-                      placement='top'
-                      slots={{ transition: Zoom }}
-                      arrow
-                    >
-                      <IconButton
-                        className='btn-table edit'
-                        onClick={() => {
-                          handleEdit(id);
-                        }}
-                        tabIndex={-1}
+                  <span>{t('group')}</span>
+                  <IconButton
+                    className='arrow-btn'
+                    sx={{ position: 'relative' }}
+                    tabIndex={-1}
+                  >
+                    {sortField === 'group' && sortDirection === 'asc' ? (
+                      <ArrowUpwardIcon className='arrow-up' />
+                    ) : (
+                      <ArrowDownwardIcon />
+                    )}
+                  </IconButton>
+                </td>
+                <td className='btn-icon-table' />
+                <td className='btn-icon-table' />
+              </tr>
+            </thead>
+            <tbody>
+              {filteredAndSortedContacts?.map(
+                (
+                  {
+                    id,
+                    userName,
+                    phoneNumber1,
+                    phoneNumber2,
+                    phoneNumber3,
+                    group,
+                  },
+                  index
+                ) => (
+                  <tr key={id}>
+                    <td>{index + 1}</td>
+                    <td>{userName}</td>
+                    <td>{maskedPhoneForDisplay(phoneNumber1)}</td>
+                    <td>{maskedPhoneForDisplay(phoneNumber2)}</td>
+                    <td>{maskedPhoneForDisplay(phoneNumber3)}</td>
+                    <td>{group}</td>
+                    <td className='btn-icon-table'>
+                      <Tooltip
+                        title={t('edit_contact')}
+                        placement='top'
+                        slots={{ transition: Zoom }}
+                        arrow
                       >
-                        <EditIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </td>
-                  <td className='btn-icon-table'>
-                    <Tooltip
-                      title={t('delete_contact')}
-                      placement='top'
-                      slots={{ transition: Zoom }}
-                      arrow
-                    >
-                      <IconButton
-                        className='btn-table delete'
-                        onClick={() => {
-                          getIdDeleteBtn(id);
-                        }}
-                        tabIndex={-1}
+                        <IconButton
+                          className='btn-table edit'
+                          onClick={() => {
+                            handleEdit(id);
+                          }}
+                          tabIndex={-1}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </td>
+                    <td className='btn-icon-table'>
+                      <Tooltip
+                        title={t('delete_contact')}
+                        placement='top'
+                        slots={{ transition: Zoom }}
+                        arrow
                       >
-                        <DeleteIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
+                        <IconButton
+                          className='btn-table delete'
+                          onClick={() => {
+                            getIdDeleteBtn(id);
+                          }}
+                          tabIndex={-1}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </Tooltip>
+                    </td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

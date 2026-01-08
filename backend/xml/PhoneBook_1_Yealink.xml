@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YealinkIPPhoneBook>
   <Title>Yealink</Title>
-  <Menu Name="Alderaan">
-    <Unit Name="Leia Organa" Phone1="921235468" Phone2="357951284" Phone3="456" default_photo="Resource:"/>
-  </Menu>
-  <Menu Name="Galactic empire">
-    <Unit Name="Kylo Ren" Phone1="201234567" Phone2="147852369" Phone3="951" default_photo="Resource:"/>
+  <Menu Name="Naboo">
+    <Unit Name="Padme Amidala" Phone1="321454554" Phone2="789456321" Phone3="123" default_photo="Resource:"/>
   </Menu>
   <Menu Name="Tatooine">
-    <Unit Name="Anakin Skywalker" Phone1="456789123" Phone2="123456789" Phone3="123" default_photo="Resource:"/>
+    <Unit Name="Anakin Skywalker" Phone1="123456789" Phone2="456789123" Phone3="123" default_photo="Resource:"/>
   </Menu>
 </YealinkIPPhoneBook>

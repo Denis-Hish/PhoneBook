@@ -674,6 +674,17 @@ fieldset {
   padding-top: 100px;
   margin-bottom: 60px;
 
+  .no-records-in-db {
+    color: $color-red;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+      -5px -5px 10px rgb(255, 255, 255);
+    padding: 2rem;
+    margin-top: 4.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+  }
+
   .header-table {
     position: fixed;
     width: 100%;
