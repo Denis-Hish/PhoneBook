@@ -46,25 +46,46 @@ export const formatPhoneNumber = phoneNumber => {
 // };
 
 export const phoneNumberMask = (phoneNumber = '') => {
-  if (phoneNumber.length <= 3) {
-    return null; // без маски для коротких номеров
+  const digits = String(phoneNumber).replace(/\D/g, '');
+
+  // dynamic masks array: internal (3-digit), landline, mobile
+  const maskObj = createMask({
+    mask: ['000', '(00) 000-00-00', '000-000-000'],
+    lazy: false,
+    placeholderChar: '_',
+    dispatch: (appended, dynamicMasked) => {
+      const newDigits = (dynamicMasked.value + appended).replace(/\D/g, '');
+      if (newDigits.length <= 3) return dynamicMasked.compiledMasks[0];
+      if (specialPrefixes.some(p => newDigits.startsWith(p)))
+        return dynamicMasked.compiledMasks[1];
+      return dynamicMasked.compiledMasks[2];
+    },
+  });
+
+  // set initial value so mask matches current phone content
+  if (digits) {
+    maskObj.unmaskedValue = digits;
+    try {
+      maskObj.updateValue();
+    } catch {
+      // ignore if updateValue is not available in this version
+    }
   }
 
-  const isSpecial = specialPrefixes.some(prefix =>
-    phoneNumber.startsWith(prefix)
-  );
+  return maskObj;
+};
 
-  if (isSpecial) {
-    return createMask({
-      mask: '(00) 000-00-00',
-      lazy: false, // маска всегда видна
-      placeholderChar: '_',
-    });
-  } else {
-    return createMask({
-      mask: '000-000-000',
-      lazy: false,
-      placeholderChar: '_',
-    });
+// Возвращает строку с маской для отображения в таблице (показывает placeholder, если номер неполный)
+export const maskedPhoneForDisplay = (phoneNumber = '') => {
+  const digits = String(phoneNumber).replace(/\D/g, '');
+  if (!digits) return '';
+  const maskObj = phoneNumberMask(digits);
+  // Ensure unmasked value is set (phoneNumberMask already does this, но на всякий случай)
+  maskObj.unmaskedValue = digits;
+  try {
+    maskObj.updateValue();
+  } catch {
+    /* ignore */
   }
+  return String(maskObj.value || digits);
 };

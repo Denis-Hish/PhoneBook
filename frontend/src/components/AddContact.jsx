@@ -9,7 +9,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
-import { IMaskInput } from 'react-imask';
+import IMaskCustom from './IMaskCustom';
 import { phoneNumberMask } from './PhonesCodes';
 
 const filter = createFilterOptions();
@@ -164,7 +164,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             className='input phone-input'
             autoComplete='off'
             InputProps={{
-              inputComponent: IMaskInput,
+              inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber1),
                 lazy: false,
@@ -201,7 +201,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             className='input phone-input'
             autoComplete='off'
             InputProps={{
-              inputComponent: IMaskInput,
+              inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber2),
                 lazy: false,
@@ -238,7 +238,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             className='input phone-input'
             autoComplete='off'
             InputProps={{
-              inputComponent: IMaskInput,
+              inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber3),
                 lazy: false,

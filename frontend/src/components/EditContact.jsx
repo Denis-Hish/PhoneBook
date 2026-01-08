@@ -14,7 +14,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { getAllContacts } from '../services/paramsAPI';
-import { IMaskInput } from 'react-imask';
+import IMaskCustom from './IMaskCustom';
 import { phoneNumberMask } from './PhonesCodes';
 
 const style = {
@@ -204,13 +204,13 @@ const ModalEditContact = ({
                       setPhone1(e.target.value.replace(/[^0-9]/g, ''))
                     }
                     InputProps={{
-                      inputComponent: IMaskInput,
+                      inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone1),
                         onChange: e =>
                           setPhone1(e.target.value.replace(/[^0-9]/g, '')),
                         value: phone1,
-                        maskPlaceholder: '',
+                        placeholderChar: '',
                       },
                     }}
                   />
@@ -240,13 +240,13 @@ const ModalEditContact = ({
                       setPhone2(e.target.value.replace(/[^0-9]/g, ''))
                     }
                     InputProps={{
-                      inputComponent: IMaskInput,
+                      inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone2),
                         onChange: e =>
                           setPhone2(e.target.value.replace(/[^0-9]/g, '')),
                         value: phone2,
-                        maskPlaceholder: '',
+                        placeholderChar: '',
                       },
                     }}
                   />
@@ -275,13 +275,13 @@ const ModalEditContact = ({
                       setPhone3(e.target.value.replace(/[^0-9]/g, ''))
                     }
                     InputProps={{
-                      inputComponent: IMaskInput,
+                      inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone3),
                         onChange: e =>
                           setPhone3(e.target.value.replace(/[^0-9]/g, '')),
                         value: phone3,
-                        maskPlaceholder: '',
+                        placeholderChar: '',
                       },
                     }}
                   />

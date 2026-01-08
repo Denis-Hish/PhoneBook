@@ -15,274 +15,340 @@ import Filter from './Filter';
 import MadalEditContact from './EditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
-import { formatPhoneNumber } from './PhonesCodes';
+import { maskedPhoneForDisplay } from './PhonesCodes';
+
+const ModalButtons = ({ t, handleDeleteContact, handleCloseModal }) => (
+  <>
+    <Button
+      className='btn-modal btn-modal__cancel btn-blue'
+      variant='outlined'
+      color='primary'
+      startIcon={<CancelOutlinedIcon />}
+      onClick={handleCloseModal}
+    >
+      {t('cancel')}
+    </Button>
+    <Button
+      className='btn-modal btn-modal__delete btn-red'
+      variant='outlined'
+      color='error'
+      endIcon={<DeleteOutlineOutlinedIcon />}
+      onClick={handleDeleteContact}
+    >
+      {t('delete-btn')}
+    </Button>
+  </>
+);
 
 const Contacts = () => {
-   const [contacts, setContacts] = useState(null);
-   const [open, setOpen] = useState(false); // малое модальное окно
-   const [selectedId, setSelectedId] = useState(null);
-   const [selectedAction, setSelectedAction] = useState(null);
-   const [filterValue, setFilterValue] = useState('');
-   const [contactForEdit, setContactForEdit] = useState({});
-   const [openEditModal, setOpenEditModal] = useState(false);
-   const { t } = useTranslation();
+  const [contacts, setContacts] = useState(null);
+  const [open, setOpen] = useState(false); // малое модальное окно
+  const [selectedId, setSelectedId] = useState(null);
+  const [selectedAction, setSelectedAction] = useState(null);
+  const [filterValue, setFilterValue] = useState('');
+  const [contactForEdit, setContactForEdit] = useState({});
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const { t } = useTranslation();
 
-   const getContacts = async () => {
-      let res = await getAllContacts();
+  const getContacts = async () => {
+    try {
+      const res = await getAllContacts();
+      setContacts(Array.isArray(res) ? res : []);
+    } catch (error) {
+      console.error('Failed to fetch contacts:', error);
+      setContacts([]);
+    }
+  };
 
-      if (res instanceof Array && !res.length) {
-         console.log('---No Contacts in DB -', res.length);
+  const handleEdit = id => {
+    const obj = contacts.find(contact => contact.id === id);
+    setContactForEdit(obj);
+    setOpenEditModal(true);
+  };
+
+  const getIdDeleteBtn = id => {
+    setSelectedId(id);
+    setOpen(true);
+    setSelectedAction(t('delete'));
+  };
+
+  const handleDeleteContact = async () => {
+    try {
+      const contact = contacts?.find(contact => contact.id === selectedId);
+      if (contact) {
+        await deleteContact(selectedId, t);
+        setOpen(false); // Закрыть модальное окно
+        await getContacts(); // Обновление списка контактов после удаления
       }
-      setContacts(res);
-   };
+    } catch (error) {
+      console.error('There was an error deleting the contact:', error);
+    }
+  };
 
-   const handleEdit = (id) => {
-      const obj = contacts.find((contact) => contact.id === id);
-      setContactForEdit(obj);
-      setOpenEditModal(true);
-   };
+  // FILTER ------------------
+  const handleFilterChange = event => {
+    const filterInput = event.target.value.toLowerCase();
+    setFilterValue(filterInput);
+  };
 
-   const getIdDeleteBtn = (id) => {
-      setSelectedId(id);
-      setOpen(true);
-      setSelectedAction(t('delete'));
-   };
+  // SORTING ---------------------------------------------------------------
+  const [sortField, setSortField] = useState('userName'); // состояние сортировки при загрузке страницы, без сортировки = ''
+  const [sortDirection, setSortDirection] = useState('asc'); // направление сортировки (asc - по возрастанию, desc - по убыванию)
 
-   const handleDeleteContact = async () => {
-      try {
-         const contact = contacts?.find((contact) => contact.id === selectedId);
-         if (contact) {
-            await deleteContact(selectedId, t);
-            setOpen(false); // Закрыть модальное окно
-            getContacts(); // Обновление списка контактов после удаления
-         } else {
-         }
-      } catch (error) {
-         console.error('There was an error deleting the contact:', error);
+  const handleSort = (field, event) => {
+    // Если поле сортировки уже равно текущему полю, меняем направление сортировки
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      // Если поле сортировки отличается от текущего, устанавливаем новое поле сортировки и направление asc
+      setSortField(field);
+      setSortDirection('asc');
+    }
+
+    // Добавление класса для отображения стрелки сортировки
+    const headerTitle = event.currentTarget;
+    const arrowButton = headerTitle.querySelector('.arrow-btn');
+
+    // Удаление класса "visible-btn" из всех элементов "arrow-btn"
+    const allArrowButtons = document.querySelectorAll('.arrow-btn');
+    allArrowButtons.forEach(btn => btn.classList.remove('visible-btn'));
+
+    // Проверка, был ли клик по элементу "header-title"
+    if (headerTitle.classList.contains('header-title')) {
+      // Check if the arrowButton doesn't have the visible-btn class
+      if (arrowButton && !arrowButton.classList.contains('visible-btn')) {
+        arrowButton.classList.add('visible-btn');
       }
-   };
+    }
+  };
 
-   // FILTER ------------------
-   const handleFilterChange = (event) => {
-      const filterInput = event.target.value.toLowerCase();
-      setFilterValue(filterInput);
-   };
+  // Отсортированные контакты с учетом текущего поля и направления сортировки
+  const allContacts = Array.isArray(contacts)
+    ? [...contacts].sort((a, b) => {
+        const valueA = a[sortField] || '';
+        const valueB = b[sortField] || '';
 
-   // SORTING ---------------------------------------------------------------
-   const [sortField, setSortField] = useState('userName'); // состояние сортировки при загрузке страницы, без сортировки = ''
-   const [sortDirection, setSortDirection] = useState('asc'); // направление сортировки (asc - по возрастанию, desc - по убыванию)
+        if (sortDirection === 'asc') {
+          if (valueA === '' && valueB !== '') return 1;
+          if (valueA !== '' && valueB === '') return -1;
+          return valueA.localeCompare(valueB);
+        } else {
+          if (valueA === '' && valueB !== '') return -1;
+          if (valueA !== '' && valueB === '') return 1;
+          return valueB.localeCompare(valueA);
+        }
+      })
+    : [];
 
-   const handleSort = (field, event) => {
-      // Если поле сортировки уже равно текущему полю, меняем направление сортировки
-      if (sortField === field) {
-         setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-      } else {
-         // Если поле сортировки отличается от текущего, устанавливаем новое поле сортировки и направление asc
-         setSortField(field);
-         setSortDirection('asc');
-      }
+  const filteredAndSortedContacts = filterValue
+    ? allContacts.filter(contact =>
+        Object.values(contact).join(' ').toLowerCase().includes(filterValue)
+      )
+    : allContacts;
 
-      // Добавление класса для отображения стрелки сортировки
-      const headerTitle = event.currentTarget;
-      const arrowButton = headerTitle.querySelector('.arrow-btn');
+  useEffect(() => {
+    (async () => {
+      await getContacts();
+    })();
+  }, []);
 
-      // Удаление класса "visible-btn" из всех элементов "arrow-btn"
-      const allArrowButtons = document.querySelectorAll('.arrow-btn');
-      allArrowButtons.forEach((btn) => btn.classList.remove('visible-btn'));
+  // console.log('---All contacts---', contacts);
 
-      // Проверка, был ли клик по элементу "header-title"
-      if (headerTitle.classList.contains('header-title')) {
-         // Check if the arrowButton doesn't have the visible-btn class
-         if (arrowButton && !arrowButton.classList.contains('visible-btn')) {
-            arrowButton.classList.add('visible-btn');
-         }
-      }
-   };
-
-   // Отсортированные контакты с учетом текущего поля и направления сортировки
-   const allContacts = Array.isArray(contacts)
-      ? contacts.sort((a, b) => {
-           const valueA = a[sortField] || '';
-           const valueB = b[sortField] || '';
-
-           if (sortDirection === 'asc') {
-              if (valueA === '' && valueB !== '') return 1;
-              if (valueA !== '' && valueB === '') return -1;
-              return valueA.localeCompare(valueB);
-           } else {
-              if (valueA === '' && valueB !== '') return -1;
-              if (valueA !== '' && valueB === '') return 1;
-              return valueB.localeCompare(valueA);
-           }
-        })
-      : [];
-
-   const filteredAndSortedContacts = filterValue
-      ? allContacts.filter((contact) => Object.values(contact).join(' ').toLowerCase().includes(filterValue))
-      : allContacts;
-
-   useEffect(() => {
-      if (!contacts) {
-         getContacts();
-      }
-   }, [contacts]);
-
-   // console.log('---All contacts---', contacts);
-
-   const Buttons = ({ handleDeleteContact, handleCloseModal }) => (
-      <>
-         <Button
-            className="btn-modal btn-modal__cancel btn-blue"
-            variant="outlined"
-            color="primary"
-            startIcon={<CancelOutlinedIcon />}
-            onClick={handleCloseModal}
-         >
-            {t('cancel')}
-         </Button>
-         <Button
-            className="btn-modal btn-modal__delete btn-red"
-            variant="outlined"
-            color="error"
-            endIcon={<DeleteOutlineOutlinedIcon />}
-            onClick={handleDeleteContact}
-         >
-            {t('delete-btn')}
-         </Button>
-      </>
-   );
-
-   return (
-      <div className="contacts">
-         <ModalAddContact updateListContacts={getContacts} />
-         <MadalEditContact
-            contact={contactForEdit}
-            openModal={openEditModal}
-            setOpenModal={setOpenEditModal}
-            updateListContacts={getContacts}
-         />
-         <ModalWindows
-            content={
-               <>
-                  {selectedAction}:{' '}
-                  <b>{Array.isArray(contacts) && contacts.find((contact) => contact.id === selectedId)?.userName}</b>?
-                  {/* ID: {selectedId} */}
-               </>
-            }
-            isOpen={open}
-            setIsOpenModal={setOpen}
-            Buttons={<Buttons handleDeleteContact={handleDeleteContact} handleCloseModal={() => setOpen(false)} />}
-         />
-         <div className="header-table">
-            <div className="container">
-               <h2>{t('contacts')}:</h2>
-               <Filter value={filterValue} onChange={handleFilterChange} />
-               <div className="plug" />
-            </div>
-         </div>
-         <div className="container">
-            <table>
-               <thead>
-                  <tr>
-                     <td className="header-title">№</td>
-                     <td className="header-title" onClick={(event) => handleSort('userName', event)}>
-                        <span>{t('name')}</span>
-                        <IconButton className="arrow-btn visible-btn" sx={{ position: 'relative' }} tabIndex={-1}>
-                           {sortField === 'userName' && sortDirection === 'asc' ? (
-                              <ArrowUpwardIcon className="arrow-up" />
-                           ) : (
-                              <ArrowDownwardIcon />
-                           )}
-                        </IconButton>
-                     </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber1', event)}>
-                        <span>{t('phone')} 1</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
-                           {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
-                              <ArrowUpwardIcon className="arrow-up" />
-                           ) : (
-                              <ArrowDownwardIcon />
-                           )}
-                        </IconButton>
-                     </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber2', event)}>
-                        <span>{t('phone')} 2</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
-                           {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
-                              <ArrowUpwardIcon className="arrow-up" />
-                           ) : (
-                              <ArrowDownwardIcon />
-                           )}
-                        </IconButton>
-                     </td>
-                     <td className="header-title" onClick={(event) => handleSort('phoneNumber3', event)}>
-                        <span>{t('phone')} 3</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
-                           {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
-                              <ArrowUpwardIcon className="arrow-up" />
-                           ) : (
-                              <ArrowDownwardIcon />
-                           )}
-                        </IconButton>
-                     </td>
-                     <td className="header-title" onClick={(event) => handleSort('group', event)}>
-                        <span>{t('group')}</span>
-                        <IconButton className="arrow-btn" sx={{ position: 'relative' }} tabIndex={-1}>
-                           {sortField === 'group' && sortDirection === 'asc' ? (
-                              <ArrowUpwardIcon className="arrow-up" />
-                           ) : (
-                              <ArrowDownwardIcon />
-                           )}
-                        </IconButton>
-                     </td>
-                     <td className="btn-icon-table" />
-                     <td className="btn-icon-table" />
-                  </tr>
-               </thead>
-               <tbody>
-                  {filteredAndSortedContacts?.map(
-                     ({ id, userName, phoneNumber1, phoneNumber2, phoneNumber3, group }, index) => (
-                        <tr key={id}>
-                           <td>{index + 1}</td>
-                           <td>{userName}</td>
-                           <td>{formatPhoneNumber(phoneNumber1)}</td>
-                           <td>{formatPhoneNumber(phoneNumber2)}</td>
-                           <td>{formatPhoneNumber(phoneNumber3)}</td>
-                           <td>{group}</td>
-                           <td className="btn-icon-table">
-                              <Tooltip title={t('edit_contact')} placement="top" TransitionComponent={Zoom} arrow>
-                                 <IconButton
-                                    className="btn-table edit"
-                                    onClick={() => {
-                                       handleEdit(id);
-                                    }}
-                                    tabIndex={-1}
-                                 >
-                                    <EditIcon />
-                                 </IconButton>
-                              </Tooltip>
-                           </td>
-                           <td className="btn-icon-table">
-                              <Tooltip title={t('delete_contact')} placement="top" TransitionComponent={Zoom} arrow>
-                                 <IconButton
-                                    className="btn-table delete"
-                                    onClick={() => {
-                                       getIdDeleteBtn(id);
-                                    }}
-                                    tabIndex={-1}
-                                 >
-                                    <DeleteIcon />
-                                 </IconButton>
-                              </Tooltip>
-                           </td>
-                        </tr>
-                     )
-                  )}
-               </tbody>
-            </table>
-         </div>
+  return (
+    <div className='contacts'>
+      <ModalAddContact updateListContacts={getContacts} />
+      <MadalEditContact
+        contact={contactForEdit}
+        openModal={openEditModal}
+        setOpenModal={setOpenEditModal}
+        updateListContacts={getContacts}
+      />
+      <ModalWindows
+        content={
+          <>
+            {selectedAction}:{' '}
+            <b>
+              {Array.isArray(contacts) &&
+                contacts.find(contact => contact.id === selectedId)?.userName}
+            </b>
+            ?
+          </>
+        }
+        isOpen={open}
+        setIsOpenModal={setOpen}
+        Buttons={
+          <ModalButtons
+            t={t}
+            handleDeleteContact={handleDeleteContact}
+            handleCloseModal={() => setOpen(false)}
+          />
+        }
+      />
+      <div className='header-table'>
+        <div className='container'>
+          <h2>{t('contacts')}:</h2>
+          <Filter value={filterValue} onChange={handleFilterChange} />
+          <div className='plug' />
+        </div>
       </div>
-   );
+      <div className='container'>
+        <table>
+          <thead>
+            <tr>
+              <td className='header-title'>№</td>
+              <td
+                className='header-title'
+                onClick={event => handleSort('userName', event)}
+              >
+                <span>{t('name')}</span>
+                <IconButton
+                  className='arrow-btn visible-btn'
+                  sx={{ position: 'relative' }}
+                  tabIndex={-1}
+                >
+                  {sortField === 'userName' && sortDirection === 'asc' ? (
+                    <ArrowUpwardIcon className='arrow-up' />
+                  ) : (
+                    <ArrowDownwardIcon />
+                  )}
+                </IconButton>
+              </td>
+              <td
+                className='header-title'
+                onClick={event => handleSort('phoneNumber1', event)}
+              >
+                <span>{t('phone')} 1</span>
+                <IconButton
+                  className='arrow-btn'
+                  sx={{ position: 'relative' }}
+                  tabIndex={-1}
+                >
+                  {sortField === 'phoneNumber1' && sortDirection === 'asc' ? (
+                    <ArrowUpwardIcon className='arrow-up' />
+                  ) : (
+                    <ArrowDownwardIcon />
+                  )}
+                </IconButton>
+              </td>
+              <td
+                className='header-title'
+                onClick={event => handleSort('phoneNumber2', event)}
+              >
+                <span>{t('phone')} 2</span>
+                <IconButton
+                  className='arrow-btn'
+                  sx={{ position: 'relative' }}
+                  tabIndex={-1}
+                >
+                  {sortField === 'phoneNumber2' && sortDirection === 'asc' ? (
+                    <ArrowUpwardIcon className='arrow-up' />
+                  ) : (
+                    <ArrowDownwardIcon />
+                  )}
+                </IconButton>
+              </td>
+              <td
+                className='header-title'
+                onClick={event => handleSort('phoneNumber3', event)}
+              >
+                <span>{t('phone')} 3</span>
+                <IconButton
+                  className='arrow-btn'
+                  sx={{ position: 'relative' }}
+                  tabIndex={-1}
+                >
+                  {sortField === 'phoneNumber3' && sortDirection === 'asc' ? (
+                    <ArrowUpwardIcon className='arrow-up' />
+                  ) : (
+                    <ArrowDownwardIcon />
+                  )}
+                </IconButton>
+              </td>
+              <td
+                className='header-title'
+                onClick={event => handleSort('group', event)}
+              >
+                <span>{t('group')}</span>
+                <IconButton
+                  className='arrow-btn'
+                  sx={{ position: 'relative' }}
+                  tabIndex={-1}
+                >
+                  {sortField === 'group' && sortDirection === 'asc' ? (
+                    <ArrowUpwardIcon className='arrow-up' />
+                  ) : (
+                    <ArrowDownwardIcon />
+                  )}
+                </IconButton>
+              </td>
+              <td className='btn-icon-table' />
+              <td className='btn-icon-table' />
+            </tr>
+          </thead>
+          <tbody>
+            {filteredAndSortedContacts?.map(
+              (
+                {
+                  id,
+                  userName,
+                  phoneNumber1,
+                  phoneNumber2,
+                  phoneNumber3,
+                  group,
+                },
+                index
+              ) => (
+                <tr key={id}>
+                  <td>{index + 1}</td>
+                  <td>{userName}</td>
+                  <td>{maskedPhoneForDisplay(phoneNumber1)}</td>
+                  <td>{maskedPhoneForDisplay(phoneNumber2)}</td>
+                  <td>{maskedPhoneForDisplay(phoneNumber3)}</td>
+                  <td>{group}</td>
+                  <td className='btn-icon-table'>
+                    <Tooltip
+                      title={t('edit_contact')}
+                      placement='top'
+                      slots={{ transition: Zoom }}
+                      arrow
+                    >
+                      <IconButton
+                        className='btn-table edit'
+                        onClick={() => {
+                          handleEdit(id);
+                        }}
+                        tabIndex={-1}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </td>
+                  <td className='btn-icon-table'>
+                    <Tooltip
+                      title={t('delete_contact')}
+                      placement='top'
+                      slots={{ transition: Zoom }}
+                      arrow
+                    >
+                      <IconButton
+                        className='btn-table delete'
+                        onClick={() => {
+                          getIdDeleteBtn(id);
+                        }}
+                        tabIndex={-1}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default Contacts;

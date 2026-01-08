@@ -4,54 +4,57 @@ import Slide from '@mui/material/Slide';
 import MuiAlert from '@mui/material/Alert';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
-   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
 
 let setMessageCallback;
 
 export const setMessage = ({ message, color }) => {
-   if (setMessageCallback) {
-      setMessageCallback({ message, color });
-   }
+  if (setMessageCallback) {
+    setMessageCallback({ message, color });
+  }
 };
 
 export default function CustomizedSnackbars() {
-   const [open, setOpen] = React.useState(false);
-   const [transition, setTransition] = React.useState(undefined);
-   const [message, setMessage] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = React.useState(null);
 
-   React.useEffect(() => {
-      setMessageCallback = setMessage;
-   }, []);
+  React.useEffect(() => {
+    setMessageCallback = setMessage;
+  }, []);
 
-   React.useEffect(() => {
-      if (message) {
-         setOpen(true); // Open the Snackbar when a message is set
-         setTransition(() => Transition);
-      }
-   }, [message]);
+  React.useEffect(() => {
+    if (message) {
+      setOpen(true); // Open the Snackbar when a message is set
+    }
+  }, [message]);
 
-   const handleClose = () => {
-      setOpen(false);
-   };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-   function Transition(props) {
-      return <Slide {...props} direction="right" />;
-   }
+  function Transition(props) {
+    return <Slide {...props} direction='right' />;
+  }
 
-   return (
-      <Snackbar
-         open={open}
-         autoHideDuration={6000}
-         onClose={handleClose}
-         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-         TransitionComponent={transition}
+  return (
+    <Snackbar
+      open={open}
+      autoHideDuration={6000}
+      onClose={handleClose}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      slots={{ transition: Transition }}
+    >
+      <Alert
+        className='snackbar'
+        onClose={handleClose}
+        severity={message?.color}
+        sx={{ width: '100%' }}
       >
-         <Alert className="snackbar" onClose={handleClose} severity={message?.color} sx={{ width: '100%' }}>
-            {message?.message}
-         </Alert>
-      </Snackbar>
-   );
+        {message?.message}
+      </Alert>
+    </Snackbar>
+  );
 }
 
 //* const [message, setMessage] = useState(null); // Snackbar message

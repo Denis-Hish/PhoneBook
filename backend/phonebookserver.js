@@ -6,6 +6,18 @@ const path = require('path');
 
 const app = express();
 
+const cors = require('cors');
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
+app.use(
+  cors({
+    origin: FRONTEND_ORIGIN,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  })
+);
+// Note: explicit app.options('*', cors()) was removed because it caused a route parsing error
+// The global cors() middleware handles preflight requests.
+
 app.use(express.static(__dirname));
 
 // parse requests of content-type - application/json
