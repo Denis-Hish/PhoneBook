@@ -842,6 +842,10 @@ fieldset {
         flex: 1;
       }
 
+      td:nth-child(2) {
+        min-width: 350px;
+      }
+
       .btn-icon-table {
         width: 40px;
         display: flex;
