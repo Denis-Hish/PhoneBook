@@ -880,15 +880,22 @@ fieldset {
   width: 100%;
   bottom: 0;
   background-color: #394a56;
-  // font-family: 'Caveat', cursive;
-  font-family: 'Charm', Sans-serif;
-  color: #d1d9e6;
-  // font-size: 16px;
-  // font-weight: 700;
   padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
 
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 1rem;
+    color: #d1d9e6;
+    // font-family: 'Caveat', cursive;
+    font-family: 'Charm', Sans-serif;
+    // font-size: 16px;
+    // font-weight: 700;
+  }
+
   p {
-    margin-left: 1rem;
+    // margin-left: 1rem;
   }
 }
 
