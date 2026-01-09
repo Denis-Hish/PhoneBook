@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { addContact, getAllContacts } from '../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';

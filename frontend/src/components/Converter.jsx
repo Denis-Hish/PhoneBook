@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 import axios from 'axios';

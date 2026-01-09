@@ -1,8 +1,8 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import { IMaskInput } from 'react-imask';
 
 // Wrapper to forward ref to IMaskInput's inputRef so MUI receives an HTMLInputElement ref
-const IMaskCustom = React.forwardRef(function IMaskCustom(props, ref) {
+const IMaskCustom = forwardRef(function IMaskCustom(props, ref) {
   const { onAccept, onChange, name, ...other } = props;
 
   return (
