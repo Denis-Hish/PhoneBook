@@ -1,5 +1,5 @@
 const argon2 = require('argon2');
-const db = require('./app/models');
+const db = require('./models');
 const User = db.User;
 
 // если такой логин есть - обновится пароль
@@ -50,7 +50,7 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль'
-// createOrUpdateAdminUser('admin', 'admin');
+createOrUpdateAdminUser('admin', 'admin');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');
@@ -59,7 +59,7 @@ const getAllUserLogins = async () => {
 // getAllUserLogins();
 
 module.exports = {
-  // createOrUpdateAdminUser,
+  createOrUpdateAdminUser,
   deleteUserByUsername,
   getAllUserLogins,
 };

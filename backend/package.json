@@ -5,9 +5,9 @@
   "license": "ISC",
   "author": "Denis Nazarow",
   "type": "commonjs",
-  "main": "phonebookServer.js",
+  "main": "server.js",
   "scripts": {
-    "server": "node phonebookServer.js"
+    "server": "node server.js"
   },
   "dependencies": {
     "argon2": "^0.44.0",

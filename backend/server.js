@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-// const { createOrUpdateAdminUser } = require('./userUtils');
+const { createOrUpdateAdminUser } = require('./userUtils');
 
 const app = express();
 
@@ -36,7 +36,7 @@ db.sequelize
   .then(() => {
     // force: true для пересоздания таблиц, если нужно
     console.log('Connected to the database!');
-    // createOrUpdateAdminUser();
+    createOrUpdateAdminUser();
   })
   .catch(err => {
     console.error('Cannot connect to the database!', err);
@@ -91,9 +91,14 @@ app.use('/api/user', require('./routes/user.routes'));
 // Подключение маршрутов для аутентификации пользователя (логин, пароль)
 app.use('/api/auth', require('./routes/auth.routes'));
 
-// Load UI (клиентская часть приложения на порту 3000)
-app.get('/', (req, res) => {
-  res.redirect('http://localhost:3000');
+// Load UI (клиентская часть приложения)
+// Обслуживаем статику и index.html для SPA (React Router)
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+// Catch-all маршрут для SPA — перенаправляет все неизвестные маршруты на index.html
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 // Серверная часть приложения на порту 8080
