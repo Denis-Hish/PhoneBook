@@ -33,6 +33,7 @@
   "error_saving": "Błąd podczas zapisywania plików",
   "logout": "Wyloguj",
   "welcome": "Witamy w systemie!",
+  "welcome_username": "Witaj",
   "settings": "Ustawienia",
   "p_add_new_user": "Dodaj nowego użytkownika lub zaktualizuj hasło istniejącego użytkownika",
   "p_delete_user": "Usuń użytkownika",
@@ -46,5 +47,10 @@
   "not_found": "nie znaleziony",
   "list_of_users": "Lista użytkowników",
   "number_exists": "Ten numer już istnieje",
-  "no-records-in-db": "Tutaj jest jeszcze pusto. Dodaj pierwszy wpis."
+  "no-records-in-db": "Tutaj jest jeszcze pusto. Dodaj pierwszy wpis.",
+  "role": "Rola",
+  "read_only": "tylko odczyt",
+  "full_access": "pełny dostęp",
+  "error_creating_user": "Błąd podczas tworzenia użytkownika",
+  "error_getting_users": "Błąd podczas pobierania użytkowników"
 }

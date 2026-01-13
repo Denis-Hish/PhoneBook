@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 import { useTranslation } from 'react-i18next';
 import { setMessage } from './Snackbar';
 import IconButton from '@mui/material/IconButton';

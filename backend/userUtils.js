@@ -2,19 +2,57 @@ const argon2 = require('argon2');
 const db = require('./models');
 const User = db.User;
 
-// если такой логин есть - обновится пароль
-// если логина нет - создастся новая запись в БД с логином и паролем
-const createOrUpdateAdminUser = async (newUsername, newPassword) => {
+// Автоматическое создание администратора при первом запуске
+const initializeAdminUser = async () => {
+  try {
+    // Проверяем, есть ли хотя бы один пользователь
+    const userCount = await User.count();
+
+    if (userCount === 0) {
+      // Получаем логин и пароль из переменных окружения или используем значения по умолчанию
+      const adminUsername = process.env.ADMIN_USERNAME || 'admin';
+      const adminPassword = process.env.ADMIN_PASSWORD || 'admin';
+
+      console.log('🔐 Initializing admin user...');
+      console.log(`   Username: ${adminUsername}`);
+
+      const hashedPassword = await argon2.hash(adminPassword);
+      await User.create({
+        username: adminUsername,
+        hashedPassword,
+        role: 'admin',
+      });
+
+      console.log('✅ Admin user created successfully');
+      console.log(`   ⚠️  Change the password after first login!`);
+    } else {
+      console.log('✅ Database already contains users');
+    }
+  } catch (error) {
+    console.error('❌ Error initializing admin user:', error.message);
+    console.error('   Full error:', error);
+    throw error; // Пробрасываем ошибку чтобы узнать что случилось
+  }
+};
+
+// если такой логин есть - обновится пароль и роль
+// если логина нет - создастся новая запись в БД с логином, паролем и ролью
+const createOrUpdateAdminUser = async (
+  newUsername,
+  newPassword,
+  role = 'admin'
+) => {
   try {
     const hashedPassword = await argon2.hash(newPassword);
     const [user, created] = await User.upsert({
       username: newUsername,
       hashedPassword,
+      role,
     });
     console.log(
       created
-        ? 'Admin user created successfully'
-        : 'Admin user updated successfully'
+        ? `User created successfully: ${newUsername} (${role})`
+        : `User updated successfully: ${newUsername} (${role})`
     );
   } catch (error) {
     console.error('Error updating or creating admin user:', error);
@@ -49,8 +87,8 @@ const getAllUserLogins = async () => {
   }
 };
 
-// 'новый логин' и 'новый пароль'
-createOrUpdateAdminUser('admin', 'admin');
+// 'новый логин' и 'новый пароль' и 'роль' (admin или user)
+// createOrUpdateAdminUser('admin', 'admin', 'admin');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');
@@ -59,6 +97,7 @@ createOrUpdateAdminUser('admin', 'admin');
 // getAllUserLogins();
 
 module.exports = {
+  initializeAdminUser,
   createOrUpdateAdminUser,
   deleteUserByUsername,
   getAllUserLogins,

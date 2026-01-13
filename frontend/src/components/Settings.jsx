@@ -1,4 +1,4 @@
-import  { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -7,12 +7,16 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { setMessage } from '../components/Snackbar';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import Tooltip from '@mui/material/Tooltip';
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 
 // Clear button for text fields (declared at module scope to avoid creating it during render)
 const ClearButton = ({ value, onClick }) => (
@@ -42,6 +46,7 @@ const Settings = () => {
   const handleClose = () => setOpen(false);
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [newUserRole, setNewUserRole] = useState('user');
   const [deleteUsername, setDeleteUsername] = useState('');
   const [isErrorUsername, setErrorUsername] = useState(false);
   const [isErrorDeleteUser, setErrorDeleteUser] = useState(false);
@@ -59,15 +64,23 @@ const Settings = () => {
       await axios.post('/api/user/createOrUpdateUser', {
         username: newUsername,
         password: newPassword,
+        role: newUserRole,
       });
       setMessage({
-        message: `${t('snb_user')} "${newUsername}" ${t('snb_added_user')}`,
+        message: `${t('snb_user')} "${newUsername}" (${newUserRole}) ${t(
+          'snb_added_user'
+        )}`,
         color: 'success',
       });
       setNewUsername('');
       setNewPassword('');
+      setNewUserRole('user');
     } catch (error) {
       console.error('Error creating or updating user:', error);
+      setMessage({
+        message: t('error_creating_user') || 'Error creating user',
+        color: 'error',
+      });
     }
   };
 
@@ -103,13 +116,18 @@ const Settings = () => {
   const getAllUserLogins = async () => {
     try {
       const response = await axios.get('/api/user/getAllUserLogins');
-      const logins = response.data.logins;
+      const users = response.data.users;
+      const usersInfo = users.map(u => `${u.username} (${u.role})`).join(', ');
       setMessage({
-        message: `${t('list_of_users')}: ${logins.join(', ')}`,
+        message: `${t('list_of_users')}: ${usersInfo}`,
         color: 'info',
       });
     } catch (error) {
       console.error('Error getting user logins:', error);
+      setMessage({
+        message: t('error_getting_users') || 'Error getting users',
+        color: 'error',
+      });
     }
   };
 
@@ -198,6 +216,21 @@ const Settings = () => {
                     ),
                   }}
                 />
+
+                <FormControl variant='standard' className='input'>
+                  <InputLabel>{t('role')}</InputLabel>
+                  <Select
+                    value={newUserRole}
+                    onChange={e => setNewUserRole(e.target.value)}
+                    label={t('role')}
+                    style={{ marginLeft: '10px' }}
+                  >
+                    <MenuItem value='user'>User ({t('read_only')})</MenuItem>
+                    <MenuItem value='admin'>
+                      Admin ({t('full_access')})
+                    </MenuItem>
+                  </Select>
+                </FormControl>
 
                 <Button
                   className='btn-settings btn-blue'

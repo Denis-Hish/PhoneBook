@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 import { setMessage } from '../components/Snackbar';
 
 export const getAllContacts = async () => {

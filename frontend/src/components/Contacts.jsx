@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { deleteContact, getAllContacts } from '../services/paramsAPI';
+import { useAuth } from '../contexts/AuthContext';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
@@ -41,6 +42,7 @@ const ModalButtons = ({ t, handleDeleteContact, handleCloseModal }) => (
 );
 
 const Contacts = () => {
+  const { isAdmin } = useAuth();
   const [contacts, setContacts] = useState(null);
   const [open, setOpen] = useState(false); // малое модальное окно
   const [selectedId, setSelectedId] = useState(null);
@@ -156,7 +158,8 @@ const Contacts = () => {
 
   return (
     <div className='contacts'>
-      <ModalAddContact updateListContacts={getContacts} />
+      {/* Кнопка добавления контакта - только для admin */}
+      {isAdmin() && <ModalAddContact updateListContacts={getContacts} />}
       <MadalEditContact
         contact={contactForEdit}
         openModal={openEditModal}
@@ -284,8 +287,9 @@ const Contacts = () => {
                     )}
                   </IconButton>
                 </td>
-                <td className='btn-icon-table' />
-                <td className='btn-icon-table' />
+                {/* Заголовки колонок для кнопок - только для admin */}
+                {isAdmin() && <td className='btn-icon-table' />}
+                {isAdmin() && <td className='btn-icon-table' />}
               </tr>
             </thead>
             <tbody>
@@ -308,42 +312,47 @@ const Contacts = () => {
                     <td>{maskedPhoneForDisplay(phoneNumber2)}</td>
                     <td>{maskedPhoneForDisplay(phoneNumber3)}</td>
                     <td>{group}</td>
-                    <td className='btn-icon-table'>
-                      <Tooltip
-                        title={t('edit_contact')}
-                        placement='top'
-                        slots={{ transition: Zoom }}
-                        arrow
-                      >
-                        <IconButton
-                          className='btn-table edit'
-                          onClick={() => {
-                            handleEdit(id);
-                          }}
-                          tabIndex={-1}
+                    {/* Кнопки редактирования и удаления - только для admin */}
+                    {isAdmin() && (
+                      <td className='btn-icon-table'>
+                        <Tooltip
+                          title={t('edit_contact')}
+                          placement='top'
+                          slots={{ transition: Zoom }}
+                          arrow
                         >
-                          <EditIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </td>
-                    <td className='btn-icon-table'>
-                      <Tooltip
-                        title={t('delete_contact')}
-                        placement='top'
-                        slots={{ transition: Zoom }}
-                        arrow
-                      >
-                        <IconButton
-                          className='btn-table delete'
-                          onClick={() => {
-                            getIdDeleteBtn(id);
-                          }}
-                          tabIndex={-1}
+                          <IconButton
+                            className='btn-table edit'
+                            onClick={() => {
+                              handleEdit(id);
+                            }}
+                            tabIndex={-1}
+                          >
+                            <EditIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </td>
+                    )}
+                    {isAdmin() && (
+                      <td className='btn-icon-table'>
+                        <Tooltip
+                          title={t('delete_contact')}
+                          placement='top'
+                          slots={{ transition: Zoom }}
+                          arrow
                         >
-                          <DeleteIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </td>
+                          <IconButton
+                            className='btn-table delete'
+                            onClick={() => {
+                              getIdDeleteBtn(id);
+                            }}
+                            tabIndex={-1}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </td>
+                    )}
                   </tr>
                 )
               )}

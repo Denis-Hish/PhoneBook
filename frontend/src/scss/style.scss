@@ -813,7 +813,10 @@ fieldset {
 
     tbody {
       font-family: 'Poppins', sans-serif;
+
       tr {
+        min-height: 50px;
+
         &:hover {
           background-color: rgba(255, 255, 255, 0.3);
         }
@@ -1269,6 +1272,10 @@ body.dark {
 
     .header-content {
       .header-content__left {
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+
         button {
           box-shadow: $box-shadow, $box-shadow-inset;
           color: $color-text;

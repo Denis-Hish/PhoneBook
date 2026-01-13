@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
+import { AuthProvider } from './contexts/AuthContext';
 import './scss/style.scss';
 import './scss/bootstrap-grid.css';
 
@@ -15,8 +16,9 @@ function App() {
   // Initialize authentication from localStorage once (avoid setting state inside effects synchronously)
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     try {
+      const token = localStorage.getItem('token');
       const authData = JSON.parse(localStorage.getItem('authData'));
-      if (authData && authData.isAuthenticated) {
+      if (token && authData && authData.isAuthenticated) {
         const currentTime = Date.now();
         const loginTime = authData.loginTime;
         if (currentTime - loginTime < countdown) {
@@ -24,6 +26,7 @@ function App() {
         }
         // expired — remove stored data
         localStorage.removeItem('authData');
+        localStorage.removeItem('token');
       }
     } catch {
       // ignore parse errors
@@ -43,6 +46,7 @@ function App() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('authData');
+    localStorage.removeItem('token');
     // clearContactsData(); //! Очистить данные контактов
     window.location.reload(); //! Перезагрузка страницы для очистки данных?
   };
@@ -54,6 +58,7 @@ function App() {
         // Log out the user after the idle timeout
         setIsAuthenticated(false);
         localStorage.removeItem('authData');
+        localStorage.removeItem('token');
         window.location.reload();
       }, countdown);
 
@@ -62,6 +67,7 @@ function App() {
         clearTimeout(idleTimer);
         idleTimer = setTimeout(() => {
           setIsAuthenticated(false);
+          localStorage.removeItem('token');
           localStorage.removeItem('authData');
           window.location.reload();
         }, countdown);
@@ -81,16 +87,18 @@ function App() {
   }, [isAuthenticated, countdown]);
 
   return (
-    <ThemeProvider>
-      <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
-      {isAuthenticated ? (
-        <Contacts />
-      ) : (
-        <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
-      )}
-      <Snackbar />
-      <Footer />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
+        {isAuthenticated ? (
+          <Contacts />
+        ) : (
+          <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
+        )}
+        <Snackbar />
+        <Footer />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

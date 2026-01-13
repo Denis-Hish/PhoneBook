@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import { TextField, Button } from '@mui/material';
@@ -6,9 +6,11 @@ import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import { setMessage } from '../components/Snackbar';
-import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
+import axios from '../utils/axiosInstance';
 
 const LoginForm = ({ onLogin }) => {
+  const { login } = useAuth();
   const rememberedUsername = localStorage.getItem('rememberedUsername');
   const initialUsername = rememberedUsername ? rememberedUsername : 'admin';
   const [username, setUsername] = useState(initialUsername);
@@ -40,7 +42,7 @@ const LoginForm = ({ onLogin }) => {
   //    }
   // };
 
-  // MongoDB authentication
+  // Authentication with JWT
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -51,9 +53,20 @@ const LoginForm = ({ onLogin }) => {
       });
 
       if (response.data.success) {
-        // Успешная аутентификация
+        // Успешная аутентификация с JWT
+        const { token, user } = response.data;
+
+        // Сохраняем токен и данные пользователя в контексте
+        login(token, user);
+
+        // Вызываем onLogin для обновления состояния App
         onLogin();
-        setMessage({ message: t('welcome'), color: 'success' });
+
+        setMessage({
+          message: `${t('welcome')}, ${user.username}! (${user.role})`,
+          color: 'success',
+        });
+
         if (rememberMe) {
           localStorage.setItem('rememberedUsername', username);
         } else {
@@ -61,7 +74,7 @@ const LoginForm = ({ onLogin }) => {
         }
       } else {
         // Ошибка аутентификации
-        const errorCode = response.data.errorCode; // Здесь подставьте правильное поле с идентификатором ошибки
+        const errorCode = response.data.errorCode;
         const message =
           errorCode === 'invalid_credentials'
             ? t('wrong_login')

@@ -8,7 +8,7 @@ const compression = require('compression');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 
-const { createOrUpdateAdminUser } = require('./userUtils');
+const { initializeAdminUser } = require('./userUtils');
 
 const app = express();
 
@@ -64,10 +64,10 @@ db.sequelize
   .then(async () => {
     console.log('Connected to the database!');
     try {
-      // Если функция асинхронная — ждём её выполнения
-      await createOrUpdateAdminUser();
+      // Автоматическое создание admin пользователя при первом запуске
+      await initializeAdminUser();
     } catch (err) {
-      console.error('createOrUpdateAdminUser error:', err);
+      console.error('initializeAdminUser error:', err);
     }
   })
   .catch(err => {
