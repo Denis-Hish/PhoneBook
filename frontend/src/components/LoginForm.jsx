@@ -63,7 +63,7 @@ const LoginForm = ({ onLogin }) => {
         onLogin();
 
         setMessage({
-          message: `${t('welcome')}, ${user.username}! (${user.role})`,
+          message: `${t('welcome')}, ${user.username}!`,
           color: 'success',
         });
 

@@ -128,6 +128,10 @@ fieldset {
     }
 
     .header-content__left {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+
       /* ---------- BUTTON SETTINGS ---------- */
       .btn-settings {
         margin-bottom: 7px;
@@ -141,6 +145,10 @@ fieldset {
         &:hover svg {
           fill: $color-red;
         }
+      }
+
+      .user-name {
+        margin-bottom: 7px;
       }
     }
 
@@ -1272,10 +1280,6 @@ body.dark {
 
     .header-content {
       .header-content__left {
-        display: flex;
-        align-items: center;
-        gap: 1.75rem;
-
         button {
           box-shadow: $box-shadow, $box-shadow-inset;
           color: $color-text;

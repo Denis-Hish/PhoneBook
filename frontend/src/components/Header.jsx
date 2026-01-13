@@ -81,7 +81,11 @@ const Header = ({ onLogout, isAuthenticated }) => {
             {isAuthenticated && isAdmin() && <Settings />}
 
             <div className='user-name'>
-              {t('welcome_username')}: {user?.username || 'Loading...'}
+              {isAuthenticated && (
+                <>
+                  {t('welcome_username')}: {user?.username || 'Loading...'}
+                </>
+              )}
             </div>
           </div>
 
