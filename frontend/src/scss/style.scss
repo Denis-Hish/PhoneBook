@@ -1607,4 +1607,9 @@ body.dark {
   }
 }
 
+// перекрытие стилей в select
+.css-j218zi-MuiInputBase-root-MuiInput-root-MuiSelect-root {
+  color: inherit !important;
+}
+
 /* ----------------------------------------------------- */

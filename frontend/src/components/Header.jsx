@@ -83,7 +83,7 @@ const Header = ({ onLogout, isAuthenticated }) => {
             <div className='user-name'>
               {isAuthenticated && (
                 <>
-                  {t('welcome_username')}: {user?.username || 'Loading...'}
+                  {t('welcome_username')} {user?.username || 'Loading...'}
                 </>
               )}
             </div>
