@@ -20,8 +20,8 @@ const db = require('../models');
       console.log('\n⚠️  No users found in database');
       console.log('Creating default admin user...');
 
-      const argon2 = require('argon2');
-      const hashedPassword = await argon2.hash('admin');
+      const bcrypt = require('bcryptjs');
+      const hashedPassword = await bcrypt.hash('admin', 10);
 
       await db.User.create({
         username: 'admin',

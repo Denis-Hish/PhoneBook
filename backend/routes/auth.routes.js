@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const argon2 = require('argon2');
+const bcrypt = require('bcryptjs');
 const db = require('../models');
 const User = db.User;
 const {
@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
     }
 
     console.log(`✅ User found: ${username}, checking password...`);
-    const isPasswordValid = await argon2.verify(user.hashedPassword, password);
+    const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
 
     if (!isPasswordValid) {
       console.log(`❌ Password invalid for user: ${username}`);

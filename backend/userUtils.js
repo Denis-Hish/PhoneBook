@@ -1,4 +1,4 @@
-const argon2 = require('argon2');
+const bcrypt = require('bcryptjs');
 const db = require('./models');
 const User = db.User;
 
@@ -16,7 +16,7 @@ const initializeAdminUser = async () => {
       console.log('🔐 Initializing admin user...');
       console.log(`   Username: ${adminUsername}`);
 
-      const hashedPassword = await argon2.hash(adminPassword);
+      const hashedPassword = await bcrypt.hash(adminPassword, 10);
       await User.create({
         username: adminUsername,
         hashedPassword,
@@ -43,7 +43,7 @@ const createOrUpdateAdminUser = async (
   role = 'admin'
 ) => {
   try {
-    const hashedPassword = await argon2.hash(newPassword);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
     const [user, created] = await User.upsert({
       username: newUsername,
       hashedPassword,
@@ -88,7 +88,7 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль' и 'роль' (admin или user)
-// createOrUpdateAdminUser('admin', 'admin', 'admin');
+createOrUpdateAdminUser('admin', 'admin', 'admin');
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');

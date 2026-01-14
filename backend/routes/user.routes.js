@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const User = db.User;
-const argon2 = require('argon2');
+const bcrypt = require('bcryptjs');
 const {
   authenticateToken,
   requireAdmin,
@@ -15,7 +15,7 @@ router.post(
   async (req, res) => {
     const { username, password, role } = req.body;
     try {
-      const hashedPassword = await argon2.hash(password);
+      const hashedPassword = await bcrypt.hash(password, 10);
       const [user, created] = await User.upsert({
         username,
         hashedPassword,
