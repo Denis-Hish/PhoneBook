@@ -7,7 +7,10 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js"
+    "server": "node server.js",
+    "db:check": "node scripts/check-db.js",
+    "db:migrate": "node scripts/migrate-db.js",
+    "db:add-role": "node scripts/migrate-role.js"
   },
   "dependencies": {
     "argon2": "^0.44.0",

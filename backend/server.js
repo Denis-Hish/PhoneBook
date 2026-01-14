@@ -27,17 +27,12 @@ app.use(limiter);
 // CORS
 const cors = require('cors');
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://dev.nadziejarodzinie.org.pl',
-];
-
 app.use(
   cors({
     origin: function (origin, callback) {
       // если origin отсутствует (например, запрос от curl/postman), разрешаем
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
+      if (origin === process.env.FRONTEND_ORIGIN) {
         return callback(null, true);
       } else {
         return callback(new Error('Not allowed by CORS'));

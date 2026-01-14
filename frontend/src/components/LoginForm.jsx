@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import { TextField, Button } from '@mui/material';
@@ -12,13 +12,16 @@ import axios from '../utils/axiosInstance';
 const LoginForm = ({ onLogin }) => {
   const { login } = useAuth();
   const rememberedUsername = localStorage.getItem('rememberedUsername');
-  const initialUsername = rememberedUsername ? rememberedUsername : 'admin';
+  const initialUsername = rememberedUsername ? rememberedUsername : '';
   const [username, setUsername] = useState(initialUsername);
 
-  const [password, setPassword] = useState('admin');
+  const [password, setPassword] = useState('');
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe, setRememberMe] = useState(() => {
+    const rememberedUsername = localStorage.getItem('rememberedUsername');
+    return !!rememberedUsername;
+  });
   const { t } = useTranslation();
 
   // Local authentication
@@ -109,12 +112,6 @@ const LoginForm = ({ onLogin }) => {
       localStorage.removeItem('rememberedUsername');
     }
   };
-
-  // Проверка наличия данных в localStorage и установка состояния галочки "Remember Me"
-  useEffect(() => {
-    const rememberedUsername = localStorage.getItem('rememberedUsername');
-    setRememberMe(!!rememberedUsername);
-  }, []);
 
   // Clear input
   const handleClearUsername = () => {

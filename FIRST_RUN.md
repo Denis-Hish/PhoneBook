@@ -91,7 +91,7 @@ npm install
 
 ```bash
 cd backend
-node migrate-role.js
+npm run db:add-role
 ```
 
 ## ▶️ Шаг 5: Запуск приложения
@@ -187,7 +187,7 @@ Error: Unknown column 'role' in 'field list'
 
 ```bash
 cd backend
-node migrate-role.js
+npm run db:add-role
 ```
 
 ### Ошибка 500 при авторизации

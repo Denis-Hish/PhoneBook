@@ -73,7 +73,10 @@ PhoneBook/
 │   ├── xml/                 # Сгенерированные XML файлы
 │   ├── server.js            # Главный файл сервера
 │   ├── userUtils.js         # Утилиты для работы с пользователями
-│   ├── migrate-role.js      # Скрипт миграции БД
+│   ├── scripts/             # Разовые скрипты БД
+│   │   ├── check-db.js      # Проверка подключения и пользователей
+│   │   ├── migrate-db.js    # Обновление схемы (alter)
+│   │   └── migrate-role.js  # Точечная миграция: колонка role
 │   └── package.json
 ├── frontend/                 # Клиентская часть
 │   ├── public/
