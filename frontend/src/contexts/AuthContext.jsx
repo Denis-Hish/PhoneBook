@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 /* eslint-disable react-refresh/only-export-components */
 
@@ -21,10 +21,12 @@ export const AuthProvider = ({ children }) => {
   // Настройка axios для автоматической отправки токена с каждым запросом
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axiosInstance.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${token}`;
       localStorage.setItem('token', token);
     } else {
-      delete axios.defaults.headers.common['Authorization'];
+      delete axiosInstance.defaults.headers.common['Authorization'];
       localStorage.removeItem('token');
     }
   }, [token]);
@@ -45,7 +47,7 @@ export const AuthProvider = ({ children }) => {
     const checkAuth = async () => {
       if (token) {
         try {
-          const response = await axios.get('/api/auth/me');
+          const response = await axiosInstance.get('/api/auth/me');
           if (response.data.success) {
             setUser(response.data.user);
           } else {

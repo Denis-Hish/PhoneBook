@@ -5,7 +5,7 @@ const {
   requireAdmin,
 } = require('../middleware/auth.middleware');
 
-module.exports = app => {
+module.exports = (app, apiPrefix = '') => {
   let router = require('express').Router();
 
   // Get all the contacts (требуется аутентификация, доступно admin и user)
@@ -96,5 +96,5 @@ module.exports = app => {
     }
   );
 
-  app.use('/api/contacts', router);
+  app.use(apiPrefix + '/api/contacts', router);
 };

@@ -12,6 +12,9 @@ const { initializeAdminUser } = require('./userUtils');
 
 const app = express();
 
+// Trust proxy (для X-Forwarded-For header)
+app.set('trust proxy', 1);
+
 // SECURITY & PERFORMANCE middlewares
 app.use(helmet());
 app.use(compression());
@@ -21,6 +24,10 @@ app.use(morgan('combined'));
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 минут
   max: 200, // максимум запросов с одного IP за window
+  skip: req => {
+    // Пропускаем OPTIONS запросы
+    return req.method === 'OPTIONS';
+  },
 });
 app.use(limiter);
 
@@ -29,15 +36,7 @@ const cors = require('cors');
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // если origin отсутствует (например, запрос от curl/postman), разрешаем
-      if (!origin) return callback(null, true);
-      if (origin === process.env.FRONTEND_ORIGIN) {
-        return callback(null, true);
-      } else {
-        return callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: true, // Разрешить все origin (для production SPA)
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   })
@@ -48,9 +47,10 @@ app.use(express.json({ limit: '200kb' })); // под XML можно увелич
 app.use(express.urlencoded({ extended: true, limit: '200kb' }));
 
 // API routes (подключаем до раздачи статики)
-require('./routes/phones.routes')(app);
-app.use('/api/user', require('./routes/user.routes'));
-app.use('/api/auth', require('./routes/auth.routes'));
+const API_PREFIX = process.env.API_PREFIX || '';
+require('./routes/phones.routes')(app, API_PREFIX);
+app.use(API_PREFIX + '/api/user', require('./routes/user.routes'));
+app.use(API_PREFIX + '/api/auth', require('./routes/auth.routes'));
 
 // Подключение к БД
 const db = require('./models');

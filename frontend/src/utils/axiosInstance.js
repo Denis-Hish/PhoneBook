@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 // Создаем axios instance с автоматическим добавлением токена
-const axiosInstance = axios.create();
+const axiosInstance = axios.create({
+  baseURL: import.meta.env.BASE_URL || '/',
+});
 
 // Interceptor для добавления JWT токена к каждому запросу
 axiosInstance.interceptors.request.use(
