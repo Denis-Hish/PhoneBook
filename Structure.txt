@@ -1,13 +1,15 @@
 /home/nadzrodz/dev/phonebook/
 └── phonebook/
-    ├── server.js     ← отдаёт статику
-    ├── package.json
     ├── config/
+    ├── middleware
     ├── models/
     ├── routes/
-    ├── .env
-    ├── public/                ← содержимое dist
+    ├── public/             ← содержимое dist
     │   ├── index.html
     │   ├── assets/
+    │   ├── locales/
     │   └── ...
-    └── node_modules/
+    ├── .env
+    ├── package.json
+    ├── server.js           ← отдаёт статику
+    └── userUtils.js
