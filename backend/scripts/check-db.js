@@ -18,18 +18,25 @@ const db = require('../models');
       });
     } else {
       console.log('\n⚠️  No users found in database');
-      console.log('Creating default admin user...');
+      console.log('Creating admin user from env (with fallbacks)...');
 
       const bcrypt = require('bcryptjs');
-      const hashedPassword = await bcrypt.hash('admin', 10);
+      const adminUsername = process.env.ADMIN_USERNAME || 'admin';
+      const adminPassword = process.env.ADMIN_PASSWORD || 'admin';
+      if (!process.env.ADMIN_USERNAME || !process.env.ADMIN_PASSWORD) {
+        console.warn(
+          '⚠️  ADMIN_USERNAME/ADMIN_PASSWORD not set. Using default "admin/admin".'
+        );
+      }
+      const hashedPassword = await bcrypt.hash(adminPassword, 10);
 
       await db.User.create({
-        username: 'admin',
+        username: adminUsername,
         hashedPassword,
         role: 'admin',
       });
 
-      console.log('✅ Admin user created successfully');
+      console.log(`✅ Admin user created successfully: ${adminUsername}`);
     }
 
     process.exit(0);
