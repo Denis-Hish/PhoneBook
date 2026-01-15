@@ -81,7 +81,8 @@ svg {
 
 // размытие сзади модального окна
 .MuiBackdrop-root {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .snackbar {

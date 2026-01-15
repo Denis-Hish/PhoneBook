@@ -88,11 +88,11 @@ const getAllUserLogins = async () => {
 };
 
 // 'новый логин' и 'новый пароль' и 'роль' (admin или user)
-createOrUpdateAdminUser(
-  process.env.ADMIN_USERNAME || 'admin',
-  process.env.ADMIN_PASSWORD || 'admin',
-  'admin'
-);
+// createOrUpdateAdminUser(
+//   process.env.ADMIN_USERNAME || 'admin',
+//   process.env.ADMIN_PASSWORD || 'admin',
+//   'admin'
+// );
 
 // Удаления записи пользователя по логину
 // deleteUserByUsername('den');

@@ -2,8 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/phonebook/',
+export default defineConfig(({ command }) => ({
+  // В dev используем base '/', в prod билдим с '/phonebook/'
+  base: command === 'build' ? '/phonebook/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,6 +18,13 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      // На случай если base в dev окажется '/phonebook/'
+      '/phonebook/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace(/^\/phonebook/, ''),
+      },
     },
   },
-});
+}));

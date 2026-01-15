@@ -14,8 +14,8 @@ i18n
       escapeValue: false,
     },
     backend: {
-      // loadPath: '/locales/{{lng}}.json', //LOCAL Путь к файлам с переводами (*.json)
-      loadPath: '/phonebook/locales/{{lng}}.json', //SERVER Путь к файлам с переводами (*.json)
+      // Динамический путь: в dev будет '/', в prod '/phonebook/'
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}.json`,
     },
   });
 
