@@ -177,6 +177,7 @@ const Settings = () => {
                 <p>{t('p_add_new_user')}</p>
                 <TextField
                   className='input'
+                  name='username'
                   type='text'
                   label={`${t('user_name')}`}
                   variant='standard'
@@ -201,6 +202,7 @@ const Settings = () => {
 
                 <TextField
                   className='input'
+                  name='password'
                   type='password'
                   label={`${t('password')}`}
                   variant='standard'

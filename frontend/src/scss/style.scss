@@ -1036,10 +1036,10 @@ fieldset {
     }
   }
 
-  .clear-btn {
+  .clear-btn,
+  .visibility-password-btn {
     position: absolute;
     padding: 4px;
-    right: 40px;
     top: 22%;
     box-shadow: $box-shadow;
 
@@ -1049,9 +1049,18 @@ fieldset {
     }
   }
 
+  .clear-btn {
+    right: 40px;
+  }
+
+  .visibility-password-btn {
+    right: 80px;
+  }
+
   .input-box {
     &:not(:hover) {
-      .clear-btn {
+      .clear-btn,
+      .visibility-password-btn {
         visibility: hidden;
       }
     }

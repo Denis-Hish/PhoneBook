@@ -1,28 +1,29 @@
 import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
+import { TextField, Button } from '@mui/material';
+import { setMessage } from '../components/Snackbar';
+import axios from '../utils/axiosInstance';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
-import { TextField, Button } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
-import { setMessage } from '../components/Snackbar';
-import { useAuth } from '../contexts/AuthContext';
-import axios from '../utils/axiosInstance';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const LoginForm = ({ onLogin }) => {
   const { login } = useAuth();
+  const { t } = useTranslation();
   const rememberedUsername = localStorage.getItem('rememberedUsername');
   const initialUsername = rememberedUsername ? rememberedUsername : '';
   const [username, setUsername] = useState(initialUsername);
-
   const [password, setPassword] = useState('');
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(() => {
     const rememberedUsername = localStorage.getItem('rememberedUsername');
     return !!rememberedUsername;
   });
-  const { t } = useTranslation();
 
   // Local authentication
   // const handleSubmit = (e) => {
@@ -122,6 +123,10 @@ const LoginForm = ({ onLogin }) => {
     setPassword('');
   };
 
+  const handleVisibilityPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className='login-wrapper'>
       <div className='login'>
@@ -157,7 +162,7 @@ const LoginForm = ({ onLogin }) => {
           <div className='input-box'>
             <TextField
               className='input-form'
-              type='password'
+              type={showPassword ? 'text' : 'password'}
               name='password'
               label={t('password')}
               value={password}
@@ -166,13 +171,22 @@ const LoginForm = ({ onLogin }) => {
               onMouseEnter={() => setIsPasswordFocused(true)}
             />
             {isPasswordFocused && password !== '' && (
-              <IconButton
-                className='clear-btn'
-                onClick={handleClearPassword}
-                tabIndex={-1}
-              >
-                <ClearIcon />
-              </IconButton>
+              <>
+                <IconButton
+                  className='visibility-password-btn'
+                  onClick={handleVisibilityPassword}
+                  tabIndex={-1}
+                >
+                  <VisibilityIcon />
+                </IconButton>
+                <IconButton
+                  className='clear-btn'
+                  onClick={handleClearPassword}
+                  tabIndex={-1}
+                >
+                  <ClearIcon />
+                </IconButton>
+              </>
             )}
             <LockIcon className='icons' />
           </div>
