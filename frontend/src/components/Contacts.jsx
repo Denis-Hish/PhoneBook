@@ -57,6 +57,7 @@ const Contacts = ({ onClearData }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const { t } = useTranslation();
   const contactRowsRef = useRef([]);
+  const wasModalOpenRef = useRef(false);
 
   const getContacts = async () => {
     try {
@@ -178,10 +179,30 @@ const Contacts = ({ onClearData }) => {
     }
   }, [isAuthenticated]);
 
+  // Kill all GSAP animations when modal opens
+  useEffect(() => {
+    if (open || openEditModal) {
+      wasModalOpenRef.current = true;
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    } else if (wasModalOpenRef.current) {
+      // Modal was just closed - delay re-initialization of animations
+      const timer = setTimeout(() => {
+        wasModalOpenRef.current = false;
+      }, 300); // 300ms delay to prevent animation trigger on close
+
+      return () => clearTimeout(timer);
+    }
+  }, [open, openEditModal]);
+
   // GSAP ANIMATIONS - Анимация появления/исчезновения строк при скролле
   useEffect(() => {
-    // Skip animations if in print mode
-    if (document.body.classList.contains('print-mode')) {
+    // Skip animations if any modal is open or was just closed or in print mode
+    if (
+      document.body.classList.contains('print-mode') ||
+      open ||
+      openEditModal ||
+      wasModalOpenRef.current
+    ) {
       return;
     }
 
@@ -246,8 +267,8 @@ const Contacts = ({ onClearData }) => {
       });
     });
 
-    return () => ctx.revert(); // Очистка при размонтировании
-  }, [filteredAndSortedContacts]);
+    return () => ctx.revert();
+  }, [filteredAndSortedContacts, open, openEditModal]);
 
   // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
 

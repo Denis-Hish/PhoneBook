@@ -163,7 +163,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             onChange={onChangeHandler}
             className='input phone-input'
             autoComplete='off'
-            InputProps={{
+            slotProps={{
               inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber1),
@@ -200,7 +200,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             onChange={onChangeHandler}
             className='input phone-input'
             autoComplete='off'
-            InputProps={{
+            slotProps={{
               inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber2),
@@ -237,7 +237,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
             onChange={onChangeHandler}
             className='input phone-input'
             autoComplete='off'
-            InputProps={{
+            slotProps={{
               inputComponent: IMaskCustom,
               inputProps: {
                 mask: phoneNumberMask(contact.phoneNumber3),
@@ -299,7 +299,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
               <TextField
                 {...params}
                 label={`${t('group')} *`}
-                InputProps={{
+                slotProps={{
                   ...params.InputProps,
                   endAdornment: contact.group.trim() !== '' && (
                     <InputAdornment position='end'>

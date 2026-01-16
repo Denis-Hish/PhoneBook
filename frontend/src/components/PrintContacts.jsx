@@ -6,12 +6,10 @@ function PrintContacts() {
   const { t } = useTranslation();
 
   const handlePrint = () => {
-    // Reset all GSAP animations on contact rows before printing
+    // Reset GSAP animations
     const contactRows = document.querySelectorAll('tr.contact');
     contactRows.forEach(row => {
-      // Clear all inline styles set by GSAP animations
       row.style.cssText = '';
-      // Also reset all td elements inside
       const tds = row.querySelectorAll('td');
       tds.forEach(td => {
         td.style.cssText = '';

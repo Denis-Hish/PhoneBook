@@ -42,20 +42,13 @@ const ModalEditContact = ({
   const [fieldUserNameError, setFieldUserNameError] = useState(false);
   const [fieldGroupError, setFieldGroupError] = useState(false);
 
-  const [name, setName] = useState(userName || '');
-  const [phone1, setPhone1] = useState(phoneNumber1 || '');
-  const [phone2, setPhone2] = useState(phoneNumber2 || '');
-  const [phone3, setPhone3] = useState(phoneNumber3 || '');
-  const [group1, setGroup] = useState(group || '');
+  // Initialize state from props without useEffect to avoid cascading renders
+  const [name, setName] = useState(() => userName || '');
+  const [phone1, setPhone1] = useState(() => phoneNumber1 || '');
+  const [phone2, setPhone2] = useState(() => phoneNumber2 || '');
+  const [phone3, setPhone3] = useState(() => phoneNumber3 || '');
+  const [group1, setGroup] = useState(() => group || '');
   const { t } = useTranslation();
-
-  useEffect(() => {
-    setName(userName || '');
-    setPhone1(phoneNumber1 || '');
-    setPhone2(phoneNumber2 || '');
-    setPhone3(phoneNumber3 || '');
-    setGroup(group || '');
-  }, [group, phoneNumber1, phoneNumber2, phoneNumber3, userName]);
 
   const handleEditContact = async e => {
     e.preventDefault();
@@ -78,7 +71,7 @@ const ModalEditContact = ({
         phoneNumber3: phone3,
         group: group1,
       };
-      await editContact(id, updatedContact, t);
+      editContact(id, updatedContact, t);
       closeModal();
       updateListContacts();
     }
@@ -203,7 +196,7 @@ const ModalEditContact = ({
                     onChange={e =>
                       setPhone1(e.target.value.replace(/[^0-9]/g, ''))
                     }
-                    InputProps={{
+                    slotProps={{
                       inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone1),
@@ -239,7 +232,7 @@ const ModalEditContact = ({
                     onChange={e =>
                       setPhone2(e.target.value.replace(/[^0-9]/g, ''))
                     }
-                    InputProps={{
+                    slotProps={{
                       inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone2),
@@ -274,7 +267,7 @@ const ModalEditContact = ({
                     onChange={e =>
                       setPhone3(e.target.value.replace(/[^0-9]/g, ''))
                     }
-                    InputProps={{
+                    slotProps={{
                       inputComponent: IMaskCustom,
                       inputProps: {
                         mask: phoneNumberMask(phone3),
