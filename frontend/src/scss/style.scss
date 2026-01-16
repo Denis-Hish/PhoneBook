@@ -1276,10 +1276,13 @@ body.dark {
     box-shadow: $box-shadow;
 
     .header-content {
-      .header-content__left {
-        button {
-          box-shadow: $box-shadow, $box-shadow-inset;
-          color: $color-text;
+      .header-btn {
+        box-shadow: $box-shadow, $box-shadow-inset;
+        color: $color-text;
+        &:hover {
+          svg {
+            fill: $color-blue-1;
+          }
         }
       }
 
@@ -1293,61 +1296,54 @@ body.dark {
         }
       }
 
-      .header-content__right {
-        .swith-toggle-theme {
-          &:hover .toggle {
-            background-color: rgba(0, 0, 0, 0.03);
-          }
-
-          .label {
-            color: #394a56;
-          }
-
-          .toggle {
-            box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64,
-              4px 4px 4px 0px #545c64 inset, -4px -4px 4px 0px #3e444a inset;
-          }
-
-          .indicator {
-            background: #5a6269;
-            box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64;
-          }
+      .swith-toggle-theme {
+        &:hover .toggle {
+          background-color: rgba(0, 0, 0, 0.03);
         }
 
-        .swith-language {
-          box-shadow: $box-shadow, $box-shadow-inset;
+        .label {
+          color: #394a56;
+        }
 
-          div {
-            .lng {
-              color: $color-text;
-            }
+        .toggle {
+          box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64,
+            4px 4px 4px 0px #545c64 inset, -4px -4px 4px 0px #3e444a inset;
+        }
 
-            &:hover {
-              .lng {
-                color: $color-blue-1;
-              }
-            }
+        .indicator {
+          background: #5a6269;
+          box-shadow: -8px -4px 8px 0px #3e444a, 8px 4px 12px 0px #545c64;
+        }
+      }
+
+      .swith-language {
+        div {
+          .lng {
+            color: $color-text;
           }
-        }
 
-        .btn-download {
-          box-shadow: $box-shadow, $box-shadow-inset;
-          color: $color-text;
-        }
-
-        .btn-downloaded {
           &:hover {
-            svg {
-              &:nth-child(2) {
-                color: $color-blue-1;
-              }
+            .lng {
+              color: $color-blue-1;
             }
           }
         }
+      }
 
-        .btn-logout {
-          box-shadow: $box-shadow, $box-shadow-inset;
-          color: $color-text;
+      .btn-downloaded {
+        &:hover {
+          svg {
+            &:nth-child(2) {
+              color: $color-blue-1;
+            }
+          }
+        }
+      }
+
+      .btn-settings,
+      .btn-logout {
+        &:hover svg {
+          fill: $color-red;
         }
       }
     }
@@ -1612,12 +1608,12 @@ body.dark {
 /* ------ PRINT MODE ------ */
 @media print {
   body.print-mode * {
-    background-color: white;
+    background-color: white !important;
     color: black !important;
-    box-shadow: none;
+    box-shadow: none !important;
     text-shadow: none !important;
     filter: none !important;
-    margin: 0;
+    margin: 0 !important;
 
     &::after,
     &::before {
@@ -1635,12 +1631,13 @@ body.dark {
       position: relative;
 
       h1 span {
-        margin-right: 6px;
+        margin-right: 6px !important;
       }
     }
 
     .contacts {
       padding: 0;
+      margin-top: 1rem !important;
       font-size: 14px;
 
       table {
@@ -1762,7 +1759,8 @@ body.dark {
     .header-table,
     .footer,
     .MuiSnackbar-root,
-    .container table tr .btn-icon-table {
+    .container table tr .btn-icon-table,
+    .arrow-btn {
       display: none !important;
     }
   }
