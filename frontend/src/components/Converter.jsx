@@ -168,7 +168,7 @@ const Converter = () => {
     <>
       <Tooltip title={t('convert_to_xml')} placement='bottom' arrow>
         <IconButton
-          className='btn-download btn-downloaded'
+          className='header-btn btn-download btn-downloaded'
           color='primary'
           onClick={async () => {
             handleButtonClick();

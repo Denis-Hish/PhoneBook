@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './scss/style.scss';
 import './scss/bootstrap-grid.css';
 
@@ -9,9 +9,16 @@ import Contacts from './components/Contacts';
 import Footer from './components/Footer';
 import Snackbar from './components/Snackbar';
 import LoginForm from './components/LoginForm';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-function App() {
+// Initialize GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+const AppContent = () => {
   const countdown = 30 * 60 * 1000; // timer in milliseconds
+  const clearContactsDataRef = useRef(null);
+  const { logout: authLogout } = useAuth();
 
   // Initialize authentication from localStorage once (avoid setting state inside effects synchronously)
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -45,10 +52,11 @@ function App() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    localStorage.removeItem('authData');
-    localStorage.removeItem('token');
-    // clearContactsData(); //! Очистить данные контактов
-    window.location.reload(); //! Перезагрузка страницы для очистки данных?
+    authLogout(); // Вызываем logout из AuthContext
+    // Очистить данные контактов вместо перезагрузки страницы
+    if (clearContactsDataRef.current) {
+      clearContactsDataRef.current();
+    }
   };
 
   useEffect(() => {
@@ -57,9 +65,11 @@ function App() {
       let idleTimer = setTimeout(() => {
         // Log out the user after the idle timeout
         setIsAuthenticated(false);
-        localStorage.removeItem('authData');
-        localStorage.removeItem('token');
-        window.location.reload();
+        authLogout(); // Вызываем logout из AuthContext
+        // Очистить данные контактов
+        if (clearContactsDataRef.current) {
+          clearContactsDataRef.current();
+        }
       }, countdown);
 
       // Reset the idle timer on user activity
@@ -67,9 +77,11 @@ function App() {
         clearTimeout(idleTimer);
         idleTimer = setTimeout(() => {
           setIsAuthenticated(false);
-          localStorage.removeItem('token');
-          localStorage.removeItem('authData');
-          window.location.reload();
+          authLogout(); // Вызываем logout из AuthContext
+          // Очистить данные контактов
+          if (clearContactsDataRef.current) {
+            clearContactsDataRef.current();
+          }
         }, countdown);
       };
 
@@ -84,20 +96,28 @@ function App() {
         clearTimeout(idleTimer);
       };
     }
-  }, [isAuthenticated, countdown]);
+  }, [isAuthenticated, countdown, authLogout]);
 
   return (
+    <ThemeProvider>
+      <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
+      {isAuthenticated ? (
+        <Contacts
+          onClearData={clearFunc => (clearContactsDataRef.current = clearFunc)}
+        />
+      ) : (
+        <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
+      )}
+      <Snackbar />
+      <Footer />
+    </ThemeProvider>
+  );
+};
+
+function App() {
+  return (
     <AuthProvider>
-      <ThemeProvider>
-        <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
-        {isAuthenticated ? (
-          <Contacts />
-        ) : (
-          <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
-        )}
-        <Snackbar />
-        <Footer />
-      </ThemeProvider>
+      <AppContent />
     </AuthProvider>
   );
 }

@@ -17,6 +17,11 @@ import MadalEditContact from './EditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
 import { maskedPhoneForDisplay } from './PhonesCodes';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ModalButtons = ({ t, handleDeleteContact, handleCloseModal }) => (
   <>
@@ -41,8 +46,8 @@ const ModalButtons = ({ t, handleDeleteContact, handleCloseModal }) => (
   </>
 );
 
-const Contacts = () => {
-  const { isAdmin } = useAuth();
+const Contacts = ({ onClearData }) => {
+  const { isAdmin, isAuthenticated } = useAuth();
   const [contacts, setContacts] = useState(null);
   const [open, setOpen] = useState(false); // малое модальное окно
   const [selectedId, setSelectedId] = useState(null);
@@ -51,6 +56,7 @@ const Contacts = () => {
   const [contactForEdit, setContactForEdit] = useState({});
   const [openEditModal, setOpenEditModal] = useState(false);
   const { t } = useTranslation();
+  const contactRowsRef = useRef([]);
 
   const getContacts = async () => {
     try {
@@ -61,6 +67,21 @@ const Contacts = () => {
       setContacts([]);
     }
   };
+
+  const clearContactsData = () => {
+    setContacts(null);
+    setFilterValue('');
+    setContactForEdit({});
+    setOpenEditModal(false);
+    setOpen(false);
+  };
+
+  // Передаём функцию очистки в родительский компонент
+  useEffect(() => {
+    if (onClearData) {
+      onClearData(clearContactsData);
+    }
+  }, [onClearData]);
 
   const handleEdit = id => {
     const obj = contacts.find(contact => contact.id === id);
@@ -149,12 +170,86 @@ const Contacts = () => {
     : allContacts;
 
   useEffect(() => {
-    (async () => {
-      await getContacts();
-    })();
-  }, []);
+    // Загружаем контакты только если пользователь авторизован
+    if (isAuthenticated) {
+      (async () => {
+        await getContacts();
+      })();
+    }
+  }, [isAuthenticated]);
 
-  // console.log('---All contacts---', contacts);
+  // GSAP ANIMATIONS - Анимация появления/исчезновения строк при скролле
+  useEffect(() => {
+    // Skip animations if in print mode
+    if (document.body.classList.contains('print-mode')) {
+      return;
+    }
+
+    if (!filteredAndSortedContacts || filteredAndSortedContacts.length === 0)
+      return;
+
+    const ctx = gsap.context(() => {
+      contactRowsRef.current.forEach(row => {
+        if (!row) return;
+
+        gsap.set(row, { opacity: 0, scale: 0.9 });
+
+        const OPACITY_VISIBLE = 1;
+        const OPACITY_HIDDEN = 0;
+        const SCALE_VISIBLE = 1;
+        const SCALE_HIDDEN = 0.9;
+        const DURATION = 0.4;
+        const EASE_VISUALIZER = 'elastic.inOut(1,0.5)';
+
+        ScrollTrigger.create({
+          trigger: row,
+          start: 'center 96%',
+          end: 'center 23%',
+          // markers: true,
+
+          onEnter: () => {
+            gsap.to(row, {
+              opacity: OPACITY_VISIBLE,
+              scale: SCALE_VISIBLE,
+              duration: DURATION,
+              ease: EASE_VISUALIZER,
+            });
+          },
+
+          onLeave: () => {
+            gsap.to(row, {
+              opacity: OPACITY_HIDDEN,
+              scale: SCALE_HIDDEN,
+              duration: DURATION,
+              ease: EASE_VISUALIZER,
+            });
+          },
+
+          onEnterBack: () => {
+            gsap.to(row, {
+              opacity: OPACITY_VISIBLE,
+              scale: SCALE_VISIBLE,
+              duration: DURATION,
+              ease: EASE_VISUALIZER,
+            });
+          },
+
+          onLeaveBack: () => {
+            gsap.to(row, {
+              opacity: OPACITY_HIDDEN,
+              scale: SCALE_HIDDEN,
+              duration: DURATION,
+              ease: EASE_VISUALIZER,
+            });
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert(); // Очистка при размонтировании
+  }, [filteredAndSortedContacts]);
+
+  // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
 
   return (
     <div className='contacts'>
@@ -305,7 +400,11 @@ const Contacts = () => {
                   },
                   index
                 ) => (
-                  <tr key={id}>
+                  <tr
+                    key={id}
+                    className='contact'
+                    ref={el => (contactRowsRef.current[index] = el)}
+                  >
                     <td>{index + 1}</td>
                     <td>{userName}</td>
                     <td>{maskedPhoneForDisplay(phoneNumber1)}</td>

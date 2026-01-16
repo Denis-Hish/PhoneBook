@@ -52,5 +52,6 @@
   "read_only": "tylko odczyt",
   "full_access": "pełny dostęp",
   "error_creating_user": "Błąd podczas tworzenia użytkownika",
-  "error_getting_users": "Błąd podczas pobierania użytkowników"
+  "error_getting_users": "Błąd podczas pobierania użytkowników",
+  "print": "Drukuj"
 }

@@ -135,7 +135,7 @@ const Settings = () => {
     <>
       <Tooltip title={t('settings')} placement='bottom' arrow>
         <IconButton
-          className='button btn-settings'
+          className='header-btn button btn-settings'
           onClick={handleOpen}
           tabIndex={-1}
         >
@@ -189,7 +189,7 @@ const Settings = () => {
                   onBlur={() => setErrorUsername(false)}
                   error={isErrorUsername}
                   inputRef={usernameInputRef}
-                  InputProps={{
+                  slotProps={{
                     endAdornment: (
                       <ClearButton
                         value={newUsername}
@@ -207,7 +207,7 @@ const Settings = () => {
                   autoComplete='off'
                   value={newPassword}
                   onChange={e => setNewPassword(e.target.value)}
-                  InputProps={{
+                  slotProps={{
                     endAdornment: (
                       <ClearButton
                         value={newPassword}
@@ -257,7 +257,7 @@ const Settings = () => {
                   onBlur={() => setErrorDeleteUser(false)}
                   error={isErrorDeleteUser}
                   inputRef={deleteInputRef}
-                  InputProps={{
+                  slotProps={{
                     endAdornment: (
                       <ClearButton
                         value={deleteUsername}

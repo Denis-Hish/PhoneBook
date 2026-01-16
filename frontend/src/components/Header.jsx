@@ -10,6 +10,7 @@ import Settings from './Settings';
 import Converter from './Converter';
 import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
+import PrintContacts from './PrintContacts';
 
 const Header = ({ onLogout, isAuthenticated }) => {
   const { theme } = useContext(ThemeContext);
@@ -77,7 +78,6 @@ const Header = ({ onLogout, isAuthenticated }) => {
       <div className='container'>
         <div className='header-content'>
           <div className='header-content__left'>
-            {/* Settings - только для admin */}
             {isAuthenticated && isAdmin() && <Settings />}
 
             <div className='user-name'>
@@ -113,12 +113,12 @@ const Header = ({ onLogout, isAuthenticated }) => {
           <div className='header-content__right'>
             <ThemeToggle />
             <LanguageSwitcher logoutButton={logoutButton} />
-            {/* Converter - только для admin */}
+            {isAuthenticated && <PrintContacts />}
             {isAuthenticated && isAdmin() && <Converter />}
             {isAuthenticated && (
               <Tooltip title={t('logout')} placement='bottom' arrow>
                 <IconButton
-                  className='btn-logout'
+                  className='header-btn btn-logout'
                   onClick={handleLogout}
                   tabIndex={-1}
                 >

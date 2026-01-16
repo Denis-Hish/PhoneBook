@@ -1,36 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Select, MenuItem } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import Tooltip from '@mui/material/Tooltip';
 
 const LanguageSwitcher = ({ logoutButton }) => {
-  const { i18n, t } = useTranslation(); // Initialize useTranslation
-  const [selectedLanguage, setSelectedLanguage] = useState('');
-  const [showTooltip, setShowTooltip] = useState(false);
+  const { i18n, t } = useTranslation();
 
-  // Check if a language is saved in localStorage, otherwise detect the language
-  useEffect(() => {
+  // Initialize language from localStorage or detect it; avoid setState in effects
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
     const storedLanguage = localStorage.getItem('selectedLanguage');
     if (storedLanguage) {
-      setSelectedLanguage(storedLanguage);
-    } else {
-      const userLanguage = navigator.language.toLowerCase();
-      let detectedLanguage;
-      if (userLanguage.startsWith('pl')) {
-        detectedLanguage = 'pl';
-      } else if (
-        userLanguage.startsWith('ru') ||
-        userLanguage.startsWith('uk')
-      ) {
-        detectedLanguage = 'ua';
-      } else {
-        detectedLanguage = 'en';
-      }
-      setSelectedLanguage(detectedLanguage);
-      localStorage.setItem('selectedLanguage', detectedLanguage);
-      i18n.changeLanguage(detectedLanguage); // Set i18n language
+      return storedLanguage;
     }
-  }, [i18n]);
+
+    // Detect language from browser if not stored
+    const userLanguage = navigator.language.toLowerCase();
+    let detectedLanguage;
+    if (userLanguage.startsWith('pl')) {
+      detectedLanguage = 'pl';
+    } else if (userLanguage.startsWith('ru') || userLanguage.startsWith('uk')) {
+      detectedLanguage = 'ua';
+    } else {
+      detectedLanguage = 'en';
+    }
+
+    // Save detected language to localStorage
+    localStorage.setItem('selectedLanguage', detectedLanguage);
+    // Set i18n language
+    i18n.changeLanguage(detectedLanguage);
+
+    return detectedLanguage;
+  });
+
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Handle language change
   const handleLanguageChange = event => {
@@ -61,7 +63,7 @@ const LanguageSwitcher = ({ logoutButton }) => {
         open={showTooltip}
       >
         <Select
-          className='swith-language'
+          className='header-btn swith-language'
           value={selectedLanguage}
           onChange={handleLanguageChange}
           style={logoutButton ? null : { marginRight: '128px' }}

@@ -40,6 +40,9 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setUser(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('authData');
+    // Удаляем заголовок Authorization из axios
+    delete axiosInstance.defaults.headers.common['Authorization'];
   };
 
   // Проверка токена при загрузке приложения

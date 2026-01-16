@@ -133,21 +133,6 @@ fieldset {
       align-items: center;
       gap: 1.75rem;
 
-      /* ---------- BUTTON SETTINGS ---------- */
-      .btn-settings {
-        margin-bottom: 7px;
-        width: 36px;
-        height: 36px;
-
-        svg {
-          transition: fill $transition;
-        }
-
-        &:hover svg {
-          fill: $color-red;
-        }
-      }
-
       .user-name {
         margin-bottom: 7px;
       }
@@ -206,67 +191,83 @@ fieldset {
       display: flex;
       justify-content: flex-end;
       gap: 1.75rem;
+    }
 
-      /* ---------- SWITH THEME ---------- */
-      .swith-toggle-theme {
-        margin: auto 0;
+    /* ---------- HEADER BUTTONS ---------- */
+    .header-btn {
+      margin-bottom: 7px;
+      box-shadow: $box-shadow, $box-shadow-inset;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
 
-        .toggle {
-          transition: background $transition;
-        }
+    /* ---------- BUTTON SETTINGS ---------- */
+    .btn-settings {
+      svg {
+        transition: fill $transition;
+      }
 
-        &:hover .toggle {
-          background: rgba(0, 0, 0, 0.03);
-        }
+      &:hover svg {
+        fill: $color-red;
+      }
+    }
 
-        .label {
-          display: inline-flex;
-          align-items: center;
-          cursor: pointer;
-          color: #394a56;
-        }
+    /* ---------- SWITH THEME ---------- */
+    .swith-toggle-theme {
+      margin: auto 0;
 
-        .label-text {
-          margin-left: 16px;
-        }
+      .toggle {
+        transition: background $transition;
+      }
 
-        .toggle {
-          isolation: isolate;
-          position: relative;
-          height: 30px;
-          width: 60px;
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
-            4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
-        }
+      &:hover .toggle {
+        background: rgba(0, 0, 0, 0.03);
+      }
 
-        .toggle-state {
-          display: none;
-        }
+      .label {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: #394a56;
+      }
 
-        .indicator {
-          height: 100%;
-          width: 200%;
-          background: #ecf0f3;
-          border-radius: 15px;
-          transform: translate3d(-75%, 0, 0);
-          transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-          box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
-        }
+      .label-text {
+        margin-left: 16px;
+      }
 
-        .toggle-state:checked ~ .indicator {
-          transform: translate3d(25%, 0, 0);
-        }
+      .toggle {
+        isolation: isolate;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6,
+          4px 4px 4px 0px #d1d9e6 inset, -4px -4px 4px 0px #ffffff inset;
+      }
+
+      .toggle-state {
+        display: none;
+      }
+
+      .indicator {
+        height: 100%;
+        width: 200%;
+        background: #ecf0f3;
+        border-radius: 15px;
+        transform: translate3d(-75%, 0, 0);
+        transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        box-shadow: -8px -4px 8px 0px #ffffff, 8px 4px 12px 0px #d1d9e6;
+      }
+
+      .toggle-state:checked ~ .indicator {
+        transform: translate3d(25%, 0, 0);
       }
     }
 
     /* --------- SWITH LANGUAGE ---------- */
     .swith-language {
-      margin-bottom: 7px;
-      border-radius: 50px;
-      box-shadow: $box-shadow-inset, $box-shadow;
-
       div {
         transition: background $transition;
 
@@ -291,22 +292,21 @@ fieldset {
 
       .MuiSelect-select {
         padding: 3px;
-        width: 30px;
-        height: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
+      }
+    }
+
+    .btn-print {
+      &:hover svg {
+        fill: #1c7ed6;
       }
     }
 
     /* ---------- BUTTON CONVERT / DOWNLOAD XML ---------- */
     .btn-download {
-      margin-bottom: 7px;
-      box-shadow: $box-shadow, $box-shadow-inset;
       color: $color-text;
-      width: 36px;
-      height: 36px;
     }
 
     .btn-downloaded {
@@ -334,10 +334,6 @@ fieldset {
 
     /* ---------- BUTTON LOGOUT ---------- */
     .btn-logout {
-      box-shadow: $box-shadow, $box-shadow-inset;
-      height: 36px;
-      width: 36px;
-      margin-bottom: 7px;
       padding: 0;
       transition: fill $transition;
 
@@ -1613,4 +1609,161 @@ body.dark {
   color: inherit !important;
 }
 
-/* ----------------------------------------------------- */
+/* ------ PRINT MODE ------ */
+@media print {
+  body.print-mode * {
+    background-color: white;
+    color: black !important;
+    box-shadow: none;
+    text-shadow: none !important;
+    filter: none !important;
+    margin: 0;
+
+    &::after,
+    &::before {
+      border-color: black !important;
+      box-shadow: none !important;
+    }
+
+    .container {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .header {
+      position: relative;
+
+      h1 span {
+        margin-right: 6px;
+      }
+    }
+
+    .contacts {
+      padding: 0;
+      font-size: 14px;
+
+      table {
+        display: table;
+        width: 100%;
+        margin: 2rem 0;
+        padding: 0;
+        border-collapse: collapse;
+        box-shadow: none;
+        border-radius: 0;
+
+        thead {
+          display: table-header-group;
+          position: static;
+          top: auto;
+          z-index: auto;
+          background-color: white;
+
+          tr {
+            display: table-row;
+            background-color: white;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+            margin-bottom: 0;
+            border-radius: 0;
+
+            td {
+              display: table-cell;
+              padding: 12px;
+              border: 1px solid black;
+              border-radius: 0;
+              min-height: auto;
+              width: auto;
+              flex: none;
+              min-width: auto;
+            }
+
+            td:nth-child(2) {
+              min-width: auto;
+            }
+          }
+        }
+
+        tbody {
+          display: table-row-group !important;
+
+          tr {
+            display: table-row !important;
+            background-color: white !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 0 !important;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+            min-height: auto !important;
+            opacity: 1 !important;
+            transform: none !important;
+
+            &:hover {
+              background-color: white !important;
+            }
+
+            td {
+              display: table-cell !important;
+              padding: 12px !important;
+              border: 1px solid black !important;
+              border-radius: 0 !important;
+              opacity: 1 !important;
+              width: auto !important;
+              flex: none !important;
+              min-width: auto !important;
+              transform: none !important;
+
+              &.btn-icon-table {
+                display: none !important; /* Скрыть колонки с кнопками */
+              }
+            }
+          }
+        }
+
+        tr {
+          display: table-row;
+          gap: 0;
+          margin-bottom: 0;
+          padding: 0;
+          border-radius: 0;
+        }
+
+        td,
+        th {
+          display: table-cell;
+          padding: 12px;
+          border: 1px solid black;
+          border-radius: 0;
+        }
+
+        td:first-child {
+          width: auto;
+        }
+
+        td:nth-child(n + 2):nth-child(-n + 6) {
+          flex: none;
+          width: auto;
+        }
+      }
+    }
+
+    .contacts table tr td:nth-child(2) {
+      white-space: nowrap;
+    }
+
+    .btn__add-contact,
+    .header-btn,
+    .swith-toggle-theme,
+    .user-name,
+    .header-table,
+    .footer,
+    .MuiSnackbar-root,
+    .container table tr .btn-icon-table {
+      display: none !important;
+    }
+  }
+}

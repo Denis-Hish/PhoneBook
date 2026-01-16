@@ -52,5 +52,6 @@
   "read_only": "read only",
   "full_access": "full access",
   "error_creating_user": "Error creating user",
-  "error_getting_users": "Error getting users"
+  "error_getting_users": "Error getting users",
+  "print": "Print"
 }
