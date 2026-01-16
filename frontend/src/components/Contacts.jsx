@@ -205,7 +205,7 @@ const Contacts = ({ onClearData }) => {
     ) {
       return;
     }
-
+    if (!contacts || contacts.length === 0) return;
     if (!filteredAndSortedContacts || filteredAndSortedContacts.length === 0)
       return;
 
@@ -213,14 +213,14 @@ const Contacts = ({ onClearData }) => {
       contactRowsRef.current.forEach(row => {
         if (!row) return;
 
-        gsap.set(row, { opacity: 0, scale: 0.9 });
-
         const OPACITY_VISIBLE = 1;
         const OPACITY_HIDDEN = 0;
         const SCALE_VISIBLE = 1;
         const SCALE_HIDDEN = 0.9;
         const DURATION = 0.4;
         const EASE_VISUALIZER = 'elastic.inOut(1,0.5)';
+
+        gsap.set(row, { opacity: 0, scale: 0.9 });
 
         ScrollTrigger.create({
           trigger: row,
@@ -268,7 +268,7 @@ const Contacts = ({ onClearData }) => {
     });
 
     return () => ctx.revert();
-  }, [filteredAndSortedContacts, open, openEditModal]);
+  }, [filteredAndSortedContacts, open, openEditModal, contacts]);
 
   // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
 
