@@ -35,7 +35,7 @@ const Converter = () => {
       const uniqueGroups = new Set();
 
       const xml2 = create({ version: '1.0', encoding: 'UTF-8' }).ele(
-        'root_group'
+        'root_group',
       );
 
       const xml2Contacts = create().ele('root_contact');
@@ -58,7 +58,7 @@ const Converter = () => {
       // Sort contacts by group and add to XML structures
       sortedGroups.forEach(group => {
         const groupContacts = contactsForGrouping.filter(
-          contact => contact.group === group
+          contact => contact.group === group,
         );
 
         groupContacts.forEach(contact => {
@@ -85,7 +85,7 @@ const Converter = () => {
 
       // Sort contacts by userName for xml2Contacts
       const contactsForList = [...contactsList].sort((a, b) =>
-        a.userName.localeCompare(b.userName)
+        a.userName.localeCompare(b.userName),
       );
 
       // Add contacts to xml2Contacts
@@ -114,7 +114,7 @@ const Converter = () => {
       // Remove the '<?xml version="1.0"?>' string from xmlString2
       const modifiedXmlString2 = xmlString2.replace(
         '<?xml version="1.0"?>',
-        ''
+        '',
       );
 
       // Save files locally for download

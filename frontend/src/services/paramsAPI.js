@@ -11,7 +11,7 @@ export const addContact = (newContact, t) => {
     .post('api/contacts/add-contact', newContact)
     .then(response => {
       const message = `${t('contact')} "${response.data.userName}" ${t(
-        'saved'
+        'saved',
       )}`;
       const color = 'info';
       setMessage({ message, color });
@@ -26,7 +26,7 @@ export const editContact = (contactId, updatedContact, t) => {
     .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
     .then(response => {
       const message = `${t('contact')} "${response.data.userName}" ${t(
-        'edited'
+        'edited',
       )}`;
       const color = 'success';
       setMessage({ message, color });

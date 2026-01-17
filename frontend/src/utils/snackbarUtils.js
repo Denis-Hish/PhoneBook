@@ -6,6 +6,6 @@ export const setMessage = ({ message, color }) => {
   }
 };
 
-export const registerCallback = (callback) => {
+export const registerCallback = callback => {
   setMessageCallback = callback;
 };
