@@ -42,7 +42,7 @@ const ModalEditContact = ({
   const [fieldUserNameError, setFieldUserNameError] = useState(false);
   const [fieldGroupError, setFieldGroupError] = useState(false);
 
-  // Initialize state from props without useEffect to avoid cascading renders
+  // Initialize state from props - используем ленивую инициализацию
   const [name, setName] = useState(() => userName || '');
   const [phone1, setPhone1] = useState(() => phoneNumber1 || '');
   const [phone2, setPhone2] = useState(() => phoneNumber2 || '');
@@ -319,7 +319,7 @@ const ModalEditContact = ({
                       const { inputValue } = params;
                       // Создание нового значения
                       const isExisting = options.some(
-                        option => inputValue === option.title
+                        option => inputValue === option.title,
                       );
                       if (inputValue !== '' && !isExisting) {
                         filtered.push({
@@ -329,7 +329,7 @@ const ModalEditContact = ({
                       }
                       // Исключение пустых значений
                       const nonEmptyFiltered = filtered.filter(
-                        option => option.title !== ''
+                        option => option.title !== '',
                       );
                       return nonEmptyFiltered;
                     }}

@@ -166,7 +166,7 @@ const Contacts = ({ onClearData }) => {
 
   const filteredAndSortedContacts = filterValue
     ? allContacts.filter(contact =>
-        Object.values(contact).join(' ').toLowerCase().includes(filterValue)
+        Object.values(contact).join(' ').toLowerCase().includes(filterValue),
       )
     : allContacts;
 
@@ -277,6 +277,7 @@ const Contacts = ({ onClearData }) => {
       {/* Кнопка добавления контакта - только для admin */}
       {isAdmin() && <ModalAddContact updateListContacts={getContacts} />}
       <MadalEditContact
+        key={contactForEdit?.id || 'empty'}
         contact={contactForEdit}
         openModal={openEditModal}
         setOpenModal={setOpenEditModal}
@@ -419,7 +420,7 @@ const Contacts = ({ onClearData }) => {
                     phoneNumber3,
                     group,
                   },
-                  index
+                  index,
                 ) => (
                   <tr
                     key={id}
@@ -474,7 +475,7 @@ const Contacts = ({ onClearData }) => {
                       </td>
                     )}
                   </tr>
-                )
+                ),
               )}
             </tbody>
           </table>
