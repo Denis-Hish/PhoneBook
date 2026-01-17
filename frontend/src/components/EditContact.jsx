@@ -14,6 +14,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { getAllContacts } from '../services/paramsAPI';
+import PhoneMaskedInput from './PhonesMask';
 
 const style = {
   position: 'absolute',
@@ -191,10 +192,14 @@ const ModalEditContact = ({
                     variant='standard'
                     value={phone1}
                     onChange={e => {
-                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
-                      setPhone1(digitsOnly);
+                      setPhone1(e.target.value);
                     }}
                     autoComplete='off'
+                    slotProps={{
+                      input: {
+                        inputComponent: PhoneMaskedInput,
+                      },
+                    }}
                   />
 
                   <div className='icons'>
@@ -218,10 +223,14 @@ const ModalEditContact = ({
                     variant='standard'
                     value={phone2}
                     onChange={e => {
-                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
-                      setPhone2(digitsOnly);
+                      setPhone2(e.target.value);
                     }}
                     autoComplete='off'
+                    slotProps={{
+                      input: {
+                        inputComponent: PhoneMaskedInput,
+                      },
+                    }}
                   />
                   <div className='icons'>
                     <PhoneEnabledIcon />
@@ -244,10 +253,14 @@ const ModalEditContact = ({
                     variant='standard'
                     value={phone3}
                     onChange={e => {
-                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
-                      setPhone3(digitsOnly);
+                      setPhone3(e.target.value);
                     }}
                     autoComplete='off'
+                    slotProps={{
+                      input: {
+                        inputComponent: PhoneMaskedInput,
+                      },
+                    }}
                   />
                   <div className='icons'>
                     <PhoneEnabledIcon />

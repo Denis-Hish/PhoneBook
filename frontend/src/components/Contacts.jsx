@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
+import { formatPhoneNumber } from '../utils/phoneFormatter';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -428,9 +429,9 @@ const Contacts = ({ onClearData }) => {
                   >
                     <td>{index + 1}</td>
                     <td>{userName}</td>
-                    <td>{phoneNumber1}</td>
-                    <td>{phoneNumber2}</td>
-                    <td>{phoneNumber3}</td>
+                    <td>{formatPhoneNumber(phoneNumber1)}</td>
+                    <td>{formatPhoneNumber(phoneNumber2)}</td>
+                    <td>{formatPhoneNumber(phoneNumber3)}</td>
                     <td>{group}</td>
                     {/* Кнопки редактирования и удаления - только для admin */}
                     {isAdmin() && (

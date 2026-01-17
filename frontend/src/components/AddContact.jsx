@@ -9,6 +9,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
+import PhoneMaskedInput from './PhonesMask';
 
 const filter = createFilterOptions();
 
@@ -159,14 +160,18 @@ const AddContact = ({ onClose, updateListContacts }) => {
             variant='standard'
             value={contact.phoneNumber1}
             onChange={e => {
-              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
               setContact(prev => ({
                 ...prev,
-                phoneNumber1: digitsOnly,
+                phoneNumber1: e.target.value,
               }));
             }}
             className='input phone-input'
             autoComplete='off'
+            slotProps={{
+              input: {
+                inputComponent: PhoneMaskedInput,
+              },
+            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />
@@ -188,14 +193,18 @@ const AddContact = ({ onClose, updateListContacts }) => {
             variant='standard'
             value={contact.phoneNumber2}
             onChange={e => {
-              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
               setContact(prev => ({
                 ...prev,
-                phoneNumber2: digitsOnly,
+                phoneNumber2: e.target.value,
               }));
             }}
             className='input phone-input'
             autoComplete='off'
+            slotProps={{
+              input: {
+                inputComponent: PhoneMaskedInput,
+              },
+            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />
@@ -217,14 +226,18 @@ const AddContact = ({ onClose, updateListContacts }) => {
             variant='standard'
             value={contact.phoneNumber3}
             onChange={e => {
-              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
               setContact(prev => ({
                 ...prev,
-                phoneNumber3: digitsOnly,
+                phoneNumber3: e.target.value,
               }));
             }}
             className='input phone-input'
             autoComplete='off'
+            slotProps={{
+              input: {
+                inputComponent: PhoneMaskedInput,
+              },
+            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />
