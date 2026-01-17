@@ -11,7 +11,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import { setMessage } from '../components/Snackbar';
+import { setMessage } from '../utils/snackbarUtils';
 import ClearIcon from '@mui/icons-material/Clear';
 import { InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';

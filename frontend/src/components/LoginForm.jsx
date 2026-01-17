@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { TextField, Button } from '@mui/material';
-import { setMessage } from '../components/Snackbar';
+import { setMessage } from '../utils/snackbarUtils';
 import axios from '../utils/axiosInstance';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';

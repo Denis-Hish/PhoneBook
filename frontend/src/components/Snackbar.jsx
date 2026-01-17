@@ -2,39 +2,44 @@ import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
 import MuiAlert from '@mui/material/Alert';
+import { registerCallback } from '../utils/snackbarUtils';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
-
-let setMessageCallback;
-
-export const setMessage = ({ message, color }) => {
-  if (setMessageCallback) {
-    setMessageCallback({ message, color });
-  }
-};
 
 export default function CustomizedSnackbars() {
   const [open, setOpen] = React.useState(false);
   const [message, setMessage] = React.useState(null);
 
   React.useEffect(() => {
-    setMessageCallback = setMessage;
+    registerCallback(setMessage);
   }, []);
 
   React.useEffect(() => {
     if (message) {
-      setOpen(true); // Open the Snackbar when a message is set
+      setOpen(true);
     }
   }, [message]);
 
-  const handleClose = () => {
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
     setOpen(false);
+    // Даем время для завершения анимации, затем очищаем message
+    setTimeout(() => {
+      setMessage(null);
+    }, 500); // 500ms - время для завершения анимации Slide
   };
 
   function Transition(props) {
     return <Slide {...props} direction='right' />;
+  }
+
+  // Не рендерим Snackbar если нет сообщения
+  if (!message) {
+    return null;
   }
 
   return (

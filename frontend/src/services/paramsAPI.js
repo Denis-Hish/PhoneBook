@@ -1,5 +1,5 @@
 import axios from '../utils/axiosInstance';
-import { setMessage } from '../components/Snackbar';
+import { setMessage } from '../utils/snackbarUtils';
 
 export const getAllContacts = async () => {
   let res = await axios.get('api/contacts/get-all');

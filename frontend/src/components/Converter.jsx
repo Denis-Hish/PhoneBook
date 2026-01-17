@@ -3,7 +3,7 @@ import { getAllContacts } from '../services/paramsAPI';
 import { create } from 'xmlbuilder2';
 import axios from '../utils/axiosInstance';
 import { useTranslation } from 'react-i18next';
-import { setMessage } from './Snackbar';
+import { setMessage } from '../utils/snackbarUtils';
 import IconButton from '@mui/material/IconButton';
 import DownloadIcon from '@mui/icons-material/Download';
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
