@@ -46,7 +46,7 @@ const AppContent = () => {
     const currentTime = Date.now();
     localStorage.setItem(
       'authData',
-      JSON.stringify({ isAuthenticated: true, loginTime: currentTime })
+      JSON.stringify({ isAuthenticated: true, loginTime: currentTime }),
     );
   };
 
