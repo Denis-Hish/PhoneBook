@@ -35,6 +35,10 @@ const PhoneMaskedInput = forwardRef(function PhoneMaskedInput(props, ref) {
       inputRef={ref}
       // НЕ передаём onChange в IMaskInput - он конфликтует с onAccept
       onChange={undefined}
+      // При фокусе на поле выделяем весь текст
+      onFocus={(e) => {
+        e.target.select();
+      }}
       // onAccept принимает (value, mask) - value это отформатированная строка, mask.unmaskedValue - только цифры
       onAccept={(value, mask) => {
         // mask.unmaskedValue содержит ТОЛЬКО цифры без форматирования

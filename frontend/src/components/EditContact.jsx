@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -81,7 +81,7 @@ const ModalEditContact = ({
     if (name.trim() === '') {
       setFieldUserNameError(false);
     }
-    setNameInputActive(false);
+    // setNameInputActive больше не используется
   };
 
   const onChangeHandler = event => {
@@ -91,11 +91,13 @@ const ModalEditContact = ({
   };
 
   // Focus on input
-  // eslint-disable-next-line no-unused-vars
-  const [isNameInputActive, setNameInputActive] = useState(false);
+  const inputRef = useRef(null);
   useEffect(() => {
     if (openModal) {
-      setNameInputActive(true);
+      // Устанавливаем фокус с небольшой задержкой, чтобы Modal успел отрендериться (без этого фокус не срабатывает)
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
   }, [openModal]);
 
@@ -166,8 +168,7 @@ const ModalEditContact = ({
                     value={name}
                     onChange={onChangeHandler}
                     autoComplete='off'
-                    autoFocus
-                    onFocus={() => setNameInputActive(true)}
+                    inputRef={inputRef}
                     onBlur={handleBlur}
                     error={fieldUserNameError}
                   />
@@ -321,20 +322,22 @@ const ModalEditContact = ({
                     handleHomeEndKeys
                     options={groups}
                     getOptionLabel={option => {
-                      // Value selected with enter, right from the input
                       if (typeof option === 'string') {
                         return option;
                       }
-                      // Add "xxx" option created dynamically
                       if (option.inputValue) {
                         return option.inputValue;
                       }
-                      // Regular option
                       return option.title;
                     }}
-                    renderOption={(props, option) => (
-                      <li {...props}>{option.title}</li>
-                    )}
+                    renderOption={(props, option) => {
+                      const { key, ...otherProps } = props;
+                      return (
+                        <li key={key} {...otherProps}>
+                          {option.title}
+                        </li>
+                      );
+                    }}
                     sx={{ width: 300 }}
                     freeSolo
                     renderInput={params => (
