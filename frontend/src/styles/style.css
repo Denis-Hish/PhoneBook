@@ -1157,6 +1157,26 @@ fieldset {
   }
 }
 
+/* --------- MUI AUTOCOMPLETE DROPDOWN ---------- */
+.MuiAutocomplete-popper {
+  /* Контейнер выпадающего списка */
+  .MuiPaper-root {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: var(--box-shadow);
+  }
+
+  /* Элементы списка */
+  .MuiAutocomplete-option {
+    color: var(--color-text) !important;
+  }
+
+  /* Текст "No options" */
+  .MuiAutocomplete-noOptions {
+    color: var(--color-text);
+  }
+}
+
 /* ---------- ANIMATED HEADER TITLE ---------- */
 .letter-title,
 .gap {
