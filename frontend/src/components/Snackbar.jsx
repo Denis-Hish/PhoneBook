@@ -8,6 +8,10 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
 
+function SlideTransition(props) {
+  return <Slide {...props} direction='right' />;
+}
+
 export default function CustomizedSnackbars() {
   const [open, setOpen] = React.useState(false);
   const [message, setMessage] = React.useState(null);
@@ -27,20 +31,11 @@ export default function CustomizedSnackbars() {
       return;
     }
     setOpen(false);
-    // Даем время для завершения анимации, затем очищаем message
-    setTimeout(() => {
-      setMessage(null);
-    }, 500); // 500ms - время для завершения анимации Slide
   };
 
-  function Transition(props) {
-    return <Slide {...props} direction='right' />;
-  }
-
-  // Не рендерим Snackbar если нет сообщения
-  if (!message) {
-    return null;
-  }
+  const handleExited = () => {
+    setMessage(null);
+  };
 
   return (
     <Snackbar
@@ -48,7 +43,8 @@ export default function CustomizedSnackbars() {
       autoHideDuration={6000}
       onClose={handleClose}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-      slots={{ transition: Transition }}
+      slots={{ transition: SlideTransition }}
+      slotProps={{ transition: { onExited: handleExited } }}
     >
       <Alert
         className='snackbar'
