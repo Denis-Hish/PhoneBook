@@ -1171,6 +1171,10 @@ fieldset {
       box-shadow: $box-shadow;
     }
   }
+
+  .user-role {
+    color: $color-text;
+  }
 }
 
 /* ---------- ANIMATED HEADER TITLE ---------- */
@@ -1584,6 +1588,12 @@ body.dark {
     }
   }
 
+  .visibility-password-btn {
+    svg {
+      fill: $color-text;
+    }
+  }
+
   .MuiInputBase-root,
   .MuiAutocomplete-root {
     // нижняя синяя линия при фокусе
@@ -1638,6 +1648,18 @@ body.dark {
   // цвет курсора
   input {
     caret-color: $color-blue-1;
+  }
+
+  .user-role {
+    color: $color-text;
+
+    svg {
+      fill: $color-text;
+    }
+  }
+
+  .MuiPaper-root {
+    color: $color-text;
   }
 }
 
