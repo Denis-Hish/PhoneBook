@@ -9,8 +9,6 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
-import IMaskCustom from './IMaskCustom';
-import { phoneNumberMask } from './PhonesCodes';
 
 const filter = createFilterOptions();
 
@@ -160,23 +158,15 @@ const AddContact = ({ onClose, updateListContacts }) => {
             label={`${t('phone')} 1`}
             variant='standard'
             value={contact.phoneNumber1}
-            onChange={onChangeHandler}
+            onChange={e => {
+              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+              setContact(prev => ({
+                ...prev,
+                phoneNumber1: digitsOnly,
+              }));
+            }}
             className='input phone-input'
             autoComplete='off'
-            slotProps={{
-              inputComponent: IMaskCustom,
-              inputProps: {
-                mask: phoneNumberMask(contact.phoneNumber1),
-                lazy: false,
-                placeholderChar: '_',
-                onAccept: val => {
-                  setContact(prev => ({
-                    ...prev,
-                    phoneNumber1: val.replace(/[^\d]/g, ''),
-                  }));
-                },
-              },
-            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />
@@ -197,23 +187,15 @@ const AddContact = ({ onClose, updateListContacts }) => {
             label={`${t('phone')} 2`}
             variant='standard'
             value={contact.phoneNumber2}
-            onChange={onChangeHandler}
+            onChange={e => {
+              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+              setContact(prev => ({
+                ...prev,
+                phoneNumber2: digitsOnly,
+              }));
+            }}
             className='input phone-input'
             autoComplete='off'
-            slotProps={{
-              inputComponent: IMaskCustom,
-              inputProps: {
-                mask: phoneNumberMask(contact.phoneNumber2),
-                lazy: false,
-                placeholderChar: '_',
-                onAccept: val => {
-                  setContact(prev => ({
-                    ...prev,
-                    phoneNumber2: val.replace(/[^\d]/g, ''),
-                  }));
-                },
-              },
-            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />
@@ -234,23 +216,15 @@ const AddContact = ({ onClose, updateListContacts }) => {
             label={`${t('phone')} 3`}
             variant='standard'
             value={contact.phoneNumber3}
-            onChange={onChangeHandler}
+            onChange={e => {
+              const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+              setContact(prev => ({
+                ...prev,
+                phoneNumber3: digitsOnly,
+              }));
+            }}
             className='input phone-input'
             autoComplete='off'
-            slotProps={{
-              inputComponent: IMaskCustom,
-              inputProps: {
-                mask: phoneNumberMask(contact.phoneNumber3),
-                lazy: false,
-                placeholderChar: '_',
-                onAccept: val => {
-                  setContact(prev => ({
-                    ...prev,
-                    phoneNumber3: val.replace(/[^\d]/g, ''),
-                  }));
-                },
-              },
-            }}
           />
           <div className='icons'>
             <PhoneEnabledIcon />

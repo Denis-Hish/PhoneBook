@@ -14,8 +14,6 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { getAllContacts } from '../services/paramsAPI';
-import IMaskCustom from './IMaskCustom';
-import { phoneNumberMask } from './PhonesCodes';
 
 const style = {
   position: 'absolute',
@@ -192,20 +190,11 @@ const ModalEditContact = ({
                     label={`${t('phone')} 1`}
                     variant='standard'
                     value={phone1}
-                    autoComplete='off'
-                    onChange={e =>
-                      setPhone1(e.target.value.replace(/[^0-9]/g, ''))
-                    }
-                    slotProps={{
-                      inputComponent: IMaskCustom,
-                      inputProps: {
-                        mask: phoneNumberMask(phone1),
-                        onChange: e =>
-                          setPhone1(e.target.value.replace(/[^0-9]/g, '')),
-                        value: phone1,
-                        placeholderChar: '',
-                      },
+                    onChange={e => {
+                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+                      setPhone1(digitsOnly);
                     }}
+                    autoComplete='off'
                   />
 
                   <div className='icons'>
@@ -228,20 +217,11 @@ const ModalEditContact = ({
                     label={`${t('phone')} 2`}
                     variant='standard'
                     value={phone2}
-                    autoComplete='off'
-                    onChange={e =>
-                      setPhone2(e.target.value.replace(/[^0-9]/g, ''))
-                    }
-                    slotProps={{
-                      inputComponent: IMaskCustom,
-                      inputProps: {
-                        mask: phoneNumberMask(phone2),
-                        onChange: e =>
-                          setPhone2(e.target.value.replace(/[^0-9]/g, '')),
-                        value: phone2,
-                        placeholderChar: '',
-                      },
+                    onChange={e => {
+                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+                      setPhone2(digitsOnly);
                     }}
+                    autoComplete='off'
                   />
                   <div className='icons'>
                     <PhoneEnabledIcon />
@@ -263,20 +243,11 @@ const ModalEditContact = ({
                     label={`${t('phone')} 3`}
                     variant='standard'
                     value={phone3}
-                    autoComplete='off'
-                    onChange={e =>
-                      setPhone3(e.target.value.replace(/[^0-9]/g, ''))
-                    }
-                    slotProps={{
-                      inputComponent: IMaskCustom,
-                      inputProps: {
-                        mask: phoneNumberMask(phone3),
-                        onChange: e =>
-                          setPhone3(e.target.value.replace(/[^0-9]/g, '')),
-                        value: phone3,
-                        placeholderChar: '',
-                      },
+                    onChange={e => {
+                      const digitsOnly = e.target.value.replace(/[^\d]/g, '');
+                      setPhone3(digitsOnly);
                     }}
+                    autoComplete='off'
                   />
                   <div className='icons'>
                     <PhoneEnabledIcon />

@@ -16,7 +16,6 @@ import Filter from './Filter';
 import MadalEditContact from './EditContact';
 import ModalAddContact from './ModalAddContact';
 import { useTranslation } from 'react-i18next';
-import { maskedPhoneForDisplay } from './PhonesCodes';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
@@ -429,9 +428,9 @@ const Contacts = ({ onClearData }) => {
                   >
                     <td>{index + 1}</td>
                     <td>{userName}</td>
-                    <td>{maskedPhoneForDisplay(phoneNumber1)}</td>
-                    <td>{maskedPhoneForDisplay(phoneNumber2)}</td>
-                    <td>{maskedPhoneForDisplay(phoneNumber3)}</td>
+                    <td>{phoneNumber1}</td>
+                    <td>{phoneNumber2}</td>
+                    <td>{phoneNumber3}</td>
                     <td>{group}</td>
                     {/* Кнопки редактирования и удаления - только для admin */}
                     {isAdmin() && (
