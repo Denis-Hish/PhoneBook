@@ -1,30 +1,5 @@
-@use 'fonts.css';
-
-/* --------- VARIABLES ---------- */
-$max-width: 1200px;
-$max-shop-width: 2500px;
-$max-width-modal: 1000px;
-
-$phone: 768px - 1;
-$tablet: 1024px - 1;
-
-$color-bg: #edf1f4;
-$color-text: #5a5a5a;
-$color-black: #363636;
-$color-red: #f44336;
-$border: #9e9e9e;
-
-$color-blue-1: rgb(25, 118, 210);
-$color-blue-2: rgba(25, 118, 210, 0.7);
-
-$box-shadow:
-  5px 5px 10px rgba(0, 0, 0, 0.1),
-  -5px -5px 10px rgb(255, 255, 255);
-$box-shadow-inset:
-  inset 5px 5px 10px rgba(0, 0, 0, 0.1),
-  inset -5px -5px 10px rgb(255, 255, 255);
-
-$transition: 0.25s ease-in-out;
+@import 'fonts.css';
+@import 'variables.css';
 
 /* --------- GENERAL STYLES ---------- */
 * {
@@ -39,31 +14,31 @@ body {
     'Oxygen', 'Cantarell', 'Fira Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $color-bg;
-  color: $color-text;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 body {
-  // устанавливает ширину элемента скроллинга и его фоновый цвет
+  /* устанавливает ширину элемента скроллинга и его фоновый цвет */
   &::-webkit-scrollbar {
     width: 14px;
-    background-color: $color-bg;
+    background-color: var(--color-bg);
   }
-  // устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет
+  /* устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет */
   &::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: transparent;
   }
-  // устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу
+  /* устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу */
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: $color-text;
-    border: 2px solid $color-text;
+    background-color: var(--color-text);
+    border: 2px solid var(--color-text);
   }
 
-  // цвет курсора
+  /* цвет курсора */
   input {
-    caret-color: $color-blue-1;
+    caret-color: var(--color-blue-1);
   }
 }
 
@@ -71,19 +46,19 @@ h1 {
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
   font-size: 4rem;
-  color: $color-blue-1;
+  color: var(--color-blue-1);
 }
 
 svg {
   vertical-align: unset;
 }
 
-// размер шрифта всплывающей подсказки
+/* размер шрифта всплывающей подсказки */
 .MuiTooltip-popper .MuiTooltip-tooltip {
   font-size: 12px;
 }
 
-// размытие сзади модального окна
+/* размытие сзади модального окна */
 .MuiBackdrop-root {
   backdrop-filter: blur(1px);
   background-color: rgba(0, 0, 0, 0.2) !important;
@@ -103,10 +78,10 @@ fieldset {
 }
 
 .button {
-  box-shadow: $box-shadow, $box-shadow-inset;
+  box-shadow: var(--box-shadow), var(--box-shadow-inset);
 }
 
-@media only screen and (max-width: $phone) {
+@media only screen and (max-width: var(--phone)) {
   .hideOnMobile {
     display: none;
   }
@@ -116,11 +91,11 @@ fieldset {
 .header {
   position: fixed;
   width: 100%;
-  background-color: $color-bg;
-  box-shadow: $box-shadow;
+  background-color: var(--color-bg);
+  box-shadow: var(--box-shadow);
   z-index: 100;
   overflow: hidden;
-  padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+  padding: 0 calc(17px - (100vw - 100%)) 0 0; /* предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки */
 
   .header-content {
     display: flex;
@@ -164,7 +139,7 @@ fieldset {
           display: inline-block;
           width: 3rem;
           height: 3rem;
-          // cursor: pointer;
+          /* cursor: pointer; */
 
           svg {
             font-size: 2.3rem;
@@ -182,7 +157,7 @@ fieldset {
             width: 3rem;
             height: 3rem;
             border-radius: 100%;
-            border: 3px solid $color-blue-1;
+            border: 3px solid var(--color-blue-1);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -200,7 +175,7 @@ fieldset {
     /* ---------- HEADER BUTTONS ---------- */
     .header-btn {
       margin-bottom: 7px;
-      box-shadow: $box-shadow, $box-shadow-inset;
+      box-shadow: var(--box-shadow), var(--box-shadow-inset);
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -209,11 +184,11 @@ fieldset {
     /* ---------- BUTTON SETTINGS ---------- */
     .btn-settings {
       svg {
-        transition: fill $transition;
+        transition: fill var(--transition);
       }
 
       &:hover svg {
-        fill: $color-red;
+        fill: var(--color-red);
       }
     }
 
@@ -222,7 +197,7 @@ fieldset {
       margin: auto 0;
 
       .toggle {
-        transition: background $transition;
+        transition: background var(--transition);
       }
 
       &:hover .toggle {
@@ -233,7 +208,7 @@ fieldset {
         display: inline-flex;
         align-items: center;
         cursor: pointer;
-        color: #394a56;
+        color: var(--color-footer);
       }
 
       .label-text {
@@ -278,10 +253,10 @@ fieldset {
     /* --------- SWITH LANGUAGE ---------- */
     .swith-language {
       div {
-        transition: background $transition;
+        transition: background var(--transition);
 
         .lng {
-          color: $color-text;
+          color: var(--color-text);
           font-weight: 500;
         }
 
@@ -289,13 +264,13 @@ fieldset {
           background: rgba(0, 0, 0, 0.01);
 
           .lng {
-            color: $color-blue-1;
+            color: var(--color-blue-1);
           }
         }
       }
 
       svg {
-        // top: calc(50% - 0.6em);
+        /* top: calc(50% - 0.6em); */
         display: none;
       }
 
@@ -309,13 +284,13 @@ fieldset {
 
     .btn-print {
       &:hover svg {
-        fill: #1c7ed6;
+        fill: var(--color-blue-1);
       }
     }
 
     /* ---------- BUTTON CONVERT / DOWNLOAD XML ---------- */
     .btn-download {
-      color: $color-text;
+      color: var(--color-text);
     }
 
     .btn-downloaded {
@@ -328,14 +303,14 @@ fieldset {
         transition: width 0.6s ease-in-out;
 
         &:nth-child(1) {
-          color: #2f9e44;
+          color: var(--color-green);
         }
       }
 
       &:hover {
         svg {
           &:nth-child(2) {
-            color: #1c7ed6;
+            color: var(--color-blue-1);
           }
         }
       }
@@ -344,10 +319,10 @@ fieldset {
     /* ---------- BUTTON LOGOUT ---------- */
     .btn-logout {
       padding: 0;
-      transition: fill $transition;
+      transition: fill var(--transition);
 
       &:hover svg {
-        fill: $color-red;
+        fill: var(--color-red);
       }
     }
   }
@@ -358,7 +333,7 @@ fieldset {
   border-radius: 8px;
   padding: 1rem;
   position: relative;
-  background-color: $color-bg;
+  background-color: var(--color-bg);
 }
 
 .btn-close {
@@ -366,6 +341,7 @@ fieldset {
   --width-line: 90%; /* толщина circle-size - width-line */
   --height-line: 30%; /* длина circle-size - height-line */
   --transition-btn-close: 0.5s;
+
   position: absolute;
   width: var(--circle-size);
   height: var(--circle-size);
@@ -376,11 +352,11 @@ fieldset {
   border: none;
   transition: all var(--transition-btn-close) ease-in-out;
   z-index: 100;
-  box-shadow: $box-shadow;
+  box-shadow: var(--box-shadow);
   cursor: pointer;
 
   &:hover {
-    background-color: $color-blue-2;
+    background-color: var(--color-blue-2);
     &::before,
     &::after {
       background-color: #fff;
@@ -394,7 +370,7 @@ fieldset {
   }
 
   &:active {
-    background-color: $color-blue-1;
+    background-color: var(--color-blue-1);
     transition: none;
     &::before,
     &::after {
@@ -408,7 +384,7 @@ fieldset {
     position: absolute;
     width: calc(var(--circle-size) - var(--width-line));
     height: calc(var(--circle-size) - var(--height-line));
-    background-color: $color-black;
+    background-color: var(--color-black);
     top: 50%;
     left: 50%;
     transition: all var(--transition-btn-close) ease-in-out;
@@ -426,14 +402,14 @@ fieldset {
 .modal {
   padding: 1rem;
   border-radius: 8px;
-  background-color: $color-bg;
+  background-color: var(--color-bg);
   position: relative;
   min-width: 400px;
 
   .modal-wrapper {
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
   }
 
   .modal-header {
@@ -457,7 +433,7 @@ fieldset {
 
     .btn-modal {
       width: 8rem;
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
     }
   }
 
@@ -494,7 +470,7 @@ fieldset {
   flex-direction: column;
   max-width: inherit;
   margin: 0 auto;
-  box-shadow: $box-shadow;
+  box-shadow: var(--box-shadow);
   padding: 1rem;
   border-radius: 8px;
 
@@ -503,7 +479,7 @@ fieldset {
     padding-left: 10px;
     background: transparent;
     border-radius: 10px;
-    box-shadow: $box-shadow-inset;
+    box-shadow: var(--box-shadow-inset);
     width: 100%;
 
     /* input не нажат */
@@ -525,19 +501,19 @@ fieldset {
       }
     }
 
-    // .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
-    // .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
-    // .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
-    // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
-    // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
-    // .css-v4u5dn-MuiInputBase-root-MuiInput-root:before,
-    // &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
-    // border-bottom: none;
-    // }
+    /* .css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root,
+     .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+     .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
+     &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
+     &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+     .css-v4u5dn-MuiInputBase-root-MuiInput-root:before,
+     &:hover .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+     border-bottom: none;
+     }
 
-    // .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
-    //    border: none !important;
-    // }
+     .MuiInputBase-root:hover:not(.Mui-disabled, .Mui-error):before {
+        border: none !important;
+     } */
 
     .MuiInputBase-root:before {
       border-bottom: none !important;
@@ -551,14 +527,14 @@ fieldset {
     }
   }
 
-  // синяя полоска снизу
+  /* синяя полоска снизу */
   .MuiAutocomplete-root .MuiInputBase-root::after {
     content: '';
-    // position: absolute;
-    // left: 0;
+    /* position: absolute; */
+    /* left: 0; */
+    /* bottom: 0; */
+    /* border-bottom: 1px solid #1976d2; */
     right: 10px !important;
-    // bottom: 0;
-    // border-bottom: 1px solid #1976d2;
     transform: scaleX(0);
     transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
@@ -569,21 +545,21 @@ fieldset {
     left: 10px;
     right: 0;
     bottom: 0;
-    border-bottom: 2px solid #1976d2;
+    border-bottom: 2px solid var(--color-blue-1);
     transform: scaleX(1) translateX(0);
     transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
 
-  // error красная полоска
+  /* error красная полоска */
   .MuiAutocomplete-root.error {
     .Mui-focused {
       &::after {
-        border-bottom: 2px solid #d32f2f;
+        border-bottom: 2px solid var(--color-red);
       }
     }
     .MuiInputLabel-shrink,
     label {
-      color: #d32f2f;
+      color: var(--color-red);
     }
   }
 
@@ -606,13 +582,13 @@ fieldset {
       padding-left: 0;
     }
 
-    // clear btn
+    /* clear btn */
     .clear-btn {
       position: absolute;
       padding: 4px;
       top: 20%;
       right: 48px;
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
 
       svg {
         font-weight: 400;
@@ -628,10 +604,10 @@ fieldset {
     }
   }
 
-  // clear button combo box groups
+  /* clear button combo box groups */
   button[title='Clear'] {
     right: 40px;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
   }
 
   .clear-btn-group-add-contact {
@@ -648,7 +624,7 @@ fieldset {
     padding: 10px 15px;
     background: transparent;
     border-radius: 8px;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
 
     &:hover {
       background-color: inherit;
@@ -661,24 +637,24 @@ fieldset {
   bottom: 3rem;
   width: 4rem;
   height: 4rem;
-  box-shadow: $box-shadow;
+  box-shadow: var(--box-shadow);
   background-color: #fff !important;
   right: calc(2rem - (100vw - 100%));
-  transition: background-color $transition !important;
+  transition: background-color var(--transition) !important;
   z-index: 1;
 
   svg {
     width: 3rem;
     height: 3rem;
-    fill: $color-blue-2;
-    transition: $transition;
+    fill: var(--color-blue-2);
+    transition: var(--transition);
   }
 
   &:hover {
     background-color: #f5f5f5 !important;
 
     svg {
-      fill: $color-blue-1;
+      fill: var(--color-blue-1);
     }
   }
 }
@@ -689,7 +665,7 @@ fieldset {
   margin-bottom: 60px;
 
   .no-records-in-db {
-    color: $color-red;
+    color: var(--color-red);
     box-shadow:
       5px 5px 10px rgba(0, 0, 0, 0.1),
       -5px -5px 10px rgb(255, 255, 255);
@@ -703,11 +679,11 @@ fieldset {
   .header-table {
     position: fixed;
     width: 100%;
-    // padding: 15px 0;
+    /* padding: 15px 0; */
     top: 75px;
-    background-color: $color-bg;
+    background-color: var(--color-bg);
     z-index: 1;
-    padding: 20px calc(17px - (100vw - 100%)) 20px 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+    padding: 20px calc(17px - (100vw - 100%)) 20px 0; /* предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки */
 
     .container {
       display: flex;
@@ -721,7 +697,7 @@ fieldset {
     }
 
     .filter {
-      box-shadow: $box-shadow-inset;
+      box-shadow: var(--box-shadow-inset);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -738,7 +714,7 @@ fieldset {
         right: 0;
         padding: 4px;
         margin-right: 1rem;
-        box-shadow: $box-shadow;
+        box-shadow: var(--box-shadow);
         svg {
           font-size: 1.25rem;
         }
@@ -769,7 +745,7 @@ fieldset {
 
   table {
     display: grid;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
     padding: 2rem;
     margin-top: 4.5rem;
     border-radius: 8px;
@@ -781,7 +757,7 @@ fieldset {
 
       .header-title,
       .header-title span {
-        color: $color-blue-1;
+        color: var(--color-blue-1);
         font-weight: 700;
       }
 
@@ -796,7 +772,7 @@ fieldset {
 
         .arrow-btn {
           svg {
-            fill: $color-blue-1;
+            fill: var(--color-blue-1);
             font-size: 1.25rem;
           }
 
@@ -819,7 +795,7 @@ fieldset {
           }
         }
 
-        // с 2 до 6
+        /* с 2 до 6 */
         &:nth-child(n + 2):nth-child(-n + 6) {
           cursor: pointer;
         }
@@ -857,7 +833,7 @@ fieldset {
         width: 40px;
       }
 
-      // с 2 до 6
+      /* с 2 до 6 */
       td:nth-child(n + 2):nth-child(-n + 6) {
         flex: 1;
       }
@@ -865,6 +841,10 @@ fieldset {
       td:nth-child(2) {
         min-width: 350px;
       }
+
+      /* td:nth-child(n + 2):nth-child(-n + 6) {
+         white-space: nowrap;
+       } */
 
       .btn-icon-table {
         width: 40px;
@@ -881,10 +861,10 @@ fieldset {
         }
 
         &.edit svg {
-          fill: #4caf50;
+          fill: var(--color-green);
         }
         &.delete svg {
-          fill: $color-red;
+          fill: var(--color-red);
         }
       }
 
@@ -903,8 +883,8 @@ fieldset {
   left: 0;
   width: 100%;
   bottom: 0;
-  background-color: #394a56;
-  padding: 0 calc(17px - (100vw - 100%)) 0 0; // предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки
+  background-color: var(--color-footer);
+  padding: 0 calc(17px - (100vw - 100%)) 0 0; /* предотвращение смещения элементов при появлении и исчезании вертикальной полосы прокрутки */
 
   .content {
     display: flex;
@@ -912,10 +892,10 @@ fieldset {
     align-items: center;
     margin: 6px 1rem;
     color: #d1d9e6;
-    // font-family: 'Caveat', cursive;
+    /* font-family: 'Caveat', cursive; */
     font-family: 'Charm', Sans-serif;
-    // font-size: 16px;
-    // font-weight: 700;
+    /* font-size: 16px; */
+    /* font-weight: 700; */
   }
 }
 
@@ -1028,7 +1008,7 @@ fieldset {
   .MuiInputBase-root {
     margin-top: 0;
 
-    // нижняя синяя линия при фокусе
+    /* нижняя синяя линия при фокусе */
     &::after {
       inset: 0 10px 23px 10px;
     }
@@ -1043,7 +1023,7 @@ fieldset {
     padding: 10px 15px;
     background: transparent;
     border-radius: 8px;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
     width: 100%;
 
     &:hover {
@@ -1051,7 +1031,7 @@ fieldset {
     }
 
     &:active {
-      box-shadow: $box-shadow-inset;
+      box-shadow: var(--box-shadow-inset);
     }
   }
 
@@ -1060,7 +1040,7 @@ fieldset {
     position: absolute;
     padding: 4px;
     top: 22%;
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
 
     svg {
       font-weight: 400;
@@ -1090,19 +1070,19 @@ fieldset {
   }
 }
 
-// перекрытие стилей автозаполнения браузера
+/* перекрытие стилей автозаполнения браузера */
 .login form .input-box {
   input:-webkit-autofill {
     -webkit-box-shadow:
       inset 5px 5px 10px rgba(0, 0, 0, 0.1),
       inset -5px -5px 10px rgb(255, 255, 255),
-      inset 0 0 0 50px $color-bg;
-    -webkit-text-fill-color: $color-text;
+      inset 0 0 0 50px var(--color-bg);
+    -webkit-text-fill-color: var(--color-text);
   }
 }
 
 .settings-modal-windows {
-  background-color: $color-bg !important;
+  background-color: var(--color-bg) !important;
 
   .settings-wrapper {
     display: flex;
@@ -1113,7 +1093,7 @@ fieldset {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
       padding: 1rem;
       border-radius: 8px;
     }
@@ -1135,9 +1115,9 @@ fieldset {
 
     .input {
       border-radius: 10px;
-      box-shadow: $box-shadow-inset;
+      box-shadow: var(--box-shadow-inset);
 
-      // clear btn
+      /* clear btn */
       .clear-btn {
         position: absolute;
         padding: 4px;
@@ -1168,12 +1148,12 @@ fieldset {
     }
 
     button {
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
     }
   }
 
   .user-role {
-    color: $color-text;
+    color: var(--color-text);
   }
 }
 
@@ -1234,9 +1214,9 @@ fieldset {
   animation-delay: 0.1s;
 }
 
-// .animated-header-title-2 {
-//    animation-delay: 0s !important;
-// }
+/* .animated-header-title-2 {
+    animation-delay: 0s !important;
+ } */
 
 @keyframes slide-out-blurred-bottom {
   0% {
@@ -1294,42 +1274,30 @@ fieldset {
 
 /* ---------- DARK THEME ------------ */
 body.dark {
-  $color-bg: #495057;
-  $color-text: #f6f5f7;
-  $box-shadow:
-    5px 5px 10px #3e444a,
-    -5px -5px 10px #545c64;
-  $box-shadow-inset:
-    inset 5px 5px 10px #3e444a,
-    inset -5px -5px 10px #545c64;
-  $color-blue-1: rgb(116, 192, 252);
-  $color-blue-2: rgba(116, 192, 252, 0.7);
-  $color-red: #ff6b6b;
-
-  color: $color-text;
-  background-color: $color-bg;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   .header {
-    background-color: $color-bg;
-    box-shadow: $box-shadow;
+    background-color: var(--color-bg);
+    box-shadow: var(--box-shadow);
 
     .header-content {
       .header-btn {
-        box-shadow: $box-shadow, $box-shadow-inset;
-        color: $color-text;
+        box-shadow: var(--box-shadow), var(--box-shadow-inset);
+        color: var(--color-text);
         &:hover {
           svg {
-            fill: $color-blue-1;
+            fill: var(--color-blue-1);
           }
         }
       }
 
       .header-content__center {
         h1 {
-          color: $color-blue-1;
+          color: var(--color-blue-1);
 
           .phone-circle::after {
-            border: 3px solid $color-blue-1;
+            border: 3px solid var(--color-blue-1);
           }
         }
       }
@@ -1340,7 +1308,7 @@ body.dark {
         }
 
         .label {
-          color: #394a56;
+          color: var(--color-footer);
         }
 
         .toggle {
@@ -1362,12 +1330,12 @@ body.dark {
       .swith-language {
         div {
           .lng {
-            color: $color-text;
+            color: var(--color-text);
           }
 
           &:hover {
             .lng {
-              color: $color-blue-1;
+              color: var(--color-blue-1);
             }
           }
         }
@@ -1377,7 +1345,7 @@ body.dark {
         &:hover {
           svg {
             &:nth-child(2) {
-              color: $color-blue-1;
+              color: var(--color-blue-1);
             }
           }
         }
@@ -1386,57 +1354,57 @@ body.dark {
       .btn-settings,
       .btn-logout {
         &:hover svg {
-          fill: $color-red;
+          fill: var(--color-red);
         }
       }
     }
   }
 
   .header-table {
-    background-color: $color-bg;
+    background-color: var(--color-bg);
   }
 
   .contacts {
     .header-table {
       .filter {
-        box-shadow: $box-shadow-inset;
+        box-shadow: var(--box-shadow-inset);
 
         input {
-          color: $color-text;
+          color: var(--color-text);
         }
 
         .MuiInputLabel-root {
-          color: $color-text;
+          color: var(--color-text);
         }
         .MuiInputLabel-shrink {
-          color: $color-blue-1;
+          color: var(--color-blue-1);
         }
 
         .clear-filter-btn {
-          box-shadow: $box-shadow;
+          box-shadow: var(--box-shadow);
           svg {
-            fill: $color-text;
+            fill: var(--color-text);
           }
         }
       }
     }
 
     table {
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
 
       thead .header-title span {
-        color: $color-blue-1;
+        color: var(--color-blue-1);
       }
 
       tr {
-        background-color: $color-bg;
-        box-shadow: $box-shadow;
+        background-color: var(--color-bg);
+        box-shadow: var(--box-shadow);
 
         .header-title {
-          color: $color-blue-1;
+          color: var(--color-blue-1);
 
           svg {
-            fill: $color-blue-1;
+            fill: var(--color-blue-1);
           }
         }
 
@@ -1458,212 +1426,212 @@ body.dark {
   }
 
   .btn__add-contact {
-    box-shadow: $box-shadow;
-    background-color: $color-bg !important;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-bg) !important;
 
     svg {
-      fill: $color-blue-2;
+      fill: var(--color-blue-2);
     }
 
     &:hover {
       background-color: #6c757d !important;
 
       svg {
-        fill: $color-blue-1;
+        fill: var(--color-blue-1);
       }
     }
   }
 
   .login {
-    box-shadow: $box-shadow;
+    box-shadow: var(--box-shadow);
     form {
       input[type='text'],
       input[type='password'] {
-        box-shadow: $box-shadow-inset;
-        color: $color-text;
+        box-shadow: var(--box-shadow-inset);
+        color: var(--color-text);
       }
 
       .MuiInputLabel-root {
-        color: $color-text;
+        color: var(--color-text);
       }
       .MuiInputLabel-shrink {
-        color: $color-blue-1;
+        color: var(--color-blue-1);
       }
 
       .input-box {
         button {
-          box-shadow: $box-shadow;
+          box-shadow: var(--box-shadow);
         }
       }
     }
   }
 
   .MuiMenu-paper {
-    background-color: $color-bg;
+    background-color: var(--color-bg);
 
     .lng {
-      color: $color-text;
+      color: var(--color-text);
     }
   }
 
-  // Модальные окна
+  /* Модальные окна */
   .modal {
-    background-color: $color-bg !important;
+    background-color: var(--color-bg) !important;
 
     .btn-close {
-      box-shadow: $box-shadow;
-      background-color: $color-bg;
+      box-shadow: var(--box-shadow);
+      background-color: var(--color-bg);
 
       &::after,
       &::before {
-        background-color: $color-text;
+        background-color: var(--color-text);
       }
 
       &:hover {
-        background-color: $color-blue-1;
+        background-color: var(--color-blue-1);
         &::after,
         &::before {
-          background-color: $color-bg;
+          background-color: var(--color-bg);
         }
       }
 
       &:active {
-        background-color: $color-blue-2;
+        background-color: var(--color-blue-2);
       }
     }
 
     .modal-section {
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
     }
 
     .input {
-      box-shadow: $box-shadow-inset;
+      box-shadow: var(--box-shadow-inset);
     }
 
     input {
-      color: $color-text;
+      color: var(--color-text);
     }
 
     button {
-      box-shadow: $box-shadow;
+      box-shadow: var(--box-shadow);
     }
   }
 
   .Mui-error,
   .MuiAutocomplete-root.error {
-    color: $color-red !important;
+    color: var(--color-red) !important;
   }
 
   .MuiAutocomplete-root.error label {
-    color: $color-red;
+    color: var(--color-red);
   }
 
   .MuiInputLabel-root {
-    color: $color-text;
+    color: var(--color-text);
   }
 
   .MuiInputLabel-shrink {
-    color: $color-blue-1;
+    color: var(--color-blue-1);
   }
 
   .btn-modal {
-    box-shadow: $box-shadow !important;
+    box-shadow: var(--box-shadow) !important;
   }
 
   .btn-blue {
-    border-color: $color-blue-1;
-    color: $color-blue-1;
+    border-color: var(--color-blue-1);
+    color: var(--color-blue-1);
   }
 
   .btn-red {
-    border-color: $color-red;
-    color: $color-red;
+    border-color: var(--color-red);
+    color: var(--color-red);
   }
 
   button[title='Clear'],
   .clear-btn {
-    box-shadow: $box-shadow !important;
+    box-shadow: var(--box-shadow) !important;
     svg {
-      fill: $color-text !important;
+      fill: var(--color-text) !important;
     }
   }
 
   .visibility-password-btn {
     svg {
-      fill: $color-text;
+      fill: var(--color-text);
     }
   }
 
   .MuiInputBase-root,
   .MuiAutocomplete-root {
-    // нижняя синяя линия при фокусе
+    /* нижняя синяя линия при фокусе */
     &::after {
-      border-color: $color-blue-1;
+      border-color: var(--color-blue-1);
     }
   }
 
-  // .form-wrap .MuiInputBase-root.Mui-focused::after {
-  // border-bottom: 2px solid $color-blue-1;
-  // }
+  /* .form-wrap .MuiInputBase-root.Mui-focused::after {
+   border-bottom: 2px solid var(--color-blue-1);
+   } */
 
   .form-wrap .MuiAutocomplete-root.error::after {
-    border-color: $color-red !important;
+    border-color: var(--color-red) !important;
   }
 
   .Mui-error {
-    // нижняя красная линия при ошибке
+    /* нижняя красная линия при ошибке */
     &::after {
-      border-color: $color-red !important;
+      border-color: var(--color-red) !important;
     }
   }
 
-  // перекрытие стилей автозаполнения браузера
+  /* перекрытие стилей автозаполнения браузера */
   .login form .input-box {
     input:-webkit-autofill {
       -webkit-box-shadow:
         inset 5px 5px 10px #3e444a,
         inset -5px -5px 10px #545c64,
-        inset 0 0 0 50px $color-bg;
-      -webkit-text-fill-color: $color-text;
+        inset 0 0 0 50px var(--color-bg);
+      -webkit-text-fill-color: var(--color-text);
     }
   }
 
-  // устанавливает ширину элемента скроллинга и его фоновый цвет
+  /* устанавливает ширину элемента скроллинга и его фоновый цвет */
   &::-webkit-scrollbar {
     width: 14px;
-    background-color: $color-bg;
+    background-color: var(--color-bg);
   }
-  // устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет
+  /* устанавливает радиус границы элемента дорожки скроллинга и его фоновый цвет */
   &::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: transparent;
   }
-  // устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу
+  /* устанавливает радиус границы элемента  thumb (ползунок) скроллинга, его фоновый цвет и его границу */
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: $color-text;
-    border: 2px solid $color-text;
+    background-color: var(--color-text);
+    border: 2px solid var(--color-text);
   }
 
-  // цвет курсора
+  /* цвет курсора */
   input {
-    caret-color: $color-blue-1;
+    caret-color: var(--color-blue-1);
   }
 
   .user-role {
-    color: $color-text;
+    color: var(--color-text);
 
     svg {
-      fill: $color-text;
+      fill: var(--color-text);
     }
   }
 
   .MuiPaper-root {
-    color: $color-text;
+    color: var(--color-text);
   }
 }
 
-// перекрытие стилей в select
+/* перекрытие стилей в select */
 .css-j218zi-MuiInputBase-root-MuiInput-root-MuiSelect-root {
   color: inherit !important;
 }
@@ -1823,7 +1791,8 @@ body.dark {
     .footer,
     .MuiSnackbar-root,
     .container table tr .btn-icon-table,
-    .arrow-btn {
+    .arrow-btn,
+    .MuiTooltip-popper {
       display: none !important;
     }
   }

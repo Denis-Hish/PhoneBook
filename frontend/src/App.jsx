@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import './scss/style.scss';
-import './scss/bootstrap-grid.css';
+import './styles/bootstrap-grid.css';
+import './styles/style.css';
 
 import Header from './components/Header';
 import Contacts from './components/Contacts';

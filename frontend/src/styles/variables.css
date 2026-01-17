@@ -1,0 +1,41 @@
+/* --------- VARIABLES ---------- */
+:root {
+  --max-width: 1200px;
+  --max-shop-width: 2500px;
+  --max-width-modal: 1000px;
+
+  --phone: 768px - 1;
+  --tablet: 1024px - 1;
+
+  --transition: 0.25s ease-in-out;
+
+  /* ---------- LIGHT THEME ------------ */
+  --color-bg: #edf1f4;
+  --color-text: #5a5a5a;
+  --color-black: #363636;
+  --color-red: #f44336;
+  --color-green: #4caf50;
+  --color-footer: #394a56;
+  --border: #9e9e9e;
+
+  --color-blue-1: rgb(25, 118, 210);
+  --color-blue-2: rgba(25, 118, 210, 0.7);
+
+  --box-shadow:
+    5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgb(255, 255, 255);
+  --box-shadow-inset:
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1),
+    inset -5px -5px 10px rgb(255, 255, 255);
+}
+
+/* ---------- DARK THEME ------------ */
+body.dark {
+  --color-bg: #495057;
+  --color-text: #f6f5f7;
+  --color-red: #ff6b6b;
+  --color-blue-1: rgb(116, 192, 252);
+  --color-blue-2: rgba(116, 192, 252, 0.7);
+
+  --box-shadow: 5px 5px 10px #3e444a, -5px -5px 10px #545c64;
+  --box-shadow-inset: inset 5px 5px 10px #3e444a, inset -5px -5px 10px #545c64;
+}

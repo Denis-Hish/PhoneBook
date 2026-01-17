@@ -6,9 +6,7 @@ export default defineConfig(({ command }) => ({
   // В dev используем base '/', в prod билдим с '/phonebook/'
   base: command === 'build' ? '/phonebook/' : '/',
   plugins: [react()],
-  css: {
-    devSourcemap: true, // Включить source maps для CSS/SCSS в dev режиме
-  },
+
   resolve: {
     alias: {
       events: 'events/',
