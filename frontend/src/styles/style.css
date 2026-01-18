@@ -1090,27 +1090,34 @@ fieldset {
     gap: 1.25rem;
 
     .settings-section {
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 1rem;
       box-shadow: var(--box-shadow);
       padding: 1rem;
       border-radius: 8px;
+
+      .form {
+        display: flex;
+      }
+
+      .user-role {
+        .MuiSelect-icon {
+          top: calc(50% - 0.7em);
+          right: 40px;
+        }
+
+        .icons {
+          top: calc(50% - -0.2em);
+        }
+      }
     }
 
     .MuiInputBase-root {
       &:before {
         border-bottom: none !important;
       }
-
-      &::after {
-        left: 10px;
-        right: 10px;
-      }
-    }
-
-    input {
-      margin: 0 10px;
     }
 
     .input {

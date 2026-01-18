@@ -7,6 +7,11 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/phonebook/' : '/',
   plugins: [react()],
 
+  // Включаем CSS source maps для отладки
+  css: {
+    devSourcemap: true,
+  },
+
   resolve: {
     alias: {
       events: 'events/',

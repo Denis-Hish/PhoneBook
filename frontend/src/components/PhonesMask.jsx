@@ -9,7 +9,7 @@ const PhoneMaskedInput = forwardRef(function PhoneMaskedInput(props, ref) {
     // dynamicMasked.compiledMasks содержит шаблоны; unmaskedValue = только цифры
     const value = dynamicMasked.unmaskedValue + appended;
     const digitsOnly = value.replace(/\D/g, '');
-    
+
     // если длина <= 3 — короткий внутренний номер
     if (!digitsOnly) return dynamicMasked.compiledMasks[2]; // index 2 -> '000' fallback
     if (digitsOnly.length <= 3) return dynamicMasked.compiledMasks[2];
@@ -35,9 +35,22 @@ const PhoneMaskedInput = forwardRef(function PhoneMaskedInput(props, ref) {
       inputRef={ref}
       // НЕ передаём onChange в IMaskInput - он конфликтует с onAccept
       onChange={undefined}
-      // При фокусе на поле выделяем весь текст
-      onFocus={(e) => {
-        e.target.select();
+      // При фокусе на поле выделяем весь текст И вызываем родительский onFocus для анимации MUI
+      onFocus={e => {
+        // Прокидываем onFocus в Material UI для анимации label
+        if (props.onFocus) {
+          props.onFocus(e);
+        }
+        // Выделяем текст с небольшой задержкой, чтобы не конфликтовать с MUI
+        setTimeout(() => {
+          e.target.select();
+        }, 0);
+      }}
+      // Прокидываем onBlur для Material UI
+      onBlur={e => {
+        if (props.onBlur) {
+          props.onBlur(e);
+        }
       }}
       // onAccept принимает (value, mask) - value это отформатированная строка, mask.unmaskedValue - только цифры
       onAccept={(value, mask) => {
@@ -47,9 +60,9 @@ const PhoneMaskedInput = forwardRef(function PhoneMaskedInput(props, ref) {
         // Вызываем родительский onChange с только цифрами
         if (props.onChange) {
           props.onChange({
-            target: { 
-              name: props.name, 
-              value: digitsOnly
+            target: {
+              name: props.name,
+              value: digitsOnly,
             },
           });
         }

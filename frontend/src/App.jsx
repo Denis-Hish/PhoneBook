@@ -15,8 +15,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Initialize GSAP
 gsap.registerPlugin(ScrollTrigger);
 
+const IDLE_TIMEOUT_MINUTES = 30; // Таймер неактивности (в минутах)
+const IDLE_TIMEOUT_MS = IDLE_TIMEOUT_MINUTES * 60 * 1000; // конвертируем в миллисекунды
+
 const AppContent = () => {
-  const countdown = 30 * 60 * 1000; // timer in milliseconds
+  const countdown = IDLE_TIMEOUT_MS;
   const clearContactsDataRef = useRef(null);
   const { logout: authLogout } = useAuth();
 

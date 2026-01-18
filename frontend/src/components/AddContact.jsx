@@ -44,7 +44,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
     }
   };
 
-  // Сброс стилей при потере фокуса у инпута
+  // Reset styles when input loses focus
   const handleBlur = event => {
     const { name, value } = event.target;
     if (name === 'userName' && value.trim() === '') {
@@ -62,7 +62,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
         ? contacts.map(contact => contact.group)
         : [];
       const uniqueGroups = [...new Set(allGroups)];
-      const sortedGroups = uniqueGroups.sort(); // Сортировка по алфавиту
+      const sortedGroups = uniqueGroups.sort(); //  Sort groups alphabetically
       setGroups(sortedGroups);
     };
 
@@ -107,22 +107,12 @@ const AddContact = ({ onClose, updateListContacts }) => {
       setFieldUserNameError(true);
       setFieldGroupError(false);
     } else {
-      await addContact(contact, t);
-      onClose(); // Закрытие модального окна после отправки формы
+      addContact(contact, t);
+      onClose(); // Closing the modal window after submitting the form
       updateListContacts();
       resetContactForm(); // Reset the contact form after successful submission
     }
   };
-
-  // Handler for changing phone numbers with masking
-  // const handlePhoneNumberChange = (name, value) => {
-  //   const maskedValue = phoneNumberMask(value);
-  //   setContact(prevContact => ({
-  //     ...prevContact,
-  //     [name]: value.replace(/[^0-9]/g, ''), // Keep only digits for data submission
-  //   }));
-  //   return maskedValue;
-  // };
 
   return (
     <div className='add-contacts'>

@@ -12,22 +12,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { setMessage } from '../utils/snackbarUtils';
-import ClearIcon from '@mui/icons-material/Clear';
-import { InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import Tooltip from '@mui/material/Tooltip';
 import axios from '../utils/axiosInstance';
-
-// Clear button for text fields (declared at module scope to avoid creating it during render)
-const ClearButton = ({ value, onClick }) => (
-  <InputAdornment position='end'>
-    {value && (
-      <IconButton className='clear-btn' onClick={onClick} tabIndex={-1}>
-        <ClearIcon />
-      </IconButton>
-    )}
-  </InputAdornment>
-);
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import GroupsIcon from '@mui/icons-material/Groups';
+import KeyIcon from '@mui/icons-material/Key';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const style = {
   position: 'absolute',
@@ -173,65 +165,86 @@ const Settings = () => {
                 </Button>
               </div>
 
-              <div className='settings-section modal-section'>
+              <div className='settings-section modal-section form-wrap'>
                 <p>{t('p_add_new_user')}</p>
-                <TextField
-                  className='input'
-                  name='username'
-                  type='text'
-                  label={`${t('user_name')}`}
-                  variant='standard'
-                  autoComplete='off'
-                  value={newUsername}
-                  onChange={e => {
-                    setNewUsername(e.target.value);
-                    setErrorUsername(false);
-                  }}
-                  onBlur={() => setErrorUsername(false)}
-                  error={isErrorUsername}
-                  inputRef={usernameInputRef}
-                  slotProps={{
-                    endAdornment: (
-                      <ClearButton
-                        value={newUsername}
-                        onClick={() => setNewUsername('')}
-                      />
-                    ),
-                  }}
-                />
+                <div className='form'>
+                  <TextField
+                    className='input'
+                    name='userName'
+                    type='text'
+                    label={`${t('user_name')}`}
+                    variant='standard'
+                    autoComplete='off'
+                    value={newUsername}
+                    onChange={e => {
+                      setNewUsername(e.target.value);
+                      setErrorUsername(false);
+                    }}
+                    onBlur={() => setErrorUsername(false)}
+                    error={isErrorUsername}
+                    inputRef={usernameInputRef}
+                  />
+                  <div className='icons'>
+                    <PersonAddIcon />
+                  </div>
+                  {newUsername && (
+                    <IconButton
+                      className='clear-btn'
+                      onClick={() => setNewUsername('')}
+                      tabIndex={-1}
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  )}
+                </div>
 
-                <TextField
-                  className='input'
-                  name='password'
-                  type='password'
-                  label={`${t('password')}`}
-                  variant='standard'
-                  autoComplete='off'
-                  value={newPassword}
-                  onChange={e => setNewPassword(e.target.value)}
-                  slotProps={{
-                    endAdornment: (
-                      <ClearButton
-                        value={newPassword}
-                        onClick={() => setNewPassword('')}
-                      />
-                    ),
-                  }}
-                />
+                <div className='form'>
+                  <TextField
+                    className='input'
+                    name='password'
+                    type='password'
+                    label={`${t('password')}`}
+                    variant='standard'
+                    autoComplete='off'
+                    value={newPassword}
+                    onChange={e => setNewPassword(e.target.value)}
+                  />
+                  <div className='icons'>
+                    <KeyIcon />
+                  </div>
+                  {newPassword && (
+                    <IconButton
+                      className='clear-btn'
+                      onClick={() => setNewPassword('')}
+                      tabIndex={-1}
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  )}
+                </div>
 
-                <FormControl variant='standard' className='input user-role'>
+                <FormControl
+                  variant='standard'
+                  className='input user-role form'
+                >
                   <InputLabel>{t('role')}</InputLabel>
                   <Select
                     value={newUserRole}
                     onChange={e => setNewUserRole(e.target.value)}
                     label={t('role')}
-                    style={{ marginLeft: '10px' }}
+                    style={{
+                      marginLeft: '0',
+                      marginRight: '0px',
+                    }}
                   >
                     <MenuItem value='user'>User ({t('read_only')})</MenuItem>
                     <MenuItem value='admin'>
                       Admin ({t('full_access')})
                     </MenuItem>
                   </Select>
+                  <div className='icons'>
+                    <GroupsIcon />
+                  </div>
                 </FormControl>
 
                 <Button
@@ -243,31 +256,37 @@ const Settings = () => {
                 </Button>
               </div>
 
-              <div className='settings-section modal-section'>
+              <div className='settings-section modal-section form-wrap'>
                 <p>{t('p_delete_user')}</p>
-                <TextField
-                  className='input'
-                  type='text'
-                  label={`${t('user_name')}`}
-                  variant='standard'
-                  autoComplete='off'
-                  value={deleteUsername}
-                  onChange={e => {
-                    setDeleteUsername(e.target.value);
-                    setErrorDeleteUser(false);
-                  }}
-                  onBlur={() => setErrorDeleteUser(false)}
-                  error={isErrorDeleteUser}
-                  inputRef={deleteInputRef}
-                  slotProps={{
-                    endAdornment: (
-                      <ClearButton
-                        value={deleteUsername}
-                        onClick={() => setDeleteUsername('')}
-                      />
-                    ),
-                  }}
-                />
+                <div className='form'>
+                  <TextField
+                    className='input'
+                    type='text'
+                    label={`${t('user_name')}`}
+                    variant='standard'
+                    autoComplete='off'
+                    value={deleteUsername}
+                    onChange={e => {
+                      setDeleteUsername(e.target.value);
+                      setErrorDeleteUser(false);
+                    }}
+                    onBlur={() => setErrorDeleteUser(false)}
+                    error={isErrorDeleteUser}
+                    inputRef={deleteInputRef}
+                  />
+                  <div className='icons'>
+                    <PersonRemoveIcon />
+                  </div>
+                  {deleteUsername && (
+                    <IconButton
+                      className='clear-btn'
+                      onClick={() => setDeleteUsername('')}
+                      tabIndex={-1}
+                    >
+                      <ClearIcon />
+                    </IconButton>
+                  )}
+                </div>
 
                 <Button
                   className='btn-settings btn-red'
