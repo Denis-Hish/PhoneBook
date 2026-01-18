@@ -191,7 +191,7 @@ const ModalEditContact = ({
                   <TextField
                     className='input'
                     name='phoneNumber1'
-                    label={`${t('phone')} 1`}
+                    label={`${t('internal')}`}
                     variant='standard'
                     value={phone1}
                     onChange={e => {
@@ -223,7 +223,7 @@ const ModalEditContact = ({
                   <TextField
                     className='input'
                     name='phoneNumber2'
-                    label={`${t('phone')} 2`}
+                    label={`${t('mobile')}`}
                     variant='standard'
                     value={phone2}
                     onChange={e => {
@@ -254,7 +254,7 @@ const ModalEditContact = ({
                   <TextField
                     className='input'
                     name='phoneNumber3'
-                    label={`${t('phone')} 3`}
+                    label={`${t('landline')}`}
                     variant='standard'
                     value={phone3}
                     onChange={e => {

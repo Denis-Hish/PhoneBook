@@ -340,7 +340,8 @@ const Contacts = ({ onClearData }) => {
                   className='header-title'
                   onClick={event => handleSort('phoneNumber1', event)}
                 >
-                  <span>{t('phone')} 1</span>
+                  {/* <span>{t('phone')} 1</span> */}
+                  <span>{t('internal')}</span>
                   <IconButton
                     className='arrow-btn'
                     sx={{ position: 'relative' }}
@@ -357,7 +358,8 @@ const Contacts = ({ onClearData }) => {
                   className='header-title'
                   onClick={event => handleSort('phoneNumber2', event)}
                 >
-                  <span>{t('phone')} 2</span>
+                  {/* <span>{t('phone')} 2</span> */}
+                  <span>{t('mobile')}</span>
                   <IconButton
                     className='arrow-btn'
                     sx={{ position: 'relative' }}
@@ -374,7 +376,8 @@ const Contacts = ({ onClearData }) => {
                   className='header-title'
                   onClick={event => handleSort('phoneNumber3', event)}
                 >
-                  <span>{t('phone')} 3</span>
+                  {/* <span>{t('phone')} 3</span> */}
+                  <span>{t('landline')}</span>
                   <IconButton
                     className='arrow-btn'
                     sx={{ position: 'relative' }}

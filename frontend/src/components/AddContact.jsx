@@ -148,7 +148,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
         <div className='form'>
           <TextField
             name='phoneNumber1'
-            label={`${t('phone')} 1`}
+            label={`${t('internal')}`}
             variant='standard'
             value={contact.phoneNumber1}
             onChange={e => {
@@ -182,7 +182,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
         <div className='form'>
           <TextField
             name='phoneNumber2'
-            label={`${t('phone')} 2`}
+            label={`${t('mobile')}`}
             variant='standard'
             value={contact.phoneNumber2}
             onChange={e => {
@@ -216,7 +216,7 @@ const AddContact = ({ onClose, updateListContacts }) => {
         <div className='form'>
           <TextField
             name='phoneNumber3'
-            label={`${t('phone')} 3`}
+            label={`${t('landline')}`}
             variant='standard'
             value={contact.phoneNumber3}
             onChange={e => {
