@@ -53,5 +53,8 @@
   "full_access": "full access",
   "error_creating_user": "Error creating user",
   "error_getting_users": "Error getting users",
-  "print": "Print"
+  "print": "Print",
+  "database_connection_error": "Database connection error",
+  "network_error": "Network connection error",
+  "other_error_message": "An error occurred. Please try again"
 }

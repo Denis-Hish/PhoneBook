@@ -53,5 +53,8 @@
   "full_access": "pełny dostęp",
   "error_creating_user": "Błąd podczas tworzenia użytkownika",
   "error_getting_users": "Błąd podczas pobierania użytkowników",
-  "print": "Drukuj"
+  "print": "Drukuj",
+  "database_connection_error": "Błąd połączenia z bazą danych",
+  "network_error": "Błąd połączenia sieciowego",
+  "other_error_message": "Wystąpił błąd. Spróbuj ponownie"
 }

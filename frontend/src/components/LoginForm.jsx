@@ -92,8 +92,21 @@ const LoginForm = ({ onLogin }) => {
         const message = t('wrong_login');
         const color = 'error';
         setMessage({ message, color });
+      } else if (error.response && error.response.status >= 500) {
+        // Ошибки сервера (500, 503 и т.д.)
+        const message = t('database_connection_error');
+        const color = 'error';
+        setMessage({ message, color });
+      } else if (error.message === 'Network Error') {
+        // Проблема с сетевым соединением
+        const message = t('network_error');
+        const color = 'error';
+        setMessage({ message, color });
       } else {
-        // Ошибка при запросе
+        // Остальные ошибки
+        const message = t('other_error_message');
+        const color = 'error';
+        setMessage({ message, color });
         console.error('Error during login:', error);
       }
     }
