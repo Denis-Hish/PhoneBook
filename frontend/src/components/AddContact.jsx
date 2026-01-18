@@ -1,15 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
 import { addContact, getAllContacts } from '../services/paramsAPI';
 import { TextField, Button } from '@mui/material';
-import PersonIcon from '@mui/icons-material/Person';
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
-import GroupsIcon from '@mui/icons-material/Groups';
-import IconButton from '@mui/material/IconButton';
-import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
 import PhoneMaskedInput from './PhonesMask';
+import PersonIcon from '@mui/icons-material/Person';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import FaxIcon from '@mui/icons-material/Fax';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import GroupsIcon from '@mui/icons-material/Groups';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const filter = createFilterOptions();
 
@@ -174,7 +176,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
             }}
           />
           <div className='icons'>
-            <PhoneEnabledIcon />
+            {/* <PhoneEnabledIcon /> */}
+            <FaxIcon />
           </div>
           {contact.phoneNumber1 && (
             <IconButton
@@ -207,7 +210,8 @@ const AddContact = ({ onClose, updateListContacts }) => {
             }}
           />
           <div className='icons'>
-            <PhoneEnabledIcon />
+            {/* <PhoneEnabledIcon /> */}
+            <PhoneAndroidIcon />
           </div>
           {contact.phoneNumber2 && (
             <IconButton

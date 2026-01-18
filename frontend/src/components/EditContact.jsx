@@ -6,15 +6,17 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { editContact } from '../services/paramsAPI';
 import Fade from '@mui/material/Fade';
-import PersonIcon from '@mui/icons-material/Person';
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
-import GroupsIcon from '@mui/icons-material/Groups';
-import IconButton from '@mui/material/IconButton';
-import ClearIcon from '@mui/icons-material/Clear';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { useTranslation } from 'react-i18next';
 import { getAllContacts } from '../services/paramsAPI';
 import PhoneMaskedInput from './PhonesMask';
+import PersonIcon from '@mui/icons-material/Person';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import FaxIcon from '@mui/icons-material/Fax';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import GroupsIcon from '@mui/icons-material/Groups';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const style = {
   position: 'absolute',
@@ -204,7 +206,8 @@ const ModalEditContact = ({
                   />
 
                   <div className='icons'>
-                    <PhoneEnabledIcon />
+                    {/* <PhoneEnabledIcon /> */}
+                    <FaxIcon />
                   </div>
                   {phone1 && (
                     <IconButton
@@ -234,7 +237,8 @@ const ModalEditContact = ({
                     }}
                   />
                   <div className='icons'>
-                    <PhoneEnabledIcon />
+                    {/* <PhoneEnabledIcon /> */}
+                    <PhoneAndroidIcon />
                   </div>
                   {phone2 && (
                     <IconButton
