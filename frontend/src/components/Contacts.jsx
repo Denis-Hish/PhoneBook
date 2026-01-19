@@ -20,6 +20,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import { formatPhoneNumber } from '../utils/phoneFormatter';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -166,7 +167,7 @@ const Contacts = ({ onClearData }) => {
 
   const filteredAndSortedContacts = filterValue
     ? allContacts.filter(contact =>
-        Object.values(contact).join(' ').toLowerCase().includes(filterValue),
+        Object.values(contact).join(' ').toLowerCase().includes(filterValue)
       )
     : allContacts;
 
@@ -285,14 +286,17 @@ const Contacts = ({ onClearData }) => {
       />
       <ModalWindows
         content={
-          <>
-            {selectedAction}:{' '}
-            <b>
-              {Array.isArray(contacts) &&
-                contacts.find(contact => contact.id === selectedId)?.userName}
-            </b>
-            ?
-          </>
+          <sapn className='content-modal-delete-contact'>
+            <WarningAmberIcon fontSize='large' />
+            <span>
+              {selectedAction}:{' '}
+              <strong>
+                {Array.isArray(contacts) &&
+                  contacts.find(contact => contact.id === selectedId)?.userName}
+              </strong>
+              ?
+            </span>
+          </sapn>
         }
         isOpen={open}
         setIsOpenModal={setOpen}
@@ -423,7 +427,7 @@ const Contacts = ({ onClearData }) => {
                     phoneNumber3,
                     group,
                   },
-                  index,
+                  index
                 ) => (
                   <tr
                     key={id}
@@ -478,7 +482,7 @@ const Contacts = ({ onClearData }) => {
                       </td>
                     )}
                   </tr>
-                ),
+                )
               )}
             </tbody>
           </table>
