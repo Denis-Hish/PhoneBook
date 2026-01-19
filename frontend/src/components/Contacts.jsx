@@ -308,6 +308,8 @@ const Contacts = ({ onClearData }) => {
         gsapContextRef.current = null;
       }
     };
+    // Note: open и openEditModal намеренно не добавлены в зависимости, чтобы не перезапускать анимации при каждом открытии/закрытии модального окна
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredAndSortedContacts, contacts, animationTrigger]);
 
   // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
