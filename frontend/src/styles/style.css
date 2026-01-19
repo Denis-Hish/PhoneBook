@@ -925,7 +925,7 @@ fieldset {
 }
 .login {
   position: relative;
-  width: 380px;
+  min-width: 420px;
   padding: 50px;
   box-shadow:
     15px 15px 20px rgba(0, 0, 0, 0.1),
@@ -1046,8 +1046,7 @@ fieldset {
     }
   }
 
-  .clear-btn,
-  .visibility-password-btn {
+  .clear-btn {
     position: absolute;
     padding: 4px;
     top: 22%;
@@ -1063,10 +1062,6 @@ fieldset {
     right: 40px;
   }
 
-  .visibility-password-btn {
-    right: 80px;
-  }
-
   .input-box {
     &:not(:hover) {
       .clear-btn,
@@ -1078,6 +1073,28 @@ fieldset {
 
   .remember-me-form {
     margin-top: 12px;
+  }
+}
+
+.settings-modal-windows .form {
+  &:not(:hover) {
+    .visibility-password-btn {
+      visibility: hidden;
+    }
+  }
+}
+
+.visibility-password-btn {
+  position: absolute !important;
+  right: 90px;
+  padding: 4px !important;
+  top: 22%;
+  box-shadow: var(--box-shadow) !important;
+
+  svg {
+    font-weight: 400;
+    font-size: 1.25rem;
+    fill: var(--color-text);
   }
 }
 
@@ -1595,12 +1612,6 @@ body.dark {
     box-shadow: var(--box-shadow) !important;
     svg {
       fill: var(--color-text) !important;
-    }
-  }
-
-  .visibility-password-btn {
-    svg {
-      fill: var(--color-text);
     }
   }
 

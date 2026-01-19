@@ -20,6 +20,8 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import GroupsIcon from '@mui/icons-material/Groups';
 import KeyIcon from '@mui/icons-material/Key';
 import ClearIcon from '@mui/icons-material/Clear';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const style = {
   position: 'absolute',
@@ -42,6 +44,7 @@ const Settings = () => {
   const [deleteUsername, setDeleteUsername] = useState('');
   const [isErrorUsername, setErrorUsername] = useState(false);
   const [isErrorDeleteUser, setErrorDeleteUser] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
   const usernameInputRef = useRef(null);
   const deleteInputRef = useRef(null);
   const { t } = useTranslation();
@@ -170,11 +173,11 @@ const Settings = () => {
                 <div className='form'>
                   <TextField
                     className='input'
-                    name='userName'
+                    name='newUsername'
                     type='text'
                     label={`${t('user_name')}`}
                     variant='standard'
-                    autoComplete='off'
+                    autoComplete='new-username'
                     value={newUsername}
                     onChange={e => {
                       setNewUsername(e.target.value);
@@ -201,11 +204,11 @@ const Settings = () => {
                 <div className='form'>
                   <TextField
                     className='input'
-                    name='password'
-                    type='password'
+                    name='newPassword'
+                    type={showNewPassword ? 'text' : 'password'}
                     label={`${t('password')}`}
                     variant='standard'
-                    autoComplete='off'
+                    autoComplete='new-password'
                     value={newPassword}
                     onChange={e => setNewPassword(e.target.value)}
                   />
@@ -213,13 +216,27 @@ const Settings = () => {
                     <KeyIcon />
                   </div>
                   {newPassword && (
-                    <IconButton
-                      className='clear-btn'
-                      onClick={() => setNewPassword('')}
-                      tabIndex={-1}
-                    >
-                      <ClearIcon />
-                    </IconButton>
+                    <>
+                      <IconButton
+                        className='visibility-password-btn'
+                        onClick={() => setShowNewPassword(!showNewPassword)}
+                        tabIndex={-1}
+                        size='small'
+                      >
+                        {showNewPassword ? (
+                          <VisibilityOffIcon />
+                        ) : (
+                          <VisibilityIcon />
+                        )}
+                      </IconButton>
+                      <IconButton
+                        className='clear-btn'
+                        onClick={() => setNewPassword('')}
+                        tabIndex={-1}
+                      >
+                        <ClearIcon />
+                      </IconButton>
+                    </>
                   )}
                 </div>
 

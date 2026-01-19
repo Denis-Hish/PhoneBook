@@ -9,6 +9,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const LoginForm = ({ onLogin }) => {
   const { login } = useAuth();
@@ -190,7 +191,7 @@ const LoginForm = ({ onLogin }) => {
                   onClick={handleVisibilityPassword}
                   tabIndex={-1}
                 >
-                  <VisibilityIcon />
+                  {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                 </IconButton>
                 <IconButton
                   className='clear-btn'
