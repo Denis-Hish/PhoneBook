@@ -6,8 +6,8 @@ export const getAllContacts = async () => {
   return res.data || [];
 };
 
-export const addContact = (newContact, t) => {
-  axios
+export const addContact = async (newContact, t) => {
+  return axios
     .post('api/contacts/add-contact', newContact)
     .then(response => {
       const message = `${t('contact')} "${response.data.userName}" ${t(
@@ -15,9 +15,11 @@ export const addContact = (newContact, t) => {
       )}`;
       const color = 'info';
       setMessage({ message, color });
+      return response;
     })
     .catch(error => {
       console.error('There was an error!', error);
+      throw error;
     });
 };
 

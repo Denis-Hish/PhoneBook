@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -18,7 +18,14 @@ const style = {
 };
 
 export default function TransitionsModal(updateListContacts) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [contact, setContact] = useState({
+    userName: '',
+    phoneNumber1: '',
+    phoneNumber2: '',
+    phoneNumber3: '',
+    group: '',
+  });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const { t } = useTranslation();
@@ -73,6 +80,8 @@ export default function TransitionsModal(updateListContacts) {
           <Box sx={style} className='modal modal-add-contact'>
             <button className='btn-close' onClick={handleClose}></button>
             <AddContact
+              contact={contact}
+              setContact={setContact}
               updateListContacts={updateListContacts.updateListContacts}
               onClose={() => {
                 handleClose();

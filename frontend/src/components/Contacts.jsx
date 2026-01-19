@@ -286,7 +286,7 @@ const Contacts = ({ onClearData }) => {
       />
       <ModalWindows
         content={
-          <sapn className='content-modal-delete-contact'>
+          <span className='content-modal-delete-contact'>
             <WarningAmberIcon fontSize='large' />
             <span>
               {selectedAction}:{' '}
@@ -296,7 +296,7 @@ const Contacts = ({ onClearData }) => {
               </strong>
               ?
             </span>
-          </sapn>
+          </span>
         }
         isOpen={open}
         setIsOpenModal={setOpen}

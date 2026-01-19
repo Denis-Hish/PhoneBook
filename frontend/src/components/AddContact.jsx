@@ -15,15 +15,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 const filter = createFilterOptions();
 
-const AddContact = ({ onClose, updateListContacts }) => {
-  const [contact, setContact] = useState({
-    userName: '',
-    phoneNumber1: '',
-    phoneNumber2: '',
-    phoneNumber3: '',
-    group: '',
-  });
-
+const AddContact = ({ contact, setContact, onClose, updateListContacts }) => {
   const [fieldUserNameError, setFieldUserNameError] = useState(false);
   const [fieldGroupError, setFieldGroupError] = useState(false);
   const [groups, setGroups] = useState([]);
@@ -107,10 +99,14 @@ const AddContact = ({ onClose, updateListContacts }) => {
       setFieldUserNameError(true);
       setFieldGroupError(false);
     } else {
-      addContact(contact, t);
-      onClose(); // Closing the modal window after submitting the form
-      updateListContacts();
-      resetContactForm(); // Reset the contact form after successful submission
+      try {
+        await addContact(contact, t);
+        resetContactForm(); // Reset the contact form after successful submission
+        updateListContacts(); // Update contacts list
+        onClose(); // Closing the modal window after submitting the form
+      } catch (error) {
+        console.error('Error adding contact:', error);
+      }
     }
   };
 
