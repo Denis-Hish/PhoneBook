@@ -56,9 +56,11 @@ const Contacts = ({ onClearData }) => {
   const [filterValue, setFilterValue] = useState('');
   const [contactForEdit, setContactForEdit] = useState({});
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [animationTrigger, setAnimationTrigger] = useState(0); // Триггер для переинициализации анимации
   const { t } = useTranslation();
   const contactRowsRef = useRef([]);
   const wasModalOpenRef = useRef(false);
+  const gsapContextRef = useRef(null);
 
   const getContacts = async () => {
     try {
@@ -103,7 +105,10 @@ const Contacts = ({ onClearData }) => {
       if (contact) {
         await deleteContact(selectedId, t);
         setOpen(false); // Закрыть модальное окно
-        await getContacts(); // Обновление списка контактов после удаления
+        // Delay getContacts to allow modal closing animation to complete
+        setTimeout(async () => {
+          await getContacts(); // Обновление списка контактов после удаления
+        }, 300);
       }
     } catch (error) {
       console.error('There was an error deleting the contact:', error);
@@ -180,16 +185,22 @@ const Contacts = ({ onClearData }) => {
     }
   }, [isAuthenticated]);
 
-  // Kill all GSAP animations when modal opens
   useEffect(() => {
     if (open || openEditModal) {
       wasModalOpenRef.current = true;
+      // Kill all GSAP animations and contexts when modal opens
+      if (gsapContextRef.current) {
+        gsapContextRef.current.revert();
+        gsapContextRef.current = null;
+      }
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     } else if (wasModalOpenRef.current) {
       // Modal was just closed - delay re-initialization of animations
       const timer = setTimeout(() => {
         wasModalOpenRef.current = false;
-      }, 300); // 300ms delay to prevent animation trigger on close
+        // Trigger animation re-initialization
+        setAnimationTrigger(prev => prev + 1);
+      }, 100); // Shorter delay for faster re-initialization
 
       return () => clearTimeout(timer);
     }
@@ -204,72 +215,100 @@ const Contacts = ({ onClearData }) => {
       openEditModal ||
       wasModalOpenRef.current
     ) {
+      // Clean up previous animations
+      if (gsapContextRef.current) {
+        gsapContextRef.current.revert();
+        gsapContextRef.current = null;
+      }
       return;
     }
     if (!contacts || contacts.length === 0) return;
     if (!filteredAndSortedContacts || filteredAndSortedContacts.length === 0)
       return;
 
-    const ctx = gsap.context(() => {
-      contactRowsRef.current.forEach(row => {
-        if (!row) return;
+    // Give a small delay to ensure all DOM elements are properly mounted
+    const initTimer = setTimeout(() => {
+      // Ensure all rows are available before creating animations
+      const validRows = contactRowsRef.current.filter(row => row);
+      if (validRows.length === 0) {
+        return;
+      }
 
-        const OPACITY_VISIBLE = 1;
-        const OPACITY_HIDDEN = 0;
-        const SCALE_VISIBLE = 1;
-        const SCALE_HIDDEN = 0.9;
-        const DURATION = 0.4;
-        const EASE_VISUALIZER = 'elastic.inOut(1,0.5)';
+      // Clear previous context if it exists
+      if (gsapContextRef.current) {
+        gsapContextRef.current.revert();
+      }
 
-        gsap.set(row, { opacity: 0, scale: 0.9 });
+      const ctx = gsap.context(() => {
+        validRows.forEach(row => {
+          if (!row) return;
 
-        ScrollTrigger.create({
-          trigger: row,
-          start: 'center 96%',
-          end: 'center 23%',
-          // markers: true,
+          const OPACITY_VISIBLE = 1;
+          const OPACITY_HIDDEN = 0;
+          const SCALE_VISIBLE = 1;
+          const SCALE_HIDDEN = 0.9;
+          const DURATION = 0.4;
+          const EASE_VISUALIZER = 'elastic.inOut(1,0.5)';
 
-          onEnter: () => {
-            gsap.to(row, {
-              opacity: OPACITY_VISIBLE,
-              scale: SCALE_VISIBLE,
-              duration: DURATION,
-              ease: EASE_VISUALIZER,
-            });
-          },
+          gsap.set(row, { opacity: 0, scale: 0.9 });
 
-          onLeave: () => {
-            gsap.to(row, {
-              opacity: OPACITY_HIDDEN,
-              scale: SCALE_HIDDEN,
-              duration: DURATION,
-              ease: EASE_VISUALIZER,
-            });
-          },
+          ScrollTrigger.create({
+            trigger: row,
+            start: 'center 96%',
+            end: 'center 23%',
+            markers: false,
 
-          onEnterBack: () => {
-            gsap.to(row, {
-              opacity: OPACITY_VISIBLE,
-              scale: SCALE_VISIBLE,
-              duration: DURATION,
-              ease: EASE_VISUALIZER,
-            });
-          },
+            onEnter: () => {
+              gsap.to(row, {
+                opacity: OPACITY_VISIBLE,
+                scale: SCALE_VISIBLE,
+                duration: DURATION,
+                ease: EASE_VISUALIZER,
+              });
+            },
 
-          onLeaveBack: () => {
-            gsap.to(row, {
-              opacity: OPACITY_HIDDEN,
-              scale: SCALE_HIDDEN,
-              duration: DURATION,
-              ease: EASE_VISUALIZER,
-            });
-          },
+            onLeave: () => {
+              gsap.to(row, {
+                opacity: OPACITY_HIDDEN,
+                scale: SCALE_HIDDEN,
+                duration: DURATION,
+                ease: EASE_VISUALIZER,
+              });
+            },
+
+            onEnterBack: () => {
+              gsap.to(row, {
+                opacity: OPACITY_VISIBLE,
+                scale: SCALE_VISIBLE,
+                duration: DURATION,
+                ease: EASE_VISUALIZER,
+              });
+            },
+
+            onLeaveBack: () => {
+              gsap.to(row, {
+                opacity: OPACITY_HIDDEN,
+                scale: SCALE_HIDDEN,
+                duration: DURATION,
+                ease: EASE_VISUALIZER,
+              });
+            },
+          });
         });
       });
-    });
 
-    return () => ctx.revert();
-  }, [filteredAndSortedContacts, open, openEditModal, contacts]);
+      // Save context for cleanup
+      gsapContextRef.current = ctx;
+    }, 50);
+
+    return () => {
+      clearTimeout(initTimer);
+      if (gsapContextRef.current) {
+        gsapContextRef.current.revert();
+        gsapContextRef.current = null;
+      }
+    };
+  }, [filteredAndSortedContacts, contacts, animationTrigger]);
 
   // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
 
