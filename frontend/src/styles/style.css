@@ -404,7 +404,7 @@ fieldset {
   border-radius: 8px;
   background-color: var(--color-bg);
   position: relative;
-  min-width: 400px;
+  min-width: 420px;
 
   .modal-wrapper {
     padding: 1rem;
@@ -1062,6 +1062,10 @@ fieldset {
     right: 40px;
   }
 
+  .visibility-password-btn {
+    right: 80px;
+  }
+
   .input-box {
     &:not(:hover) {
       .clear-btn,
@@ -1086,7 +1090,7 @@ fieldset {
 
 .visibility-password-btn {
   position: absolute !important;
-  right: 80px;
+  right: 90px;
   padding: 4px !important;
   top: 22%;
   box-shadow: var(--box-shadow) !important;
