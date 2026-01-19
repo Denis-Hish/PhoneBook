@@ -1086,7 +1086,7 @@ fieldset {
 
 .visibility-password-btn {
   position: absolute !important;
-  right: 90px;
+  right: 80px;
   padding: 4px !important;
   top: 22%;
   box-shadow: var(--box-shadow) !important;
