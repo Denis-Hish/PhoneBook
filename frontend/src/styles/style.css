@@ -662,8 +662,6 @@ fieldset {
   }
 
   &:hover {
-    background-color: var(--btn-hover-color-bg) !important;
-
     svg {
       fill: var(--color-blue-1);
     }
@@ -1364,8 +1362,6 @@ fieldset {
   }
 
   &:hover {
-    /* background-color: var(--btn-hover-color-bg) !important; */
-
     svg {
       fill: var(--color-blue-1);
     }
