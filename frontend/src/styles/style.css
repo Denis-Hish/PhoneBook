@@ -1342,14 +1342,14 @@ fieldset {
   height: 3rem;
   box-shadow: var(--box-shadow);
   background-color: var(--color-bg) !important;
-  right: calc(2rem - (100vw - 100%));
+  right: calc(2.5rem - (100vw - 100%));
   transition:
     background-color var(--transition),
     opacity var(--transition),
     transform var(--transition) !important;
   z-index: 1;
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(75px);
   pointer-events: none;
 
   &.visible {
