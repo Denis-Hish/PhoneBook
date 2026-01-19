@@ -1114,6 +1114,10 @@ fieldset {
       }
 
       .user-role {
+        .MuiSelect-select {
+          color: var(--color-text);
+        }
+
         .MuiSelect-icon {
           top: calc(50% - 0.7em);
           right: 40px;

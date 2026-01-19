@@ -60,7 +60,7 @@ const Settings = () => {
       });
       setMessage({
         message: `${t('snb_user')} "${newUsername}" (${newUserRole}) ${t(
-          'snb_added_user',
+          'snb_added_user'
         )}`,
         color: 'success',
       });
@@ -95,7 +95,7 @@ const Settings = () => {
       if (error.response && error.response.status === 404) {
         setMessage({
           message: `${t('snb_user')} ${t('with_name')} "${username}" ${t(
-            'not_found',
+            'not_found'
           )}`,
           color: 'error',
         });
