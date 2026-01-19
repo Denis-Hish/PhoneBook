@@ -59,5 +59,6 @@
   "print": "Print",
   "database_connection_error": "Database connection error",
   "network_error": "Network connection error",
-  "other_error_message": "An error occurred. Please try again"
+  "other_error_message": "An error occurred. Please try again",
+  "scroll_to_top": "Scroll to top"
 }

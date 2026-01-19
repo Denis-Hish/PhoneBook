@@ -1,9 +1,12 @@
+import 'focus-visible';
+import { initializePolyfills } from './utils/muiPolyfills';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import i18n from './i18n.js';
 import { I18nextProvider } from 'react-i18next';
-// import './index.css'
+
+initializePolyfills(); // Инициализация полифиллов для MUI
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

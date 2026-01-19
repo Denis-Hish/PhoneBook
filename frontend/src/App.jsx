@@ -11,6 +11,7 @@ import Snackbar from './components/Snackbar';
 import LoginForm from './components/LoginForm';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollToTop from './components/ScrollToTop';
 
 // Initialize GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -49,7 +50,7 @@ const AppContent = () => {
     const currentTime = Date.now();
     localStorage.setItem(
       'authData',
-      JSON.stringify({ isAuthenticated: true, loginTime: currentTime }),
+      JSON.stringify({ isAuthenticated: true, loginTime: currentTime })
     );
   };
 
@@ -112,6 +113,7 @@ const AppContent = () => {
         <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
       )}
       <Snackbar />
+      <ScrollToTop />
       <Footer />
     </ThemeProvider>
   );

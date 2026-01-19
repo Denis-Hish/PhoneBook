@@ -312,7 +312,7 @@ const Contacts = ({ onClearData }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredAndSortedContacts, contacts, animationTrigger]);
 
-  // GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
+  // TODO: GSAP ANIMATIONS - Анимация при добавлении/удалении контактов
 
   return (
     <div className='contacts'>

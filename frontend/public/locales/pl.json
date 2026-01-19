@@ -59,5 +59,6 @@
   "print": "Drukuj",
   "database_connection_error": "Błąd połączenia z bazą danych",
   "network_error": "Błąd połączenia sieciowego",
-  "other_error_message": "Wystąpił błąd. Spróbuj ponownie"
+  "other_error_message": "Wystąpił błąd. Spróbuj ponownie",
+  "scroll_to_top": "Przewiń do góry"
 }
