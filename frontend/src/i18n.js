@@ -5,6 +5,12 @@ import enTranslations from '../public/locales/en.json';
 import plTranslations from '../public/locales/pl.json';
 import uaTranslations from '../public/locales/ua.json';
 
+// Устанавливаем язык из localStorage до загрузки приложения
+// const savedLanguage = localStorage.getItem('selectedLanguage');
+// if (savedLanguage) {
+//   document.documentElement.lang = savedLanguage;
+// }
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -22,5 +28,10 @@ i18n
     returnEmptyString: false,
     saveMissing: false,
   });
+
+// Update the HTML document's lang attribute when the language changes
+i18n.on('languageChanged', lng => {
+  document.documentElement.lang = lng;
+});
 
 export default i18n;
