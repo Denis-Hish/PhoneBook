@@ -18,7 +18,6 @@ const style = {
 };
 
 export default function TransitionsModal(updateListContacts) {
-  const [open, setOpen] = useState(false);
   const [contact, setContact] = useState({
     userName: '',
     phoneNumber1: '',
@@ -26,9 +25,20 @@ export default function TransitionsModal(updateListContacts) {
     phoneNumber3: '',
     group: '',
   });
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+
+  //! Fixed error: "Blocked aria-hidden..."
+  const handleClose = () => {
+    document.activeElement?.blur();
+    setTimeout(() => {
+      setOpen(false);
+      const openBtn = document.querySelector('.btn__add-contact');
+      if (openBtn) openBtn.focus();
+    }, 50);
+  };
 
   useEffect(() => {
     const handleKeyDown = event => {
@@ -57,6 +67,7 @@ export default function TransitionsModal(updateListContacts) {
           className='btn btn__add-contact'
           onClick={handleOpen}
           tabIndex={-1}
+          // ref={openButtonRef}
         >
           <AddCircleOutlineIcon />
         </IconButton>
@@ -68,7 +79,7 @@ export default function TransitionsModal(updateListContacts) {
         onClose={() => {
           handleClose();
         }}
-        closeAfterTransition
+        // closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
           backdrop: {

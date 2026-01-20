@@ -33,7 +33,7 @@ const TransitionsModal = ({ content, isOpen, setIsOpenModal, Buttons }) => {
         onClose={() => {
           handleClose();
         }}
-        closeAfterTransition
+        // closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
           backdrop: {

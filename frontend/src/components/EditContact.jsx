@@ -144,7 +144,7 @@ const ModalEditContact = ({
         aria-describedby='transition-modal-description'
         open={openModal}
         onClose={closeModal}
-        closeAfterTransition
+        // closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
           backdrop: {

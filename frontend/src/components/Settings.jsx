@@ -151,7 +151,7 @@ const Settings = () => {
         aria-describedby='transition-modal-description'
         open={open}
         onClose={handleClose}
-        closeAfterTransition
+        // closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
           backdrop: {
