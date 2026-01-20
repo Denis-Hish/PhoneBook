@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { TextField, Button } from '@mui/material';
 import { setMessage } from '../utils/snackbarUtils';
@@ -13,6 +14,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const LoginForm = ({ onLogin }) => {
   const { login } = useAuth();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const rememberedUsername = localStorage.getItem('rememberedUsername');
   const initialUsername = rememberedUsername ? rememberedUsername : '';
@@ -66,6 +68,9 @@ const LoginForm = ({ onLogin }) => {
 
         // Вызываем onLogin для обновления состояния App
         onLogin();
+
+        // Редирект на главную страницу
+        navigate('/', { replace: true });
 
         setMessage({
           message: `${t('welcome')}, ${user.username}!`,

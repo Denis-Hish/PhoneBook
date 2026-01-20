@@ -1,17 +1,21 @@
 import { useState, useEffect, useRef } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './styles/bootstrap-grid.css';
 import './styles/style.css';
 
-import Header from './components/Header';
-import Contacts from './components/Contacts';
-import Footer from './components/Footer';
 import Snackbar from './components/Snackbar';
-import LoginForm from './components/LoginForm';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import ProtectedRoute from './components/ProtectedRoute';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ScrollToTop from './components/ScrollToTop';
 
 // Initialize GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -50,7 +54,7 @@ const AppContent = () => {
     const currentTime = Date.now();
     localStorage.setItem(
       'authData',
-      JSON.stringify({ isAuthenticated: true, loginTime: currentTime })
+      JSON.stringify({ isAuthenticated: true, loginTime: currentTime }),
     );
   };
 
@@ -104,17 +108,33 @@ const AppContent = () => {
 
   return (
     <ThemeProvider>
-      <Header onLogout={handleLogout} isAuthenticated={isAuthenticated} />
-      {isAuthenticated ? (
-        <Contacts
-          onClearData={clearFunc => (clearContactsDataRef.current = clearFunc)}
-        />
-      ) : (
-        <LoginForm onLogin={handleLogin} isAuthenticated={isAuthenticated} />
-      )}
-      <Snackbar />
-      <ScrollToTop />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route
+            path='/login'
+            element={
+              isAuthenticated ? (
+                <Navigate to='/' replace />
+              ) : (
+                <LoginPage onLogin={handleLogin} />
+              )
+            }
+          />
+          <Route
+            path='/'
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <HomePage
+                  onLogout={handleLogout}
+                  clearContactsDataRef={clearContactsDataRef}
+                />
+              </ProtectedRoute>
+            }
+          />
+          <Route path='*' element={<Navigate to='/' replace />} />
+        </Routes>
+        <Snackbar />
+      </Router>
     </ThemeProvider>
   );
 };
