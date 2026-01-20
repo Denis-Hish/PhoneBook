@@ -6,12 +6,19 @@ import App from './App.jsx';
 import i18n from './i18n.js';
 import { I18nextProvider } from 'react-i18next';
 
-initializePolyfills(); // Инициализация полифиллов для MUI
+// Инициализация полифиллов для MUI
+initializePolyfills();
+
+// Устанавливаем язык из localStorage ДО загрузки приложения
+const savedLanguage = localStorage.getItem('selectedLanguage');
+if (savedLanguage) {
+  document.documentElement.lang = savedLanguage;
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <I18nextProvider i18n={i18n}>
       <App />
     </I18nextProvider>
-  </StrictMode>
+  </StrictMode>,
 );

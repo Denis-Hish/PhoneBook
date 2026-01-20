@@ -5,12 +5,6 @@ import enTranslations from '../public/locales/en.json';
 import plTranslations from '../public/locales/pl.json';
 import uaTranslations from '../public/locales/ua.json';
 
-// Устанавливаем язык из localStorage до загрузки приложения
-// const savedLanguage = localStorage.getItem('selectedLanguage');
-// if (savedLanguage) {
-//   document.documentElement.lang = savedLanguage;
-// }
-
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
