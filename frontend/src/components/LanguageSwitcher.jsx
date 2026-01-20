@@ -66,6 +66,7 @@ const LanguageSwitcher = ({ logoutButton }) => {
           className='header-btn swith-language'
           value={selectedLanguage}
           onChange={handleLanguageChange}
+          inputProps={{ name: 'language', id: 'language-select' }}
           style={logoutButton ? null : { marginRight: '128px' }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

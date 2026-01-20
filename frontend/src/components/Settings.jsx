@@ -63,7 +63,7 @@ const Settings = () => {
       return;
     }
     try {
-      await axios.post('/api/user/createOrUpdateUser', {
+      await axios.post('/user/createOrUpdateUser', {
         username: newUsername,
         password: newPassword,
         role: newUserRole,
@@ -94,7 +94,7 @@ const Settings = () => {
       return;
     }
     try {
-      const response = await axios.delete(`/api/user/deleteUser/${username}`);
+      const response = await axios.delete(`/user/deleteUser/${username}`);
       if (response.status === 200) {
         setMessage({
           message: `${t('snb_user')} "${username}" ${t('snb_deleted_user')}`,
@@ -118,7 +118,7 @@ const Settings = () => {
 
   const getAllUserLogins = async () => {
     try {
-      const response = await axios.get('/api/user/getAllUserLogins');
+      const response = await axios.get('/user/getAllUserLogins');
       const users = response.data.users;
       const usersInfo = users.map(u => `${u.username} (${u.role})`).join(', ');
       setMessage({

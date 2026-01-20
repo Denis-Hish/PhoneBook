@@ -21,9 +21,8 @@ export const AuthProvider = ({ children }) => {
   // Настройка axios для автоматической отправки токена с каждым запросом
   useEffect(() => {
     if (token) {
-      axiosInstance.defaults.headers.common[
-        'Authorization'
-      ] = `Bearer ${token}`;
+      axiosInstance.defaults.headers.common['Authorization'] =
+        `Bearer ${token}`;
       localStorage.setItem('token', token);
     } else {
       delete axiosInstance.defaults.headers.common['Authorization'];
@@ -50,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     const checkAuth = async () => {
       if (token) {
         try {
-          const response = await axiosInstance.get('/api/auth/me');
+          const response = await axiosInstance.get('/auth/me');
           if (response.data.success) {
             setUser(response.data.user);
           } else {

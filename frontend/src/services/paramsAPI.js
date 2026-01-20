@@ -2,16 +2,16 @@ import axios from '../utils/axiosInstance';
 import { setMessage } from '../utils/snackbarUtils';
 
 export const getAllContacts = async () => {
-  let res = await axios.get('api/contacts/get-all');
+  let res = await axios.get('/contacts/get-all');
   return res.data || [];
 };
 
 export const addContact = async (newContact, t) => {
   return axios
-    .post('api/contacts/add-contact', newContact)
+    .post('/contacts/add-contact', newContact)
     .then(response => {
       const message = `${t('contact')} "${response.data.userName}" ${t(
-        'saved'
+        'saved',
       )}`;
       const color = 'info';
       setMessage({ message, color });
@@ -25,10 +25,10 @@ export const addContact = async (newContact, t) => {
 
 export const editContact = (contactId, updatedContact, t) => {
   axios
-    .put(`api/contacts/edit-contact/${contactId}`, updatedContact)
+    .put(`/contacts/edit-contact/${contactId}`, updatedContact)
     .then(response => {
       const message = `${t('contact')} "${response.data.userName}" ${t(
-        'edited'
+        'edited',
       )}`;
       const color = 'success';
       setMessage({ message, color });
@@ -40,7 +40,7 @@ export const editContact = (contactId, updatedContact, t) => {
 
 export const deleteContact = (contactId, t) => {
   return axios
-    .delete(`api/contacts/delete-contact/${contactId}`)
+    .delete(`/contacts/delete-contact/${contactId}`)
     .then(response => {
       const message = `${t('contact')} ${t('deleted')}`;
       const color = 'error';

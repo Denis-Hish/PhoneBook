@@ -23,6 +23,11 @@ gsap.registerPlugin(ScrollTrigger);
 const IDLE_TIMEOUT_MINUTES = 30; // Таймер неактивности (в минутах)
 const IDLE_TIMEOUT_MS = IDLE_TIMEOUT_MINUTES * 60 * 1000; // конвертируем в миллисекунды
 
+// Нормализуем basename: в dev BASE_URL = '/', в prod '/phonebook/' → '/phonebook'
+const RAW_BASE = import.meta.env.BASE_URL || '/';
+const NORMALIZED_BASENAME =
+  RAW_BASE === '/' ? undefined : RAW_BASE.replace(/\/+$/, '');
+
 const AppContent = () => {
   const countdown = IDLE_TIMEOUT_MS;
   const clearContactsDataRef = useRef(null);
@@ -108,7 +113,8 @@ const AppContent = () => {
 
   return (
     <ThemeProvider>
-      <Router>
+      {/* basename: в dev undefined, в prod '/phonebook' */}
+      <Router basename={NORMALIZED_BASENAME}>
         <Routes>
           <Route
             path='/login'
