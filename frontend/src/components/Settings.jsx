@@ -32,6 +32,8 @@ const style = {
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 2,
+  maxHeight: '86vh',
+  overflowY: 'auto',
 };
 
 const Settings = () => {
