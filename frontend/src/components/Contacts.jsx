@@ -172,7 +172,7 @@ const Contacts = ({ onClearData }) => {
 
   const filteredAndSortedContacts = filterValue
     ? allContacts.filter(contact =>
-        Object.values(contact).join(' ').toLowerCase().includes(filterValue)
+        Object.values(contact).join(' ').toLowerCase().includes(filterValue),
       )
     : allContacts;
 
@@ -254,9 +254,9 @@ const Contacts = ({ onClearData }) => {
 
           ScrollTrigger.create({
             trigger: row,
-            start: 'center 96%',
-            end: 'center 23%',
-            markers: false,
+            start: 'center bottom-=37px', // позиция срабатывания анимации на элементе / старт анимации на Хpx от низа страницы
+            end: 'center 210px', // позиция срабатывания анимации на элементе / конец анимации на Хpx от верха страницы
+            // markers: true,
 
             onEnter: () => {
               gsap.to(row, {
@@ -468,7 +468,7 @@ const Contacts = ({ onClearData }) => {
                     phoneNumber3,
                     group,
                   },
-                  index
+                  index,
                 ) => (
                   <tr
                     key={id}
@@ -523,7 +523,7 @@ const Contacts = ({ onClearData }) => {
                       </td>
                     )}
                   </tr>
-                )
+                ),
               )}
             </tbody>
           </table>

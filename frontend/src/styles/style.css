@@ -1856,6 +1856,7 @@ body.dark {
       white-space: nowrap;
     }
 
+    .btn__scroll-to-top,
     .btn__add-contact,
     .header-btn,
     .swith-toggle-theme,
@@ -1868,5 +1869,11 @@ body.dark {
     .MuiTooltip-popper {
       display: none !important;
     }
+  }
+}
+
+.print-mode {
+  [role='tooltip'] {
+    display: none !important;
   }
 }

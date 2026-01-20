@@ -40,9 +40,10 @@ const Settings = () => {
   const handleClose = () => setOpen(false);
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [newUserRole, setNewUserRole] = useState('user');
+  const [newUserRole, setNewUserRole] = useState('');
   const [deleteUsername, setDeleteUsername] = useState('');
   const [isErrorUsername, setErrorUsername] = useState(false);
+  const [isErrorRole, setErrorRole] = useState(false);
   const [isErrorDeleteUser, setErrorDeleteUser] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const usernameInputRef = useRef(null);
@@ -55,6 +56,10 @@ const Settings = () => {
       usernameInputRef.current.focus();
       return;
     }
+    if (!newUserRole) {
+      setErrorRole(true);
+      return;
+    }
     try {
       await axios.post('/api/user/createOrUpdateUser', {
         username: newUsername,
@@ -63,13 +68,14 @@ const Settings = () => {
       });
       setMessage({
         message: `${t('snb_user')} "${newUsername}" (${newUserRole}) ${t(
-          'snb_added_user'
+          'snb_added_user',
         )}`,
         color: 'success',
       });
       setNewUsername('');
       setNewPassword('');
-      setNewUserRole('user');
+      setNewUserRole('');
+      setErrorRole(false);
     } catch (error) {
       console.error('Error creating or updating user:', error);
       setMessage({
@@ -98,7 +104,7 @@ const Settings = () => {
       if (error.response && error.response.status === 404) {
         setMessage({
           message: `${t('snb_user')} ${t('with_name')} "${username}" ${t(
-            'not_found'
+            'not_found',
           )}`,
           color: 'error',
         });
@@ -243,11 +249,15 @@ const Settings = () => {
                 <FormControl
                   variant='standard'
                   className='input user-role form'
+                  error={isErrorRole}
                 >
                   <InputLabel>{t('role')}</InputLabel>
                   <Select
                     value={newUserRole}
-                    onChange={e => setNewUserRole(e.target.value)}
+                    onChange={e => {
+                      setNewUserRole(e.target.value);
+                      setErrorRole(false);
+                    }}
                     label={t('role')}
                     style={{
                       marginLeft: '0',

@@ -1,52 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root_group>
-  <group display_name="Alderaan" ring="Auto"/>
-  <group display_name="Chandrila" ring="Auto"/>
-  <group display_name="Corellia" ring="Auto"/>
-  <group display_name="D'Qar" ring="Auto"/>
-  <group display_name="Dathomir" ring="Auto"/>
-  <group display_name="Eadu" ring="Auto"/>
-  <group display_name="Haruun Kal" ring="Auto"/>
-  <group display_name="Jakku" ring="Auto"/>
-  <group display_name="Kalee" ring="Auto"/>
-  <group display_name="Kamino" ring="Auto"/>
-  <group display_name="Kashyyyk" ring="Auto"/>
-  <group display_name="Kenari" ring="Auto"/>
-  <group display_name="Naboo" ring="Auto"/>
-  <group display_name="Serenno" ring="Auto"/>
-  <group display_name="Shili" ring="Auto"/>
-  <group display_name="Socorro" ring="Auto"/>
-  <group display_name="Stewjon" ring="Auto"/>
-  <group display_name="Takodana" ring="Auto"/>
-  <group display_name="Tatooine" ring="Auto"/>
-  <group display_name="Unknown" ring="Auto"/>
-  <group display_name="Yavin 4" ring="Auto"/>
+  <group display_name="Biuro" ring="Auto"/>
+  <group display_name="CIS" ring="Auto"/>
+  <group display_name="Placówki" ring="Auto"/>
+  <group display_name="WS" ring="Auto"/>
+  <group display_name="ZAZ" ring="Auto"/>
 </root_group>
 <root_contact>
-  <contact display_name="Ahsoka Tano" office_number="" mobile_number="197312300" other_number="" line="0" ring="Auto" group_id_name="Shili"/>
-  <contact display_name="Anakin Skywalker" office_number="123456789" mobile_number="456789123" other_number="123" line="0" ring="Auto" group_id_name="Tatooine"/>
-  <contact display_name="BB-8" office_number="" mobile_number="100000008" other_number="" line="0" ring="Auto" group_id_name="D'Qar"/>
-  <contact display_name="Ben Solo" office_number="" mobile_number="199988877" other_number="" line="0" ring="Auto" group_id_name="Chandrila"/>
-  <contact display_name="Boba Fett" office_number="141555598" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Kamino"/>
-  <contact display_name="C-3PO" office_number="" mobile_number="100000002" other_number="" line="0" ring="Auto" group_id_name="Tatooine"/>
-  <contact display_name="Cassian Andor" office_number="442071234" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Kenari"/>
-  <contact display_name="Chewbacca" office_number="467012345" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Kashyyyk"/>
-  <contact display_name="Count Dooku" office_number="331234559" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Serenno"/>
-  <contact display_name="Darth Maul" office_number="612000111" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Dathomir"/>
-  <contact display_name="General Grievous" office_number="" mobile_number="199900011" other_number="" line="0" ring="Auto" group_id_name="Kalee"/>
-  <contact display_name="Han Solo" office_number="170355512" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Corellia"/>
-  <contact display_name="Jyn Erso" office_number="447700223" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Eadu"/>
-  <contact display_name="Lando Calrissian" office_number="175055512" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Socorro"/>
-  <contact display_name="Leia Organa" office_number="412345678" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Alderaan"/>
-  <contact display_name="Luke Skywalker" office_number="" mobile_number="198765402" other_number="" line="0" ring="Auto" group_id_name="Tatooine"/>
-  <contact display_name="Mace Windu" office_number="" mobile_number="197255599" other_number="" line="0" ring="Auto" group_id_name="Haruun Kal"/>
-  <contact display_name="Maz Kanata" office_number="447700334" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Takodana"/>
-  <contact display_name="Obi-Wan Kenobi" office_number="447700900" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Stewjon"/>
-  <contact display_name="Padme Amidala" office_number="612345678" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Naboo"/>
-  <contact display_name="Poe Dameron" office_number="180055509" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Yavin 4"/>
-  <contact display_name="Qui-Gon Jinn" office_number="447911123" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Unknown"/>
-  <contact display_name="R2-D2" office_number="" mobile_number="100000001" other_number="" line="0" ring="Auto" group_id_name="Naboo"/>
-  <contact display_name="Rey Skywalker" office_number="" mobile_number="730040012" other_number="" line="0" ring="Auto" group_id_name="Jakku"/>
-  <contact display_name="Sheev Palpatine" office_number="" mobile_number="492211009" other_number="" line="0" ring="Auto" group_id_name="Naboo"/>
-  <contact display_name="Yoda" office_number="330000111" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Unknown"/>
+  <contact display_name="Bar RONDO" office_number="" mobile_number="534006030" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="Catering Świętokrzyski" office_number="" mobile_number="533236636" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="CIS Chmielnik" office_number="" mobile_number="730533883" other_number="" line="0" ring="Auto" group_id_name="CIS"/>
+  <contact display_name="CIS Kielce" office_number="" mobile_number="537975037" other_number="" line="0" ring="Auto" group_id_name="CIS"/>
+  <contact display_name="CIS Podgaje" office_number="" mobile_number="730533903" other_number="" line="0" ring="Auto" group_id_name="CIS"/>
+  <contact display_name="Dyrektor Wyk." office_number="211" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="IT" office_number="205" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Kadry" office_number="210" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Kluby Biuro" office_number="204" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Kluby Dyr." office_number="203" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Księgowość" office_number="208" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Księgowość Dyr." office_number="209" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="NZOZ Archiwum" office_number="410" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="NZOZ Biuro" office_number="402" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="NZOZ Dyrektor" office_number="401" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="NZOZ Hostel Janina" office_number="" mobile_number="691504015" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="NZOZ Hostel JNJ" office_number="" mobile_number="881779000" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="NZOZ Hostel Mielczarskiego" office_number="" mobile_number="690987788" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="NZOZ Ośrodek Pałęgi" office_number="" mobile_number="606329511" other_number="413737567" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="NZOZ Ośrodek Wsparcia" office_number="" mobile_number="533325044" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="NZOZ Rejestracja" office_number="400" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="NZOZ Zakład terapii uzależnień" office_number="" mobile_number="602478089" other_number="413669400" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Prezes" office_number="201" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Projekty" office_number="206" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="ŚDS Kielce" office_number="500" mobile_number="577404304" other_number="412406779" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="ŚDS Podgaje" office_number="" mobile_number="607154259" other_number="" line="0" ring="Auto" group_id_name="Placówki"/>
+  <contact display_name="Sekretariat" office_number="200" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="SNR Administracja" office_number="403" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="Wiceprezes" office_number="202" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="Biuro"/>
+  <contact display_name="WS Barwinek" office_number="" mobile_number="785980385" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Grzymałków" office_number="" mobile_number="533011750" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS J.N.Jeziorańskiego" office_number="" mobile_number="503080186" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Karczówkowska" office_number="417" mobile_number="" other_number="413669417" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Kostomłoty" office_number="" mobile_number="532159319" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Naruszewicza" office_number="" mobile_number="690030002" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Orla" office_number="" mobile_number="530235533" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Podłęże" office_number="" mobile_number="731003103" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Posłowicka" office_number="" mobile_number="887450214" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Senior Hoża" office_number="" mobile_number="885910017" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Senior JNJ" office_number="" mobile_number="885910015" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Senior Urzędnicza" office_number="" mobile_number="721377963" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Senior Żeromskiego" office_number="" mobile_number="721377893" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Zagnańsk" office_number="" mobile_number="730735535" other_number="" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="WS Żeromskiego" office_number="" mobile_number="730735535" other_number="413133388" line="0" ring="Auto" group_id_name="WS"/>
+  <contact display_name="ZAZ Biuro" office_number="" mobile_number="534007010" other_number="412436179" line="0" ring="Auto" group_id_name="ZAZ"/>
+  <contact display_name="ZAZ Kierownik" office_number="301" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  <contact display_name="ZAZ Pralnia" office_number="" mobile_number="531202205" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  <contact display_name="ZAZ Sekretariat" office_number="300" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
+  <contact display_name="ZAZ Smaczek" office_number="" mobile_number="533030207" other_number="412787238" line="0" ring="Auto" group_id_name="ZAZ"/>
+  <contact display_name="ZAZ Trenerzy" office_number="302" mobile_number="" other_number="" line="0" ring="Auto" group_id_name="ZAZ"/>
 </root_contact>
