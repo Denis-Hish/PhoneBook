@@ -121,7 +121,7 @@ app.get(/^(?!\/api).*/, (req, res) => {
 });
 
 // Запуск
-const PORT = process.env.PORT || 8080; //? для сервера порт: 3000 / для локального порт: 8080
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
