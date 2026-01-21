@@ -39,7 +39,7 @@ app.use(
     origin: true, // Разрешить все origin (для production SPA)
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
-  })
+  }),
 );
 
 // Ограничиваем размер тела запроса (во избежание DoS)
@@ -52,26 +52,8 @@ require('./routes/phones.routes')(app, API_PREFIX);
 app.use(API_PREFIX + '/api/user', require('./routes/user.routes'));
 app.use(API_PREFIX + '/api/auth', require('./routes/auth.routes'));
 
-// Подключение к БД
-const db = require('./models');
-db.sequelize
-  .sync({ force: false })
-  .then(async () => {
-    console.log('Connected to the database!');
-    try {
-      // Автоматическое создание admin пользователя при первом запуске
-      await initializeAdminUser();
-    } catch (err) {
-      console.error('initializeAdminUser error:', err);
-    }
-  })
-  .catch(err => {
-    console.error('Cannot connect to the database!', err);
-    process.exit(1);
-  });
-
-// Обработчик сохранения XML (async/await, валидное поведение)
-app.post('/create-xml-files', async (req, res) => {
+// XML converter route
+app.post(API_PREFIX + '/api/xml/create', async (req, res) => {
   try {
     const { xmlString1, xmlString2 } = req.body;
 
@@ -104,10 +86,28 @@ app.post('/create-xml-files', async (req, res) => {
     console.log('XML files saved:', file1Path, file2Path);
     return res.json({ message: 'Files saved successfully' });
   } catch (err) {
-    console.error('Error in /create-xml-files:', err);
+    console.error('Error in /api/xml/create:', err);
     return res.status(500).json({ message: 'Error saving XML files' });
   }
 });
+
+// Подключение к БД
+const db = require('./models');
+db.sequelize
+  .sync({ force: false })
+  .then(async () => {
+    console.log('Connected to the database!');
+    try {
+      // Автоматическое создание admin пользователя при первом запуске
+      await initializeAdminUser();
+    } catch (err) {
+      console.error('initializeAdminUser error:', err);
+    }
+  })
+  .catch(err => {
+    console.error('Cannot connect to the database!', err);
+    process.exit(1);
+  });
 
 // Отдача фронтенда (содержимое public = билд фронтенда)
 const publicPath = path.join(__dirname, 'public');

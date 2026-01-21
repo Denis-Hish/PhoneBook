@@ -9,9 +9,10 @@
 }
 
 body {
-  font-family:
+  /* font-family:
     -apple-system, BlinkMacSystemFont, 'Montserrat', 'Poppins', 'Roboto',
-    'Oxygen', 'Cantarell', 'Fira Sans', sans-serif;
+    'Oxygen', 'Cantarell', 'Fira Sans', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-bg);
