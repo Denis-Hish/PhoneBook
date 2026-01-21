@@ -117,7 +117,7 @@ const Converter = () => {
         '',
       );
 
-      // Save files locally for download
+      //* Save files locally for download / Сохранение файлов локально для загрузки *//
       const file2Blob = new Blob([modifiedXmlString2], { type: 'text/xml' });
       const file2Url = URL.createObjectURL(file2Blob);
       const file2Link = document.createElement('a');

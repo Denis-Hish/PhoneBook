@@ -250,17 +250,21 @@ const Settings = () => {
 
                 <FormControl
                   variant='standard'
+                  fullWidth
                   className='input user-role form'
                   error={isErrorRole}
                 >
-                  <InputLabel>{t('role')}</InputLabel>
+                  <InputLabel id='select-role-label'>{t('role')}</InputLabel>
                   <Select
+                    labelId='select-role-label'
+                    id='select-role'
+                    label={t('role')}
                     value={newUserRole}
                     onChange={e => {
                       setNewUserRole(e.target.value);
                       setErrorRole(false);
                     }}
-                    label={t('role')}
+                    inputProps={{ name: 'user-role' }}
                     style={{
                       marginLeft: '0',
                       marginRight: '0px',
