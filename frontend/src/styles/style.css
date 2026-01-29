@@ -1712,118 +1712,46 @@ body.dark {
 
 /* ------ PRINT MODE ------ */
 @media print {
-  body.print-mode * {
-    background-color: white !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important;
-    margin: 0 !important;
+  body.print-mode {
+    background-color: white;
+    color: black;
 
-    &::after,
-    &::before {
-      border-color: black !important;
-      box-shadow: none !important;
+    .header {
+      position: relative;
+      background-color: white;
+      box-shadow: none;
+
+      h1 {
+        span {
+          color: black;
+          margin-right: 6px;
+          &::after {
+            border-color: black !important;
+          }
+        }
+      }
     }
 
     .container {
-      margin: 0;
       padding: 0;
       max-width: 100%;
     }
 
-    .header {
-      position: relative;
-
-      h1 span {
-        margin-right: 6px !important;
-      }
-    }
-
     .contacts {
       padding: 0;
-      margin-top: 1rem !important;
       font-size: 14px;
 
       table {
         display: table;
         width: 100%;
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 0;
         border-collapse: collapse;
         box-shadow: none;
         border-radius: 0;
 
         thead {
-          display: table-header-group;
           position: static;
-          top: auto;
-          z-index: auto;
-          background-color: white;
-
-          tr {
-            display: table-row;
-            background-color: white;
-            box-shadow: none;
-            margin: 0;
-            padding: 0;
-            gap: 0;
-            margin-bottom: 0;
-            border-radius: 0;
-
-            td {
-              display: table-cell;
-              padding: 12px;
-              border: 1px solid black;
-              border-radius: 0;
-              min-height: auto;
-              width: auto;
-              flex: none;
-              min-width: auto;
-            }
-
-            td:nth-child(2) {
-              min-width: auto;
-            }
-          }
-        }
-
-        tbody {
-          display: table-row-group !important;
-
-          tr {
-            display: table-row !important;
-            background-color: white !important;
-            box-shadow: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            gap: 0 !important;
-            margin-bottom: 0 !important;
-            border-radius: 0 !important;
-            min-height: auto !important;
-            opacity: 1 !important;
-            transform: none !important;
-
-            &:hover {
-              background-color: white !important;
-            }
-
-            td {
-              display: table-cell !important;
-              padding: 12px !important;
-              border: 1px solid black !important;
-              border-radius: 0 !important;
-              opacity: 1 !important;
-              width: auto !important;
-              flex: none !important;
-              min-width: auto !important;
-              transform: none !important;
-
-              &.btn-icon-table {
-                display: none !important; /* Скрыть колонки с кнопками */
-              }
-            }
-          }
         }
 
         tr {
@@ -1832,14 +1760,25 @@ body.dark {
           margin-bottom: 0;
           padding: 0;
           border-radius: 0;
+          background-color: white;
+          box-shadow: none;
+          opacity: 1 !important;
+          transform: none !important;
         }
 
-        td,
-        th {
+        td {
           display: table-cell;
-          padding: 12px;
           border: 1px solid black;
           border-radius: 0;
+
+          padding: 6px;
+          color: black;
+          span {
+            color: black;
+          }
+          &:nth-child(2) {
+            min-width: auto;
+          }
         }
 
         td:first-child {
