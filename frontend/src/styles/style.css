@@ -1723,10 +1723,13 @@ body.dark {
 
       h1 {
         span {
-          color: black;
           margin-right: 6px;
+          color: black;
+          text-shadow: none !important;
+
           &::after {
             border-color: black !important;
+            box-shadow: none !important;
           }
         }
       }
